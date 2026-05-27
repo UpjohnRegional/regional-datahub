@@ -1,0 +1,16 @@
+[
+  {
+    "objectID": "business.html",
+    "href": "business.html",
+    "title": "Business Indicators",
+    "section": "",
+    "text": "library(dplyr)\n\n\nAttaching package: 'dplyr'\n\n\nThe following objects are masked from 'package:stats':\n\n    filter, lag\n\n\nThe following objects are masked from 'package:base':\n\n    intersect, setdiff, setequal, union\n\nlibrary(plotly)\n\nLoading required package: ggplot2\n\n\n\nAttaching package: 'plotly'\n\n\nThe following object is masked from 'package:ggplot2':\n\n    last_plot\n\n\nThe following object is masked from 'package:stats':\n\n    filter\n\n\nThe following object is masked from 'package:graphics':\n\n    layout\n\n\n\nspending &lt;- readRDS(\"data/fred_spending.rds\")\n\nfig &lt;- plot_ly(spending, x = ~date)\nfig &lt;- fig %&gt;% add_lines(y = ~disposable_income, name = \"Disposable Income\")\nfig &lt;- fig %&gt;% add_lines(y = ~durable_goods, name = \"Durable Goods\")\nfig &lt;- fig %&gt;% add_lines(y = ~nondurable_goods, name = \"Nondurable Goods\")\nfig &lt;- fig %&gt;% add_lines(y = ~services, name = \"Services\")\n\nfig"
+  },
+  {
+    "objectID": "business.html#personal-consumption-expenditures",
+    "href": "business.html#personal-consumption-expenditures",
+    "title": "Business Indicators",
+    "section": "",
+    "text": "library(dplyr)\n\n\nAttaching package: 'dplyr'\n\n\nThe following objects are masked from 'package:stats':\n\n    filter, lag\n\n\nThe following objects are masked from 'package:base':\n\n    intersect, setdiff, setequal, union\n\nlibrary(plotly)\n\nLoading required package: ggplot2\n\n\n\nAttaching package: 'plotly'\n\n\nThe following object is masked from 'package:ggplot2':\n\n    last_plot\n\n\nThe following object is masked from 'package:stats':\n\n    filter\n\n\nThe following object is masked from 'package:graphics':\n\n    layout\n\n\n\nspending &lt;- readRDS(\"data/fred_spending.rds\")\n\nfig &lt;- plot_ly(spending, x = ~date)\nfig &lt;- fig %&gt;% add_lines(y = ~disposable_income, name = \"Disposable Income\")\nfig &lt;- fig %&gt;% add_lines(y = ~durable_goods, name = \"Durable Goods\")\nfig &lt;- fig %&gt;% add_lines(y = ~nondurable_goods, name = \"Nondurable Goods\")\nfig &lt;- fig %&gt;% add_lines(y = ~services, name = \"Services\")\n\nfig"
+  }
+]
