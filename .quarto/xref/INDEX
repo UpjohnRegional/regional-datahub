@@ -1,5 +1,11 @@
 {
   "index.qmd": {
     "index.html": "7d29717b"
+  },
+  "business.qmd": {
+    "business.html": "48ba3aef"
+  },
+  "StateOfTheRegion.qmd": {
+    "StateOfTheRegion.html": "dc24980b"
   }
 }

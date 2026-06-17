@@ -1,0 +1,121 @@
+---
+title: "State Of The Region"
+editor: visual
+format:
+  html:
+    theme: cosmo
+---
+
+```{r}
+#| message: false
+#| warning: false
+#| echo: false
+
+library(plotly)
+library(dplyr)
+
+qcew_data <- readRDS("data/qcew.rds")
+
+# Ensure proper ordering
+qcew_data <- qcew_data %>%
+  arrange(year, quarter)
+
+# Get counties
+counties <- unique(qcew_data$county)
+
+# Default county
+default_county <- "Kalamazoo"
+
+# Initial dataset
+initial_data <- qcew_data %>%
+  filter(county == default_county)
+
+# Create plot
+fig <- plot_ly()
+
+# County bars
+fig <- fig %>%
+  add_trace(
+    data = initial_data,
+    x = ~date,
+    y = ~avg_wkly_wage,
+    type = "bar",
+    name = default_county
+  )
+
+# State line
+fig <- fig %>%
+  add_trace(
+    data = initial_data,
+    x = ~date,
+    y = ~state_avg_wkly_wage,
+    type = "scatter",
+    mode = "lines",
+    name = "Michigan Average"
+  )
+
+# Dropdown buttons
+buttons <- lapply(seq_along(counties), function(i) {
+
+  county_name <- counties[i]
+
+  county_data <- qcew_data %>%
+    filter(county == county_name)
+
+  list(
+    method = "update",
+    args = list(
+      list(
+        y = list(
+          county_data$avg_wkly_wage,
+          county_data$state_avg_wkly_wage
+        ),
+        x = list(
+          county_data$date,
+          county_data$date
+        )
+      ),
+      list(
+        title = paste(
+          "Average Weekly Wage:",
+          county_name,
+          "County vs Michigan"
+        )
+      )
+    ),
+    label = county_name
+  )
+})
+
+# Layout
+fig <- fig %>%
+  layout(
+    title = paste(
+      "Average Weekly Wage:",
+      default_county,
+      "County vs Michigan"
+    ),
+    
+    updatemenus = list(
+      list(
+        active = which(counties == default_county) - 1,
+        buttons = buttons,
+        x = 1.25,
+        y = .75,
+        xanchor = "right"
+      )
+    ),
+    
+    xaxis = list(title = ""),
+    
+    yaxis = list(
+      title = "Average Weekly Wage ($)"
+    ),
+    
+    barmode = "group"
+  )
+
+config(fig,
+       displayModeBar = FALSE)
+
+```
