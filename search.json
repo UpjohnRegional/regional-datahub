@@ -1,16 +1,23 @@
 [
   {
-    "objectID": "business.html",
-    "href": "business.html",
-    "title": "Business Indicators",
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Regional Dashboard",
     "section": "",
-    "text": "library(dplyr)\n\n\nAttaching package: 'dplyr'\n\n\nThe following objects are masked from 'package:stats':\n\n    filter, lag\n\n\nThe following objects are masked from 'package:base':\n\n    intersect, setdiff, setequal, union\n\nlibrary(plotly)\n\nLoading required package: ggplot2\n\n\n\nAttaching package: 'plotly'\n\n\nThe following object is masked from 'package:ggplot2':\n\n    last_plot\n\n\nThe following object is masked from 'package:stats':\n\n    filter\n\n\nThe following object is masked from 'package:graphics':\n\n    layout\n\n\n\nspending &lt;- readRDS(\"data/fred_spending.rds\")\n\nfig &lt;- plot_ly(spending, x = ~date)\nfig &lt;- fig %&gt;% add_lines(y = ~disposable_income, name = \"Disposable Income\")\nfig &lt;- fig %&gt;% add_lines(y = ~durable_goods, name = \"Durable Goods\")\nfig &lt;- fig %&gt;% add_lines(y = ~nondurable_goods, name = \"Nondurable Goods\")\nfig &lt;- fig %&gt;% add_lines(y = ~services, name = \"Services\")\n\nfig"
+    "text": "Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see https://quarto.org."
   },
   {
-    "objectID": "business.html#personal-consumption-expenditures",
-    "href": "business.html#personal-consumption-expenditures",
-    "title": "Business Indicators",
+    "objectID": "index.html#quarto",
+    "href": "index.html#quarto",
+    "title": "Regional Dashboard",
     "section": "",
-    "text": "library(dplyr)\n\n\nAttaching package: 'dplyr'\n\n\nThe following objects are masked from 'package:stats':\n\n    filter, lag\n\n\nThe following objects are masked from 'package:base':\n\n    intersect, setdiff, setequal, union\n\nlibrary(plotly)\n\nLoading required package: ggplot2\n\n\n\nAttaching package: 'plotly'\n\n\nThe following object is masked from 'package:ggplot2':\n\n    last_plot\n\n\nThe following object is masked from 'package:stats':\n\n    filter\n\n\nThe following object is masked from 'package:graphics':\n\n    layout\n\n\n\nspending &lt;- readRDS(\"data/fred_spending.rds\")\n\nfig &lt;- plot_ly(spending, x = ~date)\nfig &lt;- fig %&gt;% add_lines(y = ~disposable_income, name = \"Disposable Income\")\nfig &lt;- fig %&gt;% add_lines(y = ~durable_goods, name = \"Durable Goods\")\nfig &lt;- fig %&gt;% add_lines(y = ~nondurable_goods, name = \"Nondurable Goods\")\nfig &lt;- fig %&gt;% add_lines(y = ~services, name = \"Services\")\n\nfig"
+    "text": "Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see https://quarto.org."
+  },
+  {
+    "objectID": "index.html#running-code",
+    "href": "index.html#running-code",
+    "title": "Regional Dashboard",
+    "section": "Running Code",
+    "text": "Running Code\nWhen you click the Render button a document will be generated that includes both content and the output of embedded code. You can embed code like this:\n\n1 + 1\n\n[1] 2\n\n\nYou can add options to executable code like this\n\n\n[1] 4\n\n\nThe echo: false option disables the printing of code (only output is displayed).\n\nplot(cars)"
   }
 ]

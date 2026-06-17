@@ -1,1 +1,1 @@
-Sitemap: https://gerritpanderson.github.io/regional-dashboard/sitemap.xml
+Sitemap: https://UpjohnRegional.github.io/regional-datahub/sitemap.xml
