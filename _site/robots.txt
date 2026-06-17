@@ -1,0 +1,1 @@
+Sitemap: https://gerritpanderson.github.io/regional-dashboard/sitemap.xml
