@@ -2,22 +2,15 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "Regional Dashboard",
+    "title": "Regional Datahub",
     "section": "",
-    "text": "Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see https://quarto.org."
+    "text": "Here we can put some general notes about the datahub."
   },
   {
-    "objectID": "index.html#quarto",
-    "href": "index.html#quarto",
-    "title": "Regional Dashboard",
+    "objectID": "index.html#section-title",
+    "href": "index.html#section-title",
+    "title": "Regional Datahub",
     "section": "",
-    "text": "Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see https://quarto.org."
-  },
-  {
-    "objectID": "index.html#running-code",
-    "href": "index.html#running-code",
-    "title": "Regional Dashboard",
-    "section": "Running Code",
-    "text": "Running Code\nWhen you click the Render button a document will be generated that includes both content and the output of embedded code. You can embed code like this:\n\n1 + 1\n\n[1] 2\n\n\nYou can add options to executable code like this\n\n\n[1] 4\n\n\nThe echo: false option disables the printing of code (only output is displayed).\n\nplot(cars)"
+    "text": "Here we can put some general notes about the datahub."
   }
 ]
