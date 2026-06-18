@@ -106,7 +106,25 @@ fig <- fig %>%
       )
     ),
     
-    xaxis = list(title = ""),
+    annotations = list(
+      list(
+        text = "Source: U.S. Bureau of Economic Analysis (BEA), FRED",
+        xref = "paper",
+        yref = "paper",
+        x = 0,
+        y = -0.35,
+        showarrow = FALSE,
+        xanchor = "left",
+        font = list(size = 10)
+      )
+    ),
+    
+    margin = list(
+      t = 30,
+      b = 160
+    ),
+    
+    xaxis = list(title = "Date"),
     
     yaxis = list(
       title = "Average Weekly Wage ($)"

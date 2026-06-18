@@ -1,0 +1,165 @@
+---
+title: "Workforce"
+editor: visual
+format:
+  html:
+    theme: cosmo
+---
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+
+library(dplyr)
+library(plotly)
+library(tidyr)
+
+legend_annotations <- list(
+  list(x = 1.02, y = 1.00, xref = "paper", yref = "paper",
+       text = "<b>Educational Attainment</b>",
+       showarrow = FALSE, xanchor = "left"),
+
+  list(x = 1.02, y = 0.92, xref = "paper", yref = "paper",
+       text = "■ Less than 9th grade",
+       font = list(color = "#8c510a"),
+       showarrow = FALSE, xanchor = "left"),
+
+  list(x = 1.02, y = 0.84, xref = "paper", yref = "paper",
+       text = "■ 9th to 12th grade, no diploma",
+       font = list(color = "#d8b365"),
+       showarrow = FALSE, xanchor = "left"),
+
+  list(x = 1.02, y = 0.76, xref = "paper", yref = "paper",
+       text = "■ High school graduate",
+       font = list(color = "#f6e8c3"),
+       showarrow = FALSE, xanchor = "left"),
+
+  list(x = 1.02, y = 0.68, xref = "paper", yref = "paper",
+       text = "■ Some college, no degree",
+       font = list(color = "#c7eae5"),
+       showarrow = FALSE, xanchor = "left"),
+
+  list(x = 1.02, y = 0.60, xref = "paper", yref = "paper",
+       text = "■ Associate's degree",
+       font = list(color = "#5ab4ac"),
+       showarrow = FALSE, xanchor = "left"),
+
+  list(x = 1.02, y = 0.52, xref = "paper", yref = "paper",
+       text = "■ Bachelor's degree",
+       font = list(color = "#01665e"),
+       showarrow = FALSE, xanchor = "left"),
+
+  list(x = 1.02, y = 0.44, xref = "paper", yref = "paper",
+       text = "■ Graduate or professional degree",
+       font = list(color = "#003c30"),
+       showarrow = FALSE, xanchor = "left")
+)
+
+S1501_wide <- readRDS("data/eduAttainment.rds")
+
+edu_levels <- names(S1501_wide)[names(S1501_wide) != "NAME"]
+
+S1501_long <- S1501_wide %>%
+  pivot_longer(
+    cols = all_of(edu_levels),
+    names_to = "Education",
+    values_to = "Percent"
+  )
+
+edu_colors <- c(
+  "Less than 9th grade" = "#8c510a",
+  "9th to 12th grade, no diploma" = "#d8b365",
+  "High school graduate (includes equivalency)" = "#f6e8c3",
+  "Some college, no degree" = "#c7eae5",
+  "Associate's degree" = "#5ab4ac",
+  "Bachelor's degree" = "#01665e",
+  "Graduate or professional degree" = "#003c30"
+)
+
+all_counties <- unique(S1501_long$NAME)
+
+init <- all_counties[1]
+
+df_init <- S1501_long %>%
+  filter(NAME == init)
+
+# Create one trace per education level
+p <- plot_ly()
+
+for (county in all_counties) {
+
+  df_county <- S1501_long %>%
+    filter(NAME == county)
+
+  for (edu in edu_levels) {
+
+    value <- df_county %>%
+      filter(Education == edu) %>%
+      pull(Percent)
+
+    p <- p %>%
+        add_trace(
+          x = county,
+          y = value,
+          type = "bar",
+          name = edu,
+          legendgroup = edu,
+          marker = list(color = edu_colors[edu]),
+          visible = (county == all_counties[1]),
+          showlegend = (county == all_counties[1])
+      )
+  }
+}
+
+buttons <- lapply(seq_along(all_counties), function(i) {
+
+  vis <- rep(FALSE, length(all_counties) * length(edu_levels))
+
+  start <- (i - 1) * length(edu_levels) + 1
+  end   <- start + length(edu_levels) - 1
+
+  vis[start:end] <- TRUE
+
+  list(
+    method = "update",
+    args = list(
+      list(visible = vis),
+      list(title = paste("Educational Attainment -", all_counties[i]))
+    ),
+    label = all_counties[i]
+  )
+})
+
+p %>%
+  layout(
+  title = paste("Educational Attainment -", all_counties[1]),
+  barmode = "stack",
+  xaxis = list(title = ""),
+  yaxis = list(
+    title = "Percent",
+    range = c(0, 100)
+  ),
+  legend = list(
+    tracegroupgap = 0,
+    title = list(text = "Educational Attainment"),
+    x = 1.05,
+    y = 1
+  ),
+  updatemenus = list(
+    list(
+      buttons = buttons,
+      active = 0,
+      x = 1.05,
+      xanchor = "left",
+      y = 1.2,
+      yanchor = "top"
+    )
+  ),
+  showlegend = FALSE,
+  annotations = legend_annotations,
+  margin = list(r = 250)
+  ) %>%
+  config(displayModeBar = FALSE)
+
+```

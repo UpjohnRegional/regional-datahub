@@ -1,0 +1,9 @@
+---
+title: "Equity"
+editor: visual
+format:
+  html:
+    theme: cosmo
+---
+
+Place Holder

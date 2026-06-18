@@ -13,7 +13,15 @@ website:
         
       - href: business.qmd
         text: Business Indicators
+        
+      - href: workforce.qmd
+        text: Workforce
+        
+      - href: equity.qmd
+        text: Equity
 
 format:
   html:
+    toc: TRUE
     theme: cosmo
+    markdown: true 

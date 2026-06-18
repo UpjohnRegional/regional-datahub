@@ -5,7 +5,7 @@ format:
     theme: cosmo
 ---
 
-## Personal Consumption Expenditures
+
 
 ```{r}
 #| message: false
@@ -28,8 +28,45 @@ fig <- fig %>% add_lines(y = ~durable_goods, name = "Durable Goods")
 fig <- fig %>% add_lines(y = ~nondurable_goods, name = "Nondurable Goods")
 fig <- fig %>% add_lines(y = ~services, name = "Services")
 
+fig <- fig %>%
+  layout(
+    title = list(
+      text = paste(
+        "Real Personal Consumption Expenditures and Disposable Personal Income",
+        "<br><sup>Seasonally Adjusted</sup>"
+      )
+    ),
+    xaxis = list(
+      title = "Date"
+    ),
+    yaxis = list(
+      title = "Billions of Chained 2017 Dollars"
+    ),
+    annotations = list(
+      list(
+        text = "Source: U.S. Bureau of Economic Analysis (BEA), FRED",
+        xref = "paper",
+        yref = "paper",
+        x = 0,
+        y = -0.30,
+        showarrow = FALSE,
+        xanchor = "left",
+        font = list(size = 10)
+      )
+    ),
+    margin = list(
+      t = 80,
+      b = 120
+    )
+  )
+
 config(
   fig,
   displayModeBar = FALSE
 )
 ```
+
+```{r}
+
+```
+
