@@ -5,20 +5,14 @@ format:
     theme: cosmo
 ---
 
-
-
 ```{r}
+#| label: Personal Consumption
+#| echo: false
 #| message: false
 #| warning: false
-#| echo: false
+
 library(dplyr)
 library(plotly)
-```
-
-```{r}
-#| message: false
-#| warning: false
-#| echo: false
 
 spending <- readRDS("data/fred_spending.rds")
 
@@ -67,6 +61,13 @@ config(
 ```
 
 ```{r}
+#| label: Vehicle Sales and Fuel Prices
+#| echo: false
+#| message: false
+#| warning: false
+
+
+
 
 ```
 

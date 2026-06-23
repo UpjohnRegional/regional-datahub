@@ -196,6 +196,219 @@ p %>%
 #| message: false
 #| warning: false
 
+library(dplyr)
+library(tidyr)
+library(plotly)
 
+income <- readRDS("data/incomeBySexAndEducationalAttainment.rds")
+
+income$variable <- factor(
+  income$variable,
+  levels = c(
+    "Less than high school graduate",
+    "High school graduate (includes equivalency)",
+    "Some college or associate's degree",
+    "Bachelor's degree",
+    "Graduate or professional degree"
+  )
+)
+
+counties <- unique(income$NAME)
+
+init <- counties[1]
+
+df_init <- income %>%
+  filter(NAME == init)
+
+p <- plot_ly()
+
+p <- p %>%
+  add_bars(
+    data = df_init,
+    x = ~variable,
+    y = ~`Male Income`,
+    name = "Male"
+  ) %>%
+  add_bars(
+    data = df_init,
+    x = ~variable,
+    y = ~`Female Income`,
+    name = "Female"
+  )
+
+buttons <- lapply(seq_along(counties), function(i) {
+
+  df <- income %>%
+    filter(NAME == counties[i])
+
+  list(
+    method = "update",
+    args = list(
+      list(
+        x = list(df$variable, df$variable),
+        y = list(
+          df$`Male Income`,
+          df$`Female Income`
+        )
+      ),
+      list(
+        title = paste(
+          "Income by Educational Attainment:",
+          counties[i]
+        )
+      )
+    ),
+    label = counties[i]
+  )
+})
+
+p %>%
+  layout(
+    barmode = "group",
+
+    title = paste(
+      "Income by Educational Attainment:",
+      init
+    ),
+
+    xaxis = list(
+      title = "",
+      tickfont = list(size = 8)
+    ),
+
+    yaxis = list(
+      title = "Income ($)",
+      tickprefix = "$"
+    ),
+
+    updatemenus = list(
+      list(
+        buttons = buttons,
+        active = 0,
+        x = 1.25,
+        y = 0.75,
+        xanchor = "left"
+      )
+    ),
+    annotations = list(
+      list(
+        text = "<b>Source</b> ACS 2024 5-YR Estimates (table B20004), Upjohn Regional • Population 25 and older with earnings",
+        xref = "paper",
+        yref = "paper",
+        x = 0,
+        y = -0.35,
+        showarrow = FALSE,
+        xanchor = "left",
+        font = list(size = 10)
+      )),
+
+    margin = list(
+      r = 250
+    )
+  ) %>%
+  config(displayModeBar = FALSE)
+```
+
+```{r}
+#| label: Travel Time to Work
+#| echo: false
+#| message: false
+#| warning: false
+
+library(dplyr)
+library(plotly)
+
+travel <- readRDS("data/travelTimeToWork.rds")
+
+counties <- unique(travel$NAME)
+
+init <- counties[1]
+
+df_init <- travel %>%
+  filter(NAME == init)
+
+travel$TimeLabel <- factor(
+  travel$TimeLabel,
+  levels = c(
+    "less than 10 minutes",
+    "10 to 29 minutes",
+    "30 to 59 minutes",
+    "60 or more minutes"
+  )
+)
+
+p <- plot_ly(
+  data = df_init,
+  x = ~TimeProportion,
+  y = ~TimeLabel,
+  type = "bar",
+  orientation = "h"
+)
+
+buttons <- lapply(seq_along(counties), function(i) {
+
+  df <- travel %>%
+    filter(NAME == counties[i])
+
+  list(
+    method = "update",
+    args = list(
+      list(
+        x = list(df$TimeProportion),
+        y = list(df$TimeLabel)
+      ),
+      list(
+        title = paste(
+          "Travel Time to Work:",
+          counties[i]
+        )
+      )
+    ),
+    label = counties[i]
+  )
+})
+
+p %>%
+  layout(
+    title = paste(
+      "Travel Time to Work:",
+      init
+    ),
+
+    xaxis = list(
+      title = "Percent of Workers"
+    ),
+
+    yaxis = list(
+      title = ""
+    ),
+    
+    annotations = list(
+      list(
+        text = "<b>Source</b> ACS 2024 5-YR Estimates (table B08135), Upjohn Regional • Travel time one way",
+        xref = "paper",
+        yref = "paper",
+        x = 0,
+        y = -0.35,
+        showarrow = FALSE,
+        xanchor = "left",
+        font = list(size = 10)
+      )),
+
+    updatemenus = list(
+      list(
+        buttons = buttons,
+        active = 0,
+        x = 1.15,
+        y = 0.85,
+        xanchor = "left"
+      )
+    ),
+
+    margin = list(
+      r = 150
+    )
+  ) %>%
+  config(displayModeBar = FALSE)
 
 ```
