@@ -4,7 +4,7 @@ library(fredr)
 library(dplyr)
 library(readr)
 
-fredr_set_key("1fbc6936aaaf9afe5a13e7116b9530fc")
+fredr_set_key(Sys.getenv("FRED_API_KEY"))
 
 DSPIC96 <- fredr(
   series_id = "DSPIC96",
