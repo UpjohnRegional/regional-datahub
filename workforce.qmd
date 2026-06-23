@@ -7,6 +7,7 @@ format:
 ---
 
 ```{r}
+#| label: Educational Attainment
 #| echo: false
 #| message: false
 #| warning: false
@@ -157,9 +158,44 @@ p %>%
     )
   ),
   showlegend = FALSE,
-  annotations = legend_annotations,
-  margin = list(r = 250)
+  annotations = legend_annotations <- c(
+  legend_annotations,
+  list(
+    list(
+      x = 0,
+      y = -0.15,
+      xref = "paper",
+      yref = "paper",
+      text = "<b>Source:</b> U.S. Census Bureau, ACS 5-Year Estimates, Table S1501",
+      showarrow = FALSE,
+      xanchor = "left",
+      font = list(size = 11, color = "gray")
+    ),
+    list(
+      x = 0,
+      y = -0.22,
+      xref = "paper",
+      yref = "paper",
+      text = "Educational attainment for population age 25 and over.",
+      showarrow = FALSE,
+      xanchor = "left",
+      font = list(size = 11, color = "gray")
+    )
+  )
+),
+    
+  margin = list(r = 250, b = 100)
   ) %>%
   config(displayModeBar = FALSE)
+
+```
+
+```{r}
+#| label: Income by Sex and Edcational Attainment
+#| echo: false
+#| message: false
+#| warning: false
+
+
 
 ```

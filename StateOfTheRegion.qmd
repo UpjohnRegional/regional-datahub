@@ -7,9 +7,402 @@ format:
 ---
 
 ```{r}
+#| label: EPOP
+#| echo: false
 #| message: false
 #| warning: false
+
+library(dplyr)
+library(plotly)
+
+labor <- readRDS("data/EPOP_LFPR_UR.rds")
+
+all_counties <- unique(labor$county)
+
+init <- all_counties[1]
+
+df_init <- labor %>%
+  filter(county == init)
+
+p <- plot_ly()
+
+# County epop 
+p <- p %>%
+  add_lines(
+    data = df_init,
+    x = ~period_date,
+    y = ~EPOP,
+    name = init,
+    line = list(width = 3),
+    customdata = ~period_txt,
+    hovertemplate = paste(
+      "%{x}<br>",
+      "Value: %{y:.2f}%<br>",
+      "Period: %{customdata}<extra></extra>"
+    )
+  )
+
+# Michigan unemployment rate
+p <- p %>%
+  add_lines(
+    data = df_init,
+    x = ~period_date,
+    y = ~MI_employment_population_ratio,
+    name = "Michigan",
+    line = list(width = 3, dash = "dash"),
+    customdata = ~period_txt,
+    hovertemplate = paste(
+      "%{x}<br>",
+      "Value: %{y:.2f}%<br>",
+      "Period: %{customdata}<extra></extra>"
+    )
+  )
+
+buttons <- lapply(seq_along(all_counties), function(i) {
+
+  df <- labor %>%
+    filter(county == all_counties[i])
+
+  list(
+    method = "restyle",
+    args = list(
+      list(
+        x = list(df$period_date, df$period_date),
+        y = list(
+          df$EPOP,
+          df$MI_employment_population_ratio
+        ),
+        name = list(
+          all_counties[i],
+          "Michigan"
+        )
+      ),
+      c(0,1)
+    ),
+    label = all_counties[i]
+  )
+})
+
+p %>%
+  layout(
+    annotations = list(
+      list(
+        text = "<b>Source:</b> U.S. Bureau of Economic Analysis (BEA), FRED",
+        xref = "paper",
+        yref = "paper",
+        x = 0,
+        y = -0.35,
+        showarrow = FALSE,
+        xanchor = "left",
+        font = list(size = 10)
+      ),
+      list(
+        text = "Not Seasonally Adjusted.Preliminary data (p) and estimates (e) are noted in the text box.",
+        xref = "paper",
+        yref = "paper",
+        x = 0,
+        y = -0.45,
+        showarrow = FALSE,
+        xanchor = "left",
+        font = list(size = 10)
+      )
+    ),
+
+    title = paste(
+      "Employment to Population Ratio:",
+      init,
+      "vs Michigan"
+    ),
+
+    xaxis = list(
+      title = "Period"),
+
+    yaxis = list(title = "Percent"),
+
+    updatemenus = list(
+      list(
+        buttons = buttons,
+        x = 1.25,
+        y = 0.75,
+        xanchor = "right"
+      )
+    ),
+
+    margin = list(
+      t = 30,
+      b = 180
+    )
+  ) %>%
+  config(displayModeBar = FALSE)
+
+```
+
+```{r}
+#| label: LFPR
 #| echo: false
+#| message: false
+#| warning: false
+
+library(dplyr)
+library(plotly)
+
+labor <- readRDS("data/EPOP_LFPR_UR.rds")
+
+all_counties <- unique(labor$county)
+
+init <- all_counties[1]
+
+df_init <- labor %>%
+  filter(county == init)
+
+p <- plot_ly()
+
+# County epop 
+p <- p %>%
+  add_lines(
+    data = df_init,
+    x = ~period_date,
+    y = ~LFPR,
+    name = init,
+    line = list(width = 3),
+    customdata = ~period_txt,
+    hovertemplate = paste(
+      "%{x}<br>",
+      "Value: %{y:.2f}%<br>",
+      "Period: %{customdata}<extra></extra>"
+    )
+  )
+
+# Michigan unemployment rate
+p <- p %>%
+  add_lines(
+    data = df_init,
+    x = ~period_date,
+    y = ~MI_labor_force_participation_rate,
+    name = "Michigan",
+    line = list(width = 3, dash = "dash"),
+    customdata = ~period_txt,
+    hovertemplate = paste(
+      "%{x}<br>",
+      "Value: %{y:.2f}%<br>",
+      "Period: %{customdata}<extra></extra>"
+    )
+  )
+
+buttons <- lapply(seq_along(all_counties), function(i) {
+
+  df <- labor %>%
+    filter(county == all_counties[i])
+
+  list(
+    method = "restyle",
+    args = list(
+      list(
+        x = list(df$period_date, df$period_date),
+        y = list(
+          df$LFPR,
+          df$MI_labor_force_participation_rate
+        ),
+        name = list(
+          all_counties[i],
+          "Michigan"
+        )
+      ),
+      c(0,1)
+    ),
+    label = all_counties[i]
+  )
+})
+
+p %>%
+  layout(
+    annotations = list(
+      list(
+        text = "<b>Source:</b> U.S. Bureau of Economic Analysis (BEA), FRED",
+        xref = "paper",
+        yref = "paper",
+        x = 0,
+        y = -0.35,
+        showarrow = FALSE,
+        xanchor = "left",
+        font = list(size = 10)
+      ),
+      list(
+        text = "Not Seasonally Adjusted.Preliminary data (p) and estimates (e) are noted in the text box.",
+        xref = "paper",
+        yref = "paper",
+        x = 0,
+        y = -0.45,
+        showarrow = FALSE,
+        xanchor = "left",
+        font = list(size = 10)
+      )
+    ),
+
+    title = paste(
+      "Labor Force Participation Rate:",
+      init,
+      "vs Michigan"
+    ),
+
+    xaxis = list(
+      title = "Period"),
+
+    yaxis = list(title = "Percent"),
+
+    updatemenus = list(
+      list(
+        buttons = buttons,
+        x = 1.25,
+        y = 0.75,
+        xanchor = "right"
+      )
+    ),
+
+    margin = list(
+      t = 30,
+      b = 180
+    )
+  ) %>%
+  config(displayModeBar = FALSE)
+
+```
+
+```{r}
+#| label: UR
+#| echo: false
+#| message: false
+#| warning: false
+
+library(dplyr)
+library(plotly)
+
+labor <- readRDS("data/EPOP_LFPR_UR.rds")
+
+all_counties <- unique(labor$county)
+
+init <- all_counties[1]
+
+df_init <- labor %>%
+  filter(county == init)
+
+p <- plot_ly()
+
+# County unemployment rate
+p <- p %>%
+  add_lines(
+    data = df_init,
+    x = ~period_date,
+    y = ~unemployment_rate,
+    name = init,
+    line = list(width = 3),
+    customdata = ~period_txt,
+    hovertemplate = paste(
+      "%{x}<br>",
+      "Value: %{y:.2f}%<br>",
+      "Period: %{customdata}<extra></extra>"
+    )
+  )
+
+# Michigan unemployment rate
+p <- p %>%
+  add_lines(
+    data = df_init,
+    x = ~period_date,
+    y = ~MI_unemployment_rate,
+    name = "Michigan",
+    line = list(width = 3, dash = "dash"),
+    customdata = ~period_txt,
+    hovertemplate = paste(
+      "%{x}<br>",
+      "Value: %{y:.2f}%<br>",
+      "Period: %{customdata}<extra></extra>"
+    )
+  )
+
+buttons <- lapply(seq_along(all_counties), function(i) {
+
+  df <- labor %>%
+    filter(county == all_counties[i])
+
+  list(
+    method = "restyle",
+    args = list(
+      list(
+        x = list(df$period_date, df$period_date),
+        y = list(
+          df$unemployment_rate,
+          df$MI_unemployment_rate
+        ),
+        name = list(
+          all_counties[i],
+          "Michigan"
+        )
+      ),
+      c(0,1)
+    ),
+    label = all_counties[i]
+  )
+})
+
+p %>%
+  layout(
+    annotations = list(
+      list(
+        text = "<b>Source:</b> U.S. Bureau of Economic Analysis (BEA), FRED",
+        xref = "paper",
+        yref = "paper",
+        x = 0,
+        y = -0.35,
+        showarrow = FALSE,
+        xanchor = "left",
+        font = list(size = 10)
+      ),
+      list(
+        text = "Not Seasonally Adjusted.Preliminary data (p) and estimates (e) are noted in the text box.",
+        xref = "paper",
+        yref = "paper",
+        x = 0,
+        y = -0.45,
+        showarrow = FALSE,
+        xanchor = "left",
+        font = list(size = 10)
+      )
+    ),
+
+    title = paste(
+      "Unemployment Rate:",
+      init,
+      "vs Michigan"
+    ),
+
+    xaxis = list(
+      title = "Period"),
+
+    yaxis = list(title = "Percent"),
+
+    updatemenus = list(
+      list(
+        buttons = buttons,
+        x = 1.25,
+        y = 0.75,
+        xanchor = "right"
+      )
+    ),
+
+    margin = list(
+      t = 30,
+      b = 180
+    )
+  ) %>%
+  config(displayModeBar = FALSE)
+```
+
+```{r}
+#| label: AWW
+#| echo: false
+#| message: false
+#| warning: false
 
 library(plotly)
 library(dplyr)
@@ -51,7 +444,10 @@ fig <- fig %>%
     y = ~state_avg_wkly_wage,
     type = "scatter",
     mode = "lines",
-    name = "Michigan Average"
+    name = "Michigan Average",
+    line = list(
+      dash = "dash"
+    )
   )
 
 # Dropdown buttons
@@ -108,7 +504,7 @@ fig <- fig %>%
     
     annotations = list(
       list(
-        text = "Source: U.S. Bureau of Economic Analysis (BEA), FRED",
+        text = "<b>Source</b>: U.S. Bureau of Economic Analysis (BEA), FRED",
         xref = "paper",
         yref = "paper",
         x = 0,
@@ -116,7 +512,18 @@ fig <- fig %>%
         showarrow = FALSE,
         xanchor = "left",
         font = list(size = 10)
+      ),
+       list(
+        text = "Not Seasonally Adjusted.",
+        xref = "paper",
+        yref = "paper",
+        x = 0,
+        y = -0.45,
+        showarrow = FALSE,
+        xanchor = "left",
+        font = list(size = 10)
       )
+      
     ),
     
     margin = list(

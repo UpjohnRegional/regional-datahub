@@ -44,7 +44,7 @@ fig <- fig %>%
     ),
     annotations = list(
       list(
-        text = "Source: U.S. Bureau of Economic Analysis (BEA), FRED",
+        text = "<b>Source</b>: U.S. Bureau of Economic Analysis (BEA), FRED",
         xref = "paper",
         yref = "paper",
         x = 0,
