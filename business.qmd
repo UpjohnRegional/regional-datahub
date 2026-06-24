@@ -30,6 +30,34 @@ fig <- fig %>%
         "<br><sup>Seasonally Adjusted</sup>"
       )
     ),
+    shapes = list(
+      list(
+        type = "rect",
+        xref = "x",
+        yref = "paper",
+        x0 = "2007-12-01",
+        x1 = "2009-06-01",
+        y0 = 0,
+        y1 = 1,
+        fillcolor = "lightgray",
+        opacity = 0.3,
+        line = list(width = 0),
+        layer = "below"
+      ),
+      list(
+        type = "rect",
+        xref = "x",
+        yref = "paper",
+        x0 = "2020-02-01",
+        x1 = "2020-04-01",
+        y0 = 0,
+        y1 = 1,
+        fillcolor = "lightgray",
+        opacity = 0.3,
+        line = list(width = 0),
+        layer = "below"
+      )
+    ),
     xaxis = list(
       title = "Date"
     ),
@@ -45,6 +73,25 @@ fig <- fig %>%
         y = -0.30,
         showarrow = FALSE,
         xanchor = "left",
+        font = list(size = 10)
+      ),
+      list(
+        x = "2008-09-01",
+        y = 0.95,
+        xref = "x",
+        yref = "paper",
+        text = "Great Recession",
+        showarrow = FALSE,
+        font = list(size = 10)
+      ),
+    
+      list(
+        x = "2020-03-01",
+        y = 0.95,
+        xref = "x",
+        yref = "paper",
+        text = "COVID Recession",
+        showarrow = FALSE,
         font = list(size = 10)
       )
     ),
@@ -66,7 +113,360 @@ config(
 #| message: false
 #| warning: false
 
+library(plotly)
 
+autoFuel <- readRDS("data/vehicleSalesFuelPrices.rds") %>%
+  filter(date >= as.Date("2007-01-01")) %>%
+  mutate(
+    value.y = as.numeric(value.y)
+  )
+
+fig <- plot_ly(autoFuel, x = ~date)
+
+fig <- fig %>%
+  add_lines(
+    y = ~value.x,
+    name = "Light Vehicle Sales",
+    yaxis = "y1"
+  )
+
+fig <- fig %>%
+  add_lines(
+    y = ~value.y,
+    name = "Fuel Prices",
+    yaxis = "y2"
+  )
+
+fig %>%
+  layout(
+    title = list(
+      text = "Light Vehicle Sales and Fuel Prices<br><sup>United States, Monthly Data Since 2007</sup>"
+    ),
+    
+    shapes = list(
+      list(
+        type = "rect",
+        xref = "x",
+        yref = "paper",
+        x0 = "2007-12-01",
+        x1 = "2009-06-01",
+        y0 = 0,
+        y1 = 1,
+        fillcolor = "lightgray",
+        opacity = 0.3,
+        line = list(width = 0),
+        layer = "below"
+      ),
+      list(
+        type = "rect",
+        xref = "x",
+        yref = "paper",
+        x0 = "2020-02-01",
+        x1 = "2020-04-01",
+        y0 = 0,
+        y1 = 1,
+        fillcolor = "lightgray",
+        opacity = 0.3,
+        line = list(width = 0),
+        layer = "below"
+      )
+    ),
+
+    xaxis = list(
+      title = "Date",
+      showline = TRUE,
+      linewidth = 1
+    ),
+
+    yaxis = list(
+      title = "Light Vehicle Sales (Millions)",
+      side = "left",
+      range = c(1,20)
+    ),
+
+    yaxis2 = list(
+      title = "Fuel Prices ($ per Gallon)",
+      overlaying = "y",
+      side = "right",
+      range = c(1,20)
+    ),
+
+    legend = list(
+      x = 1.05,
+      y = 1,
+      xanchor = "left"
+    ),
+
+    annotations = list(
+      list(
+        text = "<b>Source</b>: U.S. Energy Information Administration (EIA), Federal Reserve Economic Data (FRED)",
+        xref = "paper",
+        yref = "paper",
+        x = 0,
+        y = -0.25,
+        showarrow = FALSE,
+        xanchor = "left",
+        font = list(size = 10)
+      ),
+       list(
+        x = "2008-09-01",
+        y = 0.95,
+        xref = "x",
+        yref = "paper",
+        text = "Great Recession",
+        showarrow = FALSE,
+        font = list(size = 10)
+      ),
+    
+      list(
+        x = "2020-03-01",
+        y = 0.95,
+        xref = "x",
+        yref = "paper",
+        text = "COVID Recession",
+        showarrow = FALSE,
+        font = list(size = 10)
+      )
+    ),
+
+    margin = list(
+      t = 60,
+      b = 100,
+      r = 120
+    )
+  ) %>%
+  config(displayModeBar = FALSE)
+
+
+```
+
+```{r}
+#| label: GDP Percent Change
+#| echo: false
+#| message: false
+#| warning: false
+
+library(plotly)
+
+gdp <- readRDS("data/gdpPercentChange.rds") %>%
+  mutate(TimePeriod = as.Date(paste0(TimePeriod, "-01-01")))
+
+mi_gdp <- gdp %>%
+  select(TimePeriod, Michigan_GDP_percent_change) %>%
+  distinct() %>%
+  arrange(TimePeriod)
+
+counties <- unique(gdp$GeoName)
+init <- counties[1]
+
+p <- plot_ly()
+
+for (cty in counties) {
+
+  df <- gdp %>% filter(GeoName == cty)
+
+  p <- p %>%
+    add_lines(
+      data = df,
+      x = ~TimePeriod,
+      y = ~GDP_percent_change,
+      name = cty,
+      visible = (cty == init),
+      line = list(color = "steelblue"),
+      legendgroup = "county"
+    )
+}
+
+p <- p %>%
+  add_lines(
+    data = mi_gdp,
+    x = ~TimePeriod,
+    y = ~Michigan_GDP_percent_change,
+    name = "Michigan",
+    line = list(color = "black", dash = "dash"),
+    inherit = FALSE
+  )
+
+buttons <- lapply(seq_along(counties), function(i) {
+
+  vis <- rep(FALSE, length(counties) + 1)
+  vis[i] <- TRUE
+  vis[length(vis)] <- TRUE  # Michigan always visible
+
+  list(
+    method = "update",
+    args = list(
+      list(visible = vis),
+      list(title = paste("GDP Growth Rate:", counties[i], "vs Michigan"))
+    ),
+    label = counties[i]
+  )
+})
+
+p %>%
+  layout(
+    title = paste("GDP Growth Rate:", init, "vs Michigan"),
+
+    xaxis = list(
+      title = "Year",
+      type = "date",
+      tickformat = "%Y",
+      dtick = "M12"
+    ),
+
+    yaxis = list(
+      title = "GDP Percent Change"
+    ),
+
+    updatemenus = list(
+      list(
+        buttons = buttons,
+        x = 1.4,
+        y = 0.75,
+        xanchor = "right"
+      )
+    ),
+    
+    annotations = list(
+      list(
+        text = "<b>Source</b>: US BEA (table CAGDP1), Upjohn Regional.",
+        xref = "paper",
+        yref = "paper",
+        x = 0,
+        y = -0.25,
+        showarrow = FALSE,
+        xanchor = "left",
+        font = list(size = 10)
+      )),
+
+    legend = list(
+      x = 1.05,
+      y = 1,
+      xanchor = "left"
+    ),
+
+    margin = list(
+      r = 200,
+      t = 30,
+      b = 100
+    )
+  ) %>%
+  config(displayModeBar = FALSE)
+
+```
+
+```{r}
+#| label: Business Applications Change From a Year Ago
+#| echo: false
+#| message: false
+#| warning: false
+
+library(plotly)
+library(dplyr)
+
+biz <- readRDS("data/businessAppChange.rds") %>%
+  mutate(Date = as.Date(date)) %>%
+  arrange(Date)
+
+fig <- plot_ly(biz, x = ~Date)
+
+fig <- fig %>%
+  add_lines(
+    y = ~Michigan,
+    name = "Michigan"
+  )
+
+fig <- fig %>%
+  add_lines(
+    y = ~United_States,
+    name = "United States",
+    line = list(dash = "dash")
+  )
+
+fig %>%
+  layout(
+    title = list(
+      text = "Business Applications Growth Rate<br><sup>Michigan vs United States</sup>"
+    ),
+
+    xaxis = list(
+      title = "",
+      showline = TRUE
+    ),
+
+    yaxis = list(
+      title = "Percent Change",
+      ticksuffix = "%",
+      zeroline = TRUE,
+      zerolinecolor = "gray"
+    ),
+
+    legend = list(
+      x = 1.05,
+      y = 1,
+      xanchor = "left"
+    ),
+
+    shapes = list(
+
+      # Great Recession
+      list(
+        type = "rect",
+        xref = "x",
+        yref = "paper",
+        x0 = "2007-12-01",
+        x1 = "2009-06-01",
+        y0 = 0,
+        y1 = 1,
+        fillcolor = "lightgray",
+        opacity = 0.3,
+        line = list(width = 0),
+        layer = "below"
+      ),
+
+      # COVID recession
+      list(
+        type = "rect",
+        xref = "x",
+        yref = "paper",
+        x0 = "2020-02-01",
+        x1 = "2020-04-01",
+        y0 = 0,
+        y1 = 1,
+        fillcolor = "lightgray",
+        opacity = 0.3,
+        line = list(width = 0),
+        layer = "below"
+      )
+    ),
+
+    annotations = list(
+      list(
+        text = "<b>Source</b>: Federal Reserve Bank of St. Louis (series BUSAPPWNSAMIYY and BUSAPPWNSAUS), Upjohn Institute, Updated February 2026.",
+        xref = "paper",
+        yref = "paper",
+        x = 0,
+        y = -0.25,
+        showarrow = FALSE,
+        xanchor = "left",
+        font = list(size = 10)
+      )
+    ),
+
+    margin = list(
+      t = 60,
+      b = 100
+    )
+  ) %>%
+  config(displayModeBar = FALSE)
+
+```
+
+```{r}
+#| label: Average Annual Wage
+#| echo: false
+#| message: false
+#| warning: false
 
 
 ```
