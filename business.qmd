@@ -468,6 +468,364 @@ fig %>%
 #| message: false
 #| warning: false
 
+library(plotly)
+library(dplyr)
+
+# Read data
+pay <- readRDS("data/averageAnnualWage.rds") %>%
+  mutate(
+    year_MI = as.Date(paste0(year_MI, "-01-01")),
+    value_MI = as.numeric(value_MI),
+    value_US = as.numeric(value_US),
+    industry = sub("^NAICS\\s+", "", seriesID)
+  ) %>%
+  arrange(industry, year_MI)
+
+# Industries in the order they appear in the data
+industries <- unique(pay$industry)
+
+# Initial industry
+init <- industries[1]
+
+df_init <- pay %>%
+  filter(industry == init)
+
+# Create plot
+fig <- plot_ly()
+
+# Michigan trace
+fig <- fig %>%
+  add_lines(
+    data = df_init,
+    x = ~year_MI,
+    y = ~value_MI,
+    name = "Michigan",
+    line = list(color = "steelblue")
+  )
+
+# United States trace
+fig <- fig %>%
+  add_lines(
+    data = df_init,
+    x = ~year_MI,
+    y = ~value_US,
+    name = "United States",
+    line = list(color = "black",
+                dash = "dash")
+  )
+
+# Dropdown buttons
+buttons <- lapply(seq_along(industries), function(i){
+
+  df <- pay %>%
+    filter(industry == industries[i])
+
+  list(
+    method = "restyle",
+
+    args = list(
+
+      list(
+
+        x = list(
+          df$year_MI,
+          df$year_MI
+        ),
+
+        y = list(
+          df$value_MI,
+          df$value_US
+        )
+
+      ),
+
+      c(0,1)
+
+    ),
+
+    label = industries[i]
+
+  )
+
+})
+
+# Layout
+fig %>%
+  layout(
+
+    title = list(
+      text = paste(
+        "Average Annual Pay:",
+        init
+      ),
+      x = 0.5
+    ),
+
+    xaxis = list(
+      title = "",
+      type = "date",
+      tickformat = "%Y"
+    ),
+
+    yaxis = list(
+      title = "Average Annual Pay",
+      tickprefix = "$",
+      tickformat = ",d",
+      separatethousands = TRUE
+    ),
+
+    updatemenus = list(
+      list(
+        type = "dropdown",
+        direction = "down",
+        active = 0,
+        buttons = buttons,
+        x = 0.5,
+        y = 1.18,
+        xanchor = "center",
+        yanchor = "top"
+      )
+    ),
+
+    legend = list(
+      orientation = "h",
+      x = 0.35,
+      y = 1.08
+    ),
+
+    annotations = list(
+      list(
+        text = "<b>Source</b>: U.S. Bureau of Labor Statistics, Quarterly Census of Employment and Wages (QCEW) • Wages represent total private ownership",
+        xref = "paper",
+        yref = "paper",
+        x = 0,
+        y = -0.25,
+        showarrow = FALSE,
+        xanchor = "left",
+        font = list(size = 10)
+      )
+    ),
+
+    margin = list(
+      t = 110,
+      r = 40,
+      b = 100
+    )
+
+  ) %>%
+  config(displayModeBar = FALSE)
+
+```
+
+```{r}
+#| label: Class of Worker
+#| echo: false
+#| message: false
+#| warning: false
+
+library(dplyr)
+library(plotly)
+library(tidyr)
+
+# Read data
+workers <- readRDS("data/classOfWorker.rds")
+
+
+# Convert to long format
+workers_long <- workers %>%
+  pivot_longer(
+    cols = c(
+      "Private Wage and Salary Workers",
+      "Government Workers",
+      "Self-employed in own, not incorporated, business workers",
+      "Unpaid family workers"
+    ),
+    names_to = "WorkerClass",
+    values_to = "Percent"
+  )
+
+
+# Worker colors
+worker_colors <- c(
+  "Private Wage and Salary Workers" = "#01665e",
+  "Government Workers" = "#5ab4ac",
+  "Self-employed in own, not incorporated, business workers" = "#d8b365",
+  "unpaid family workers" = "#8c510a"
+)
+
+
+# Counties
+all_counties <- unique(workers_long$NAME)
+
+init <- all_counties[1]
+
+
+# Create legend annotations
+legend_annotations <- list(
+  list(
+    x = 1.02, y = 1.00,
+    xref = "paper",
+    yref = "paper",
+    text = "<b>Class of Worker</b>",
+    showarrow = FALSE,
+    xanchor = "left"
+  )
+)
+
+
+# Add worker categories to legend annotations
+y_pos <- c(.92, .84, .76, .68)
+
+for(i in seq_along(worker_colors)) {
+
+  legend_annotations <- append(
+    legend_annotations,
+    list(
+      list(
+        x = 1.02,
+        y = y_pos[i],
+        xref = "paper",
+        yref = "paper",
+        text = paste0(
+          "■ ",
+          names(worker_colors)[i]
+        ),
+        font = list(
+          color = worker_colors[i]
+        ),
+        showarrow = FALSE,
+        xanchor = "left"
+      )
+    )
+  )
+}
+
+
+# Create traces
+p <- plot_ly()
+
+for (county in all_counties) {
+
+  df_county <- workers_long %>%
+    filter(NAME == county)
+
+  for (worker in names(worker_colors)) {
+
+    value <- df_county %>%
+      filter(WorkerClass == worker) %>%
+      pull(Percent)
+
+    p <- p %>%
+      add_trace(
+        x = county,
+        y = value,
+        type = "bar",
+        name = worker,
+        legendgroup = worker,
+        marker = list(
+          color = worker_colors[worker]
+        ),
+        visible = (county == all_counties[1]),
+        showlegend = FALSE
+      )
+  }
+}
+
+
+# Dropdown buttons
+buttons <- lapply(seq_along(all_counties), function(i){
+
+  vis <- rep(FALSE, length(all_counties) * length(worker_colors))
+
+  start <- (i - 1) * length(worker_colors) + 1
+  end <- start + length(worker_colors) - 1
+
+  vis[start:end] <- TRUE
+
+
+  list(
+    method = "update",
+    args = list(
+      list(
+        visible = vis
+      ),
+      list(
+        title = paste(
+          "Class of Worker -",
+          all_counties[i]
+        )
+      )
+    ),
+    label = all_counties[i]
+  )
+})
+
+
+# Plot
+p %>%
+  layout(
+
+    title = paste(
+      "Class of Worker -",
+      all_counties[1]
+    ),
+
+    barmode = "stack",
+
+    xaxis = list(
+      title = ""
+    ),
+
+    yaxis = list(
+      title = "Percent",
+      range = c(0,100)
+    ),
+
+
+    updatemenus = list(
+      list(
+        buttons = buttons,
+      active = 0,
+      x = 1.05,
+      xanchor = "left",
+      y = 0.5,
+      yanchor = "top"
+      )
+    ),
+
+
+    showlegend = FALSE,
+
+
+    annotations = c(
+      legend_annotations,
+
+      list(
+        list(
+          x = 0,
+          y = -0.15,
+          xref = "paper",
+          yref = "paper",
+          text = "<b>Source:</b> U.S. Census Bureau, 2024 ACS 5-Year Estimates",
+          showarrow = FALSE,
+          xanchor = "left",
+          font = list(
+            size = 11,
+            color = "gray"
+          )
+        )
+      )
+    ),
+
+
+    margin = list(
+      r = 300,
+      b = 100
+    )
+
+  ) %>%
+  config(displayModeBar = FALSE)
+
 
 ```
 
