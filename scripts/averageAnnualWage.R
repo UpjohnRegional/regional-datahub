@@ -10,7 +10,7 @@ averageAnnualWageMI <- bls_api(c("ENU2600050511", "ENU2600050521", "ENU260005052
                                  "ENU2600050553", "ENU2600050554", "ENU2600050555", "ENU2600050556", "ENU2600050561", 
                                  "ENU2600050562", "ENU2600050571", "ENU2600050572", "ENU2600050581"), 
                                startyear = 2012, endyear = 2024, 
-                               registrationKey = "c4c9bd6207ad4323a8d4fe18fd6960e0") %>%
+                               registrationKey = Sys.getenv("BLS_API_KEY")) %>%
   spread(seriesID, value) %>%
   dateCast() 
 
