@@ -1,5 +1,12 @@
 [
   {
+    "objectID": "workforce.html",
+    "href": "workforce.html",
+    "title": "Workforce",
+    "section": "",
+    "text": "NoteMore Information\n\n\n\n\n\nThis chart displays monthly unemployment rates for Southwest Michigan counties.\n**Source:** BLS Local Area Unemployment Statistics (LAUS)\n**Frequency:** Monthly\n&lt;a href=“download-data/unemployment.csv” class=“btn btn-outline-primary btn-sm” download&gt; 📥 Download Data &lt;/a&gt;"
+  },
+  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Regional Datahub",
