@@ -190,6 +190,23 @@ p %>%
 
 ```
 
+::: {.callout-note collapse="true" appearance="minimal"}
+## More Information
+
+This chart displays monthly unemployment rates for Southwest Michigan counties.
+
+\*\*Source:\*\* BLS Local Area Unemployment Statistics (LAUS)
+
+\*\*Frequency:\*\* Monthly
+
+\<a href="download-data/unemployment.csv"
+class="btn btn-outline-primary btn-sm"
+download\>
+📥 Download Data
+\</a\>
+
+:::
+
 ```{r}
 #| label: Income by Sex and Edcational Attainment
 #| echo: false

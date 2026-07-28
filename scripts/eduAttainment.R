@@ -44,3 +44,5 @@ S1501_wide <- S1501_wide %>%
   )
 
 saveRDS(S1501_wide, "data/eduAttainment.rds")
+
+write.csv(S1501_wide, "data_download/eduAttainment.csv")
