@@ -41,3 +41,5 @@ combined_data <- ALTSALES %>%
   arrange(date)
 
 saveRDS(combined_data, "data/vehicleSalesFuelPrices.rds")
+
+write.csv(combined_data, "data_download/vehicleSalesFuelPrices.csv")

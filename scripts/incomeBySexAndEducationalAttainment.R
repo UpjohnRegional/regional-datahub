@@ -97,3 +97,5 @@ B20004_combined <- B20004_combined %>%
   select(-GEOID.y)
 
 saveRDS(B20004_combined, "data/incomeBySexAndEducationalAttainment.rds")
+
+write.csv(B20004_combined, "data_download/incomeBySexAndEducationalAttainment.csv")

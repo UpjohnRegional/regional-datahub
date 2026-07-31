@@ -187,24 +187,16 @@ p %>%
   margin = list(r = 250, b = 100)
   ) %>%
   config(displayModeBar = FALSE)
-
 ```
 
 ::: {.callout-note collapse="true" appearance="minimal"}
 ## More Information
 
-This chart displays monthly unemployment rates for Southwest Michigan counties.
+Educational attainment strongly correlates with income levels, workforce productivity, and economic growth. It helps gauge the skill level and potential earning capacity of a population.
 
-\*\*Source:\*\* BLS Local Area Unemployment Statistics (LAUS)
+**Source:** ACS 2024 5-YR Estimates (table S1501) • Population 25 and older
 
-\*\*Frequency:\*\* Monthly
-
-\<a href="download-data/unemployment.csv"
-class="btn btn-outline-primary btn-sm"
-download\>
-📥 Download Data
-\</a\>
-
+[📥 Download Data](data_download/eduAttainment.csv){download="eduAttainment.csv"}
 :::
 
 ```{r}
@@ -230,6 +222,34 @@ income$variable <- factor(
   )
 )
 
+income <- income %>%
+  mutate(
+    Display = recode(
+      variable,
+      "Less than high school graduate" = "Less Than H.S.",
+      "High school graduate (includes equivalency)" = "H.S.",
+      "Some college or associate's degree" = "Some College/Associates",
+      "Bachelor's degree" = "Bachelor's",
+      "Graduate or professional degree" = "Graduate/Professional"
+    )
+  )
+
+income$Display <- factor(
+  income$Display,
+  levels = c(
+    "Less Than H.S.",
+    "H.S.",
+    "Some College/Associates",
+    "Bachelor's",
+    "Graduate/Professional"
+  )
+)
+
+income_colors <- c(
+  "Male" = "#2b9cb4",
+  "Female" = "#004a5e"
+)
+
 counties <- unique(income$NAME)
 
 init <- counties[1]
@@ -242,15 +262,21 @@ p <- plot_ly()
 p <- p %>%
   add_bars(
     data = df_init,
-    x = ~variable,
+    x = ~Display,
     y = ~`Male Income`,
-    name = "Male"
+    name = "Male",
+    marker = list(
+      color = income_colors["Male"]
+    )
   ) %>%
   add_bars(
     data = df_init,
-    x = ~variable,
+    x = ~Display,
     y = ~`Female Income`,
-    name = "Female"
+    name = "Female",
+    marker = list(
+      color = income_colors["Female"]
+    )
   )
 
 buttons <- lapply(seq_along(counties), function(i) {
@@ -262,7 +288,7 @@ buttons <- lapply(seq_along(counties), function(i) {
     method = "update",
     args = list(
       list(
-        x = list(df$variable, df$variable),
+        x = list(df$Display, df$Display),
         y = list(
           df$`Male Income`,
           df$`Female Income`
@@ -289,8 +315,7 @@ p %>%
     ),
 
     xaxis = list(
-      title = "",
-      tickfont = list(size = 8)
+      title = ""
     ),
 
     yaxis = list(
@@ -326,6 +351,16 @@ p %>%
   config(displayModeBar = FALSE)
 ```
 
+::: {.callout-note collapse="true" appearance="minimal"}
+## More Information
+
+Understanding income disparities by educational attainment and sex provides insights into the effectiveness of educational systems in equipping individuals with skills for higher-paying jobs and highlights potential gender-based income gaps, which can be indicative of gender equality issues.
+
+**Source:** ACS 2024 5-YR Estimates (table B20004) • Population 25 and older with earnings
+
+[📥 Download Data](data_download/incomeBySexAndEducationalAttainment.csv){download="incomeBySexAndEducationalAttainment.csv"}
+:::
+
 ```{r}
 #| label: Travel Time to Work
 #| echo: false
@@ -337,13 +372,6 @@ library(plotly)
 
 travel <- readRDS("data/travelTimeToWork.rds")
 
-counties <- unique(travel$NAME)
-
-init <- counties[1]
-
-df_init <- travel %>%
-  filter(NAME == init)
-
 travel$TimeLabel <- factor(
   travel$TimeLabel,
   levels = c(
@@ -354,12 +382,29 @@ travel$TimeLabel <- factor(
   )
 )
 
+counties <- unique(travel$NAME)
+
+init <- counties[1]
+
+df_init <- travel %>%
+  filter(NAME == init)
+
+travel_colors <- c(
+  "less than 10 minutes" = "#FAD2B4",
+  "10 to 29 minutes" = "#F49366",
+  "30 to 59 minutes" = "#E34A26",
+  "60 or more minutes" = "#991B12"
+)
+
 p <- plot_ly(
   data = df_init,
   x = ~TimeProportion,
   y = ~TimeLabel,
   type = "bar",
-  orientation = "h"
+  orientation = "h",
+  marker = list(
+    color = travel_colors[df_init$TimeLabel]
+  )
 )
 
 buttons <- lapply(seq_along(counties), function(i) {
@@ -372,7 +417,10 @@ buttons <- lapply(seq_along(counties), function(i) {
     args = list(
       list(
         x = list(df$TimeProportion),
-        y = list(df$TimeLabel)
+        y = list(df$TimeLabel),
+        marker = list(
+          color = travel_colors[df$TimeLabel]
+        )
       ),
       list(
         title = paste(
@@ -393,24 +441,12 @@ p %>%
     ),
 
     xaxis = list(
-      title = "Percent of Workers"
+      title = "Percent of Workers 16 Years and Older"
     ),
 
     yaxis = list(
       title = ""
     ),
-    
-    annotations = list(
-      list(
-        text = "<b>Source</b> ACS 2024 5-YR Estimates (table B08135), Upjohn Regional • Travel time one way",
-        xref = "paper",
-        yref = "paper",
-        x = 0,
-        y = -0.35,
-        showarrow = FALSE,
-        xanchor = "left",
-        font = list(size = 10)
-      )),
 
     updatemenus = list(
       list(
@@ -429,3 +465,419 @@ p %>%
   config(displayModeBar = FALSE)
 
 ```
+
+::: {.callout-note collapse="true" appearance="minimal"}
+## More Information
+
+Travel time to work is significant as it directly impacts worker productivity and transportation costs. It also informs urban planning and labor market dynamics, influencing economic development and accessibility to jobs.
+
+**Source:**  ACS 2024 5-YR Estimates (table B08135) • Travel time one way
+
+[📥 Download Data](data_download/travelTimeToWork.csv){download="travelTimeToWork.csv"}
+:::
+
+```{r}
+#| label: Means of Transportation to Work
+#| echo: false
+#| message: false
+#| warning: false
+
+library(dplyr)
+library(plotly)
+
+transport <- readRDS("data/meansOfTransportationToWork.rds")
+
+transport$Category <- factor(
+  transport$Category,
+  levels = c(
+    "Car, truck, or van - drove alone",
+    "Car, truck, or van - carpooled",
+    "Public transportation (excluding taxicab)",
+    "Walked",
+    "Taxicab, motorcycle, bicycle, or other means",
+    "Worked from home"
+  )
+)
+
+transport <- transport %>%
+  mutate(
+    Display = recode(
+      Category,
+      "Car, truck, or van - drove alone" = "Drive Alone",
+      "Car, truck, or van - carpooled" = "Carpool",
+      "Public transportation (excluding taxicab)" = "Public Transit",
+      "Walked" = "Walk",
+      "Taxicab, motorcycle, bicycle, or other means" = "Other",
+      "Worked from home" = "Work From Home"
+    )
+  )
+
+transport$Display <- factor(
+  transport$Display,
+  levels = c(
+    "Drive Alone",
+    "Carpool",
+    "Public Transit",
+    "Walk",
+    "Other",
+    "Work From Home"
+  )
+)
+
+transport_colors <- c(
+  "Drive Alone" = "#FAD2B4",
+  "Carpool" = "#F49366",
+  "Public Transit" = "#E34A26",
+  "Walk" = "#C93C1A",
+  "Other" = "#A82A16",
+  "Work From Home" = "#6B0D0D"
+)
+
+counties <- unique(transport$NAME)
+
+init <- counties[1]
+
+df_init <- transport %>%
+  filter(NAME == init)
+
+p <- plot_ly(
+  data = df_init,
+  x = ~Proportion,
+  y = ~Display,
+  type = "bar",
+  orientation = "h",
+  marker = list(
+    color = transport_colors[df_init$Display]
+  ),
+  hovertemplate = "%{y}<br>%{x:.1f}%<extra></extra>"
+)
+
+buttons <- lapply(seq_along(counties), function(i) {
+
+  df <- transport %>%
+    filter(NAME == counties[i])
+
+  list(
+    method = "update",
+    args = list(
+      list(
+        x = list(df$Proportion),
+        y = list(df$Display),
+        marker = list(
+          color = transport_colors[df$Display]
+        )
+      ),
+      list(
+        title = paste(
+          "Means of Transportation to Work:",
+          counties[i]
+        )
+      )
+    ),
+    label = counties[i]
+  )
+})
+
+p %>%
+  layout(
+    title = paste(
+      "Means of Transportation to Work:",
+      init
+    ),
+
+    xaxis = list(
+      title = "Percent of Workers 16 Years and Older"
+    ),
+
+    yaxis = list(
+      title = "",
+      categoryorder = "array",
+      categoryarray = rev(levels(transport$Display))
+    ),
+
+
+    updatemenus = list(
+      list(
+        buttons = buttons,
+        active = 0,
+        x = 1.15,
+        y = 0.85,
+        xanchor = "left"
+      )
+    ),
+
+    margin = list(
+      r = 150
+    )
+  ) %>%
+  config(displayModeBar = FALSE)
+
+
+
+```
+
+::: {.callout-note collapse="true" appearance="minimal"}
+## More Information
+
+Understanding how people commute to work helps assess the efficiency of transportation infrastructure, which can impact productivity and business operations. It also influences urban planning and investment decisions, as well as energy consumption and environmental considerations. Additionally, tracking transportation methods can reveal trends in workforce mobility and inform policies that affect job accessibility and economic opportunities.
+
+**Source:**  ACS 2024 5-YR Estimates (table B08128)
+
+[📥 Download Data](data_download/meansOfTransportationToWork.csv){download="meansOfTransportationToWork.csv"}
+:::
+
+```{r}
+#| label: Age of Housing Stock
+#| echo: false
+#| message: false
+#| warning: false
+
+library(dplyr)
+library(plotly)
+
+housing <- readRDS("data/ageOfHousingStock.rds")
+
+housing$variable <- factor(
+  housing$variable,
+  levels = c(
+    "2020 or later",
+    "2010 to 2019",
+    "2000 to 2009",
+    "1980 to 1999",
+    "1960 to 1979",
+    "1940 to 1959",
+    "1939 or earlier"
+  )
+)
+
+
+housing_colors <- c(
+  "2020 or later" = "#FAD2B4",
+  "2010 to 2019" = "#F7B68D",
+  "2000 to 2009" = "#F49366",
+  "1980 to 1999" = "#E34A26",
+  "1960 to 1979" = "#C93C1A",
+  "1940 to 1959" = "#A82A16",
+  "1939 or earlier" = "#6B0D0D"
+)
+
+counties <- unique(housing$NAME)
+
+init <- counties[1]
+
+df_init <- housing %>%
+  filter(NAME == init)
+
+p <- plot_ly(
+  data = df_init,
+  x = ~estimate,
+  y = ~variable,
+  type = "bar",
+  orientation = "h",
+  marker = list(
+  color = housing_colors[as.character(df_init$variable)]
+  ),
+  hovertemplate = "%{y}<br>%{x:.1f}%<extra></extra>"
+)
+
+buttons <- lapply(seq_along(counties), function(i) {
+
+  df <- housing %>%
+    filter(NAME == counties[i])
+
+  list(
+    method = "update",
+    args = list(
+      list(
+        x = list(df$estimate)
+      ),
+      list(
+        title = paste(
+          "Age of Housing Stock:",
+          counties[i]
+        )
+      )
+    ),
+    label = counties[i]
+  )
+})
+
+
+p %>%
+  layout(
+    title = paste(
+      "Age of Housing Stock:",
+      init
+    ),
+
+    xaxis = list(
+      title = "Percent of Total Housing Stock"
+    ),
+
+    yaxis = list(
+      title = "",
+      categoryorder = "array",
+      categoryarray = rev(levels(housing$variable))
+    ),
+
+    updatemenus = list(
+      list(
+        buttons = buttons,
+        active = 0,
+        x = 1.15,
+        y = 0.85,
+        xanchor = "left"
+      )
+    ),
+
+    margin = list(
+      r = 150
+    )
+  ) %>%
+  config(displayModeBar = FALSE)
+
+```
+
+::: {.callout-note collapse="true" appearance="minimal"}
+## More Information
+
+Understanding the age of the housing stock reveals the state of infrastructure and housing quality. Older housing may require more maintenance and renovations, which can drive construction and home improvement industries, thereby boosting economic activity. Additionally, it can inform urban development and land use policies, impacting property values and real estate investments. Lastly, the age of the housing stock can provide insights into population trends, migration patterns, and housing affordability, all of which have significant economic implications.
+
+**Source:**  ACS 2024 5-YR Estimates (table S2504)
+
+[📥 Download Data](data_download/ageOfHousingStock.csv){download="ageOfHousingStock.csv"}
+:::
+
+```{r}
+#| label: Internet Access by Household
+#| echo: false
+#| message: false
+#| warning: false
+
+library(dplyr)
+library(plotly)
+
+internet <- readRDS("data/internetAccess.rds")
+
+internet <- internet %>%
+  mutate(
+    Category = recode(
+      variable,
+      "Dial-up with no other type of Internet subscription" = "Dial-Up",
+      "Broadband of any type" = "Broadband",
+      "Without an Internet subscription" = "No Internet"
+    )
+  )
+
+internet_colors <- c(
+  "Broadband" = "#2B9CB4",
+  "Dial-Up" = "#A9D6E5",
+  "No Internet" = "#6C757D"
+)
+
+counties <- unique(internet$NAME)
+
+init <- counties[1]
+
+df_init <- internet %>%
+  filter(NAME == init)
+
+
+p <- plot_ly(
+  data = df_init,
+  labels = ~Category,
+  values = ~estimate,
+  type = "pie",
+  sort = FALSE,
+  direction = "clockwise",
+  marker = list(
+    colors = internet_colors[df_init$Category]
+  ),
+  textinfo = "none",
+  hovertemplate = "<b>%{label}</b><br>%{value:.1f}%<extra></extra>"
+)
+
+
+buttons <- lapply(seq_along(counties), function(i) {
+
+  df <- internet %>%
+    filter(NAME == counties[i])
+
+  list(
+    method = "update",
+    args = list(
+      list(
+        labels = list(df$Category),
+        values = list(df$estimate),
+        marker = list(
+          colors = internet_colors[df$Category]
+        )
+      ),
+      list(
+        title = paste(
+          "Internet Access:",
+          counties[i]
+        )
+      )
+    ),
+    label = counties[i]
+  )
+})
+
+
+p %>%
+  layout(
+    title = paste(
+      "Internet Access:",
+      init
+    ),
+
+    showlegend = TRUE,
+
+    legend = list(
+      x = 1.00,
+      y = 1.00,
+      xanchor = "left"
+    ),
+
+    updatemenus = list(
+      list(
+        buttons = buttons,
+        active = 0,
+        x = 1.20,
+        y = 0.85,
+        xanchor = "left"
+      )
+    ),
+
+    margin = list(
+      r = 250
+    )
+  ) %>%
+  config(displayModeBar = FALSE)
+
+```
+
+::: {.callout-note collapse="true" appearance="minimal"}
+## More Information
+
+Knowledge of people's internet access is an important economic indicator because it reflects digital connectivity, which is increasingly vital for economic participation. It influences business competitiveness and innovation, as companies depend on digital platforms for operations and sales. Internet access also affects workforce capabilities, as remote work and online education become more prevalent. Finally, understanding how people access the internet plays a role in bridging economic disparities, as access can be a factor in determining opportunities and socioeconomic outcomes. 
+
+**Source:**  ACS 2024 5-YR Estimates (table S2801)  • Totals may not sum to 100% due to rounding.
+
+[📥 Download Data](data_download/internetAccess.csv){download="internetAccess.csv"}
+:::
+
+```{r}
+#| label: Monthly Income Needed to Afford Housing
+#| echo: false
+#| message: false
+#| warning: false
+
+library(dplyr)
+library(plotly)
+
+
+
+```
+

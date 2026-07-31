@@ -75,3 +75,5 @@ B08135_long <- B08135_wide %>%
                values_to = "TimeProportion")
 
 saveRDS(B08135_long, "data/travelTimeToWork.rds")
+
+write.csv(B08135_long, "data_download/travelTimeToWork.csv")

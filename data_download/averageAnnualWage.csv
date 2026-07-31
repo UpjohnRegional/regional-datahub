@@ -1,0 +1,267 @@
+"","year_MI","period_MI","periodName_MI","latest_MI","footnotes_MI","date","seriesID","value_MI","year_US","period_US","periodName_US","latest_US","footnotes_US","value_US"
+"1",2012,"A01","Annual",NA,"",2012-01-01,"NAICS 11 Agriculture, forestry, fishing and hunting",26560,2012,"A01","Annual",NA,"",28619
+"2",2013,"A01","Annual",NA,"",2013-01-01,"NAICS 11 Agriculture, forestry, fishing and hunting",27462,2013,"A01","Annual",NA,"",29447
+"3",2014,"A01","Annual",NA,"",2014-01-01,"NAICS 11 Agriculture, forestry, fishing and hunting",28275,2014,"A01","Annual",NA,"",30614
+"4",2015,"A01","Annual",NA,"",2015-01-01,"NAICS 11 Agriculture, forestry, fishing and hunting",29735,2015,"A01","Annual",NA,"",31977
+"5",2016,"A01","Annual",NA,"",2016-01-01,"NAICS 11 Agriculture, forestry, fishing and hunting",31161,2016,"A01","Annual",NA,"",33287
+"6",2017,"A01","Annual",NA,"",2017-01-01,"NAICS 11 Agriculture, forestry, fishing and hunting",31653,2017,"A01","Annual",NA,"",34464
+"7",2018,"A01","Annual",NA,"",2018-01-01,"NAICS 11 Agriculture, forestry, fishing and hunting",33013,2018,"A01","Annual",NA,"",35841
+"8",2019,"A01","Annual",NA,"",2019-01-01,"NAICS 11 Agriculture, forestry, fishing and hunting",34397,2019,"A01","Annual",NA,"",37212
+"9",2020,"A01","Annual",NA,"",2020-01-01,"NAICS 11 Agriculture, forestry, fishing and hunting",37139,2020,"A01","Annual",NA,"",39777
+"10",2021,"A01","Annual",NA,"",2021-01-01,"NAICS 11 Agriculture, forestry, fishing and hunting",38718,2021,"A01","Annual",NA,"",41740
+"11",2022,"A01","Annual",NA,"",2022-01-01,"NAICS 11 Agriculture, forestry, fishing and hunting",41507,2022,"A01","Annual",NA,"",43560
+"12",2023,"A01","Annual",NA,"",2023-01-01,"NAICS 11 Agriculture, forestry, fishing and hunting",43065,2023,"A01","Annual",NA,"",45424
+"13",2024,"A01","Annual",NA,"",2024-01-01,"NAICS 11 Agriculture, forestry, fishing and hunting",44475,2024,"A01","Annual",NA,"",46942
+"14",2025,"A01","Annual","true","P Preliminary.",2025-01-01,"NAICS 11 Agriculture, forestry, fishing and hunting",46066,2025,"A01","Annual","true","P Preliminary.",48821
+"15",2012,"A01","Annual",NA,"",2012-01-01,"NAICS 21 Mining, quarrying, and oil and gas extraction",73848,2012,"A01","Annual",NA,"",96685
+"16",2013,"A01","Annual",NA,"",2013-01-01,"NAICS 21 Mining, quarrying, and oil and gas extraction",73671,2013,"A01","Annual",NA,"",98186
+"17",2014,"A01","Annual",NA,"",2014-01-01,"NAICS 21 Mining, quarrying, and oil and gas extraction",77339,2014,"A01","Annual",NA,"",102137
+"18",2015,"A01","Annual",NA,"",2015-01-01,"NAICS 21 Mining, quarrying, and oil and gas extraction",75798,2015,"A01","Annual",NA,"",102462
+"19",2016,"A01","Annual",NA,"",2016-01-01,"NAICS 21 Mining, quarrying, and oil and gas extraction",74143,2016,"A01","Annual",NA,"",102988
+"20",2017,"A01","Annual",NA,"",2017-01-01,"NAICS 21 Mining, quarrying, and oil and gas extraction",75658,2017,"A01","Annual",NA,"",102130
+"21",2018,"A01","Annual",NA,"",2018-01-01,"NAICS 21 Mining, quarrying, and oil and gas extraction",81548,2018,"A01","Annual",NA,"",104257
+"22",2019,"A01","Annual",NA,"",2019-01-01,"NAICS 21 Mining, quarrying, and oil and gas extraction",81979,2019,"A01","Annual",NA,"",107986
+"23",2020,"A01","Annual",NA,"",2020-01-01,"NAICS 21 Mining, quarrying, and oil and gas extraction",81314,2020,"A01","Annual",NA,"",110284
+"24",2021,"A01","Annual",NA,"",2021-01-01,"NAICS 21 Mining, quarrying, and oil and gas extraction",88492,2021,"A01","Annual",NA,"",109498
+"25",2022,"A01","Annual",NA,"",2022-01-01,"NAICS 21 Mining, quarrying, and oil and gas extraction",90939,2022,"A01","Annual",NA,"",118244
+"26",2023,"A01","Annual",NA,"",2023-01-01,"NAICS 21 Mining, quarrying, and oil and gas extraction",91380,2023,"A01","Annual",NA,"",123498
+"27",2024,"A01","Annual",NA,"",2024-01-01,"NAICS 21 Mining, quarrying, and oil and gas extraction",93015,2024,"A01","Annual",NA,"",129918
+"28",2025,"A01","Annual","true","P Preliminary.",2025-01-01,"NAICS 21 Mining, quarrying, and oil and gas extraction",97385,2025,"A01","Annual","true","P Preliminary.",133536
+"29",2012,"A01","Annual",NA,"",2012-01-01,"NAICS 22 Utilities",102255,2012,"A01","Annual",NA,"",93722
+"30",2013,"A01","Annual",NA,"",2013-01-01,"NAICS 22 Utilities",104167,2013,"A01","Annual",NA,"",95157
+"31",2014,"A01","Annual",NA,"",2014-01-01,"NAICS 22 Utilities",108989,2014,"A01","Annual",NA,"",98123
+"32",2015,"A01","Annual",NA,"",2015-01-01,"NAICS 22 Utilities",112229,2015,"A01","Annual",NA,"",101445
+"33",2016,"A01","Annual",NA,"",2016-01-01,"NAICS 22 Utilities",112470,2016,"A01","Annual",NA,"",102868
+"34",2017,"A01","Annual",NA,"",2017-01-01,"NAICS 22 Utilities",117008,2017,"A01","Annual",NA,"",107194
+"35",2018,"A01","Annual",NA,"",2018-01-01,"NAICS 22 Utilities",120684,2018,"A01","Annual",NA,"",109957
+"36",2019,"A01","Annual",NA,"",2019-01-01,"NAICS 22 Utilities",122916,2019,"A01","Annual",NA,"",113354
+"37",2020,"A01","Annual",NA,"",2020-01-01,"NAICS 22 Utilities",130168,2020,"A01","Annual",NA,"",117180
+"38",2021,"A01","Annual",NA,"",2021-01-01,"NAICS 22 Utilities",133041,2021,"A01","Annual",NA,"",119705
+"39",2022,"A01","Annual",NA,"",2022-01-01,"NAICS 22 Utilities",134486,2022,"A01","Annual",NA,"",124053
+"40",2023,"A01","Annual",NA,"",2023-01-01,"NAICS 22 Utilities",137998,2023,"A01","Annual",NA,"",128473
+"41",2024,"A01","Annual",NA,"",2024-01-01,"NAICS 22 Utilities",143795,2024,"A01","Annual",NA,"",134956
+"42",2025,"A01","Annual","true","P Preliminary.",2025-01-01,"NAICS 22 Utilities",150971,2025,"A01","Annual","true","P Preliminary.",141227
+"43",2012,"A01","Annual",NA,"",2012-01-01,"NAICS 23 Construction",53181,2012,"A01","Annual",NA,"",52298
+"44",2013,"A01","Annual",NA,"",2013-01-01,"NAICS 23 Construction",53642,2013,"A01","Annual",NA,"",53181
+"45",2014,"A01","Annual",NA,"",2014-01-01,"NAICS 23 Construction",55585,2014,"A01","Annual",NA,"",55037
+"46",2015,"A01","Annual",NA,"",2015-01-01,"NAICS 23 Construction",57316,2015,"A01","Annual",NA,"",57009
+"47",2016,"A01","Annual",NA,"",2016-01-01,"NAICS 23 Construction",59078,2016,"A01","Annual",NA,"",58647
+"48",2017,"A01","Annual",NA,"",2017-01-01,"NAICS 23 Construction",61511,2017,"A01","Annual",NA,"",60735
+"49",2018,"A01","Annual",NA,"",2018-01-01,"NAICS 23 Construction",62378,2018,"A01","Annual",NA,"",62727
+"50",2019,"A01","Annual",NA,"",2019-01-01,"NAICS 23 Construction",63588,2019,"A01","Annual",NA,"",64826
+"51",2020,"A01","Annual",NA,"",2020-01-01,"NAICS 23 Construction",67631,2020,"A01","Annual",NA,"",67357
+"52",2021,"A01","Annual",NA,"",2021-01-01,"NAICS 23 Construction",70178,2021,"A01","Annual",NA,"",69855
+"53",2022,"A01","Annual",NA,"",2022-01-01,"NAICS 23 Construction",73038,2022,"A01","Annual",NA,"",73445
+"54",2023,"A01","Annual",NA,"",2023-01-01,"NAICS 23 Construction",77427,2023,"A01","Annual",NA,"",77171
+"55",2024,"A01","Annual",NA,"",2024-01-01,"NAICS 23 Construction",81756,2024,"A01","Annual",NA,"",81054
+"56",2025,"A01","Annual","true","P Preliminary.",2025-01-01,"NAICS 23 Construction",86131,2025,"A01","Annual","true","P Preliminary.",84818
+"57",2012,"A01","Annual",NA,"",2012-01-01,"NAICS 31-33 Manufacturing",62869,2012,"A01","Annual",NA,"",60496
+"58",2013,"A01","Annual",NA,"",2013-01-01,"NAICS 31-33 Manufacturing",63597,2013,"A01","Annual",NA,"",61102
+"59",2014,"A01","Annual",NA,"",2014-01-01,"NAICS 31-33 Manufacturing",64469,2014,"A01","Annual",NA,"",62976
+"60",2015,"A01","Annual",NA,"",2015-01-01,"NAICS 31-33 Manufacturing",65110,2015,"A01","Annual",NA,"",64305
+"61",2016,"A01","Annual",NA,"",2016-01-01,"NAICS 31-33 Manufacturing",65188,2016,"A01","Annual",NA,"",64870
+"62",2017,"A01","Annual",NA,"",2017-01-01,"NAICS 31-33 Manufacturing",66395,2017,"A01","Annual",NA,"",66840
+"63",2018,"A01","Annual",NA,"",2018-01-01,"NAICS 31-33 Manufacturing",67537,2018,"A01","Annual",NA,"",68525
+"64",2019,"A01","Annual",NA,"",2019-01-01,"NAICS 31-33 Manufacturing",68465,2019,"A01","Annual",NA,"",69920
+"65",2020,"A01","Annual",NA,"",2020-01-01,"NAICS 31-33 Manufacturing",70769,2020,"A01","Annual",NA,"",73397
+"66",2021,"A01","Annual",NA,"",2021-01-01,"NAICS 31-33 Manufacturing",71688,2021,"A01","Annual",NA,"",76580
+"67",2022,"A01","Annual",NA,"",2022-01-01,"NAICS 31-33 Manufacturing",75192,2022,"A01","Annual",NA,"",79483
+"68",2023,"A01","Annual",NA,"",2023-01-01,"NAICS 31-33 Manufacturing",78459,2023,"A01","Annual",NA,"",82575
+"69",2024,"A01","Annual",NA,"",2024-01-01,"NAICS 31-33 Manufacturing",82422,2024,"A01","Annual",NA,"",85461
+"70",2025,"A01","Annual","true","P Preliminary.",2025-01-01,"NAICS 31-33 Manufacturing",85761,2025,"A01","Annual","true","P Preliminary.",89491
+"71",2012,"A01","Annual",NA,"",2012-01-01,"NAICS 42 Wholesale trade",67820,2012,"A01","Annual",NA,"",68226
+"72",2013,"A01","Annual",NA,"",2013-01-01,"NAICS 42 Wholesale trade",67387,2013,"A01","Annual",NA,"",68580
+"73",2014,"A01","Annual",NA,"",2014-01-01,"NAICS 42 Wholesale trade",69954,2014,"A01","Annual",NA,"",71043
+"74",2015,"A01","Annual",NA,"",2015-01-01,"NAICS 42 Wholesale trade",71192,2015,"A01","Annual",NA,"",73363
+"75",2016,"A01","Annual",NA,"",2016-01-01,"NAICS 42 Wholesale trade",72334,2016,"A01","Annual",NA,"",73710
+"76",2017,"A01","Annual",NA,"",2017-01-01,"NAICS 42 Wholesale trade",73968,2017,"A01","Annual",NA,"",75904
+"77",2018,"A01","Annual",NA,"",2018-01-01,"NAICS 42 Wholesale trade",76291,2018,"A01","Annual",NA,"",77870
+"78",2019,"A01","Annual",NA,"",2019-01-01,"NAICS 42 Wholesale trade",77353,2019,"A01","Annual",NA,"",80193
+"79",2020,"A01","Annual",NA,"",2020-01-01,"NAICS 42 Wholesale trade",80961,2020,"A01","Annual",NA,"",84221
+"80",2021,"A01","Annual",NA,"",2021-01-01,"NAICS 42 Wholesale trade",86005,2021,"A01","Annual",NA,"",90348
+"81",2022,"A01","Annual",NA,"",2022-01-01,"NAICS 42 Wholesale trade",89991,2022,"A01","Annual",NA,"",94885
+"82",2023,"A01","Annual",NA,"",2023-01-01,"NAICS 42 Wholesale trade",93866,2023,"A01","Annual",NA,"",98588
+"83",2024,"A01","Annual",NA,"",2024-01-01,"NAICS 42 Wholesale trade",95768,2024,"A01","Annual",NA,"",101805
+"84",2025,"A01","Annual","true","P Preliminary.",2025-01-01,"NAICS 42 Wholesale trade",98845,2025,"A01","Annual","true","P Preliminary.",105838
+"85",2012,"A01","Annual",NA,"",2012-01-01,"NAICS 44-45 Retail trade",26369,2012,"A01","Annual",NA,"",27731
+"86",2013,"A01","Annual",NA,"",2013-01-01,"NAICS 44-45 Retail trade",26490,2013,"A01","Annual",NA,"",28008
+"87",2014,"A01","Annual",NA,"",2014-01-01,"NAICS 44-45 Retail trade",27334,2014,"A01","Annual",NA,"",28742
+"88",2015,"A01","Annual",NA,"",2015-01-01,"NAICS 44-45 Retail trade",28485,2015,"A01","Annual",NA,"",29742
+"89",2016,"A01","Annual",NA,"",2016-01-01,"NAICS 44-45 Retail trade",29205,2016,"A01","Annual",NA,"",30299
+"90",2017,"A01","Annual",NA,"",2017-01-01,"NAICS 44-45 Retail trade",30111,2017,"A01","Annual",NA,"",31217
+"91",2018,"A01","Annual",NA,"",2018-01-01,"NAICS 44-45 Retail trade",31099,2018,"A01","Annual",NA,"",32362
+"92",2019,"A01","Annual",NA,"",2019-01-01,"NAICS 44-45 Retail trade",32055,2019,"A01","Annual",NA,"",33611
+"93",2020,"A01","Annual",NA,"",2020-01-01,"NAICS 44-45 Retail trade",35354,2020,"A01","Annual",NA,"",36759
+"94",2021,"A01","Annual",NA,"",2021-01-01,"NAICS 44-45 Retail trade",37850,2021,"A01","Annual",NA,"",39741
+"95",2022,"A01","Annual",NA,"",2022-01-01,"NAICS 44-45 Retail trade",39103,2022,"A01","Annual",NA,"",40471
+"96",2023,"A01","Annual",NA,"",2023-01-01,"NAICS 44-45 Retail trade",39709,2023,"A01","Annual",NA,"",41140
+"97",2024,"A01","Annual",NA,"",2024-01-01,"NAICS 44-45 Retail trade",40426,2024,"A01","Annual",NA,"",42075
+"98",2025,"A01","Annual","true","P Preliminary.",2025-01-01,"NAICS 44-45 Retail trade",41894,2025,"A01","Annual","true","P Preliminary.",43467
+"99",2012,"A01","Annual",NA,"",2012-01-01,"NAICS 48-49 Transportation and warehousing",48825,2012,"A01","Annual",NA,"",46612
+"100",2013,"A01","Annual",NA,"",2013-01-01,"NAICS 48-49 Transportation and warehousing",49360,2013,"A01","Annual",NA,"",47444
+"101",2014,"A01","Annual",NA,"",2014-01-01,"NAICS 48-49 Transportation and warehousing",50663,2014,"A01","Annual",NA,"",48708
+"102",2015,"A01","Annual",NA,"",2015-01-01,"NAICS 48-49 Transportation and warehousing",51868,2015,"A01","Annual",NA,"",49931
+"103",2016,"A01","Annual",NA,"",2016-01-01,"NAICS 48-49 Transportation and warehousing",53196,2016,"A01","Annual",NA,"",50459
+"104",2017,"A01","Annual",NA,"",2017-01-01,"NAICS 48-49 Transportation and warehousing",54063,2017,"A01","Annual",NA,"",51726
+"105",2018,"A01","Annual",NA,"",2018-01-01,"NAICS 48-49 Transportation and warehousing",55754,2018,"A01","Annual",NA,"",53197
+"106",2019,"A01","Annual",NA,"",2019-01-01,"NAICS 48-49 Transportation and warehousing",56116,2019,"A01","Annual",NA,"",54365
+"107",2020,"A01","Annual",NA,"",2020-01-01,"NAICS 48-49 Transportation and warehousing",57667,2020,"A01","Annual",NA,"",55337
+"108",2021,"A01","Annual",NA,"",2021-01-01,"NAICS 48-49 Transportation and warehousing",59647,2021,"A01","Annual",NA,"",57956
+"109",2022,"A01","Annual",NA,"",2022-01-01,"NAICS 48-49 Transportation and warehousing",61589,2022,"A01","Annual",NA,"",60443
+"110",2023,"A01","Annual",NA,"",2023-01-01,"NAICS 48-49 Transportation and warehousing",64964,2023,"A01","Annual",NA,"",63998
+"111",2024,"A01","Annual",NA,"",2024-01-01,"NAICS 48-49 Transportation and warehousing",67153,2024,"A01","Annual",NA,"",67202
+"112",2025,"A01","Annual","true","P Preliminary.",2025-01-01,"NAICS 48-49 Transportation and warehousing",69453,2025,"A01","Annual","true","P Preliminary.",68819
+"113",2012,"A01","Annual",NA,"",2012-01-01,"NAICS 51 Information",60407,2012,"A01","Annual",NA,"",81955
+"114",2013,"A01","Annual",NA,"",2013-01-01,"NAICS 51 Information",62778,2013,"A01","Annual",NA,"",86787
+"115",2014,"A01","Annual",NA,"",2014-01-01,"NAICS 51 Information",63983,2014,"A01","Annual",NA,"",90823
+"116",2015,"A01","Annual",NA,"",2015-01-01,"NAICS 51 Information",66521,2015,"A01","Annual",NA,"",95098
+"117",2016,"A01","Annual",NA,"",2016-01-01,"NAICS 51 Information",68333,2016,"A01","Annual",NA,"",98458
+"118",2017,"A01","Annual",NA,"",2017-01-01,"NAICS 51 Information",70884,2017,"A01","Annual",NA,"",105722
+"119",2018,"A01","Annual",NA,"",2018-01-01,"NAICS 51 Information",73556,2018,"A01","Annual",NA,"",113781
+"120",2019,"A01","Annual",NA,"",2019-01-01,"NAICS 51 Information",77504,2019,"A01","Annual",NA,"",119605
+"121",2020,"A01","Annual",NA,"",2020-01-01,"NAICS 51 Information",88745,2020,"A01","Annual",NA,"",136324
+"122",2021,"A01","Annual",NA,"",2021-01-01,"NAICS 51 Information",94448,2021,"A01","Annual",NA,"",152651
+"123",2022,"A01","Annual",NA,"",2022-01-01,"NAICS 51 Information",97811,2022,"A01","Annual",NA,"",145214
+"124",2023,"A01","Annual",NA,"",2023-01-01,"NAICS 51 Information",101755,2023,"A01","Annual",NA,"",154901
+"125",2024,"A01","Annual",NA,"",2024-01-01,"NAICS 51 Information",107180,2024,"A01","Annual",NA,"",174448
+"126",2025,"A01","Annual","true","P Preliminary.",2025-01-01,"NAICS 51 Information",114216,2025,"A01","Annual","true","P Preliminary.",190890
+"127",2012,"A01","Annual",NA,"",2012-01-01,"NAICS 52 Finance and insurance",66517,2012,"A01","Annual",NA,"",91218
+"128",2013,"A01","Annual",NA,"",2013-01-01,"NAICS 52 Finance and insurance",68321,2013,"A01","Annual",NA,"",91862
+"129",2014,"A01","Annual",NA,"",2014-01-01,"NAICS 52 Finance and insurance",71047,2014,"A01","Annual",NA,"",97380
+"130",2015,"A01","Annual",NA,"",2015-01-01,"NAICS 52 Finance and insurance",74263,2015,"A01","Annual",NA,"",100286
+"131",2016,"A01","Annual",NA,"",2016-01-01,"NAICS 52 Finance and insurance",76061,2016,"A01","Annual",NA,"",101210
+"132",2017,"A01","Annual",NA,"",2017-01-01,"NAICS 52 Finance and insurance",78024,2017,"A01","Annual",NA,"",106185
+"133",2018,"A01","Annual",NA,"",2018-01-01,"NAICS 52 Finance and insurance",80249,2018,"A01","Annual",NA,"",109231
+"134",2019,"A01","Annual",NA,"",2019-01-01,"NAICS 52 Finance and insurance",82692,2019,"A01","Annual",NA,"",112656
+"135",2020,"A01","Annual",NA,"",2020-01-01,"NAICS 52 Finance and insurance",90366,2020,"A01","Annual",NA,"",121538
+"136",2021,"A01","Annual",NA,"",2021-01-01,"NAICS 52 Finance and insurance",92877,2021,"A01","Annual",NA,"",131621
+"137",2022,"A01","Annual",NA,"",2022-01-01,"NAICS 52 Finance and insurance",92295,2022,"A01","Annual",NA,"",132851
+"138",2023,"A01","Annual",NA,"",2023-01-01,"NAICS 52 Finance and insurance",95499,2023,"A01","Annual",NA,"",135740
+"139",2024,"A01","Annual",NA,"",2024-01-01,"NAICS 52 Finance and insurance",99769,2024,"A01","Annual",NA,"",143074
+"140",2025,"A01","Annual","true","P Preliminary.",2025-01-01,"NAICS 52 Finance and insurance",106223,2025,"A01","Annual","true","P Preliminary.",153013
+"141",2012,"A01","Annual",NA,"",2012-01-01,"NAICS 53 Real estate and rental and leasing",37626,2012,"A01","Annual",NA,"",48308
+"142",2013,"A01","Annual",NA,"",2013-01-01,"NAICS 53 Real estate and rental and leasing",38252,2013,"A01","Annual",NA,"",49282
+"143",2014,"A01","Annual",NA,"",2014-01-01,"NAICS 53 Real estate and rental and leasing",39699,2014,"A01","Annual",NA,"",51820
+"144",2015,"A01","Annual",NA,"",2015-01-01,"NAICS 53 Real estate and rental and leasing",42310,2015,"A01","Annual",NA,"",54006
+"145",2016,"A01","Annual",NA,"",2016-01-01,"NAICS 53 Real estate and rental and leasing",43744,2016,"A01","Annual",NA,"",54965
+"146",2017,"A01","Annual",NA,"",2017-01-01,"NAICS 53 Real estate and rental and leasing",45345,2017,"A01","Annual",NA,"",56970
+"147",2018,"A01","Annual",NA,"",2018-01-01,"NAICS 53 Real estate and rental and leasing",48013,2018,"A01","Annual",NA,"",59129
+"148",2019,"A01","Annual",NA,"",2019-01-01,"NAICS 53 Real estate and rental and leasing",49116,2019,"A01","Annual",NA,"",61336
+"149",2020,"A01","Annual",NA,"",2020-01-01,"NAICS 53 Real estate and rental and leasing",55290,2020,"A01","Annual",NA,"",65183
+"150",2021,"A01","Annual",NA,"",2021-01-01,"NAICS 53 Real estate and rental and leasing",59004,2021,"A01","Annual",NA,"",69893
+"151",2022,"A01","Annual",NA,"",2022-01-01,"NAICS 53 Real estate and rental and leasing",61115,2022,"A01","Annual",NA,"",73925
+"152",2023,"A01","Annual",NA,"",2023-01-01,"NAICS 53 Real estate and rental and leasing",62645,2023,"A01","Annual",NA,"",74536
+"153",2024,"A01","Annual",NA,"",2024-01-01,"NAICS 53 Real estate and rental and leasing",64939,2024,"A01","Annual",NA,"",77035
+"154",2025,"A01","Annual","true","P Preliminary.",2025-01-01,"NAICS 53 Real estate and rental and leasing",67910,2025,"A01","Annual","true","P Preliminary.",80270
+"155",2012,"A01","Annual",NA,"",2012-01-01,"NAICS 54 Professional, scientific, and technical services",74468,2012,"A01","Annual",NA,"",83368
+"156",2013,"A01","Annual",NA,"",2013-01-01,"NAICS 54 Professional, scientific, and technical services",74558,2013,"A01","Annual",NA,"",83429
+"157",2014,"A01","Annual",NA,"",2014-01-01,"NAICS 54 Professional, scientific, and technical services",76538,2014,"A01","Annual",NA,"",86391
+"158",2015,"A01","Annual",NA,"",2015-01-01,"NAICS 54 Professional, scientific, and technical services",80805,2015,"A01","Annual",NA,"",89785
+"159",2016,"A01","Annual",NA,"",2016-01-01,"NAICS 54 Professional, scientific, and technical services",82319,2016,"A01","Annual",NA,"",90972
+"160",2017,"A01","Annual",NA,"",2017-01-01,"NAICS 54 Professional, scientific, and technical services",86463,2017,"A01","Annual",NA,"",93687
+"161",2018,"A01","Annual",NA,"",2018-01-01,"NAICS 54 Professional, scientific, and technical services",87906,2018,"A01","Annual",NA,"",97113
+"162",2019,"A01","Annual",NA,"",2019-01-01,"NAICS 54 Professional, scientific, and technical services",89203,2019,"A01","Annual",NA,"",100699
+"163",2020,"A01","Annual",NA,"",2020-01-01,"NAICS 54 Professional, scientific, and technical services",92801,2020,"A01","Annual",NA,"",107153
+"164",2021,"A01","Annual",NA,"",2021-01-01,"NAICS 54 Professional, scientific, and technical services",97462,2021,"A01","Annual",NA,"",114364
+"165",2022,"A01","Annual",NA,"",2022-01-01,"NAICS 54 Professional, scientific, and technical services",101556,2022,"A01","Annual",NA,"",117093
+"166",2023,"A01","Annual",NA,"",2023-01-01,"NAICS 54 Professional, scientific, and technical services",106120,2023,"A01","Annual",NA,"",121254
+"167",2024,"A01","Annual",NA,"",2024-01-01,"NAICS 54 Professional, scientific, and technical services",111028,2024,"A01","Annual",NA,"",128082
+"168",2025,"A01","Annual","true","P Preliminary.",2025-01-01,"NAICS 54 Professional, scientific, and technical services",114884,2025,"A01","Annual","true","P Preliminary.",135292
+"169",2012,"A01","Annual",NA,"",2012-01-01,"NAICS 55 Management of companies and enterprises",115244,2012,"A01","Annual",NA,"",108201
+"170",2013,"A01","Annual",NA,"",2013-01-01,"NAICS 55 Management of companies and enterprises",109797,2013,"A01","Annual",NA,"",108895
+"171",2014,"A01","Annual",NA,"",2014-01-01,"NAICS 55 Management of companies and enterprises",118947,2014,"A01","Annual",NA,"",112901
+"172",2015,"A01","Annual",NA,"",2015-01-01,"NAICS 55 Management of companies and enterprises",121447,2015,"A01","Annual",NA,"",116737
+"173",2016,"A01","Annual",NA,"",2016-01-01,"NAICS 55 Management of companies and enterprises",123389,2016,"A01","Annual",NA,"",115325
+"174",2017,"A01","Annual",NA,"",2017-01-01,"NAICS 55 Management of companies and enterprises",132233,2017,"A01","Annual",NA,"",119885
+"175",2018,"A01","Annual",NA,"",2018-01-01,"NAICS 55 Management of companies and enterprises",128140,2018,"A01","Annual",NA,"",122843
+"176",2019,"A01","Annual",NA,"",2019-01-01,"NAICS 55 Management of companies and enterprises",126541,2019,"A01","Annual",NA,"",126310
+"177",2020,"A01","Annual",NA,"",2020-01-01,"NAICS 55 Management of companies and enterprises",127533,2020,"A01","Annual",NA,"",132370
+"178",2021,"A01","Annual",NA,"",2021-01-01,"NAICS 55 Management of companies and enterprises",131679,2021,"A01","Annual",NA,"",141628
+"179",2022,"A01","Annual",NA,"",2022-01-01,"NAICS 55 Management of companies and enterprises",135063,2022,"A01","Annual",NA,"",144653
+"180",2023,"A01","Annual",NA,"",2023-01-01,"NAICS 55 Management of companies and enterprises",141161,2023,"A01","Annual",NA,"",146963
+"181",2024,"A01","Annual",NA,"",2024-01-01,"NAICS 55 Management of companies and enterprises",142550,2024,"A01","Annual",NA,"",161228
+"182",2025,"A01","Annual","true","P Preliminary.",2025-01-01,"NAICS 55 Management of companies and enterprises",147557,2025,"A01","Annual","true","P Preliminary.",165866
+"183",2012,"A01","Annual",NA,"",2012-01-01,"NAICS 56 Administrative and support and waste management",31719,2012,"A01","Annual",NA,"",34855
+"184",2013,"A01","Annual",NA,"",2013-01-01,"NAICS 56 Administrative and support and waste management",31704,2013,"A01","Annual",NA,"",34975
+"185",2014,"A01","Annual",NA,"",2014-01-01,"NAICS 56 Administrative and support and waste management",32423,2014,"A01","Annual",NA,"",35843
+"186",2015,"A01","Annual",NA,"",2015-01-01,"NAICS 56 Administrative and support and waste management",33890,2015,"A01","Annual",NA,"",37275
+"187",2016,"A01","Annual",NA,"",2016-01-01,"NAICS 56 Administrative and support and waste management",34700,2016,"A01","Annual",NA,"",37989
+"188",2017,"A01","Annual",NA,"",2017-01-01,"NAICS 56 Administrative and support and waste management",35902,2017,"A01","Annual",NA,"",39621
+"189",2018,"A01","Annual",NA,"",2018-01-01,"NAICS 56 Administrative and support and waste management",36736,2018,"A01","Annual",NA,"",40985
+"190",2019,"A01","Annual",NA,"",2019-01-01,"NAICS 56 Administrative and support and waste management",37721,2019,"A01","Annual",NA,"",43026
+"191",2020,"A01","Annual",NA,"",2020-01-01,"NAICS 56 Administrative and support and waste management",42029,2020,"A01","Annual",NA,"",46481
+"192",2021,"A01","Annual",NA,"",2021-01-01,"NAICS 56 Administrative and support and waste management",45833,2021,"A01","Annual",NA,"",50166
+"193",2022,"A01","Annual",NA,"",2022-01-01,"NAICS 56 Administrative and support and waste management",49005,2022,"A01","Annual",NA,"",54563
+"194",2023,"A01","Annual",NA,"",2023-01-01,"NAICS 56 Administrative and support and waste management",50177,2023,"A01","Annual",NA,"",56232
+"195",2024,"A01","Annual",NA,"",2024-01-01,"NAICS 56 Administrative and support and waste management",51726,2024,"A01","Annual",NA,"",57961
+"196",2025,"A01","Annual","true","P Preliminary.",2025-01-01,"NAICS 56 Administrative and support and waste management",52451,2025,"A01","Annual","true","P Preliminary.",60029
+"197",2012,"A01","Annual",NA,"",2012-01-01,"NAICS 61 Educational services",33808,2012,"A01","Annual",NA,"",44509
+"198",2013,"A01","Annual",NA,"",2013-01-01,"NAICS 61 Educational services",33858,2013,"A01","Annual",NA,"",45424
+"199",2014,"A01","Annual",NA,"",2014-01-01,"NAICS 61 Educational services",35664,2014,"A01","Annual",NA,"",46580
+"200",2015,"A01","Annual",NA,"",2015-01-01,"NAICS 61 Educational services",35798,2015,"A01","Annual",NA,"",47968
+"201",2016,"A01","Annual",NA,"",2016-01-01,"NAICS 61 Educational services",36807,2016,"A01","Annual",NA,"",48757
+"202",2017,"A01","Annual",NA,"",2017-01-01,"NAICS 61 Educational services",37676,2017,"A01","Annual",NA,"",50053
+"203",2018,"A01","Annual",NA,"",2018-01-01,"NAICS 61 Educational services",39060,2018,"A01","Annual",NA,"",51250
+"204",2019,"A01","Annual",NA,"",2019-01-01,"NAICS 61 Educational services",39112,2019,"A01","Annual",NA,"",52658
+"205",2020,"A01","Annual",NA,"",2020-01-01,"NAICS 61 Educational services",42705,2020,"A01","Annual",NA,"",57189
+"206",2021,"A01","Annual",NA,"",2021-01-01,"NAICS 61 Educational services",43341,2021,"A01","Annual",NA,"",58442
+"207",2022,"A01","Annual",NA,"",2022-01-01,"NAICS 61 Educational services",44203,2022,"A01","Annual",NA,"",59915
+"208",2023,"A01","Annual",NA,"",2023-01-01,"NAICS 61 Educational services",45327,2023,"A01","Annual",NA,"",61808
+"209",2024,"A01","Annual",NA,"",2024-01-01,"NAICS 61 Educational services",46588,2024,"A01","Annual",NA,"",64023
+"210",2025,"A01","Annual","true","P Preliminary.",2025-01-01,"NAICS 61 Educational services",47973,2025,"A01","Annual","true","P Preliminary.",65892
+"211",2012,"A01","Annual",NA,"",2012-01-01,"NAICS 62 Health care and social assistance",45054,2012,"A01","Annual",NA,"",45406
+"212",2013,"A01","Annual",NA,"",2013-01-01,"NAICS 62 Health care and social assistance",45658,2013,"A01","Annual",NA,"",44909
+"213",2014,"A01","Annual",NA,"",2014-01-01,"NAICS 62 Health care and social assistance",46585,2014,"A01","Annual",NA,"",45857
+"214",2015,"A01","Annual",NA,"",2015-01-01,"NAICS 62 Health care and social assistance",48242,2015,"A01","Annual",NA,"",47296
+"215",2016,"A01","Annual",NA,"",2016-01-01,"NAICS 62 Health care and social assistance",48880,2016,"A01","Annual",NA,"",47956
+"216",2017,"A01","Annual",NA,"",2017-01-01,"NAICS 62 Health care and social assistance",49591,2017,"A01","Annual",NA,"",49076
+"217",2018,"A01","Annual",NA,"",2018-01-01,"NAICS 62 Health care and social assistance",50887,2018,"A01","Annual",NA,"",50326
+"218",2019,"A01","Annual",NA,"",2019-01-01,"NAICS 62 Health care and social assistance",52098,2019,"A01","Annual",NA,"",51792
+"219",2020,"A01","Annual",NA,"",2020-01-01,"NAICS 62 Health care and social assistance",55319,2020,"A01","Annual",NA,"",55077
+"220",2021,"A01","Annual",NA,"",2021-01-01,"NAICS 62 Health care and social assistance",57742,2021,"A01","Annual",NA,"",58073
+"221",2022,"A01","Annual",NA,"",2022-01-01,"NAICS 62 Health care and social assistance",60777,2022,"A01","Annual",NA,"",61086
+"222",2023,"A01","Annual",NA,"",2023-01-01,"NAICS 62 Health care and social assistance",61440,2023,"A01","Annual",NA,"",62827
+"223",2024,"A01","Annual",NA,"",2024-01-01,"NAICS 62 Health care and social assistance",63292,2024,"A01","Annual",NA,"",64628
+"224",2025,"A01","Annual","true","P Preliminary.",2025-01-01,"NAICS 62 Health care and social assistance",64950,2025,"A01","Annual","true","P Preliminary.",66520
+"225",2012,"A01","Annual",NA,"",2012-01-01,"NAICS 71 Arts, entertainment, and recreation",29709,2012,"A01","Annual",NA,"",33745
+"226",2013,"A01","Annual",NA,"",2013-01-01,"NAICS 71 Arts, entertainment, and recreation",30280,2013,"A01","Annual",NA,"",33832
+"227",2014,"A01","Annual",NA,"",2014-01-01,"NAICS 71 Arts, entertainment, and recreation",30740,2014,"A01","Annual",NA,"",34867
+"228",2015,"A01","Annual",NA,"",2015-01-01,"NAICS 71 Arts, entertainment, and recreation",31449,2015,"A01","Annual",NA,"",36128
+"229",2016,"A01","Annual",NA,"",2016-01-01,"NAICS 71 Arts, entertainment, and recreation",32956,2016,"A01","Annual",NA,"",36806
+"230",2017,"A01","Annual",NA,"",2017-01-01,"NAICS 71 Arts, entertainment, and recreation",33910,2017,"A01","Annual",NA,"",37759
+"231",2018,"A01","Annual",NA,"",2018-01-01,"NAICS 71 Arts, entertainment, and recreation",33806,2018,"A01","Annual",NA,"",38887
+"232",2019,"A01","Annual",NA,"",2019-01-01,"NAICS 71 Arts, entertainment, and recreation",34262,2019,"A01","Annual",NA,"",40056
+"233",2020,"A01","Annual",NA,"",2020-01-01,"NAICS 71 Arts, entertainment, and recreation",40603,2020,"A01","Annual",NA,"",45676
+"234",2021,"A01","Annual",NA,"",2021-01-01,"NAICS 71 Arts, entertainment, and recreation",38463,2021,"A01","Annual",NA,"",46244
+"235",2022,"A01","Annual",NA,"",2022-01-01,"NAICS 71 Arts, entertainment, and recreation",41355,2022,"A01","Annual",NA,"",48616
+"236",2023,"A01","Annual",NA,"",2023-01-01,"NAICS 71 Arts, entertainment, and recreation",41879,2023,"A01","Annual",NA,"",49164
+"237",2024,"A01","Annual",NA,"",2024-01-01,"NAICS 71 Arts, entertainment, and recreation",43289,2024,"A01","Annual",NA,"",50483
+"238",2025,"A01","Annual","true","P Preliminary.",2025-01-01,"NAICS 71 Arts, entertainment, and recreation",47514,2025,"A01","Annual","true","P Preliminary.",52148
+"239",2012,"A01","Annual",NA,"",2012-01-01,"NAICS 72 Accommodation and food services",15055,2012,"A01","Annual",NA,"",17946
+"240",2013,"A01","Annual",NA,"",2013-01-01,"NAICS 72 Accommodation and food services",15178,2013,"A01","Annual",NA,"",18174
+"241",2014,"A01","Annual",NA,"",2014-01-01,"NAICS 72 Accommodation and food services",15561,2014,"A01","Annual",NA,"",18676
+"242",2015,"A01","Annual",NA,"",2015-01-01,"NAICS 72 Accommodation and food services",16545,2015,"A01","Annual",NA,"",19415
+"243",2016,"A01","Annual",NA,"",2016-01-01,"NAICS 72 Accommodation and food services",17106,2016,"A01","Annual",NA,"",20032
+"244",2017,"A01","Annual",NA,"",2017-01-01,"NAICS 72 Accommodation and food services",17863,2017,"A01","Annual",NA,"",20731
+"245",2018,"A01","Annual",NA,"",2018-01-01,"NAICS 72 Accommodation and food services",18709,2018,"A01","Annual",NA,"",21559
+"246",2019,"A01","Annual",NA,"",2019-01-01,"NAICS 72 Accommodation and food services",19275,2019,"A01","Annual",NA,"",22491
+"247",2020,"A01","Annual",NA,"",2020-01-01,"NAICS 72 Accommodation and food services",19979,2020,"A01","Annual",NA,"",22784
+"248",2021,"A01","Annual",NA,"",2021-01-01,"NAICS 72 Accommodation and food services",22397,2021,"A01","Annual",NA,"",25659
+"249",2022,"A01","Annual",NA,"",2022-01-01,"NAICS 72 Accommodation and food services",23809,2022,"A01","Annual",NA,"",27452
+"250",2023,"A01","Annual",NA,"",2023-01-01,"NAICS 72 Accommodation and food services",24715,2023,"A01","Annual",NA,"",28667
+"251",2024,"A01","Annual",NA,"",2024-01-01,"NAICS 72 Accommodation and food services",25563,2024,"A01","Annual",NA,"",29838
+"252",2025,"A01","Annual","true","P Preliminary.",2025-01-01,"NAICS 72 Accommodation and food services",26433,2025,"A01","Annual","true","P Preliminary.",30779
+"253",2012,"A01","Annual",NA,"",2012-01-01,"NAICS 81 Other services (except public administration)",27697,2012,"A01","Annual",NA,"",30090
+"254",2013,"A01","Annual",NA,"",2013-01-01,"NAICS 81 Other services (except public administration)",28222,2013,"A01","Annual",NA,"",32844
+"255",2014,"A01","Annual",NA,"",2014-01-01,"NAICS 81 Other services (except public administration)",29726,2014,"A01","Annual",NA,"",33936
+"256",2015,"A01","Annual",NA,"",2015-01-01,"NAICS 81 Other services (except public administration)",30949,2015,"A01","Annual",NA,"",35116
+"257",2016,"A01","Annual",NA,"",2016-01-01,"NAICS 81 Other services (except public administration)",31654,2016,"A01","Annual",NA,"",35921
+"258",2017,"A01","Annual",NA,"",2017-01-01,"NAICS 81 Other services (except public administration)",32157,2017,"A01","Annual",NA,"",37320
+"259",2018,"A01","Annual",NA,"",2018-01-01,"NAICS 81 Other services (except public administration)",33275,2018,"A01","Annual",NA,"",38464
+"260",2019,"A01","Annual",NA,"",2019-01-01,"NAICS 81 Other services (except public administration)",34330,2019,"A01","Annual",NA,"",39922
+"261",2020,"A01","Annual",NA,"",2020-01-01,"NAICS 81 Other services (except public administration)",39650,2020,"A01","Annual",NA,"",44084
+"262",2021,"A01","Annual",NA,"",2021-01-01,"NAICS 81 Other services (except public administration)",41034,2021,"A01","Annual",NA,"",46122
+"263",2022,"A01","Annual",NA,"",2022-01-01,"NAICS 81 Other services (except public administration)",43247,2022,"A01","Annual",NA,"",48549
+"264",2023,"A01","Annual",NA,"",2023-01-01,"NAICS 81 Other services (except public administration)",45280,2023,"A01","Annual",NA,"",50702
+"265",2024,"A01","Annual",NA,"",2024-01-01,"NAICS 81 Other services (except public administration)",47283,2024,"A01","Annual",NA,"",52723
+"266",2025,"A01","Annual","true","P Preliminary.",2025-01-01,"NAICS 81 Other services (except public administration)",49104,2025,"A01","Annual","true","P Preliminary.",54432

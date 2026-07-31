@@ -68,3 +68,5 @@ str(combined_data$date)
 names(combined_data)
 
 saveRDS(combined_data, "data/fred_spending.rds")
+
+write.csv(combined_data, "data_download/fred_spending.csv")

@@ -1,0 +1,250 @@
+"","GEOID","NAME","variable","estimate"
+"1","26077","Kalamazoo","Dial-up with no other type of Internet subscription",0.1
+"2","26077","Kalamazoo","Broadband of any type",90.6
+"3","26077","Kalamazoo","Without an Internet subscription",9.3
+"4","26021","Berrien","Dial-up with no other type of Internet subscription",0.3
+"5","26021","Berrien","Broadband of any type",89.3
+"6","26021","Berrien","Without an Internet subscription",10.4
+"7","26023","Branch","Dial-up with no other type of Internet subscription",0.3
+"8","26023","Branch","Broadband of any type",84.7
+"9","26023","Branch","Without an Internet subscription",15
+"10","26025","Calhoun","Dial-up with no other type of Internet subscription",0.1
+"11","26025","Calhoun","Broadband of any type",89.6
+"12","26025","Calhoun","Without an Internet subscription",10.3
+"13","26027","Cass","Dial-up with no other type of Internet subscription",0
+"14","26027","Cass","Broadband of any type",88.6
+"15","26027","Cass","Without an Internet subscription",11.4
+"16","26149","St. Joseph","Dial-up with no other type of Internet subscription",0.1
+"17","26149","St. Joseph","Broadband of any type",88.8
+"18","26149","St. Joseph","Without an Internet subscription",11.1
+"19","26159","Van Buren","Dial-up with no other type of Internet subscription",0.2
+"20","26159","Van Buren","Broadband of any type",89.4
+"21","26159","Van Buren","Without an Internet subscription",10.4
+"22","26001","Alcona","Dial-up with no other type of Internet subscription",0.5
+"23","26001","Alcona","Broadband of any type",83.4
+"24","26001","Alcona","Without an Internet subscription",16.1
+"25","26003","Alger","Dial-up with no other type of Internet subscription",0.5
+"26","26003","Alger","Broadband of any type",85.4
+"27","26003","Alger","Without an Internet subscription",14.1
+"28","26005","Allegan","Dial-up with no other type of Internet subscription",0.2
+"29","26005","Allegan","Broadband of any type",91.6
+"30","26005","Allegan","Without an Internet subscription",8.2
+"31","26007","Alpena","Dial-up with no other type of Internet subscription",0.1
+"32","26007","Alpena","Broadband of any type",85.1
+"33","26007","Alpena","Without an Internet subscription",14.8
+"34","26009","Antrim","Dial-up with no other type of Internet subscription",0.2
+"35","26009","Antrim","Broadband of any type",88.8
+"36","26009","Antrim","Without an Internet subscription",11
+"37","26011","Arenac","Dial-up with no other type of Internet subscription",0.5
+"38","26011","Arenac","Broadband of any type",87
+"39","26011","Arenac","Without an Internet subscription",12.5
+"40","26013","Baraga","Dial-up with no other type of Internet subscription",0.6
+"41","26013","Baraga","Broadband of any type",83.9
+"42","26013","Baraga","Without an Internet subscription",15.5
+"43","26015","Barry","Dial-up with no other type of Internet subscription",0.2
+"44","26015","Barry","Broadband of any type",86.8
+"45","26015","Barry","Without an Internet subscription",13.1
+"46","26017","Bay","Dial-up with no other type of Internet subscription",0.2
+"47","26017","Bay","Broadband of any type",88.2
+"48","26017","Bay","Without an Internet subscription",11.6
+"49","26019","Benzie","Dial-up with no other type of Internet subscription",0.2
+"50","26019","Benzie","Broadband of any type",93
+"51","26019","Benzie","Without an Internet subscription",6.8
+"52","26029","Charlevoix","Dial-up with no other type of Internet subscription",0.2
+"53","26029","Charlevoix","Broadband of any type",90.1
+"54","26029","Charlevoix","Without an Internet subscription",9.8
+"55","26031","Cheboygan","Dial-up with no other type of Internet subscription",0.1
+"56","26031","Cheboygan","Broadband of any type",87
+"57","26031","Cheboygan","Without an Internet subscription",12.9
+"58","26033","Chippewa","Dial-up with no other type of Internet subscription",0.3
+"59","26033","Chippewa","Broadband of any type",87.8
+"60","26033","Chippewa","Without an Internet subscription",11.9
+"61","26035","Clare","Dial-up with no other type of Internet subscription",0.2
+"62","26035","Clare","Broadband of any type",82.3
+"63","26035","Clare","Without an Internet subscription",17.5
+"64","26037","Clinton","Dial-up with no other type of Internet subscription",0.3
+"65","26037","Clinton","Broadband of any type",90.3
+"66","26037","Clinton","Without an Internet subscription",9.3
+"67","26039","Crawford","Dial-up with no other type of Internet subscription",0.2
+"68","26039","Crawford","Broadband of any type",89.9
+"69","26039","Crawford","Without an Internet subscription",9.9
+"70","26041","Delta","Dial-up with no other type of Internet subscription",0.1
+"71","26041","Delta","Broadband of any type",87.1
+"72","26041","Delta","Without an Internet subscription",12.8
+"73","26043","Dickinson","Dial-up with no other type of Internet subscription",0
+"74","26043","Dickinson","Broadband of any type",87.6
+"75","26043","Dickinson","Without an Internet subscription",12.4
+"76","26045","Eaton","Dial-up with no other type of Internet subscription",0.1
+"77","26045","Eaton","Broadband of any type",91.2
+"78","26045","Eaton","Without an Internet subscription",8.7
+"79","26047","Emmet","Dial-up with no other type of Internet subscription",0.2
+"80","26047","Emmet","Broadband of any type",91.1
+"81","26047","Emmet","Without an Internet subscription",8.7
+"82","26049","Genesee","Dial-up with no other type of Internet subscription",0.1
+"83","26049","Genesee","Broadband of any type",89.6
+"84","26049","Genesee","Without an Internet subscription",10.3
+"85","26051","Gladwin","Dial-up with no other type of Internet subscription",0.2
+"86","26051","Gladwin","Broadband of any type",86
+"87","26051","Gladwin","Without an Internet subscription",13.8
+"88","26053","Gogebic","Dial-up with no other type of Internet subscription",0.1
+"89","26053","Gogebic","Broadband of any type",85.9
+"90","26053","Gogebic","Without an Internet subscription",14
+"91","26055","Grand Traverse","Dial-up with no other type of Internet subscription",0.1
+"92","26055","Grand Traverse","Broadband of any type",91.9
+"93","26055","Grand Traverse","Without an Internet subscription",8
+"94","26057","Gratiot","Dial-up with no other type of Internet subscription",0.1
+"95","26057","Gratiot","Broadband of any type",85.9
+"96","26057","Gratiot","Without an Internet subscription",13.9
+"97","26059","Hillsdale","Dial-up with no other type of Internet subscription",0.3
+"98","26059","Hillsdale","Broadband of any type",85.9
+"99","26059","Hillsdale","Without an Internet subscription",13.8
+"100","26061","Houghton","Dial-up with no other type of Internet subscription",0
+"101","26061","Houghton","Broadband of any type",88.7
+"102","26061","Houghton","Without an Internet subscription",11.3
+"103","26063","Huron","Dial-up with no other type of Internet subscription",0.3
+"104","26063","Huron","Broadband of any type",83.4
+"105","26063","Huron","Without an Internet subscription",16.4
+"106","26065","Ingham","Dial-up with no other type of Internet subscription",0.1
+"107","26065","Ingham","Broadband of any type",90.3
+"108","26065","Ingham","Without an Internet subscription",9.7
+"109","26067","Ionia","Dial-up with no other type of Internet subscription",0.2
+"110","26067","Ionia","Broadband of any type",87.6
+"111","26067","Ionia","Without an Internet subscription",12.2
+"112","26069","Iosco","Dial-up with no other type of Internet subscription",0.3
+"113","26069","Iosco","Broadband of any type",84.9
+"114","26069","Iosco","Without an Internet subscription",14.8
+"115","26071","Iron","Dial-up with no other type of Internet subscription",0.1
+"116","26071","Iron","Broadband of any type",83.1
+"117","26071","Iron","Without an Internet subscription",16.8
+"118","26073","Isabella","Dial-up with no other type of Internet subscription",0.3
+"119","26073","Isabella","Broadband of any type",81.7
+"120","26073","Isabella","Without an Internet subscription",18.1
+"121","26075","Jackson","Dial-up with no other type of Internet subscription",0.2
+"122","26075","Jackson","Broadband of any type",91.5
+"123","26075","Jackson","Without an Internet subscription",8.3
+"124","26079","Kalkaska","Dial-up with no other type of Internet subscription",0.7
+"125","26079","Kalkaska","Broadband of any type",87.4
+"126","26079","Kalkaska","Without an Internet subscription",11.9
+"127","26081","Kent","Dial-up with no other type of Internet subscription",0.1
+"128","26081","Kent","Broadband of any type",92.2
+"129","26081","Kent","Without an Internet subscription",7.8
+"130","26083","Keweenaw","Dial-up with no other type of Internet subscription",0.5
+"131","26083","Keweenaw","Broadband of any type",86.1
+"132","26083","Keweenaw","Without an Internet subscription",13.4
+"133","26085","Lake","Dial-up with no other type of Internet subscription",0.6
+"134","26085","Lake","Broadband of any type",81.2
+"135","26085","Lake","Without an Internet subscription",18.2
+"136","26087","Lapeer","Dial-up with no other type of Internet subscription",0.5
+"137","26087","Lapeer","Broadband of any type",88.2
+"138","26087","Lapeer","Without an Internet subscription",11.3
+"139","26089","Leelanau","Dial-up with no other type of Internet subscription",0.2
+"140","26089","Leelanau","Broadband of any type",93.1
+"141","26089","Leelanau","Without an Internet subscription",6.7
+"142","26091","Lenawee","Dial-up with no other type of Internet subscription",0.1
+"143","26091","Lenawee","Broadband of any type",89.5
+"144","26091","Lenawee","Without an Internet subscription",10.4
+"145","26093","Livingston","Dial-up with no other type of Internet subscription",0.2
+"146","26093","Livingston","Broadband of any type",93.3
+"147","26093","Livingston","Without an Internet subscription",6.5
+"148","26095","Luce","Dial-up with no other type of Internet subscription",0
+"149","26095","Luce","Broadband of any type",85.9
+"150","26095","Luce","Without an Internet subscription",14.1
+"151","26097","Mackinac","Dial-up with no other type of Internet subscription",0.3
+"152","26097","Mackinac","Broadband of any type",84.4
+"153","26097","Mackinac","Without an Internet subscription",15.3
+"154","26099","Macomb","Dial-up with no other type of Internet subscription",0.1
+"155","26099","Macomb","Broadband of any type",93.2
+"156","26099","Macomb","Without an Internet subscription",6.7
+"157","26101","Manistee","Dial-up with no other type of Internet subscription",0.4
+"158","26101","Manistee","Broadband of any type",86.1
+"159","26101","Manistee","Without an Internet subscription",13.5
+"160","26103","Marquette","Dial-up with no other type of Internet subscription",0.3
+"161","26103","Marquette","Broadband of any type",84.8
+"162","26103","Marquette","Without an Internet subscription",14.9
+"163","26105","Mason","Dial-up with no other type of Internet subscription",0.1
+"164","26105","Mason","Broadband of any type",86.5
+"165","26105","Mason","Without an Internet subscription",13.4
+"166","26107","Mecosta","Dial-up with no other type of Internet subscription",0.3
+"167","26107","Mecosta","Broadband of any type",82
+"168","26107","Mecosta","Without an Internet subscription",17.7
+"169","26109","Menominee","Dial-up with no other type of Internet subscription",0.2
+"170","26109","Menominee","Broadband of any type",85
+"171","26109","Menominee","Without an Internet subscription",14.9
+"172","26111","Midland","Dial-up with no other type of Internet subscription",0.1
+"173","26111","Midland","Broadband of any type",89.5
+"174","26111","Midland","Without an Internet subscription",10.4
+"175","26113","Missaukee","Dial-up with no other type of Internet subscription",0.4
+"176","26113","Missaukee","Broadband of any type",86.5
+"177","26113","Missaukee","Without an Internet subscription",13.1
+"178","26115","Monroe","Dial-up with no other type of Internet subscription",0.1
+"179","26115","Monroe","Broadband of any type",89.2
+"180","26115","Monroe","Without an Internet subscription",10.7
+"181","26117","Montcalm","Dial-up with no other type of Internet subscription",0.3
+"182","26117","Montcalm","Broadband of any type",83.9
+"183","26117","Montcalm","Without an Internet subscription",15.7
+"184","26119","Montmorency","Dial-up with no other type of Internet subscription",0.5
+"185","26119","Montmorency","Broadband of any type",82.9
+"186","26119","Montmorency","Without an Internet subscription",16.6
+"187","26121","Muskegon","Dial-up with no other type of Internet subscription",0.2
+"188","26121","Muskegon","Broadband of any type",88.8
+"189","26121","Muskegon","Without an Internet subscription",11
+"190","26123","Newaygo","Dial-up with no other type of Internet subscription",0.1
+"191","26123","Newaygo","Broadband of any type",83.8
+"192","26123","Newaygo","Without an Internet subscription",16.1
+"193","26125","Oakland","Dial-up with no other type of Internet subscription",0.1
+"194","26125","Oakland","Broadband of any type",94.2
+"195","26125","Oakland","Without an Internet subscription",5.7
+"196","26127","Oceana","Dial-up with no other type of Internet subscription",0.1
+"197","26127","Oceana","Broadband of any type",83.1
+"198","26127","Oceana","Without an Internet subscription",16.8
+"199","26129","Ogemaw","Dial-up with no other type of Internet subscription",0.1
+"200","26129","Ogemaw","Broadband of any type",86.4
+"201","26129","Ogemaw","Without an Internet subscription",13.5
+"202","26131","Ontonagon","Dial-up with no other type of Internet subscription",1
+"203","26131","Ontonagon","Broadband of any type",86.1
+"204","26131","Ontonagon","Without an Internet subscription",12.9
+"205","26133","Osceola","Dial-up with no other type of Internet subscription",0.2
+"206","26133","Osceola","Broadband of any type",82
+"207","26133","Osceola","Without an Internet subscription",17.8
+"208","26135","Oscoda","Dial-up with no other type of Internet subscription",0.2
+"209","26135","Oscoda","Broadband of any type",81.4
+"210","26135","Oscoda","Without an Internet subscription",18.4
+"211","26137","Otsego","Dial-up with no other type of Internet subscription",0.4
+"212","26137","Otsego","Broadband of any type",91.3
+"213","26137","Otsego","Without an Internet subscription",8.3
+"214","26139","Ottawa","Dial-up with no other type of Internet subscription",0.1
+"215","26139","Ottawa","Broadband of any type",93
+"216","26139","Ottawa","Without an Internet subscription",6.9
+"217","26141","Presque Isle","Dial-up with no other type of Internet subscription",0.3
+"218","26141","Presque Isle","Broadband of any type",85.1
+"219","26141","Presque Isle","Without an Internet subscription",14.6
+"220","26143","Roscommon","Dial-up with no other type of Internet subscription",0.1
+"221","26143","Roscommon","Broadband of any type",87.8
+"222","26143","Roscommon","Without an Internet subscription",12.1
+"223","26145","Saginaw","Dial-up with no other type of Internet subscription",0.2
+"224","26145","Saginaw","Broadband of any type",89
+"225","26145","Saginaw","Without an Internet subscription",10.8
+"226","26151","Sanilac","Dial-up with no other type of Internet subscription",0.2
+"227","26151","Sanilac","Broadband of any type",85.4
+"228","26151","Sanilac","Without an Internet subscription",14.4
+"229","26153","Schoolcraft","Dial-up with no other type of Internet subscription",0.5
+"230","26153","Schoolcraft","Broadband of any type",85.8
+"231","26153","Schoolcraft","Without an Internet subscription",13.7
+"232","26155","Shiawassee","Dial-up with no other type of Internet subscription",0.2
+"233","26155","Shiawassee","Broadband of any type",88.5
+"234","26155","Shiawassee","Without an Internet subscription",11.3
+"235","26147","St. Clair","Dial-up with no other type of Internet subscription",0.2
+"236","26147","St. Clair","Broadband of any type",90.9
+"237","26147","St. Clair","Without an Internet subscription",8.9
+"238","26157","Tuscola","Dial-up with no other type of Internet subscription",0.8
+"239","26157","Tuscola","Broadband of any type",85.1
+"240","26157","Tuscola","Without an Internet subscription",14.1
+"241","26161","Washtenaw","Dial-up with no other type of Internet subscription",0.1
+"242","26161","Washtenaw","Broadband of any type",94.1
+"243","26161","Washtenaw","Without an Internet subscription",5.8
+"244","26163","Wayne","Dial-up with no other type of Internet subscription",0.1
+"245","26163","Wayne","Broadband of any type",89.7
+"246","26163","Wayne","Without an Internet subscription",10.2
+"247","26165","Wexford","Dial-up with no other type of Internet subscription",0.1
+"248","26165","Wexford","Broadband of any type",87.5
+"249","26165","Wexford","Without an Internet subscription",12.4

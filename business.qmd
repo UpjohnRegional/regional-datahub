@@ -107,6 +107,16 @@ config(
 )
 ```
 
+::: {.callout-note collapse="true" appearance="minimal"}
+## More Information
+
+Real personal consumption expenditures and disposable income are crucial for understanding consumer spending patterns, which drive much of economic activity. These indicators reveal household financial health and confidence, guiding policymakers in assessing fiscal policies and fostering economic growth and stability. "Chained 2017 dollars" is a method of adjusting economic statistics for inflation; values from other years are adjusted to reflect purchasing power of the dollar in 2017. Consumer goods can be classified as durable, nondurable, or services. Durable goods are classified as items that have long periods between successive purchases (ex. cars or home appliances). Nondurable goods are classified as items that have long periods between successive purchases (ex. food or clothing). Services are acts which are paid for (ex. work done by barbers, doctors, mechanics, etc.) 
+
+**Source:** Federal Reserve Bank of St. Louis (series DSPIC96, PCEDGC96, PCENDC96, and PCESC96)
+
+[📥 Download Data](data_download/fred_spending.csv){download="fred_spending.csv"}
+:::
+
 ```{r}
 #| label: Vehicle Sales and Fuel Prices
 #| echo: false
@@ -240,6 +250,16 @@ fig %>%
 
 ```
 
+::: {.callout-note collapse="true" appearance="minimal"}
+## More Information
+
+Vehicle sales and fuel prices are important economic indicators because they reflect consumer spending and economic confidence, with high sales signaling robust economic activity. Additionally, fuel prices impact transportation costs and disposable income, influencing the economy overall.
+
+**Source:**  Federal Reserve Bank of St. Louis (series ALTSALES) and U.S. Energy Information Administration (series EMM_EPM0_PTE_NUS_DPG)
+
+[📥 Download Data](data_download/vehicleSalesFuelPrices.csv){download="vehicleSalesFuelPrices.csv"}
+:::
+
 ```{r}
 #| label: GDP Percent Change
 #| echo: false
@@ -355,6 +375,16 @@ p %>%
 
 ```
 
+::: {.callout-note collapse="true" appearance="minimal"}
+## More Information
+
+The GDP percent change measures the economy's growth rate, reflecting overall economic health and stability. It helps policymakers and investors make informed decisions by indicating the pace of economic expansion or contraction.
+
+**Source:** US BEA (table CAGDP1)
+
+[📥 Download Data](data_download/gdpPercentChange.csv){download="gdpPercentChange.csv"}
+:::
+
 ```{r}
 #| label: Business Applications Change From a Year Ago
 #| echo: false
@@ -461,6 +491,16 @@ fig %>%
   config(displayModeBar = FALSE)
 
 ```
+
+::: {.callout-note collapse="true" appearance="minimal"}
+## More Information
+
+The percent change in business applications reflects entrepreneurial activity and economic dynamism. A rise in applications suggests increased business formation and economic growth potential, while a decline may indicate reduced economic confidence and future investment.
+
+**Source:** Federal Reserve Bank of St. Louis (series BUSAPPWNSAMIYY and BUSAPPWNSAUS)
+
+[📥 Download Data](data_download/businessAppChange.csv){download="businessAppChange.csv"}
+:::
 
 ```{r}
 #| label: Average Annual Wage
@@ -616,6 +656,16 @@ fig %>%
   config(displayModeBar = FALSE)
 
 ```
+
+::: {.callout-note collapse="true" appearance="minimal"}
+## More Information
+
+Tracking the average annual pay provides insights into income levels and purchasing power within an economy. It helps assess wage trends, labor market conditions, and overall economic well-being, guiding policymaking and business decisions.
+
+**Source:** BLS QCEW
+
+[📥 Download Data](data_download/averageAnnualWage.csv){download="averageAnnualWage.csv"}
+:::
 
 ```{r}
 #| label: Class of Worker
@@ -829,3 +879,12 @@ p %>%
 
 ```
 
+::: {.callout-note collapse="true" appearance="minimal"}
+## More Information
+
+Understanding the class of worker in a county is crucial for analyzing labor market dynamics and economic structure. It offers insights into employment patterns, including self-employment, wage and salary jobs, and their contributions to economic activity and workforce composition.
+
+**Source:** ACS 2024 5-YR Estimates (table B08528)
+
+[📥 Download Data](data_download/averageAnnualWage.csv){download="averageAnnualWage.csv"}
+:::

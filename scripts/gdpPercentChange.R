@@ -111,3 +111,5 @@ bea_long <- bea_long %>%
   select(-order)
 
 saveRDS(bea_long, "data/gdpPercentChange.rds")
+
+write.csv(bea_long, "data_download/gdpPercentChange.csv")

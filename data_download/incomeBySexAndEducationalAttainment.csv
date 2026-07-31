@@ -1,0 +1,416 @@
+"","GEOID.x","NAME","variable","Male Income","Female Income"
+"1","26077","Kalamazoo","Less than high school graduate",37476,22259
+"2","26077","Kalamazoo","High school graduate (includes equivalency)",48720,31315
+"3","26077","Kalamazoo","Some college or associate's degree",55101,38134
+"4","26077","Kalamazoo","Bachelor's degree",77050,58019
+"5","26077","Kalamazoo","Graduate or professional degree",92196,73494
+"6","26021","Berrien","Less than high school graduate",30948,23279
+"7","26021","Berrien","High school graduate (includes equivalency)",40612,26049
+"8","26021","Berrien","Some college or associate's degree",53297,32280
+"9","26021","Berrien","Bachelor's degree",78631,54484
+"10","26021","Berrien","Graduate or professional degree",90672,66222
+"11","26023","Branch","Less than high school graduate",38795,30536
+"12","26023","Branch","High school graduate (includes equivalency)",44189,31458
+"13","26023","Branch","Some college or associate's degree",53234,35119
+"14","26023","Branch","Bachelor's degree",67734,49238
+"15","26023","Branch","Graduate or professional degree",90375,68281
+"16","26025","Calhoun","Less than high school graduate",41295,19485
+"17","26025","Calhoun","High school graduate (includes equivalency)",44404,31228
+"18","26025","Calhoun","Some college or associate's degree",54016,34956
+"19","26025","Calhoun","Bachelor's degree",72974,54504
+"20","26025","Calhoun","Graduate or professional degree",85313,84383
+"21","26027","Cass","Less than high school graduate",45139,20956
+"22","26027","Cass","High school graduate (includes equivalency)",51346,32849
+"23","26027","Cass","Some college or associate's degree",54435,37547
+"24","26027","Cass","Bachelor's degree",85000,54894
+"25","26027","Cass","Graduate or professional degree",96000,70341
+"26","26149","St. Joseph","Less than high school graduate",49305,22664
+"27","26149","St. Joseph","High school graduate (includes equivalency)",48305,29994
+"28","26149","St. Joseph","Some college or associate's degree",55650,34406
+"29","26149","St. Joseph","Bachelor's degree",71349,48091
+"30","26149","St. Joseph","Graduate or professional degree",64554,55521
+"31","26159","Van Buren","Less than high school graduate",34940,29526
+"32","26159","Van Buren","High school graduate (includes equivalency)",50540,29313
+"33","26159","Van Buren","Some college or associate's degree",61680,33869
+"34","26159","Van Buren","Bachelor's degree",74028,49763
+"35","26159","Van Buren","Graduate or professional degree",90297,67548
+"36","26001","Alcona","Less than high school graduate",31786,21528
+"37","26001","Alcona","High school graduate (includes equivalency)",42727,27028
+"38","26001","Alcona","Some college or associate's degree",52303,32768
+"39","26001","Alcona","Bachelor's degree",68456,37500
+"40","26001","Alcona","Graduate or professional degree",79079,65357
+"41","26003","Alger","Less than high school graduate",59375,23438
+"42","26003","Alger","High school graduate (includes equivalency)",42269,28438
+"43","26003","Alger","Some college or associate's degree",49427,34005
+"44","26003","Alger","Bachelor's degree",55000,41354
+"45","26003","Alger","Graduate or professional degree",80688,68438
+"46","26005","Allegan","Less than high school graduate",48276,32438
+"47","26005","Allegan","High school graduate (includes equivalency)",53891,31466
+"48","26005","Allegan","Some college or associate's degree",58565,37234
+"49","26005","Allegan","Bachelor's degree",74696,57527
+"50","26005","Allegan","Graduate or professional degree",83613,72687
+"51","26007","Alpena","Less than high school graduate",28185,11849
+"52","26007","Alpena","High school graduate (includes equivalency)",41672,18933
+"53","26007","Alpena","Some college or associate's degree",49510,30015
+"54","26007","Alpena","Bachelor's degree",65043,41443
+"55","26007","Alpena","Graduate or professional degree",75865,65080
+"56","26009","Antrim","Less than high school graduate",39853,16852
+"57","26009","Antrim","High school graduate (includes equivalency)",47875,27008
+"58","26009","Antrim","Some college or associate's degree",50538,32893
+"59","26009","Antrim","Bachelor's degree",73750,44667
+"60","26009","Antrim","Graduate or professional degree",65000,57941
+"61","26011","Arenac","Less than high school graduate",29500,20809
+"62","26011","Arenac","High school graduate (includes equivalency)",44531,26227
+"63","26011","Arenac","Some college or associate's degree",49346,36515
+"64","26011","Arenac","Bachelor's degree",60893,47647
+"65","26011","Arenac","Graduate or professional degree",69167,75000
+"66","26013","Baraga","Less than high school graduate",35139,NA
+"67","26013","Baraga","High school graduate (includes equivalency)",37647,28860
+"68","26013","Baraga","Some college or associate's degree",47176,33047
+"69","26013","Baraga","Bachelor's degree",80859,47232
+"70","26013","Baraga","Graduate or professional degree",42841,56563
+"71","26015","Barry","Less than high school graduate",45393,33790
+"72","26015","Barry","High school graduate (includes equivalency)",46794,30291
+"73","26015","Barry","Some college or associate's degree",66068,35665
+"74","26015","Barry","Bachelor's degree",74486,53478
+"75","26015","Barry","Graduate or professional degree",89353,74410
+"76","26017","Bay","Less than high school graduate",34632,20221
+"77","26017","Bay","High school graduate (includes equivalency)",45311,28236
+"78","26017","Bay","Some college or associate's degree",53062,33604
+"79","26017","Bay","Bachelor's degree",68622,54167
+"80","26017","Bay","Graduate or professional degree",83235,74444
+"81","26019","Benzie","Less than high school graduate",35208,36250
+"82","26019","Benzie","High school graduate (includes equivalency)",43652,26524
+"83","26019","Benzie","Some college or associate's degree",45924,37857
+"84","26019","Benzie","Bachelor's degree",63462,39063
+"85","26019","Benzie","Graduate or professional degree",53558,59125
+"86","26029","Charlevoix","Less than high school graduate",44583,28690
+"87","26029","Charlevoix","High school graduate (includes equivalency)",41372,31748
+"88","26029","Charlevoix","Some college or associate's degree",56502,38969
+"89","26029","Charlevoix","Bachelor's degree",68688,57989
+"90","26029","Charlevoix","Graduate or professional degree",84821,74348
+"91","26031","Cheboygan","Less than high school graduate",27253,13973
+"92","26031","Cheboygan","High school graduate (includes equivalency)",36821,29118
+"93","26031","Cheboygan","Some college or associate's degree",50953,32725
+"94","26031","Cheboygan","Bachelor's degree",58205,45625
+"95","26031","Cheboygan","Graduate or professional degree",75078,58056
+"96","26033","Chippewa","Less than high school graduate",28355,10063
+"97","26033","Chippewa","High school graduate (includes equivalency)",33404,28025
+"98","26033","Chippewa","Some college or associate's degree",43154,33774
+"99","26033","Chippewa","Bachelor's degree",61690,45643
+"100","26033","Chippewa","Graduate or professional degree",86806,64219
+"101","26035","Clare","Less than high school graduate",39053,20000
+"102","26035","Clare","High school graduate (includes equivalency)",39843,20677
+"103","26035","Clare","Some college or associate's degree",48531,29353
+"104","26035","Clare","Bachelor's degree",65824,44799
+"105","26035","Clare","Graduate or professional degree",74667,55313
+"106","26037","Clinton","Less than high school graduate",35697,42533
+"107","26037","Clinton","High school graduate (includes equivalency)",46663,31217
+"108","26037","Clinton","Some college or associate's degree",61080,38330
+"109","26037","Clinton","Bachelor's degree",88821,66157
+"110","26037","Clinton","Graduate or professional degree",101455,83009
+"111","26039","Crawford","Less than high school graduate",23598,30694
+"112","26039","Crawford","High school graduate (includes equivalency)",40186,27754
+"113","26039","Crawford","Some college or associate's degree",41426,33042
+"114","26039","Crawford","Bachelor's degree",61992,50119
+"115","26039","Crawford","Graduate or professional degree",92604,62115
+"116","26041","Delta","Less than high school graduate",20777,21841
+"117","26041","Delta","High school graduate (includes equivalency)",43987,20978
+"118","26041","Delta","Some college or associate's degree",53627,30364
+"119","26041","Delta","Bachelor's degree",74195,52711
+"120","26041","Delta","Graduate or professional degree",85948,72167
+"121","26043","Dickinson","Less than high school graduate",36250,24213
+"122","26043","Dickinson","High school graduate (includes equivalency)",40321,23714
+"123","26043","Dickinson","Some college or associate's degree",56579,32014
+"124","26043","Dickinson","Bachelor's degree",63676,50176
+"125","26043","Dickinson","Graduate or professional degree",102614,63194
+"126","26045","Eaton","Less than high school graduate",45341,NA
+"127","26045","Eaton","High school graduate (includes equivalency)",45317,33471
+"128","26045","Eaton","Some college or associate's degree",56650,42944
+"129","26045","Eaton","Bachelor's degree",82088,58621
+"130","26045","Eaton","Graduate or professional degree",89014,78561
+"131","26047","Emmet","Less than high school graduate",43750,14479
+"132","26047","Emmet","High school graduate (includes equivalency)",43033,27048
+"133","26047","Emmet","Some college or associate's degree",48832,35655
+"134","26047","Emmet","Bachelor's degree",66654,49817
+"135","26047","Emmet","Graduate or professional degree",97838,73145
+"136","26049","Genesee","Less than high school graduate",32050,19250
+"137","26049","Genesee","High school graduate (includes equivalency)",43965,28010
+"138","26049","Genesee","Some college or associate's degree",54070,33869
+"139","26049","Genesee","Bachelor's degree",78839,52500
+"140","26049","Genesee","Graduate or professional degree",88722,70146
+"141","26051","Gladwin","Less than high school graduate",48167,21250
+"142","26051","Gladwin","High school graduate (includes equivalency)",42934,23139
+"143","26051","Gladwin","Some college or associate's degree",49947,30458
+"144","26051","Gladwin","Bachelor's degree",64333,57426
+"145","26051","Gladwin","Graduate or professional degree",73750,67500
+"146","26053","Gogebic","Less than high school graduate",40800,9688
+"147","26053","Gogebic","High school graduate (includes equivalency)",37454,22585
+"148","26053","Gogebic","Some college or associate's degree",46688,30994
+"149","26053","Gogebic","Bachelor's degree",72604,47632
+"150","26053","Gogebic","Graduate or professional degree",68320,61635
+"151","26055","Grand Traverse","Less than high school graduate",35212,24457
+"152","26055","Grand Traverse","High school graduate (includes equivalency)",43843,34673
+"153","26055","Grand Traverse","Some college or associate's degree",49633,37277
+"154","26055","Grand Traverse","Bachelor's degree",73811,58518
+"155","26055","Grand Traverse","Graduate or professional degree",84257,64343
+"156","26057","Gratiot","Less than high school graduate",40980,28363
+"157","26057","Gratiot","High school graduate (includes equivalency)",44389,23719
+"158","26057","Gratiot","Some college or associate's degree",53508,32045
+"159","26057","Gratiot","Bachelor's degree",73971,44386
+"160","26057","Gratiot","Graduate or professional degree",66750,75395
+"161","26059","Hillsdale","Less than high school graduate",35056,20855
+"162","26059","Hillsdale","High school graduate (includes equivalency)",47048,27095
+"163","26059","Hillsdale","Some college or associate's degree",54556,30938
+"164","26059","Hillsdale","Bachelor's degree",71182,46713
+"165","26059","Hillsdale","Graduate or professional degree",97946,68125
+"166","26061","Houghton","Less than high school graduate",34444,NA
+"167","26061","Houghton","High school graduate (includes equivalency)",43455,25745
+"168","26061","Houghton","Some college or associate's degree",48488,31897
+"169","26061","Houghton","Bachelor's degree",63355,39514
+"170","26061","Houghton","Graduate or professional degree",74781,70000
+"171","26063","Huron","Less than high school graduate",42875,27411
+"172","26063","Huron","High school graduate (includes equivalency)",43557,23283
+"173","26063","Huron","Some college or associate's degree",51694,33626
+"174","26063","Huron","Bachelor's degree",72961,48500
+"175","26063","Huron","Graduate or professional degree",76063,66250
+"176","26065","Ingham","Less than high school graduate",31270,23391
+"177","26065","Ingham","High school graduate (includes equivalency)",42174,31554
+"178","26065","Ingham","Some college or associate's degree",50532,36070
+"179","26065","Ingham","Bachelor's degree",71240,51885
+"180","26065","Ingham","Graduate or professional degree",89292,69800
+"181","26067","Ionia","Less than high school graduate",52247,32321
+"182","26067","Ionia","High school graduate (includes equivalency)",44418,31611
+"183","26067","Ionia","Some college or associate's degree",54457,36299
+"184","26067","Ionia","Bachelor's degree",67243,60964
+"185","26067","Ionia","Graduate or professional degree",88967,60787
+"186","26069","Iosco","Less than high school graduate",29044,NA
+"187","26069","Iosco","High school graduate (includes equivalency)",37170,25171
+"188","26069","Iosco","Some college or associate's degree",37457,27254
+"189","26069","Iosco","Bachelor's degree",65139,43919
+"190","26069","Iosco","Graduate or professional degree",82292,61136
+"191","26071","Iron","Less than high school graduate",38500,4620
+"192","26071","Iron","High school graduate (includes equivalency)",38977,30363
+"193","26071","Iron","Some college or associate's degree",45662,34031
+"194","26071","Iron","Bachelor's degree",66445,42083
+"195","26071","Iron","Graduate or professional degree",73438,71023
+"196","26073","Isabella","Less than high school graduate",25737,16691
+"197","26073","Isabella","High school graduate (includes equivalency)",43742,28432
+"198","26073","Isabella","Some college or associate's degree",48613,33612
+"199","26073","Isabella","Bachelor's degree",61083,42108
+"200","26073","Isabella","Graduate or professional degree",84471,62703
+"201","26075","Jackson","Less than high school graduate",34750,23443
+"202","26075","Jackson","High school graduate (includes equivalency)",43450,30934
+"203","26075","Jackson","Some college or associate's degree",54852,37464
+"204","26075","Jackson","Bachelor's degree",74352,54844
+"205","26075","Jackson","Graduate or professional degree",93100,75238
+"206","26079","Kalkaska","Less than high school graduate",45833,26429
+"207","26079","Kalkaska","High school graduate (includes equivalency)",47962,31080
+"208","26079","Kalkaska","Some college or associate's degree",53242,36230
+"209","26079","Kalkaska","Bachelor's degree",67426,46538
+"210","26079","Kalkaska","Graduate or professional degree",65125,66512
+"211","26081","Kent","Less than high school graduate",40758,31367
+"212","26081","Kent","High school graduate (includes equivalency)",45259,31453
+"213","26081","Kent","Some college or associate's degree",56079,37586
+"214","26081","Kent","Bachelor's degree",79497,54059
+"215","26081","Kent","Graduate or professional degree",91286,72245
+"216","26083","Keweenaw","Less than high school graduate",NA,NA
+"217","26083","Keweenaw","High school graduate (includes equivalency)",44214,24097
+"218","26083","Keweenaw","Some college or associate's degree",48056,NA
+"219","26083","Keweenaw","Bachelor's degree",31795,33750
+"220","26083","Keweenaw","Graduate or professional degree",NA,45536
+"221","26085","Lake","Less than high school graduate",50071,11711
+"222","26085","Lake","High school graduate (includes equivalency)",31268,26087
+"223","26085","Lake","Some college or associate's degree",40938,30921
+"224","26085","Lake","Bachelor's degree",72232,46250
+"225","26085","Lake","Graduate or professional degree",120625,72656
+"226","26087","Lapeer","Less than high school graduate",45305,28527
+"227","26087","Lapeer","High school graduate (includes equivalency)",53380,25813
+"228","26087","Lapeer","Some college or associate's degree",65972,37469
+"229","26087","Lapeer","Bachelor's degree",84551,53920
+"230","26087","Lapeer","Graduate or professional degree",95302,73375
+"231","26089","Leelanau","Less than high school graduate",34063,23125
+"232","26089","Leelanau","High school graduate (includes equivalency)",44395,30250
+"233","26089","Leelanau","Some college or associate's degree",53289,36455
+"234","26089","Leelanau","Bachelor's degree",67011,36804
+"235","26089","Leelanau","Graduate or professional degree",86442,64750
+"236","26091","Lenawee","Less than high school graduate",41009,19691
+"237","26091","Lenawee","High school graduate (includes equivalency)",43620,29233
+"238","26091","Lenawee","Some college or associate's degree",57924,37764
+"239","26091","Lenawee","Bachelor's degree",70000,47824
+"240","26091","Lenawee","Graduate or professional degree",86683,67045
+"241","26093","Livingston","Less than high school graduate",39355,30771
+"242","26093","Livingston","High school graduate (includes equivalency)",53647,31263
+"243","26093","Livingston","Some college or associate's degree",72447,39742
+"244","26093","Livingston","Bachelor's degree",102993,60728
+"245","26093","Livingston","Graduate or professional degree",122464,82482
+"246","26095","Luce","Less than high school graduate",NA,16250
+"247","26095","Luce","High school graduate (includes equivalency)",39250,23785
+"248","26095","Luce","Some college or associate's degree",38304,31780
+"249","26095","Luce","Bachelor's degree",44167,40000
+"250","26095","Luce","Graduate or professional degree",NA,61202
+"251","26097","Mackinac","Less than high school graduate",23935,21172
+"252","26097","Mackinac","High school graduate (includes equivalency)",32353,17467
+"253","26097","Mackinac","Some college or associate's degree",60092,34702
+"254","26097","Mackinac","Bachelor's degree",58056,42344
+"255","26097","Mackinac","Graduate or professional degree",68333,69274
+"256","26099","Macomb","Less than high school graduate",38444,26764
+"257","26099","Macomb","High school graduate (includes equivalency)",48615,31494
+"258","26099","Macomb","Some college or associate's degree",61123,37782
+"259","26099","Macomb","Bachelor's degree",85861,56383
+"260","26099","Macomb","Graduate or professional degree",102337,74290
+"261","26101","Manistee","Less than high school graduate",38750,14650
+"262","26101","Manistee","High school graduate (includes equivalency)",40448,25871
+"263","26101","Manistee","Some college or associate's degree",39449,35167
+"264","26101","Manistee","Bachelor's degree",69158,48622
+"265","26101","Manistee","Graduate or professional degree",85000,72992
+"266","26103","Marquette","Less than high school graduate",38977,23750
+"267","26103","Marquette","High school graduate (includes equivalency)",43106,22112
+"268","26103","Marquette","Some college or associate's degree",51401,33604
+"269","26103","Marquette","Bachelor's degree",60235,41861
+"270","26103","Marquette","Graduate or professional degree",77288,64974
+"271","26105","Mason","Less than high school graduate",45536,22857
+"272","26105","Mason","High school graduate (includes equivalency)",41215,25745
+"273","26105","Mason","Some college or associate's degree",48073,30572
+"274","26105","Mason","Bachelor's degree",74269,52688
+"275","26105","Mason","Graduate or professional degree",89464,77375
+"276","26107","Mecosta","Less than high school graduate",36034,14904
+"277","26107","Mecosta","High school graduate (includes equivalency)",42210,28512
+"278","26107","Mecosta","Some college or associate's degree",47895,36403
+"279","26107","Mecosta","Bachelor's degree",60743,50225
+"280","26107","Mecosta","Graduate or professional degree",80156,72845
+"281","26109","Menominee","Less than high school graduate",27206,NA
+"282","26109","Menominee","High school graduate (includes equivalency)",48325,26921
+"283","26109","Menominee","Some college or associate's degree",60520,41039
+"284","26109","Menominee","Bachelor's degree",66776,48393
+"285","26109","Menominee","Graduate or professional degree",116838,54333
+"286","26111","Midland","Less than high school graduate",35994,18333
+"287","26111","Midland","High school graduate (includes equivalency)",49571,29434
+"288","26111","Midland","Some college or associate's degree",55331,35544
+"289","26111","Midland","Bachelor's degree",81028,66531
+"290","26111","Midland","Graduate or professional degree",110250,75321
+"291","26113","Missaukee","Less than high school graduate",38750,11000
+"292","26113","Missaukee","High school graduate (includes equivalency)",49167,24809
+"293","26113","Missaukee","Some college or associate's degree",51274,30875
+"294","26113","Missaukee","Bachelor's degree",61165,58929
+"295","26113","Missaukee","Graduate or professional degree",70625,65208
+"296","26115","Monroe","Less than high school graduate",45446,23750
+"297","26115","Monroe","High school graduate (includes equivalency)",55352,34082
+"298","26115","Monroe","Some college or associate's degree",67888,36807
+"299","26115","Monroe","Bachelor's degree",82276,61832
+"300","26115","Monroe","Graduate or professional degree",98039,74403
+"301","26117","Montcalm","Less than high school graduate",42924,20208
+"302","26117","Montcalm","High school graduate (includes equivalency)",45200,29795
+"303","26117","Montcalm","Some college or associate's degree",56209,36644
+"304","26117","Montcalm","Bachelor's degree",59836,51183
+"305","26117","Montcalm","Graduate or professional degree",66786,83315
+"306","26119","Montmorency","Less than high school graduate",43068,9574
+"307","26119","Montmorency","High school graduate (includes equivalency)",43063,22000
+"308","26119","Montmorency","Some college or associate's degree",46000,26918
+"309","26119","Montmorency","Bachelor's degree",52614,42411
+"310","26119","Montmorency","Graduate or professional degree",73750,66648
+"311","26121","Muskegon","Less than high school graduate",36195,27301
+"312","26121","Muskegon","High school graduate (includes equivalency)",43458,29697
+"313","26121","Muskegon","Some college or associate's degree",53189,35994
+"314","26121","Muskegon","Bachelor's degree",71461,52722
+"315","26121","Muskegon","Graduate or professional degree",81506,70491
+"316","26123","Newaygo","Less than high school graduate",44193,23487
+"317","26123","Newaygo","High school graduate (includes equivalency)",45817,30558
+"318","26123","Newaygo","Some college or associate's degree",56732,34703
+"319","26123","Newaygo","Bachelor's degree",61836,44648
+"320","26123","Newaygo","Graduate or professional degree",97829,60682
+"321","26125","Oakland","Less than high school graduate",38738,25047
+"322","26125","Oakland","High school graduate (includes equivalency)",48955,31326
+"323","26125","Oakland","Some college or associate's degree",60219,40530
+"324","26125","Oakland","Bachelor's degree",100952,61115
+"325","26125","Oakland","Graduate or professional degree",126404,81616
+"326","26127","Oceana","Less than high school graduate",33254,26250
+"327","26127","Oceana","High school graduate (includes equivalency)",44813,24139
+"328","26127","Oceana","Some college or associate's degree",51807,32350
+"329","26127","Oceana","Bachelor's degree",61202,47112
+"330","26127","Oceana","Graduate or professional degree",NA,72710
+"331","26129","Ogemaw","Less than high school graduate",42872,28611
+"332","26129","Ogemaw","High school graduate (includes equivalency)",42928,26275
+"333","26129","Ogemaw","Some college or associate's degree",43990,34104
+"334","26129","Ogemaw","Bachelor's degree",60417,50625
+"335","26129","Ogemaw","Graduate or professional degree",61071,67188
+"336","26131","Ontonagon","Less than high school graduate",NA,53750
+"337","26131","Ontonagon","High school graduate (includes equivalency)",40909,22273
+"338","26131","Ontonagon","Some college or associate's degree",43224,30521
+"339","26131","Ontonagon","Bachelor's degree",44792,51688
+"340","26131","Ontonagon","Graduate or professional degree",NA,75000
+"341","26133","Osceola","Less than high school graduate",41518,17396
+"342","26133","Osceola","High school graduate (includes equivalency)",43149,30523
+"343","26133","Osceola","Some college or associate's degree",52179,29943
+"344","26133","Osceola","Bachelor's degree",63077,50485
+"345","26133","Osceola","Graduate or professional degree",78000,61684
+"346","26135","Oscoda","Less than high school graduate",36940,11781
+"347","26135","Oscoda","High school graduate (includes equivalency)",46591,30085
+"348","26135","Oscoda","Some college or associate's degree",46985,24670
+"349","26135","Oscoda","Bachelor's degree",42344,36528
+"350","26135","Oscoda","Graduate or professional degree",45679,39792
+"351","26137","Otsego","Less than high school graduate",39167,23854
+"352","26137","Otsego","High school graduate (includes equivalency)",42961,32125
+"353","26137","Otsego","Some college or associate's degree",58267,43101
+"354","26137","Otsego","Bachelor's degree",47813,44401
+"355","26137","Otsego","Graduate or professional degree",84561,71098
+"356","26139","Ottawa","Less than high school graduate",46209,24247
+"357","26139","Ottawa","High school graduate (includes equivalency)",51851,32642
+"358","26139","Ottawa","Some college or associate's degree",60219,35131
+"359","26139","Ottawa","Bachelor's degree",90111,50404
+"360","26139","Ottawa","Graduate or professional degree",106728,73803
+"361","26141","Presque Isle","Less than high school graduate",42232,31250
+"362","26141","Presque Isle","High school graduate (includes equivalency)",49896,25893
+"363","26141","Presque Isle","Some college or associate's degree",59886,34142
+"364","26141","Presque Isle","Bachelor's degree",71486,55000
+"365","26141","Presque Isle","Graduate or professional degree",76071,69688
+"366","26143","Roscommon","Less than high school graduate",41050,14792
+"367","26143","Roscommon","High school graduate (includes equivalency)",40409,23201
+"368","26143","Roscommon","Some college or associate's degree",55350,26928
+"369","26143","Roscommon","Bachelor's degree",77232,52857
+"370","26143","Roscommon","Graduate or professional degree",91500,75154
+"371","26145","Saginaw","Less than high school graduate",35144,21092
+"372","26145","Saginaw","High school graduate (includes equivalency)",43184,26827
+"373","26145","Saginaw","Some college or associate's degree",51771,33566
+"374","26145","Saginaw","Bachelor's degree",78865,54759
+"375","26145","Saginaw","Graduate or professional degree",95199,70429
+"376","26151","Sanilac","Less than high school graduate",37201,25707
+"377","26151","Sanilac","High school graduate (includes equivalency)",45362,26667
+"378","26151","Sanilac","Some college or associate's degree",50766,33795
+"379","26151","Sanilac","Bachelor's degree",80870,52529
+"380","26151","Sanilac","Graduate or professional degree",75156,71399
+"381","26153","Schoolcraft","Less than high school graduate",41736,NA
+"382","26153","Schoolcraft","High school graduate (includes equivalency)",42469,22091
+"383","26153","Schoolcraft","Some college or associate's degree",62656,28200
+"384","26153","Schoolcraft","Bachelor's degree",78523,60750
+"385","26153","Schoolcraft","Graduate or professional degree",96635,61136
+"386","26155","Shiawassee","Less than high school graduate",40530,22000
+"387","26155","Shiawassee","High school graduate (includes equivalency)",45142,31899
+"388","26155","Shiawassee","Some college or associate's degree",51354,38717
+"389","26155","Shiawassee","Bachelor's degree",82921,53274
+"390","26155","Shiawassee","Graduate or professional degree",72318,67661
+"391","26147","St. Clair","Less than high school graduate",35060,19660
+"392","26147","St. Clair","High school graduate (includes equivalency)",48469,27851
+"393","26147","St. Clair","Some college or associate's degree",63899,35824
+"394","26147","St. Clair","Bachelor's degree",83874,50998
+"395","26147","St. Clair","Graduate or professional degree",91979,65500
+"396","26157","Tuscola","Less than high school graduate",40063,25227
+"397","26157","Tuscola","High school graduate (includes equivalency)",45340,28908
+"398","26157","Tuscola","Some college or associate's degree",55538,32128
+"399","26157","Tuscola","Bachelor's degree",76071,53625
+"400","26157","Tuscola","Graduate or professional degree",76111,77260
+"401","26161","Washtenaw","Less than high school graduate",32351,18561
+"402","26161","Washtenaw","High school graduate (includes equivalency)",40774,30905
+"403","26161","Washtenaw","Some college or associate's degree",50223,38505
+"404","26161","Washtenaw","Bachelor's degree",84386,52234
+"405","26161","Washtenaw","Graduate or professional degree",110914,74497
+"406","26163","Wayne","Less than high school graduate",32539,24243
+"407","26163","Wayne","High school graduate (includes equivalency)",41522,30085
+"408","26163","Wayne","Some college or associate's degree",50340,37413
+"409","26163","Wayne","Bachelor's degree",81869,56189
+"410","26163","Wayne","Graduate or professional degree",102766,71196
+"411","26165","Wexford","Less than high school graduate",42958,19125
+"412","26165","Wexford","High school graduate (includes equivalency)",44117,32685
+"413","26165","Wexford","Some college or associate's degree",51005,35095
+"414","26165","Wexford","Bachelor's degree",65132,44851
+"415","26165","Wexford","Graduate or professional degree",88125,77963

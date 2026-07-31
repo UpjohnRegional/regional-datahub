@@ -1,0 +1,499 @@
+"","NAME","Category","Proportion"
+"1","Kalamazoo","Car, truck, or van - drove alone",76.6125429420917
+"2","Kalamazoo","Car, truck, or van - carpooled",6.33925407853589
+"3","Kalamazoo","Public transportation (excluding taxicab)",1.09146087840648
+"4","Kalamazoo","Walked",2.57652550336604
+"5","Kalamazoo","Taxicab, motorcycle, bicycle, or other means",0.918922249780475
+"6","Kalamazoo","Worked from home",12.4612943478194
+"7","Berrien","Car, truck, or van - drove alone",76.4493600607796
+"8","Berrien","Car, truck, or van - carpooled",8.26076792706446
+"9","Berrien","Public transportation (excluding taxicab)",0.260066623809246
+"10","Berrien","Walked",2.69855648413301
+"11","Berrien","Taxicab, motorcycle, bicycle, or other means",1.11185786920694
+"12","Berrien","Worked from home",11.2193910350067
+"13","Branch","Car, truck, or van - drove alone",78.5509661961561
+"14","Branch","Car, truck, or van - carpooled",11.0630762018855
+"15","Branch","Public transportation (excluding taxicab)",0.187509766133653
+"16","Branch","Walked",2.14594510130736
+"17","Branch","Taxicab, motorcycle, bicycle, or other means",1.84905463826241
+"18","Branch","Worked from home",6.20344809625501
+"19","Calhoun","Car, truck, or van - drove alone",79.8962787422939
+"20","Calhoun","Car, truck, or van - carpooled",8.20496969072519
+"21","Calhoun","Public transportation (excluding taxicab)",0.290213452853193
+"22","Calhoun","Walked",2.15513540432401
+"23","Calhoun","Taxicab, motorcycle, bicycle, or other means",1.38066045026016
+"24","Calhoun","Worked from home",8.07274225954356
+"25","Cass","Car, truck, or van - drove alone",77.4321242631556
+"26","Cass","Car, truck, or van - carpooled",9.92642313153479
+"27","Cass","Public transportation (excluding taxicab)",0.421668602900047
+"28","Cass","Walked",2.2374252398778
+"29","Cass","Taxicab, motorcycle, bicycle, or other means",2.15567316380534
+"30","Cass","Worked from home",7.82668559872639
+"31","St. Joseph","Car, truck, or van - drove alone",72.3515263644773
+"32","St. Joseph","Car, truck, or van - carpooled",15.9296947271045
+"33","St. Joseph","Public transportation (excluding taxicab)",0.155411655874191
+"34","St. Joseph","Walked",1.5800185013876
+"35","St. Joseph","Taxicab, motorcycle, bicycle, or other means",2.74560592044403
+"36","St. Joseph","Worked from home",7.2377428307123
+"37","Van Buren","Car, truck, or van - drove alone",76.324483421432
+"38","Van Buren","Car, truck, or van - carpooled",10.1814031715521
+"39","Van Buren","Public transportation (excluding taxicab)",0.444497837578087
+"40","Van Buren","Walked",1.86508889956752
+"41","Van Buren","Taxicab, motorcycle, bicycle, or other means",0.729817395482941
+"42","Van Buren","Worked from home",10.4547092743873
+"43","Alcona","Car, truck, or van - drove alone",74.9797352067009
+"44","Alcona","Car, truck, or van - carpooled",10.4566333423399
+"45","Alcona","Public transportation (excluding taxicab)",0
+"46","Alcona","Walked",2.97216968386922
+"47","Alcona","Taxicab, motorcycle, bicycle, or other means",0.648473385571467
+"48","Alcona","Worked from home",10.9429883815185
+"49","Alger","Car, truck, or van - drove alone",71.6792842395045
+"50","Alger","Car, truck, or van - carpooled",13.1796283551273
+"51","Alger","Public transportation (excluding taxicab)",0.75705437026841
+"52","Alger","Walked",4.06056434962147
+"53","Alger","Taxicab, motorcycle, bicycle, or other means",2.13351686166552
+"54","Alger","Worked from home",8.1899518238128
+"55","Allegan","Car, truck, or van - drove alone",78.8728707065066
+"56","Allegan","Car, truck, or van - carpooled",8.05291817927953
+"57","Allegan","Public transportation (excluding taxicab)",0.326375314158056
+"58","Allegan","Walked",1.93032672437867
+"59","Allegan","Taxicab, motorcycle, bicycle, or other means",1.32993577213069
+"60","Allegan","Worked from home",9.4875733035465
+"61","Alpena","Car, truck, or van - drove alone",77.3302068503475
+"62","Alpena","Car, truck, or van - carpooled",7.15182982999749
+"63","Alpena","Public transportation (excluding taxicab)",1.05518800770455
+"64","Alpena","Walked",2.24436814337158
+"65","Alpena","Taxicab, motorcycle, bicycle, or other means",4.44686374675488
+"66","Alpena","Worked from home",7.77154342182397
+"67","Antrim","Car, truck, or van - drove alone",72.7626090254077
+"68","Antrim","Car, truck, or van - carpooled",9.31930223739097
+"69","Antrim","Public transportation (excluding taxicab)",0.0568828213879408
+"70","Antrim","Walked",3.17595752749336
+"71","Antrim","Taxicab, motorcycle, bicycle, or other means",2.18998862343572
+"72","Antrim","Worked from home",12.4952597648843
+"73","Arenac","Car, truck, or van - drove alone",79.2622950819672
+"74","Arenac","Car, truck, or van - carpooled",7.70491803278689
+"75","Arenac","Public transportation (excluding taxicab)",0.180327868852459
+"76","Arenac","Walked",2.81967213114754
+"77","Arenac","Taxicab, motorcycle, bicycle, or other means",1.9344262295082
+"78","Arenac","Worked from home",8.09836065573771
+"79","Baraga","Car, truck, or van - drove alone",79.6225096120238
+"80","Baraga","Car, truck, or van - carpooled",11.4295700803915
+"81","Baraga","Public transportation (excluding taxicab)",0.139811254806012
+"82","Baraga","Walked",1.11849003844809
+"83","Baraga","Taxicab, motorcycle, bicycle, or other means",1.92240475358266
+"84","Baraga","Worked from home",5.76721426074799
+"85","Barry","Car, truck, or van - drove alone",79.3423124016092
+"86","Barry","Car, truck, or van - carpooled",7.02116494665034
+"87","Barry","Public transportation (excluding taxicab)",0.167920237887004
+"88","Barry","Walked",1.70718908518454
+"89","Barry","Taxicab, motorcycle, bicycle, or other means",1.29788350533497
+"90","Barry","Worked from home",10.4635298233339
+"91","Bay","Car, truck, or van - drove alone",82.0519284093774
+"92","Bay","Car, truck, or van - carpooled",6.62339299218553
+"93","Bay","Public transportation (excluding taxicab)",0.25418032098143
+"94","Bay","Walked",1.24149231157046
+"95","Bay","Taxicab, motorcycle, bicycle, or other means",1.20788169061423
+"96","Bay","Worked from home",8.62112427527099
+"97","Benzie","Car, truck, or van - drove alone",76.6384251183653
+"98","Benzie","Car, truck, or van - carpooled",9.04560179416895
+"99","Benzie","Public transportation (excluding taxicab)",0.834786942437079
+"100","Benzie","Walked",1.17119362073262
+"101","Benzie","Taxicab, motorcycle, bicycle, or other means",1.20857214054323
+"102","Benzie","Worked from home",11.1014203837528
+"103","Charlevoix","Car, truck, or van - drove alone",74.7538562520512
+"104","Charlevoix","Car, truck, or van - carpooled",9.1975713816869
+"105","Charlevoix","Public transportation (excluding taxicab)",0.33639645553003
+"106","Charlevoix","Walked",1.76403019363308
+"107","Charlevoix","Taxicab, motorcycle, bicycle, or other means",1.54250082047916
+"108","Charlevoix","Worked from home",12.4056448966196
+"109","Cheboygan","Car, truck, or van - drove alone",76.3023782559456
+"110","Cheboygan","Car, truck, or van - carpooled",11.1457153642884
+"111","Cheboygan","Public transportation (excluding taxicab)",0.198187995469989
+"112","Cheboygan","Walked",1.27406568516421
+"113","Cheboygan","Taxicab, motorcycle, bicycle, or other means",0.981502453756134
+"114","Cheboygan","Worked from home",10.0981502453756
+"115","Chippewa","Car, truck, or van - drove alone",76.7776598567259
+"116","Chippewa","Car, truck, or van - carpooled",9.29291589280976
+"117","Chippewa","Public transportation (excluding taxicab)",0.762801804192093
+"118","Chippewa","Walked",3.48235606261608
+"119","Chippewa","Taxicab, motorcycle, bicycle, or other means",3.22366675510746
+"120","Chippewa","Worked from home",6.46059962854869
+"121","Clare","Car, truck, or van - drove alone",71.9161846970703
+"122","Clare","Car, truck, or van - carpooled",12.2120034132929
+"123","Clare","Public transportation (excluding taxicab)",0.303403811510382
+"124","Clare","Walked",2.46515596852185
+"125","Clare","Taxicab, motorcycle, bicycle, or other means",2.16175215701147
+"126","Clare","Worked from home",10.9414999525932
+"127","Clinton","Car, truck, or van - drove alone",75.9846032272044
+"128","Clinton","Car, truck, or van - carpooled",5.29965076856407
+"129","Clinton","Public transportation (excluding taxicab)",0.418058069285478
+"130","Clinton","Walked",1.3586887251778
+"131","Clinton","Taxicab, motorcycle, bicycle, or other means",0.637283642203472
+"132","Clinton","Worked from home",16.3017155675648
+"133","Crawford","Car, truck, or van - drove alone",74.3192208308487
+"134","Crawford","Car, truck, or van - carpooled",11.8067978533095
+"135","Crawford","Public transportation (excluding taxicab)",0.735440270323991
+"136","Crawford","Walked",2.623732856291
+"137","Crawford","Taxicab, motorcycle, bicycle, or other means",2.0671834625323
+"138","Crawford","Worked from home",8.44762472669449
+"139","Delta","Car, truck, or van - drove alone",81.6913746630728
+"140","Delta","Car, truck, or van - carpooled",8.8544474393531
+"141","Delta","Public transportation (excluding taxicab)",0.404312668463612
+"142","Delta","Walked",2.01482479784367
+"143","Delta","Taxicab, motorcycle, bicycle, or other means",1.2533692722372
+"144","Delta","Worked from home",5.78167115902965
+"145","Dickinson","Car, truck, or van - drove alone",77.2572402044293
+"146","Dickinson","Car, truck, or van - carpooled",8.33901192504259
+"147","Dickinson","Public transportation (excluding taxicab)",0.340715502555366
+"148","Dickinson","Walked",2.97274275979557
+"149","Dickinson","Taxicab, motorcycle, bicycle, or other means",2.05281090289608
+"150","Dickinson","Worked from home",9.03747870528109
+"151","Eaton","Car, truck, or van - drove alone",72.3267373159524
+"152","Eaton","Car, truck, or van - carpooled",8.9637062740317
+"153","Eaton","Public transportation (excluding taxicab)",0.564569070618025
+"154","Eaton","Walked",1.59242239519835
+"155","Eaton","Taxicab, motorcycle, bicycle, or other means",1.45362468348495
+"156","Eaton","Worked from home",15.0989402607146
+"157","Emmet","Car, truck, or van - drove alone",74.7363955884135
+"158","Emmet","Car, truck, or van - carpooled",8.92013089322506
+"159","Emmet","Public transportation (excluding taxicab)",0.242394861228942
+"160","Emmet","Walked",3.78741970670222
+"161","Emmet","Taxicab, motorcycle, bicycle, or other means",1.63616531329536
+"162","Emmet","Worked from home",10.6774936371349
+"163","Genesee","Car, truck, or van - drove alone",78.4748149316693
+"164","Genesee","Car, truck, or van - carpooled",9.06674145355325
+"165","Genesee","Public transportation (excluding taxicab)",0.937757445092987
+"166","Genesee","Walked",0.895689821387881
+"167","Genesee","Taxicab, motorcycle, bicycle, or other means",0.744947503111251
+"168","Genesee","Worked from home",9.8800488451853
+"169","Gladwin","Car, truck, or van - drove alone",80.7832227690991
+"170","Gladwin","Car, truck, or van - carpooled",5.84207147442756
+"171","Gladwin","Public transportation (excluding taxicab)",0.0427990584207147
+"172","Gladwin","Walked",1.09137598972823
+"173","Gladwin","Taxicab, motorcycle, bicycle, or other means",2.3111491547186
+"174","Gladwin","Worked from home",9.92938155360582
+"175","Gogebic","Car, truck, or van - drove alone",81.194874355134
+"176","Gogebic","Car, truck, or van - carpooled",7.2724246962889
+"177","Gogebic","Public transportation (excluding taxicab)",0.349475786320519
+"178","Gogebic","Walked",2.91229821933766
+"179","Gogebic","Taxicab, motorcycle, bicycle, or other means",0.73223498086204
+"180","Gogebic","Worked from home",7.53869196205692
+"181","Grand Traverse","Car, truck, or van - drove alone",70.700518134715
+"182","Grand Traverse","Car, truck, or van - carpooled",9.07357512953368
+"183","Grand Traverse","Public transportation (excluding taxicab)",0.453886010362694
+"184","Grand Traverse","Walked",2.18031088082902
+"185","Grand Traverse","Taxicab, motorcycle, bicycle, or other means",2.38756476683938
+"186","Grand Traverse","Worked from home",15.2041450777202
+"187","Gratiot","Car, truck, or van - drove alone",79.8646262507357
+"188","Gratiot","Car, truck, or van - carpooled",6.69805768098882
+"189","Gratiot","Public transportation (excluding taxicab)",0.141259564449676
+"190","Gratiot","Walked",3.96115361977634
+"191","Gratiot","Taxicab, motorcycle, bicycle, or other means",1.6656856974691
+"192","Gratiot","Worked from home",7.66921718658034
+"193","Hillsdale","Car, truck, or van - drove alone",76.7704810458836
+"194","Hillsdale","Car, truck, or van - carpooled",9.01519357932462
+"195","Hillsdale","Public transportation (excluding taxicab)",0.186764928575034
+"196","Hillsdale","Walked",4.41169047498864
+"197","Hillsdale","Taxicab, motorcycle, bicycle, or other means",1.48907172782797
+"198","Hillsdale","Worked from home",8.12679824340013
+"199","Houghton","Car, truck, or van - drove alone",63.7172368499612
+"200","Houghton","Car, truck, or van - carpooled",10.0722431189922
+"201","Houghton","Public transportation (excluding taxicab)",2.42402531494418
+"202","Houghton","Walked",10.4483849782077
+"203","Houghton","Taxicab, motorcycle, bicycle, or other means",2.29864469520568
+"204","Houghton","Worked from home",11.0394650426891
+"205","Huron","Car, truck, or van - drove alone",78.91704218069
+"206","Huron","Car, truck, or van - carpooled",8.3031690921179
+"207","Huron","Public transportation (excluding taxicab)",0.605747211346679
+"208","Huron","Walked",3.86348526261358
+"209","Huron","Taxicab, motorcycle, bicycle, or other means",0.70178030582847
+"210","Huron","Worked from home",7.60877594740341
+"211","Ingham","Car, truck, or van - drove alone",66.0992252982674
+"212","Ingham","Car, truck, or van - carpooled",7.99371005669605
+"213","Ingham","Public transportation (excluding taxicab)",2.40489346047867
+"214","Ingham","Walked",4.06898740568692
+"215","Ingham","Taxicab, motorcycle, bicycle, or other means",2.09183894282788
+"216","Ingham","Worked from home",17.3413448360431
+"217","Ionia","Car, truck, or van - drove alone",78.7291823446651
+"218","Ionia","Car, truck, or van - carpooled",8.4742989889736
+"219","Ionia","Public transportation (excluding taxicab)",1.24660537250924
+"220","Ionia","Walked",1.84536858292707
+"221","Ionia","Taxicab, motorcycle, bicycle, or other means",0.595491280306253
+"222","Ionia","Worked from home",9.10905343061872
+"223","Iosco","Car, truck, or van - drove alone",79.6452702702703
+"224","Iosco","Car, truck, or van - carpooled",8.08699324324324
+"225","Iosco","Public transportation (excluding taxicab)",0.137246621621622
+"226","Iosco","Walked",3.65287162162162
+"227","Iosco","Taxicab, motorcycle, bicycle, or other means",1.25633445945946
+"228","Iosco","Worked from home",7.22128378378378
+"229","Iron","Car, truck, or van - drove alone",76.5191469846365
+"230","Iron","Car, truck, or van - carpooled",6.55812886952534
+"231","Iron","Public transportation (excluding taxicab)",0
+"232","Iron","Walked",3.02682870901169
+"233","Iron","Taxicab, motorcycle, bicycle, or other means",2.3159825728044
+"234","Iron","Worked from home",11.579912864022
+"235","Isabella","Car, truck, or van - drove alone",73.8796707603867
+"236","Isabella","Car, truck, or van - carpooled",9.69101123595506
+"237","Isabella","Public transportation (excluding taxicab)",0.751241181081787
+"238","Isabella","Walked",6.67298144760909
+"239","Isabella","Taxicab, motorcycle, bicycle, or other means",1.23138228377319
+"240","Isabella","Worked from home",7.77371309119415
+"241","Jackson","Car, truck, or van - drove alone",78.9814371344393
+"242","Jackson","Car, truck, or van - carpooled",7.79814516480167
+"243","Jackson","Public transportation (excluding taxicab)",0.240925385698321
+"244","Jackson","Walked",2.11753095020392
+"245","Jackson","Taxicab, motorcycle, bicycle, or other means",1.03626943005181
+"246","Jackson","Worked from home",9.82569193480501
+"247","Kalkaska","Car, truck, or van - drove alone",80.186509964231
+"248","Kalkaska","Car, truck, or van - carpooled",10.4368932038835
+"249","Kalkaska","Public transportation (excluding taxicab)",0.0255493101686254
+"250","Kalkaska","Walked",1.06029637199796
+"251","Kalkaska","Taxicab, motorcycle, bicycle, or other means",0.855901890648953
+"252","Kalkaska","Worked from home",7.43484925907
+"253","Kent","Car, truck, or van - drove alone",73.1872852485761
+"254","Kent","Car, truck, or van - carpooled",7.77374479534978
+"255","Kent","Public transportation (excluding taxicab)",1.48884539658041
+"256","Kent","Walked",1.98356225480559
+"257","Kent","Taxicab, motorcycle, bicycle, or other means",1.2722967362185
+"258","Kent","Worked from home",14.2942655684696
+"259","Keweenaw","Car, truck, or van - drove alone",66.4169787765293
+"260","Keweenaw","Car, truck, or van - carpooled",5.61797752808989
+"261","Keweenaw","Public transportation (excluding taxicab)",0
+"262","Keweenaw","Walked",8.3645443196005
+"263","Keweenaw","Taxicab, motorcycle, bicycle, or other means",1.99750312109863
+"264","Keweenaw","Worked from home",17.6029962546816
+"265","Lake","Car, truck, or van - drove alone",79.4958361467477
+"266","Lake","Car, truck, or van - carpooled",7.13481881611524
+"267","Lake","Public transportation (excluding taxicab)",1.32793157776277
+"268","Lake","Walked",0.8327706504614
+"269","Lake","Taxicab, motorcycle, bicycle, or other means",1.35043889264011
+"270","Lake","Worked from home",9.85820391627279
+"271","Lapeer","Car, truck, or van - drove alone",79.4520209506868
+"272","Lapeer","Car, truck, or van - carpooled",9.40557367328787
+"273","Lapeer","Public transportation (excluding taxicab)",0.768356556972033
+"274","Lapeer","Walked",0.990710544520209
+"275","Lapeer","Taxicab, motorcycle, bicycle, or other means",0.654708963336298
+"276","Lapeer","Worked from home",8.72862931119676
+"277","Leelanau","Car, truck, or van - drove alone",75.3914988814318
+"278","Leelanau","Car, truck, or van - carpooled",5.10280174709705
+"279","Leelanau","Public transportation (excluding taxicab)",0.287631831255992
+"280","Leelanau","Walked",1.34228187919463
+"281","Leelanau","Taxicab, motorcycle, bicycle, or other means",1.92819857249387
+"282","Leelanau","Worked from home",15.9475870885267
+"283","Lenawee","Car, truck, or van - drove alone",79.0349608612814
+"284","Lenawee","Car, truck, or van - carpooled",7.84610793563345
+"285","Lenawee","Public transportation (excluding taxicab)",0.286940752473429
+"286","Lenawee","Walked",2.5755801942015
+"287","Lenawee","Taxicab, motorcycle, bicycle, or other means",1.16153616601244
+"288","Lenawee","Worked from home",9.09487409039781
+"289","Livingston","Car, truck, or van - drove alone",76.1897965009584
+"290","Livingston","Car, truck, or van - carpooled",5.2750703478651
+"291","Livingston","Public transportation (excluding taxicab)",0.206965458178704
+"292","Livingston","Walked",0.955303617307614
+"293","Livingston","Taxicab, motorcycle, bicycle, or other means",0.667794951266262
+"294","Livingston","Worked from home",16.705069124424
+"295","Luce","Car, truck, or van - drove alone",74.4338198288878
+"296","Luce","Car, truck, or van - carpooled",13.2360342224459
+"297","Luce","Public transportation (excluding taxicab)",0.352289884247609
+"298","Luce","Walked",3.22093608454957
+"299","Luce","Taxicab, motorcycle, bicycle, or other means",1.157523905385
+"300","Luce","Worked from home",7.59939607448415
+"301","Mackinac","Car, truck, or van - drove alone",65.7876943881001
+"302","Mackinac","Car, truck, or van - carpooled",6.46833446022087
+"303","Mackinac","Public transportation (excluding taxicab)",7.48253324318233
+"304","Mackinac","Walked",4.59770114942529
+"305","Mackinac","Taxicab, motorcycle, bicycle, or other means",5.20622041920216
+"306","Mackinac","Worked from home",10.4575163398693
+"307","Macomb","Car, truck, or van - drove alone",76.0097682173948
+"308","Macomb","Car, truck, or van - carpooled",7.761670610797
+"309","Macomb","Public transportation (excluding taxicab)",0.601066568417672
+"310","Macomb","Walked",1.04979995937782
+"311","Macomb","Taxicab, motorcycle, bicycle, or other means",1.18347527479016
+"312","Macomb","Worked from home",13.3942193692226
+"313","Manistee","Car, truck, or van - drove alone",76.9910605444941
+"314","Manistee","Car, truck, or van - carpooled",8.37058106460788
+"315","Manistee","Public transportation (excluding taxicab)",0.0609508329947176
+"316","Manistee","Walked",1.82852498984153
+"317","Manistee","Taxicab, motorcycle, bicycle, or other means",1.95042665583096
+"318","Manistee","Worked from home",10.7984559122308
+"319","Marquette","Car, truck, or van - drove alone",77.2044104095834
+"320","Marquette","Car, truck, or van - carpooled",8.77633376759556
+"321","Marquette","Public transportation (excluding taxicab)",0.311397794795208
+"322","Marquette","Walked",4.99825235931492
+"323","Marquette","Taxicab, motorcycle, bicycle, or other means",1.22652600807092
+"324","Marquette","Worked from home",7.48307966063995
+"325","Mason","Car, truck, or van - drove alone",72.6030699991963
+"326","Mason","Car, truck, or van - carpooled",11.4441854858153
+"327","Mason","Public transportation (excluding taxicab)",0.98850759463152
+"328","Mason","Walked",3.01374266655951
+"329","Mason","Taxicab, motorcycle, bicycle, or other means",0.98850759463152
+"330","Mason","Worked from home",10.9619866591658
+"331","Mecosta","Car, truck, or van - drove alone",76.2477000919963
+"332","Mecosta","Car, truck, or van - carpooled",8.58440662373505
+"333","Mecosta","Public transportation (excluding taxicab)",0.385234590616375
+"334","Mecosta","Walked",4.35832566697332
+"335","Mecosta","Taxicab, motorcycle, bicycle, or other means",1.75367985280589
+"336","Mecosta","Worked from home",8.67065317387305
+"337","Menominee","Car, truck, or van - drove alone",78.6417322834646
+"338","Menominee","Car, truck, or van - carpooled",8.06102362204724
+"339","Menominee","Public transportation (excluding taxicab)",0.15748031496063
+"340","Menominee","Walked",3.63188976377953
+"341","Menominee","Taxicab, motorcycle, bicycle, or other means",1.59448818897638
+"342","Menominee","Worked from home",7.91338582677165
+"343","Midland","Car, truck, or van - drove alone",77.4218254806676
+"344","Midland","Car, truck, or van - carpooled",7.97591379674625
+"345","Midland","Public transportation (excluding taxicab)",0.565180646524403
+"346","Midland","Walked",1.18582294527784
+"347","Midland","Taxicab, motorcycle, bicycle, or other means",0.842488907669554
+"348","Midland","Worked from home",12.0087682231143
+"349","Missaukee","Car, truck, or van - drove alone",80.5632078359351
+"350","Missaukee","Car, truck, or van - carpooled",9.3510866238139
+"351","Missaukee","Public transportation (excluding taxicab)",0.413223140495868
+"352","Missaukee","Walked",2.73951637588001
+"353","Missaukee","Taxicab, motorcycle, bicycle, or other means",1.729415365779
+"354","Missaukee","Worked from home",5.20355065809611
+"355","Monroe","Car, truck, or van - drove alone",81.5296204327776
+"356","Monroe","Car, truck, or van - carpooled",6.98829372117772
+"357","Monroe","Public transportation (excluding taxicab)",0.190138346931536
+"358","Monroe","Walked",1.31961688542036
+"359","Monroe","Taxicab, motorcycle, bicycle, or other means",1.12664065271373
+"360","Monroe","Worked from home",8.84568996097907
+"361","Montcalm","Car, truck, or van - drove alone",80.9848955100352
+"362","Montcalm","Car, truck, or van - carpooled",9.33512656045244
+"363","Montcalm","Public transportation (excluding taxicab)",0.0206910821435961
+"364","Montcalm","Walked",1.40009655838334
+"365","Montcalm","Taxicab, motorcycle, bicycle, or other means",1.33802331195255
+"366","Montcalm","Worked from home",6.9211669770329
+"367","Montmorency","Car, truck, or van - drove alone",76.5035836709255
+"368","Montmorency","Car, truck, or van - carpooled",11.0937986911811
+"369","Montmorency","Public transportation (excluding taxicab)",0
+"370","Montmorency","Walked",1.33998130258648
+"371","Montmorency","Taxicab, motorcycle, bicycle, or other means",0.997195387971331
+"372","Montmorency","Worked from home",10.0654409473356
+"373","Muskegon","Car, truck, or van - drove alone",80.8885874173309
+"374","Muskegon","Car, truck, or van - carpooled",9.3985207602301
+"375","Muskegon","Public transportation (excluding taxicab)",0.0534822139027667
+"376","Muskegon","Walked",1.24835313914507
+"377","Muskegon","Taxicab, motorcycle, bicycle, or other means",1.18443537131005
+"378","Muskegon","Worked from home",7.22662109808116
+"379","Newaygo","Car, truck, or van - drove alone",77.1573368049098
+"380","Newaygo","Car, truck, or van - carpooled",11.1493397805468
+"381","Newaygo","Public transportation (excluding taxicab)",0.102287520922447
+"382","Newaygo","Walked",1.57615770875953
+"383","Newaygo","Taxicab, motorcycle, bicycle, or other means",1.82257764552725
+"384","Newaygo","Worked from home",8.1923005393342
+"385","Oakland","Car, truck, or van - drove alone",71.2943355256995
+"386","Oakland","Car, truck, or van - carpooled",5.87577683626664
+"387","Oakland","Public transportation (excluding taxicab)",0.344902249542766
+"388","Oakland","Walked",1.0993567250564
+"389","Oakland","Taxicab, motorcycle, bicycle, or other means",1.15893912613502
+"390","Oakland","Worked from home",20.2266895372997
+"391","Oceana","Car, truck, or van - drove alone",77.0862926136364
+"392","Oceana","Car, truck, or van - carpooled",12.0472301136364
+"393","Oceana","Public transportation (excluding taxicab)",0.133167613636364
+"394","Oceana","Walked",2.08629261363636
+"395","Oceana","Taxicab, motorcycle, bicycle, or other means",1.26065340909091
+"396","Oceana","Worked from home",7.38636363636364
+"397","Ogemaw","Car, truck, or van - drove alone",79.4998056239471
+"398","Ogemaw","Car, truck, or van - carpooled",8.13787741350266
+"399","Ogemaw","Public transportation (excluding taxicab)",0.181417649345601
+"400","Ogemaw","Walked",1.84009330050538
+"401","Ogemaw","Taxicab, motorcycle, bicycle, or other means",0.76454580795646
+"402","Ogemaw","Worked from home",9.57626020474278
+"403","Ontonagon","Car, truck, or van - drove alone",68.1492109038738
+"404","Ontonagon","Car, truck, or van - carpooled",12.5298900047824
+"405","Ontonagon","Public transportation (excluding taxicab)",0.430416068866571
+"406","Ontonagon","Walked",6.02582496413199
+"407","Ontonagon","Taxicab, motorcycle, bicycle, or other means",1.19560019129603
+"408","Ontonagon","Worked from home",11.6690578670493
+"409","Osceola","Car, truck, or van - drove alone",78.1591770438549
+"410","Osceola","Car, truck, or van - carpooled",11.4997292907417
+"411","Osceola","Public transportation (excluding taxicab)",0.162425554953979
+"412","Osceola","Walked",2.49052517596102
+"413","Osceola","Taxicab, motorcycle, bicycle, or other means",1.51597184623714
+"414","Osceola","Worked from home",6.17217108825122
+"415","Oscoda","Car, truck, or van - drove alone",69.6338837042355
+"416","Oscoda","Car, truck, or van - carpooled",10.4091888011486
+"417","Oscoda","Public transportation (excluding taxicab)",0.107681263460158
+"418","Oscoda","Walked",1.36396267049533
+"419","Oscoda","Taxicab, motorcycle, bicycle, or other means",6.42498205312276
+"420","Oscoda","Worked from home",12.0603015075377
+"421","Otsego","Car, truck, or van - drove alone",75.7561015162572
+"422","Otsego","Car, truck, or van - carpooled",11.7570745155274
+"423","Otsego","Public transportation (excluding taxicab)",0.535149598637801
+"424","Otsego","Walked",0.713532798183735
+"425","Otsego","Taxicab, motorcycle, bicycle, or other means",1.05408254277143
+"426","Otsego","Worked from home",10.1840590286224
+"427","Ottawa","Car, truck, or van - drove alone",77.3819105012792
+"428","Ottawa","Car, truck, or van - carpooled",8.0913962664154
+"429","Ottawa","Public transportation (excluding taxicab)",0.446904710493427
+"430","Ottawa","Walked",2.71872484934142
+"431","Ottawa","Taxicab, motorcycle, bicycle, or other means",1.08225533112171
+"432","Ottawa","Worked from home",10.2788083413488
+"433","Presque Isle","Car, truck, or van - drove alone",74.9428155541693
+"434","Presque Isle","Car, truck, or van - carpooled",8.96236223747141
+"435","Presque Isle","Public transportation (excluding taxicab)",0.540652942399667
+"436","Presque Isle","Walked",1.7051362029528
+"437","Presque Isle","Taxicab, motorcycle, bicycle, or other means",3.47265543772094
+"438","Presque Isle","Worked from home",10.3763776252859
+"439","Roscommon","Car, truck, or van - drove alone",74.0560292326431
+"440","Roscommon","Car, truck, or van - carpooled",12.4482338611449
+"441","Roscommon","Public transportation (excluding taxicab)",0.280146163215591
+"442","Roscommon","Walked",0.950060901339829
+"443","Roscommon","Taxicab, motorcycle, bicycle, or other means",1.08404384896468
+"444","Roscommon","Worked from home",11.1814859926918
+"445","Saginaw","Car, truck, or van - drove alone",77.6783717289197
+"446","Saginaw","Car, truck, or van - carpooled",8.69181639702776
+"447","Saginaw","Public transportation (excluding taxicab)",0.310643902681478
+"448","Saginaw","Walked",2.22918064564229
+"449","Saginaw","Taxicab, motorcycle, bicycle, or other means",1.11583289843187
+"450","Saginaw","Worked from home",9.9741544272969
+"451","Sanilac","Car, truck, or van - drove alone",78.0104085661303
+"452","Sanilac","Car, truck, or van - carpooled",9.15235987318299
+"453","Sanilac","Public transportation (excluding taxicab)",0.305078662439433
+"454","Sanilac","Walked",3.12256983908596
+"455","Sanilac","Taxicab, motorcycle, bicycle, or other means",1.30406173356463
+"456","Sanilac","Worked from home",8.1055213255967
+"457","Schoolcraft","Car, truck, or van - drove alone",79.2341220423412
+"458","Schoolcraft","Car, truck, or van - carpooled",10.2739726027397
+"459","Schoolcraft","Public transportation (excluding taxicab)",0.062266500622665
+"460","Schoolcraft","Walked",5.44831880448319
+"461","Schoolcraft","Taxicab, motorcycle, bicycle, or other means",0.684931506849315
+"462","Schoolcraft","Worked from home",4.29638854296388
+"463","Shiawassee","Car, truck, or van - drove alone",79.6209580459407
+"464","Shiawassee","Car, truck, or van - carpooled",8.87489717142315
+"465","Shiawassee","Public transportation (excluding taxicab)",0.13605011706638
+"466","Shiawassee","Walked",1.6420932734291
+"467","Shiawassee","Taxicab, motorcycle, bicycle, or other means",1.38897677656141
+"468","Shiawassee","Worked from home",8.33702461557932
+"469","St. Clair","Car, truck, or van - drove alone",79.9428132123059
+"470","St. Clair","Car, truck, or van - carpooled",8.7574012381479
+"471","St. Clair","Public transportation (excluding taxicab)",1.093832189148
+"472","St. Clair","Walked",1.13699202891709
+"473","St. Clair","Taxicab, motorcycle, bicycle, or other means",1.34335001281308
+"474","St. Clair","Worked from home",7.72561131866798
+"475","Tuscola","Car, truck, or van - drove alone",82.7553249590388
+"476","Tuscola","Car, truck, or van - carpooled",9.52120881121427
+"477","Tuscola","Public transportation (excluding taxicab)",0.31403604587657
+"478","Tuscola","Walked",1.47005279446568
+"479","Tuscola","Taxicab, motorcycle, bicycle, or other means",0.937556890588021
+"480","Tuscola","Worked from home",5.00182049881668
+"481","Washtenaw","Car, truck, or van - drove alone",59.3988667159399
+"482","Washtenaw","Car, truck, or van - carpooled",6.77123538912157
+"483","Washtenaw","Public transportation (excluding taxicab)",3.68016205414579
+"484","Washtenaw","Walked",5.61386219922805
+"485","Washtenaw","Taxicab, motorcycle, bicycle, or other means",1.95067203197284
+"486","Washtenaw","Worked from home",22.5852016095919
+"487","Wayne","Car, truck, or van - drove alone",71.8661458700139
+"488","Wayne","Car, truck, or van - carpooled",8.47775327890611
+"489","Wayne","Public transportation (excluding taxicab)",1.75606347073769
+"490","Wayne","Walked",1.63390017823381
+"491","Wayne","Taxicab, motorcycle, bicycle, or other means",2.17930104177389
+"492","Wayne","Worked from home",14.0868361603346
+"493","Wexford","Car, truck, or van - drove alone",76.9002123142251
+"494","Wexford","Car, truck, or van - carpooled",11.7834394904459
+"495","Wexford","Public transportation (excluding taxicab)",0.509554140127389
+"496","Wexford","Walked",2.49823071479122
+"497","Wexford","Taxicab, motorcycle, bicycle, or other means",1.22434536447275
+"498","Wexford","Worked from home",7.08421797593772

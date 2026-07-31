@@ -41,3 +41,5 @@ combined_data <- combined_data %>%
   )
 
 saveRDS(combined_data, "data/businessAppChange.rds")
+
+write.csv(combined_data, "data_download/businessAppChange.csv")

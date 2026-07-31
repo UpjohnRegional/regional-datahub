@@ -9,7 +9,7 @@ averageAnnualWageMI <- bls_api(c("ENU2600050511", "ENU2600050521", "ENU260005052
                                  "ENU2600050542", "ENU2600050544-45", "ENU2600050548-49", "ENU2600050551", "ENU2600050552",
                                  "ENU2600050553", "ENU2600050554", "ENU2600050555", "ENU2600050556", "ENU2600050561", 
                                  "ENU2600050562", "ENU2600050571", "ENU2600050572", "ENU2600050581"), 
-                               startyear = 2012, endyear = 2024, 
+                               startyear = 2012, endyear = 2025, 
                                registrationKey = Sys.getenv("BLS_API_KEY")) %>%
   spread(seriesID, value) %>%
   dateCast() 
@@ -52,7 +52,7 @@ averageAnnualWageUS <- bls_api(c("ENUUS00050511", "ENUUS00050521", "ENUUS0005052
                                  "ENUUS00050542", "ENUUS00050544-45", "ENUUS00050548-49", "ENUUS00050551", "ENUUS00050552",
                                  "ENUUS00050553", "ENUUS00050554", "ENUUS00050555", "ENUUS00050556", "ENUUS00050561", 
                                  "ENUUS00050562", "ENUUS00050571", "ENUUS00050572", "ENUUS00050581"), 
-                               startyear = 2012, endyear = 2024, 
+                               startyear = 2012, endyear = 2025, 
                                registrationKey = "c4c9bd6207ad4323a8d4fe18fd6960e0") %>%
   spread(seriesID, value) %>%
   dateCast()
@@ -94,3 +94,5 @@ averageAnnualWageUS_long <- averageAnnualWageUS_long %>%
 joinedAnnualWageData <- inner_join(averageAnnualWageMI_long, averageAnnualWageUS_long, by = c("date", "seriesID"), suffix = c("_MI", "_US"))
 
 saveRDS(joinedAnnualWageData, "data/averageAnnualWage.rds")
+
+write.csv(joinedAnnualWageData, "data_download/averageAnnualWage.csv")
