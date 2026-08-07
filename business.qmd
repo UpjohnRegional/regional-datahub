@@ -66,16 +66,6 @@ fig <- fig %>%
     ),
     annotations = list(
       list(
-        text = "<b>Source</b>: U.S. Bureau of Economic Analysis (BEA), FRED",
-        xref = "paper",
-        yref = "paper",
-        x = 0,
-        y = -0.30,
-        showarrow = FALSE,
-        xanchor = "left",
-        font = list(size = 10)
-      ),
-      list(
         x = "2008-09-01",
         y = 0.95,
         xref = "x",
@@ -114,7 +104,7 @@ Real personal consumption expenditures and disposable income are crucial for und
 
 **Source:** Federal Reserve Bank of St. Louis (series DSPIC96, PCEDGC96, PCENDC96, and PCESC96)
 
-[📥 Download Data](data_download/fred_spending.csv){download="fred_spending.csv"}
+[Download Data](data_download/fred_spending.csv){download="fred_spending.csv"}
 :::
 
 ```{r}
@@ -208,16 +198,6 @@ fig %>%
     ),
 
     annotations = list(
-      list(
-        text = "<b>Source</b>: U.S. Energy Information Administration (EIA), Federal Reserve Economic Data (FRED)",
-        xref = "paper",
-        yref = "paper",
-        x = 0,
-        y = -0.25,
-        showarrow = FALSE,
-        xanchor = "left",
-        font = list(size = 10)
-      ),
        list(
         x = "2008-09-01",
         y = 0.95,
@@ -257,7 +237,7 @@ Vehicle sales and fuel prices are important economic indicators because they ref
 
 **Source:**  Federal Reserve Bank of St. Louis (series ALTSALES) and U.S. Energy Information Administration (series EMM_EPM0_PTE_NUS_DPG)
 
-[📥 Download Data](data_download/vehicleSalesFuelPrices.csv){download="vehicleSalesFuelPrices.csv"}
+[Download Data](data_download/vehicleSalesFuelPrices.csv){download="vehicleSalesFuelPrices.csv"}
 :::
 
 ```{r}
@@ -346,18 +326,6 @@ p %>%
         xanchor = "right"
       )
     ),
-    
-    annotations = list(
-      list(
-        text = "<b>Source</b>: US BEA (table CAGDP1), Upjohn Regional.",
-        xref = "paper",
-        yref = "paper",
-        x = 0,
-        y = -0.25,
-        showarrow = FALSE,
-        xanchor = "left",
-        font = list(size = 10)
-      )),
 
     legend = list(
       x = 1.05,
@@ -382,7 +350,7 @@ The GDP percent change measures the economy's growth rate, reflecting overall ec
 
 **Source:** US BEA (table CAGDP1)
 
-[📥 Download Data](data_download/gdpPercentChange.csv){download="gdpPercentChange.csv"}
+[Download Data](data_download/gdpPercentChange.csv){download="gdpPercentChange.csv"}
 :::
 
 ```{r}
@@ -470,18 +438,6 @@ fig %>%
       )
     ),
 
-    annotations = list(
-      list(
-        text = "<b>Source</b>: Federal Reserve Bank of St. Louis (series BUSAPPWNSAMIYY and BUSAPPWNSAUS), Upjohn Institute, Updated February 2026.",
-        xref = "paper",
-        yref = "paper",
-        x = 0,
-        y = -0.25,
-        showarrow = FALSE,
-        xanchor = "left",
-        font = list(size = 10)
-      )
-    ),
 
     margin = list(
       t = 60,
@@ -499,7 +455,7 @@ The percent change in business applications reflects entrepreneurial activity an
 
 **Source:** Federal Reserve Bank of St. Louis (series BUSAPPWNSAMIYY and BUSAPPWNSAUS)
 
-[📥 Download Data](data_download/businessAppChange.csv){download="businessAppChange.csv"}
+[Download Data](data_download/businessAppChange.csv){download="businessAppChange.csv"}
 :::
 
 ```{r}
@@ -633,18 +589,6 @@ fig %>%
       y = 1.08
     ),
 
-    annotations = list(
-      list(
-        text = "<b>Source</b>: U.S. Bureau of Labor Statistics, Quarterly Census of Employment and Wages (QCEW) • Wages represent total private ownership",
-        xref = "paper",
-        yref = "paper",
-        x = 0,
-        y = -0.25,
-        showarrow = FALSE,
-        xanchor = "left",
-        font = list(size = 10)
-      )
-    ),
 
     margin = list(
       t = 110,
@@ -664,7 +608,7 @@ Tracking the average annual pay provides insights into income levels and purchas
 
 **Source:** BLS QCEW
 
-[📥 Download Data](data_download/averageAnnualWage.csv){download="averageAnnualWage.csv"}
+[Download Data](data_download/averageAnnualWage.csv){download="averageAnnualWage.csv"}
 :::
 
 ```{r}
@@ -847,27 +791,6 @@ p %>%
     showlegend = FALSE,
 
 
-    annotations = c(
-      legend_annotations,
-
-      list(
-        list(
-          x = 0,
-          y = -0.15,
-          xref = "paper",
-          yref = "paper",
-          text = "<b>Source:</b> U.S. Census Bureau, 2024 ACS 5-Year Estimates",
-          showarrow = FALSE,
-          xanchor = "left",
-          font = list(
-            size = 11,
-            color = "gray"
-          )
-        )
-      )
-    ),
-
-
     margin = list(
       r = 300,
       b = 100
@@ -886,5 +809,5 @@ Understanding the class of worker in a county is crucial for analyzing labor mar
 
 **Source:** ACS 2024 5-YR Estimates (table B08528)
 
-[📥 Download Data](data_download/averageAnnualWage.csv){download="averageAnnualWage.csv"}
+[Download Data](data_download/averageAnnualWage.csv){download="averageAnnualWage.csv"}
 :::

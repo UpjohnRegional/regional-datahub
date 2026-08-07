@@ -159,29 +159,7 @@ p %>%
   ),
   showlegend = FALSE,
   annotations = legend_annotations <- c(
-  legend_annotations,
-  list(
-    list(
-      x = 0,
-      y = -0.15,
-      xref = "paper",
-      yref = "paper",
-      text = "<b>Source:</b> U.S. Census Bureau, ACS 5-Year Estimates, Table S1501",
-      showarrow = FALSE,
-      xanchor = "left",
-      font = list(size = 11, color = "gray")
-    ),
-    list(
-      x = 0,
-      y = -0.22,
-      xref = "paper",
-      yref = "paper",
-      text = "Educational attainment for population age 25 and over.",
-      showarrow = FALSE,
-      xanchor = "left",
-      font = list(size = 11, color = "gray")
-    )
-  )
+  legend_annotations
 ),
     
   margin = list(r = 250, b = 100)
@@ -196,7 +174,7 @@ Educational attainment strongly correlates with income levels, workforce product
 
 **Source:** ACS 2024 5-YR Estimates (table S1501) • Population 25 and older
 
-[📥 Download Data](data_download/eduAttainment.csv){download="eduAttainment.csv"}
+[Download Data](data_download/eduAttainment.csv){download="eduAttainment.csv"}
 :::
 
 ```{r}
@@ -473,7 +451,7 @@ Travel time to work is significant as it directly impacts worker productivity an
 
 **Source:**  ACS 2024 5-YR Estimates (table B08135) • Travel time one way
 
-[📥 Download Data](data_download/travelTimeToWork.csv){download="travelTimeToWork.csv"}
+[Download Data](data_download/travelTimeToWork.csv){download="travelTimeToWork.csv"}
 :::
 
 ```{r}
@@ -623,7 +601,7 @@ Understanding how people commute to work helps assess the efficiency of transpor
 
 **Source:**  ACS 2024 5-YR Estimates (table B08128)
 
-[📥 Download Data](data_download/meansOfTransportationToWork.csv){download="meansOfTransportationToWork.csv"}
+[Download Data](data_download/meansOfTransportationToWork.csv){download="meansOfTransportationToWork.csv"}
 :::
 
 ```{r}
@@ -745,7 +723,7 @@ Understanding the age of the housing stock reveals the state of infrastructure a
 
 **Source:**  ACS 2024 5-YR Estimates (table S2504)
 
-[📥 Download Data](data_download/ageOfHousingStock.csv){download="ageOfHousingStock.csv"}
+[Download Data](data_download/ageOfHousingStock.csv){download="ageOfHousingStock.csv"}
 :::
 
 ```{r}
@@ -865,7 +843,7 @@ Knowledge of people's internet access is an important economic indicator because
 
 **Source:**  ACS 2024 5-YR Estimates (table S2801)  • Totals may not sum to 100% due to rounding.
 
-[📥 Download Data](data_download/internetAccess.csv){download="internetAccess.csv"}
+[Download Data](data_download/internetAccess.csv){download="internetAccess.csv"}
 :::
 
 ```{r}
@@ -877,7 +855,152 @@ Knowledge of people's internet access is an important economic indicator because
 library(dplyr)
 library(plotly)
 
+library(plotly)
+library(dplyr)
+library(tidyr)
 
+housing <- readRDS("data/monthlyIncomeNeededToAffordHousing.rds")
+
+housing_long <- housing %>%
+  pivot_longer(
+    cols = c(`Median Cost`, `Income Needed to Afford Cost`),
+    names_to = "Measure",
+    values_to = "Value"
+  )
+
+housing_long$Measure <- factor(
+  housing_long$Measure,
+  levels = c(
+    "Median Cost",
+    "Income Needed to Afford Cost"
+  )
+)
+
+colors <- c(
+  "Median Cost" = "#2B9CB4",
+  "Income Needed to Afford Cost" = "#F49366"
+)
+
+counties <- unique(housing_long$NAME)
+
+init <- counties[1]
+
+df_init <- housing_long %>%
+  filter(NAME == init)
+
+p <- plot_ly()
+
+p <- p %>%
+  add_bars(
+    data = df_init %>% filter(Measure == "Median Cost"),
+    x = ~variable,
+    y = ~Value,
+    name = "Median Cost",
+    marker = list(color = colors["Median Cost"])
+  ) %>%
+  add_bars(
+    data = df_init %>% filter(Measure == "Income Needed to Afford Cost"),
+    x = ~variable,
+    y = ~Value,
+    name = "Income Needed",
+    marker = list(color = colors["Income Needed to Afford Cost"])
+  )
+
+buttons <- lapply(seq_along(counties), function(i) {
+
+  df <- housing_long %>%
+    filter(NAME == counties[i])
+
+  median_df <- df %>%
+    filter(Measure == "Median Cost")
+
+  income_df <- df %>%
+    filter(Measure == "Income Needed to Afford Cost")
+
+  list(
+    method = "update",
+    args = list(
+      list(
+        x = list(median_df$variable,
+                 income_df$variable),
+        y = list(median_df$Value,
+                 income_df$Value)
+      ),
+      list(
+        title = paste(
+          "Housing Costs:",
+          counties[i]
+        )
+      )
+    ),
+    label = counties[i]
+  )
+
+})
+
+p %>%
+  layout(
+    barmode = "group",
+
+    title = paste(
+      "Housing Costs:",
+      init
+    ),
+
+    xaxis = list(
+      title = ""
+    ),
+
+    yaxis = list(
+      tickprefix = "$",
+      separatethousands = TRUE
+    ),
+
+    legend = list(
+      orientation = "v",
+      x = 1.02,
+      y = 0.95,
+      xanchor = "left",
+      yanchor = "top"
+    ),
+
+    updatemenus = list(
+      list(
+        buttons = buttons,
+        active = 0,
+        x = 1.15,
+        y = 0.65,
+        xanchor = "left"
+      )
+    ),
+
+    annotations = list(
+      list(
+        text = "<b>Source</b> ACS 2024 5-Year Estimates (DP04), Upjohn Regional",
+        xref = "paper",
+        yref = "paper",
+        x = 0,
+        y = -0.30,
+        showarrow = FALSE,
+        xanchor = "left",
+        font = list(size = 10)
+      )
+    ),
+
+    margin = list(
+      r = 180
+    )
+  ) %>%
+  config(displayModeBar = FALSE)
 
 ```
 
+::: {.callout-note collapse="true" appearance="minimal"}
+## More Information
+
+Knowing the median income needed to afford rent and housing costs is essential to evaluate how housing affordability impacts on individuals and the overall economy. This knowledge informs policymakers on ways to address potential disparities, guiding strategies to enhance housing accessibility and promote sustainable economic development.
+
+**Source:**  ACS 2024 5-YR Estimates (table Table DP04)  • Totals may not sum to 100% due to rounding.
+
+[Download Data](data_download/monthlyIncomeNeededToAffordHousing.csv){download="internetAccess.csv"}
+:::
