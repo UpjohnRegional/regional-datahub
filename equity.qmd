@@ -1,14 +1,1199 @@
 ---
 title: "Equity"
 editor: visual
-format:
-  html:
-    theme: cosmo
 ---
 
-Place Holder
+## 
+
+Please [contact us](mailto:regional@upjohn.org) if you have any questions.
+
+## 
 
 ```{r}
+#| label: Civilian Noninstitutionalized Population With a Disability
+#| echo: false
+#| message: false
+#| warning: false
+
+library(dplyr)
+library(tidyr)
+library(plotly)
+
+# Read data
+disability <- readRDS(
+  "data/civilianNoninstitutionalizedPopulationWithADisability.rds"
+)
+
+# Keep Southwest Michigan counties
+county_order <- c(
+  "Kalamazoo",
+  "Berrien",
+  "Branch",
+  "Calhoun",
+  "Cass",
+  "St. Joseph",
+  "Van Buren"
+)
+
+disability <- disability %>%
+  filter(NAME %in% county_order)
+
+# Set county order
+disability$NAME <- factor(
+  disability$NAME,
+  levels = county_order
+)
+
+# Rename disability categories for display
+disability <- disability %>%
+  pivot_longer(
+    cols = -NAME,
+    names_to = "variable",
+    values_to = "percentage"
+  ) %>%
+  mutate(
+    Display = recode(
+      variable,
+      "Civilian Population With a Disability" = "Any Disability",
+      "Hearing Difficulty" = "Hearing",
+      "Vision Difficulty" = "Vision",
+      "Cognitive Difficulty" = "Cognitive",
+      "Ambulatory Difficulty" = "Ambulatory",
+      "Self-Care Difficulty" = "Self-Care",
+      "Independent Living Difficulty" = "Independent Living"
+    )
+  )
+
+# Set disability category order
+disability$Display <- factor(
+  disability$Display,
+  levels = c(
+    "Any Disability",
+    "Hearing",
+    "Vision",
+    "Cognitive",
+    "Ambulatory",
+    "Self-Care",
+    "Independent Living"
+  )
+)
+
+# County list
+counties <- county_order
+
+# Initial county
+init <- counties[1]
+
+df_init <- disability %>%
+  filter(NAME == init)
+
+
+# Create initial plot
+p <- plot_ly()
+
+p <- p %>%
+  add_bars(
+    data = df_init,
+    x = ~Display,
+    y = ~percentage,
+    name = "Disability",
+    marker = list(
+      color = "#2b9cb4"
+    )
+  )
+
+
+# Create dropdown buttons
+buttons <- lapply(seq_along(counties), function(i) {
+
+  df <- disability %>%
+    filter(NAME == counties[i])
+
+  list(
+    method = "update",
+    args = list(
+      list(
+        x = list(df$Display),
+        y = list(df$percentage)
+      ),
+      list(
+        title = paste(
+          "Population with a Disability by Type:",
+          counties[i]
+        )
+      )
+    ),
+    label = counties[i]
+  )
+})
+
+
+# Layout
+p %>%
+  layout(
+
+    title = paste(
+      "Population with a Disability by Type:",
+      init
+    ),
+
+    xaxis = list(
+      title = "",
+      tickangle = 45,
+      categoryorder = "array",
+      categoryarray = c(
+        "Any Disability",
+        "Hearing",
+        "Vision",
+        "Cognitive",
+        "Ambulatory",
+        "Self-Care",
+        "Independent Living"
+      )
+    ),
+
+    yaxis = list(
+      title = "Percent of Civilian Noninstitutionalized Population",
+      ticksuffix = "%"
+    ),
+
+    updatemenus = list(
+      list(
+        type = "dropdown",
+        buttons = buttons,
+        active = 0,
+        x = 1.15,
+        y = 0.65,
+        xanchor = "left"
+      )
+    ),
+
+    margin = list(
+      r = 180
+    )
+  ) %>%
+  config(
+    displayModeBar = FALSE
+  )
+```
+
+::: {.callout-note collapse="true" appearance="minimal"}
+## More Information
+
+Knowing the population with a disability is an important economic indicator because it helps identify potential barriers to workforce participation, highlighting areas where accessible employment opportunities and support services are needed. This information guides policymakers and businesses in making informed decisions about resource allocation and infrastructure improvements. Additionally, understanding the prevalence of disabilities can reveal trends in healthcare demand and social service requirements, impacting overall economic planning.
+
+**Source:** ACS 2024 5-YR Estimates (table S1810) • Individual Disability Categories Will Not Sum To Total Population With A Disability
+
+[Download Data](data_download/civilianNoninstitutionalizedPopulationWithADisability.csv){download="civilianNoninstitutionalizedPopulationWithADisability.csv"}
+:::
+
+```{r}
+#| label: Unemployment Rate, by Sex
+#| echo: false
+#| message: false
+#| warning: false
+
+library(plotly)
+library(dplyr)
+library(tidyr)
+
+employment <- readRDS(
+  "data/unemploymentRatebySex.rds"
+)
+
+# Southwest Michigan counties
+county_order <- c(
+  "Kalamazoo",
+  "Berrien",
+  "Branch",
+  "Calhoun",
+  "Cass",
+  "St. Joseph",
+  "Van Buren"
+)
+
+# Convert to long format
+employment_long <- employment %>%
+  pivot_longer(
+    cols = -NAME,
+    names_to = "variable",
+    values_to = "Value"
+  )
+
+# Rename categories
+employment_long <- employment_long %>%
+  mutate(
+    Display = case_when(
+      variable == "Total" ~ "Total",
+      variable == "Men" ~ "Men",
+      variable == "Women" ~ "Women",
+      variable == "Women with Kids Under 18" ~
+        "Women with Kids Under 18",
+      variable == "Women with Kids Under 6" ~
+        "Women with Kids Under 6",
+      variable == "Women with Kids Under 6 and 6 to 17" ~
+        "Women with Kids Under 6 & 6–17",
+      variable == "Women with Kids 6 to 17" ~
+        "Women with Kids 6–17"
+    )
+  )
+
+# Set category order
+employment_long$Display <- factor(
+  employment_long$Display,
+  levels = c(
+    "Total",
+    "Men",
+    "Women",
+    "Women with Kids Under 18",
+    "Women with Kids Under 6",
+    "Women with Kids Under 6 & 6–17",
+    "Women with Kids 6–17"
+  )
+)
+
+# Get every county in the RDS
+counties <- unique(
+  as.character(employment_long$NAME)
+)
+
+# Put Southwest Michigan counties first,
+# followed by all other counties alphabetically
+counties <- c(
+  county_order[county_order %in% counties],
+  sort(setdiff(counties, county_order))
+)
+
+# Initial county
+init <- counties[1]
+
+df_init <- employment_long %>%
+  filter(NAME == init) %>%
+  arrange(Display)
+
+# Create plot
+p <- plot_ly()
+
+p <- p %>%
+  add_bars(
+    data = df_init,
+    x = ~Display,
+    y = ~Value,
+    marker = list(
+      color = "#2B9CB4"
+    ),
+    showlegend = FALSE
+  )
+
+# Dropdown buttons
+buttons <- lapply(seq_along(counties), function(i) {
+
+  df <- employment_long %>%
+    filter(NAME == counties[i]) %>%
+    arrange(Display)
+
+  list(
+    method = "update",
+
+    args = list(
+      list(
+        x = list(df$Display),
+        y = list(df$Value)
+      ),
+
+      list(
+        title = paste(
+          "Employment Rate by Sex and Family Status:",
+          counties[i]
+        )
+      )
+    ),
+
+    label = counties[i]
+  )
+})
+
+# Layout
+p %>%
+  layout(
+    title = paste(
+      "Unemployment Rate by Sex and Family Status:",
+      init
+    ),
+
+    xaxis = list(
+      title = "",
+      tickangle = 45
+    ),
+
+    yaxis = list(
+      title = "Unemployment Rate",
+      ticksuffix = "%"
+    ),
+
+    showlegend = FALSE,
+
+    updatemenus = list(
+      list(
+        buttons = buttons,
+        active = 0,
+        x = 1.15,
+        y = 0.65,
+        xanchor = "left"
+      )
+    ),
+
+    margin = list(
+      r = 180
+    )
+  ) %>%
+  config(
+    displayModeBar = FALSE
+  )
+```
+
+::: {.callout-note collapse="true" appearance="minimal"}
+## More Information
+
+The unemployment rate for women with children is a key economic indicator as it reflects the challenges they face in balancing work and care giving, which can impact household income and economic stability. It helps policymakers understand the need for supportive measures such as affordable childcare and flexible work arrangements to improve labor force participation. Additionally, this data can inform businesses and governments on how to create family-friendly policies that promote economic growth and gender equality in the workforce.
+
+**Source:** ACS 2024 5-YR Estimates (table S2301) • Population 16 and older
+
+[Download Data](data_download/unemploymentRatebySex.csv){download="unemploymentRatebySex.csv"}
+:::
+
+```{r}
+#| label: Labor Force Participation Rate, by Sex
+#| echo: false
+#| message: false
+#| warning: false
+
+library(plotly)
+library(dplyr)
+library(tidyr)
+
+lfpr <- readRDS(
+  "data/lfprBySex.rds"
+)
+
+# Southwest Michigan counties
+county_order <- c(
+  "Kalamazoo",
+  "Berrien",
+  "Branch",
+  "Calhoun",
+  "Cass",
+  "St. Joseph",
+  "Van Buren"
+)
+
+# Convert to long format
+lfpr_long <- lfpr %>%
+  pivot_longer(
+    cols = -NAME,
+    names_to = "variable",
+    values_to = "Value"
+  )
+
+# Get every county in the RDS
+counties <- unique(
+  as.character(lfpr_long$NAME)
+)
+
+# Put Southwest Michigan counties first,
+# followed by all other counties alphabetically
+counties <- c(
+  county_order[county_order %in% counties],
+  sort(setdiff(counties, county_order))
+)
+
+# Initial county
+init <- counties[1]
+
+df_init <- lfpr_long %>%
+  filter(NAME == init)
+
+# Create chart
+p <- plot_ly(
+  data = df_init,
+  x = ~variable,
+  y = ~Value,
+  type = "bar",
+  marker = list(
+    color = "#2B9CB4"
+  )
+)
+
+# County dropdown
+buttons <- lapply(counties, function(county) {
+
+  df <- lfpr_long %>%
+    filter(NAME == county)
+
+  list(
+    method = "update",
+
+    args = list(
+      list(
+        x = list(df$variable),
+        y = list(df$Value)
+      ),
+
+      list(
+        title = paste(
+          "Labor Force Participation Rate by Sex and Family Status:",
+          county
+        )
+      )
+    ),
+
+    label = county
+  )
+})
+
+# Layout
+p %>%
+  layout(
+    barmode = "group",
+
+    title = paste(
+      "Labor Force Participation Rate by Sex and Family Status:",
+      init
+    ),
+
+    xaxis = list(
+      title = "",
+      tickangle = 45
+    ),
+
+    yaxis = list(
+      title = "Labor Force Participation Rate",
+      ticksuffix = "%"
+    ),
+
+    showlegend = FALSE,
+
+    updatemenus = list(
+      list(
+        type = "dropdown",
+        buttons = buttons,
+        active = 0,
+        x = 1.15,
+        y = 0.65,
+        xanchor = "left"
+      )
+    ),
+
+    margin = list(
+      r = 180
+    )
+  ) %>%
+  config(
+    displayModeBar = FALSE
+  )
 
 ```
 
+::: {.callout-note collapse="true" appearance="minimal"}
+## More Information
+
+The labor force participation rate for women with children is a key economic indicator, highlighting the challenges they encounter in balancing work and caregiving responsibilities. This rate impacts household income and overall economic stability, providing policymakers with insights into the need for supportive measures like affordable childcare and flexible work options to encourage workforce participation. Additionally, this data can guide businesses and governments in developing family-friendly policies that foster economic growth and promote gender equality in the labor market.
+
+**Source:** ACS 2024 5-YR Estimates (table S2301) • Population 16 and older
+
+[Download Data](data_download/lfprBySex.csv){download="lfprBySex.csv"}
+:::
+
+```{r}
+#| label: Unemployment Rate, by Race
+#| echo: false
+#| message: false
+#| warning: false
+
+library(plotly)
+library(dplyr)
+library(tidyr)
+
+employment <- readRDS(
+  "data/unemploymentRatebyRace.rds"
+)
+
+# Southwest Michigan counties
+county_order <- c(
+  "Kalamazoo",
+  "Berrien",
+  "Branch",
+  "Calhoun",
+  "Cass",
+  "St. Joseph",
+  "Van Buren"
+)
+
+# Convert to long format
+employment_long <- employment %>%
+  pivot_longer(
+    cols = -NAME,
+    names_to = "variable",
+    values_to = "Value"
+  )
+
+# Get every county in the RDS
+counties <- unique(
+  as.character(employment_long$NAME)
+)
+
+# Put Southwest Michigan counties first,
+# followed by all other counties alphabetically
+counties <- c(
+  county_order[county_order %in% counties],
+  sort(setdiff(counties, county_order))
+)
+
+# Initial county
+init <- counties[1]
+
+df_init <- employment_long %>%
+  filter(NAME == init)
+
+# Create chart
+p <- plot_ly(
+  data = df_init,
+  x = ~variable,
+  y = ~Value,
+  type = "bar",
+  marker = list(
+    color = "#2B9CB4"
+  )
+)
+
+# County dropdown
+buttons <- lapply(counties, function(county) {
+
+  df <- employment_long %>%
+    filter(NAME == county)
+
+  list(
+    method = "update",
+
+    args = list(
+      list(
+        x = list(df$variable),
+        y = list(df$Value)
+      ),
+
+      list(
+        title = paste(
+          "Unemployment Rate by Race:",
+          county
+        )
+      )
+    ),
+
+    label = county
+  )
+})
+
+# Layout
+p %>%
+  layout(
+    barmode = "group",
+
+    title = paste(
+      "Unemployment Rate by Race:",
+      init
+    ),
+
+    xaxis = list(
+      title = "",
+      tickangle = 45
+    ),
+
+    yaxis = list(
+      title = "Unemployment Rate",
+      ticksuffix = "%"
+    ),
+
+    showlegend = FALSE,
+
+    updatemenus = list(
+      list(
+        type = "dropdown",
+        buttons = buttons,
+        active = 0,
+        x = 1.15,
+        y = 0.65,
+        xanchor = "left"
+      )
+    ),
+
+    margin = list(
+      r = 180
+    )
+  ) %>%
+  config(
+    displayModeBar = FALSE
+  )
+
+```
+
+::: {.callout-note collapse="true" appearance="minimal"}
+## More Information
+
+The unemployment rate by race is a crucial economic indicator because it highlights disparities in access to job opportunities and economic inclusion across different racial and ethnic groups. It informs policymakers about the need for targeted interventions to address systemic inequalities in education, training, and employment. This data also helps businesses and governments develop equitable hiring practices and policies to promote a more diverse and inclusive workforce, contributing to broader economic stability and social equity.
+
+**Source:** ACS 2024 5-YR Estimates (table S2301) • Population 16 and older
+
+[Download Data](data_download/unemploymentRatebyRace.csv){download="unemploymentRatebyRace.csv"}
+:::
+
+```{r}
+#| label: Percent of Population Below The Poverty Level, by Race
+#| echo: false
+#| message: false
+#| warning: false
+
+library(plotly)
+library(dplyr)
+library(tidyr)
+
+poverty <- readRDS(
+  "data/povertyStatusByRace.rds"
+)
+
+# Southwest Michigan counties
+county_order <- c(
+  "Kalamazoo",
+  "Berrien",
+  "Branch",
+  "Calhoun",
+  "Cass",
+  "St. Joseph",
+  "Van Buren"
+)
+
+# Convert to long format
+poverty_long <- poverty %>%
+  pivot_longer(
+    cols = -NAME,
+    names_to = "variable",
+    values_to = "Value"
+  )
+
+# Get every county in the RDS
+counties <- unique(
+  as.character(poverty_long$NAME)
+)
+
+# Put Southwest Michigan counties first,
+# followed by all other counties alphabetically
+counties <- c(
+  county_order[county_order %in% counties],
+  sort(setdiff(counties, county_order))
+)
+
+# Initial county
+init <- counties[1]
+
+df_init <- poverty_long %>%
+  filter(NAME == init)
+
+# Create chart
+p <- plot_ly(
+  data = df_init,
+  x = ~variable,
+  y = ~Value,
+  type = "bar",
+  marker = list(
+    color = "#2B9CB4"
+  )
+)
+
+# County dropdown
+buttons <- lapply(counties, function(county) {
+
+  df <- poverty_long %>%
+    filter(NAME == county)
+
+  list(
+    method = "update",
+
+    args = list(
+      list(
+        x = list(df$variable),
+        y = list(df$Value)
+      ),
+
+      list(
+        title = paste(
+          "Poverty Rate by Race:",
+          county
+        )
+      )
+    ),
+
+    label = county
+  )
+})
+
+# Layout
+p %>%
+  layout(
+    barmode = "group",
+
+    title = paste(
+      "Poverty Rate by Race:",
+      init
+    ),
+
+    xaxis = list(
+      title = "",
+      tickangle = 45
+    ),
+
+    yaxis = list(
+      title = "Population Below Poverty Level",
+      ticksuffix = "%"
+    ),
+
+    showlegend = FALSE,
+
+    updatemenus = list(
+      list(
+        type = "dropdown",
+        buttons = buttons,
+        active = 0,
+        x = 1.15,
+        y = 0.65,
+        xanchor = "left"
+      )
+    ),
+
+    margin = list(
+      r = 180
+    )
+  ) %>%
+  config(
+    displayModeBar = FALSE
+  )
+
+```
+
+::: {.callout-note collapse="true" appearance="minimal"}
+## More Information
+
+The population below the poverty level, by race, is an important economic indicator as it reveals the extent of economic disparities and social inequities faced by different racial and ethnic groups. It helps policymakers design targeted anti-poverty programs, such as affordable housing, education, and healthcare, to address the unique needs of marginalized communities. This data is also vital for businesses and governments to promote inclusive economic growth, ensuring that all groups have opportunities to improve their living standards and participate fully in the economy.
+
+**Source:** ACS 2024 5-YR Estimates (table S1701)
+
+[Download Data](data_download/povertyStatusByRace.csv){download="povertyStatusByRace.csv"}
+:::
+
+```{r}
+#| label: Health Insurance Coverage, by Race
+#| echo: false
+#| message: false
+#| warning: false
+
+library(plotly)
+library(dplyr)
+library(tidyr)
+
+health <- readRDS(
+  "data/healthInsuranceByRace.rds"
+)
+
+# Southwest Michigan counties
+county_order <- c(
+  "Kalamazoo",
+  "Berrien",
+  "Branch",
+  "Calhoun",
+  "Cass",
+  "St. Joseph",
+  "Van Buren"
+)
+
+# Convert to long format
+health_long <- health %>%
+  pivot_longer(
+    cols = -NAME,
+    names_to = "variable",
+    values_to = "Value"
+  )
+
+# Get every county in the RDS
+counties <- unique(
+  as.character(health_long$NAME)
+)
+
+# Put Southwest Michigan counties first,
+# followed by all other counties alphabetically
+counties <- c(
+  county_order[county_order %in% counties],
+  sort(setdiff(counties, county_order))
+)
+
+# Initial county
+init <- counties[1]
+
+df_init <- health_long %>%
+  filter(NAME == init)
+
+# Create chart
+p <- plot_ly(
+  data = df_init,
+  x = ~variable,
+  y = ~Value,
+  type = "bar",
+  marker = list(
+    color = "#2B9CB4"
+  )
+)
+
+# County dropdown
+buttons <- lapply(counties, function(county) {
+
+  df <- health_long %>%
+    filter(NAME == county)
+
+  list(
+    method = "update",
+
+    args = list(
+      list(
+        x = list(df$variable),
+        y = list(df$Value)
+      ),
+
+      list(
+        title = paste(
+          "Health Insurance Coverage by Race:",
+          county
+        )
+      )
+    ),
+
+    label = county
+  )
+})
+
+# Layout
+p %>%
+  layout(
+    barmode = "group",
+
+    title = paste(
+      "Health Insurance Coverage by Race:",
+      init
+    ),
+
+    xaxis = list(
+      title = "",
+      tickangle = 45
+    ),
+
+    yaxis = list(
+      title = "Population With Health Insurance",
+      ticksuffix = "%"
+    ),
+
+    showlegend = FALSE,
+
+    updatemenus = list(
+      list(
+        type = "dropdown",
+        buttons = buttons,
+        active = 0,
+        x = 1.15,
+        y = 0.65,
+        xanchor = "left"
+      )
+    ),
+
+    margin = list(
+      r = 180
+    )
+  ) %>%
+  config(
+    displayModeBar = FALSE
+  )
+
+```
+
+::: {.callout-note collapse="true" appearance="minimal"}
+## More Information
+
+Health insurance coverage by race is a critical economic indicator because it highlights disparities in access to healthcare, which can affect the overall health and economic well-being of different racial and ethnic groups. This data helps policymakers identify gaps in coverage and design inclusive healthcare policies that ensure equitable access to medical services for all communities. Understanding these disparities allows governments and organizations to address long-term healthcare costs, improve workforce productivity, and promote economic stability by reducing health-related financial burdens.
+
+**Source:** ACS 2024 5-YR Estimates (table S2701) • Population 16 and older
+
+[Download Data](data_download/healthInsuranceByRace.csv){download="healthInsuranceByRace.csv"}
+:::
+
+```{r}
+#| label: Vehicles Per Household
+#| echo: false
+#| message: false
+#| warning: false
+
+library(plotly)
+library(dplyr)
+library(tidyr)
+
+vehicles <- readRDS(
+  "data/vehiclesPerHousehold.rds"
+)
+
+# Southwest Michigan counties
+county_order <- c(
+  "Kalamazoo",
+  "Berrien",
+  "Branch",
+  "Calhoun",
+  "Cass",
+  "St. Joseph",
+  "Van Buren"
+)
+
+# Convert to long format
+vehicles_long <- vehicles %>%
+  pivot_longer(
+    cols = -NAME,
+    names_to = "variable",
+    values_to = "Value"
+  )
+
+# Get every county in the RDS
+counties <- unique(
+  as.character(vehicles_long$NAME)
+)
+
+# Put Southwest Michigan counties first,
+# followed by all other counties alphabetically
+counties <- c(
+  county_order[county_order %in% counties],
+  sort(setdiff(counties, county_order))
+)
+
+# Initial county
+init <- counties[1]
+
+df_init <- vehicles_long %>%
+  filter(NAME == init)
+
+# Create chart
+p <- plot_ly(
+  data = df_init,
+  x = ~variable,
+  y = ~Value,
+  type = "bar",
+  marker = list(
+    color = "#2B9CB4"
+  )
+)
+
+# County dropdown
+buttons <- lapply(counties, function(county) {
+
+  df <- vehicles_long %>%
+    filter(NAME == county)
+
+  list(
+    method = "update",
+
+    args = list(
+      list(
+        x = list(df$variable),
+        y = list(df$Value)
+      ),
+
+      list(
+        title = paste(
+          "Vehicles per Household:",
+          county
+        )
+      )
+    ),
+
+    label = county
+  )
+})
+
+# Layout
+p %>%
+  layout(
+    barmode = "group",
+
+    title = paste(
+      "Vehicles per Household:",
+      init
+    ),
+
+    xaxis = list(
+      title = "",
+      tickangle = 45
+    ),
+
+    yaxis = list(
+      title = "Households",
+      ticksuffix = "%"
+    ),
+
+    showlegend = FALSE,
+
+    updatemenus = list(
+      list(
+        type = "dropdown",
+        buttons = buttons,
+        active = 0,
+        x = 1.15,
+        y = 0.65,
+        xanchor = "left"
+      )
+    ),
+
+    margin = list(
+      r = 180
+    )
+  ) %>%
+  config(
+    displayModeBar = FALSE
+  )
+
+```
+
+::: {.callout-note collapse="true" appearance="minimal"}
+## More Information
+
+Vehicles per household is a significant economic indicator as it reflects access to transportation, which directly impacts employment opportunities, access to services, and overall mobility. In regions with limited public transportation, such as many rural and suburban areas in the U.S., households with fewer vehicles may face challenges in commuting to work or school. This data helps policymakers and urban planners address transportation needs, develop infrastructure, and improve transit options, ultimately influencing economic participation and quality of life across different communities.
+
+**Source:** ACS 2024 5-YR Estimates (table DP04)
+
+[Download Data](data_download/vehiclesPerHousehold.csv){download="vehiclesPerHousehold.csv"}
+:::
+
+```{r}
+#| label: Key Housing Indicators
+#| echo: false
+#| message: false
+#| warning: false
+
+library(dplyr)
+library(htmltools)
+
+housing <- readRDS(
+  "data/keyHousingIndicators.rds"
+)
+
+# Southwest Michigan counties
+county_order <- c(
+  "Kalamazoo",
+  "Berrien",
+  "Branch",
+  "Calhoun",
+  "Cass",
+  "St. Joseph",
+  "Van Buren"
+)
+
+# Get all counties in the data
+counties <- unique(
+  as.character(housing$NAME)
+)
+
+# Southwest Michigan counties first,
+# followed by all remaining counties alphabetically
+counties <- c(
+  county_order[county_order %in% counties],
+  sort(setdiff(counties, county_order))
+)
+
+# First county displayed
+selected_county <- counties[1]
+
+# Create cards
+housing_cards <- housing %>%
+  mutate(
+    card = paste0(
+      '<div class="housing-card" data-county="',
+      NAME,
+      '">',
+        '<div class="housing-county">',
+        NAME,
+        '</div>',
+        '<div class="housing-variable">',
+        name,
+        '</div>',
+        '<div class="housing-value">',
+        value,
+        '</div>',
+      '</div>'
+    )
+  )
+
+# Create dropdown options
+county_options <- paste0(
+  '<option value="',
+  counties,
+  '">',
+  counties,
+  '</option>',
+  collapse = ""
+)
+
+# Create HTML
+HTML(
+  paste0(
+    
+    # Dropdown
+    '<div class="housing-selector">',
+      '<label for="housing-county-select">',
+        '<strong>County</strong>',
+      '</label>',
+      
+      '<select id="housing-county-select" ',
+      'onchange="updateHousingCards(this.value)">',
+        county_options,
+      '</select>',
+    '</div>',
+    
+    # Cards
+    '<div class="housing-card-grid">',
+      paste(housing_cards$card, collapse = ""),
+    '</div>',
+    
+    # JavaScript
+    '<script>',
+      'function updateHousingCards(county) {',
+        'var cards = document.querySelectorAll(".housing-card");',
+        
+        'cards.forEach(function(card) {',
+          'if (card.getAttribute("data-county") === county) {',
+            'card.style.display = "flex";',
+          '} else {',
+            'card.style.display = "none";',
+          '}',
+        '});',
+      '}',
+      
+      # Show first county when page loads
+      'document.addEventListener("DOMContentLoaded", function() {',
+        'var select = document.getElementById("housing-county-select");',
+        'updateHousingCards(select.value);',
+      '});',
+    '</script>'
+  )
+)
+
+```
+
+
+::: {.callout-note collapse="true" appearance="minimal"}
+## More Information
+
+Home vacancy rates indicate housing availability, guiding investments in construction and redevelopment. Occupants per room reveal overcrowding, which can affect health and quality of life, highlighting the need for affordable housing. Average monthly housing costs reflect affordability and household financial stability, informing policies to alleviate housing burdens.
+
+**Source:** ACS 2024 5-YR Estimates (table DP04)
+
+[Download Data](data_download/keyHousingIndicators.csv){download="keyHousingIndicators.csv"}
+:::

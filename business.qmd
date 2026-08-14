@@ -5,6 +5,12 @@ format:
     theme: cosmo
 ---
 
+## 
+
+Please [contact us](mailto:regional@upjohn.org) if you have any questions. 
+
+## 
+
 ```{r}
 #| label: Personal Consumption
 #| echo: false
@@ -17,10 +23,24 @@ library(plotly)
 spending <- readRDS("data/fred_spending.rds")
 
 fig <- plot_ly(spending, x = ~date)
-fig <- fig %>% add_lines(y = ~disposable_income, name = "Disposable Income")
-fig <- fig %>% add_lines(y = ~durable_goods, name = "Durable Goods")
-fig <- fig %>% add_lines(y = ~nondurable_goods, name = "Nondurable Goods")
-fig <- fig %>% add_lines(y = ~services, name = "Services")
+
+fig <- fig %>% 
+  add_lines(
+    y = ~disposable_income, 
+    name = "Disposable Income",
+    line =list(color = "#004A5E"))
+fig <- fig %>% 
+  add_lines(y = ~durable_goods, 
+            name = "Durable Goods",
+            line = list(color = "#2B9CB4"))
+fig <- fig %>% 
+  add_lines(y = ~nondurable_goods, 
+            name = "Nondurable Goods",
+            line = list(color = "#AF2C32"))
+fig <- fig %>% 
+  add_lines(y = ~services, 
+            name = "Services",
+            line = list(color = "#414042"))
 
 fig <- fig %>%
   layout(
@@ -127,14 +147,16 @@ fig <- fig %>%
   add_lines(
     y = ~value.x,
     name = "Light Vehicle Sales",
-    yaxis = "y1"
+    yaxis = "y1",
+    line =list(color = "#004A5E")
   )
 
 fig <- fig %>%
   add_lines(
     y = ~value.y,
     name = "Fuel Prices",
-    yaxis = "y2"
+    yaxis = "y2",
+    line =list(color = "#AF2C32")
   )
 
 fig %>%
@@ -272,7 +294,7 @@ for (cty in counties) {
       y = ~GDP_percent_change,
       name = cty,
       visible = (cty == init),
-      line = list(color = "steelblue"),
+      line = list(color = "#004A5E"),
       legendgroup = "county"
     )
 }
@@ -283,7 +305,7 @@ p <- p %>%
     x = ~TimePeriod,
     y = ~Michigan_GDP_percent_change,
     name = "Michigan",
-    line = list(color = "black", dash = "dash"),
+    line = list(color = "#2B9CB4", dash = "dash"),
     inherit = FALSE
   )
 
@@ -371,13 +393,15 @@ fig <- plot_ly(biz, x = ~Date)
 fig <- fig %>%
   add_lines(
     y = ~Michigan,
-    name = "Michigan"
+    name = "Michigan",
+    line =list(color = "#004A5E")
   )
 
 fig <- fig %>%
   add_lines(
     y = ~United_States,
     name = "United States",
+    line =list(color = "#AF2C32"),
     line = list(dash = "dash")
   )
 
@@ -496,7 +520,7 @@ fig <- fig %>%
     x = ~year_MI,
     y = ~value_MI,
     name = "Michigan",
-    line = list(color = "steelblue")
+    line = list(color = "#004A5E")
   )
 
 # United States trace
@@ -506,7 +530,7 @@ fig <- fig %>%
     x = ~year_MI,
     y = ~value_US,
     name = "United States",
-    line = list(color = "black",
+    line = list(color = "#2B9CB4",
                 dash = "dash")
   )
 
@@ -624,6 +648,32 @@ library(tidyr)
 # Read data
 workers <- readRDS("data/classOfWorker.rds")
 
+legend_annotations <- list(
+  list(x = 1.02, y = 1.00, xref = "paper", yref = "paper",
+       text = "<b>Educational Attainment</b>",
+       showarrow = FALSE, xanchor = "left"),
+
+  list(x = 1.02, y = 0.92, xref = "paper", yref = "paper",
+       text = "■ Private Wage and Salary Workers",
+       font = list(color = "#004A5E"),
+       showarrow = FALSE, xanchor = "left"),
+
+  list(x = 1.02, y = 0.84, xref = "paper", yref = "paper",
+       text = "■ Government Workers",
+       font = list(color = "#2B9CB4"),
+       showarrow = FALSE, xanchor = "left"),
+  
+    list(x = 1.02, y = 0.76, xref = "paper", yref = "paper",
+       text = "■ Self-employed in own, not incorporated, business workers",
+       font = list(color = "#AF2C32"),
+       showarrow = FALSE, xanchor = "left"),
+  
+      list(x = 1.02, y = 0.76, xref = "paper", yref = "paper",
+       text = "■ Unpaid family workers",
+       font = list(color = "#414042"),
+       showarrow = FALSE, xanchor = "left")
+)
+
 
 # Convert to long format
 workers_long <- workers %>%
@@ -641,10 +691,10 @@ workers_long <- workers %>%
 
 # Worker colors
 worker_colors <- c(
-  "Private Wage and Salary Workers" = "#01665e",
-  "Government Workers" = "#5ab4ac",
-  "Self-employed in own, not incorporated, business workers" = "#d8b365",
-  "unpaid family workers" = "#8c510a"
+  "Private Wage and Salary Workers" = "#004A5E",
+  "Government Workers" = "#2B9CB4",
+  "Self-employed in own, not incorporated, business workers" = "#AF2C32",
+  "unpaid family workers" = "#414042"
 )
 
 
@@ -789,6 +839,9 @@ p %>%
 
 
     showlegend = FALSE,
+    annotations = legend_annotations <- c(
+      legend_annotations
+    ),
 
 
     margin = list(
@@ -810,4 +863,238 @@ Understanding the class of worker in a county is crucial for analyzing labor mar
 **Source:** ACS 2024 5-YR Estimates (table B08528)
 
 [Download Data](data_download/averageAnnualWage.csv){download="averageAnnualWage.csv"}
+:::
+
+```{r}
+#| label: Per Capita Income
+#| echo: false
+#| message: false
+#| warning: false
+
+library(dplyr)
+library(knitr)
+library(htmltools)
+library(purrr)
+library(kableExtra)
+
+
+
+income <- readRDS(
+  "data/PerCapitaIncome.rds"
+)
+
+# Southwest Michigan county order
+county_order <- c(
+  "Kalamazoo",
+  "Berrien",
+  "Branch",
+  "Calhoun",
+  "Cass",
+  "St. Joseph",
+  "Van Buren"
+)
+
+# ---------------------------------------------------------
+# Create sparkline function
+# ---------------------------------------------------------
+
+make_sparkline <- function(values) {
+
+  values <- as.numeric(values)
+
+  # Remove missing values
+  valid <- !is.na(values)
+
+  if (sum(valid) < 2) {
+    return("")
+  }
+
+  values <- values[valid]
+
+  # Dimensions
+  width <- 120
+  height <- 35
+  padding <- 3
+
+  # Scale values to chart dimensions
+  x <- seq(
+    padding,
+    width - padding,
+    length.out = length(values)
+  )
+
+  value_range <- max(values) - min(values)
+
+  if (value_range == 0) {
+    y <- rep(
+      height / 2,
+      length(values)
+    )
+  } else {
+    y <- height - padding -
+      ((values - min(values)) / value_range) *
+      (height - 2 * padding)
+  }
+
+  # Create SVG line
+  points <- paste(
+    paste(x, y, sep = ","),
+    collapse = " "
+  )
+
+  # Return HTML SVG
+  HTML(
+    paste0(
+      '<svg width="120" height="35" ',
+      'viewBox="0 0 120 35" ',
+      'xmlns="http://www.w3.org/2000/svg">',
+      '<polyline ',
+      'points="', points, '" ',
+      'fill="none" ',
+      'stroke="#2B9CB4" ',
+      'stroke-width="2" ',
+      'stroke-linecap="round" ',
+      'stroke-linejoin="round"/>',
+      '</svg>'
+    )
+  )
+}
+
+# ---------------------------------------------------------
+# Create table data
+# ---------------------------------------------------------
+
+income_table <- income %>%
+  mutate(
+    
+    # County ordering
+    county_order = case_when(
+      GeoName %in% county_order ~
+        match(GeoName, county_order),
+      TRUE ~
+        length(county_order) + 1
+    )
+  ) %>%
+  arrange(
+    county_order,
+    GeoName
+  ) %>%
+  mutate(
+    
+    # Formatted values
+    `2024 Rank` = rank_2024,
+    
+    `Growth Rank` = pc_rank_2024,
+    
+    `2024 vs. 2023` = paste0(
+      sprintf(
+        "%.1f",
+        pct_24_23
+      ),
+      "%"
+    ),
+    
+Trend = pmap(
+  list(
+    DataValue_2020,
+    DataValue_2021,
+    DataValue_2022,
+    DataValue_2023,
+    DataValue_2024
+  ),
+  ~ make_sparkline(c(...))
+)
+  ) %>%
+  select(
+    GeoName,
+    `2024 Rank`,
+    `Growth Rank`,
+    `2024 vs. 2023`,
+    Trend
+  )
+
+# ---------------------------------------------------------
+# Render table
+# ---------------------------------------------------------
+
+htmltools::HTML(
+  '<div style="margin-bottom: 15px;">',
+  '<label for="countySearch"><strong>Search County:</strong></label>',
+  '<input type="text" id="countySearch" ',
+  'placeholder="Enter county name..." ',
+  'style="margin-left: 10px; padding: 6px; width: 250px;">',
+  '</div>'
+)
+
+kable(
+  income_table,
+  format = "html",
+  escape = FALSE,
+  table.attr = 'id="incomeTable"',
+  col.names = c(
+    "County",
+    "2024 Rank",
+    "Growth Rank",
+    "2024 vs. 2023",
+    "2020–2024"
+  ),
+  align = c(
+    "l",
+    "c",
+    "c",
+    "c",
+    "c"
+  )
+) %>%
+  kable_styling(
+    bootstrap_options = c(
+      "striped",
+      "hover",
+      "condensed"
+    ),
+    full_width = FALSE
+  )
+
+htmltools::HTML(
+  '
+  <script>
+  document.getElementById("countySearch").addEventListener("keyup", function() {
+
+    var input = this.value.toLowerCase();
+    var table = document.getElementById("incomeTable");
+    var rows = table.getElementsByTagName("tr");
+
+    for (var i = 1; i < rows.length; i++) {
+
+      var county = rows[i]
+        .getElementsByTagName("td")[0];
+
+      if (county) {
+
+        var text = county.textContent ||
+                   county.innerText;
+
+        if (text.toLowerCase().indexOf(input) > -1) {
+          rows[i].style.display = "";
+        } else {
+          rows[i].style.display = "none";
+        }
+
+      }
+    }
+  });
+  </script>
+  '
+)
+
+```
+
+::: {.callout-note collapse="true" appearance="minimal"}
+## More Information
+
+The per capita income provides a measure of the average income earned per person, reflecting the economic well-being of residents. It serves as a key indicator for assessing local economic development, standard of living, and income distribution within the community.
+
+**Source:** ACS 2024 5-YR Estimates (table B08528)
+
+[Download Data](data_download/PerCapitaIncome.csv){download="PerCapitaIncome.csv"}
 :::

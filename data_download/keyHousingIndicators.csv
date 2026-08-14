@@ -1,0 +1,582 @@
+"","NAME","name","value"
+"1","Kalamazoo","Homeowner Vacancy Rate",0.5
+"2","Kalamazoo","Rental Vacancy Rate",5.3
+"3","Kalamazoo","Occupied Housing Units",107110
+"4","Kalamazoo","One or Less Occupant Per Room (%)",99
+"5","Kalamazoo","More than 1 Occupants Per Room (%)",1
+"6","Kalamazoo","Average Monthly Owner Cost (With Mortgage) ($)",1616
+"7","Kalamazoo","Average Monthly Rent ($)",1093
+"8","Berrien","Homeowner Vacancy Rate",0.8
+"9","Berrien","Rental Vacancy Rate",4.5
+"10","Berrien","Occupied Housing Units",63999
+"11","Berrien","One or Less Occupant Per Room (%)",98.6
+"12","Berrien","More than 1 Occupants Per Room (%)",1.4
+"13","Berrien","Average Monthly Owner Cost (With Mortgage) ($)",1462
+"14","Berrien","Average Monthly Rent ($)",942
+"15","Branch","Homeowner Vacancy Rate",1.1
+"16","Branch","Rental Vacancy Rate",7.8
+"17","Branch","Occupied Housing Units",16906
+"18","Branch","One or Less Occupant Per Room (%)",97.5
+"19","Branch","More than 1 Occupants Per Room (%)",2.5
+"20","Branch","Average Monthly Owner Cost (With Mortgage) ($)",1241
+"21","Branch","Average Monthly Rent ($)",959
+"22","Calhoun","Homeowner Vacancy Rate",1.6
+"23","Calhoun","Rental Vacancy Rate",9.7
+"24","Calhoun","Occupied Housing Units",53333
+"25","Calhoun","One or Less Occupant Per Room (%)",98.6
+"26","Calhoun","More than 1 Occupants Per Room (%)",1.4
+"27","Calhoun","Average Monthly Owner Cost (With Mortgage) ($)",1271
+"28","Calhoun","Average Monthly Rent ($)",968
+"29","Cass","Homeowner Vacancy Rate",0.8
+"30","Cass","Rental Vacancy Rate",5.1
+"31","Cass","Occupied Housing Units",21207
+"32","Cass","One or Less Occupant Per Room (%)",98.3
+"33","Cass","More than 1 Occupants Per Room (%)",1.7
+"34","Cass","Average Monthly Owner Cost (With Mortgage) ($)",1478
+"35","Cass","Average Monthly Rent ($)",916
+"36","St. Joseph","Homeowner Vacancy Rate",0.9
+"37","St. Joseph","Rental Vacancy Rate",5.5
+"38","St. Joseph","Occupied Housing Units",23620
+"39","St. Joseph","One or Less Occupant Per Room (%)",98.8
+"40","St. Joseph","More than 1 Occupants Per Room (%)",1.2
+"41","St. Joseph","Average Monthly Owner Cost (With Mortgage) ($)",1309
+"42","St. Joseph","Average Monthly Rent ($)",849
+"43","Van Buren","Homeowner Vacancy Rate",0.3
+"44","Van Buren","Rental Vacancy Rate",6.5
+"45","Van Buren","Occupied Housing Units",30622
+"46","Van Buren","One or Less Occupant Per Room (%)",98
+"47","Van Buren","More than 1 Occupants Per Room (%)",2
+"48","Van Buren","Average Monthly Owner Cost (With Mortgage) ($)",1404
+"49","Van Buren","Average Monthly Rent ($)",870
+"50","Alcona","Homeowner Vacancy Rate",1.6
+"51","Alcona","Rental Vacancy Rate",4
+"52","Alcona","Occupied Housing Units",5305
+"53","Alcona","One or Less Occupant Per Room (%)",99.1
+"54","Alcona","More than 1 Occupants Per Room (%)",0.9
+"55","Alcona","Average Monthly Owner Cost (With Mortgage) ($)",1096
+"56","Alcona","Average Monthly Rent ($)",867
+"57","Alger","Homeowner Vacancy Rate",1.1
+"58","Alger","Rental Vacancy Rate",6
+"59","Alger","Occupied Housing Units",3531
+"60","Alger","One or Less Occupant Per Room (%)",98.6
+"61","Alger","More than 1 Occupants Per Room (%)",1.4
+"62","Alger","Average Monthly Owner Cost (With Mortgage) ($)",1249
+"63","Alger","Average Monthly Rent ($)",714
+"64","Allegan","Homeowner Vacancy Rate",0.4
+"65","Allegan","Rental Vacancy Rate",4.1
+"66","Allegan","Occupied Housing Units",45522
+"67","Allegan","One or Less Occupant Per Room (%)",97.7
+"68","Allegan","More than 1 Occupants Per Room (%)",2.3
+"69","Allegan","Average Monthly Owner Cost (With Mortgage) ($)",1523
+"70","Allegan","Average Monthly Rent ($)",1100
+"71","Alpena","Homeowner Vacancy Rate",0.8
+"72","Alpena","Rental Vacancy Rate",2.1
+"73","Alpena","Occupied Housing Units",13019
+"74","Alpena","One or Less Occupant Per Room (%)",98.4
+"75","Alpena","More than 1 Occupants Per Room (%)",1.6
+"76","Alpena","Average Monthly Owner Cost (With Mortgage) ($)",1096
+"77","Alpena","Average Monthly Rent ($)",673
+"78","Antrim","Homeowner Vacancy Rate",0.9
+"79","Antrim","Rental Vacancy Rate",4.1
+"80","Antrim","Occupied Housing Units",11100
+"81","Antrim","One or Less Occupant Per Room (%)",97.8
+"82","Antrim","More than 1 Occupants Per Room (%)",2.2
+"83","Antrim","Average Monthly Owner Cost (With Mortgage) ($)",1462
+"84","Antrim","Average Monthly Rent ($)",902
+"85","Arenac","Homeowner Vacancy Rate",0.4
+"86","Arenac","Rental Vacancy Rate",4.5
+"87","Arenac","Occupied Housing Units",6552
+"88","Arenac","One or Less Occupant Per Room (%)",98.8
+"89","Arenac","More than 1 Occupants Per Room (%)",1.2
+"90","Arenac","Average Monthly Owner Cost (With Mortgage) ($)",1140
+"91","Arenac","Average Monthly Rent ($)",761
+"92","Baraga","Homeowner Vacancy Rate",1.2
+"93","Baraga","Rental Vacancy Rate",6.1
+"94","Baraga","Occupied Housing Units",3433
+"95","Baraga","One or Less Occupant Per Room (%)",99
+"96","Baraga","More than 1 Occupants Per Room (%)",1
+"97","Baraga","Average Monthly Owner Cost (With Mortgage) ($)",1131
+"98","Baraga","Average Monthly Rent ($)",616
+"99","Barry","Homeowner Vacancy Rate",0.3
+"100","Barry","Rental Vacancy Rate",4.3
+"101","Barry","Occupied Housing Units",24480
+"102","Barry","One or Less Occupant Per Room (%)",98.4
+"103","Barry","More than 1 Occupants Per Room (%)",1.6
+"104","Barry","Average Monthly Owner Cost (With Mortgage) ($)",1545
+"105","Barry","Average Monthly Rent ($)",972
+"106","Bay","Homeowner Vacancy Rate",0.8
+"107","Bay","Rental Vacancy Rate",3.9
+"108","Bay","Occupied Housing Units",45103
+"109","Bay","One or Less Occupant Per Room (%)",99.1
+"110","Bay","More than 1 Occupants Per Room (%)",0.9
+"111","Bay","Average Monthly Owner Cost (With Mortgage) ($)",1249
+"112","Bay","Average Monthly Rent ($)",860
+"113","Benzie","Homeowner Vacancy Rate",0.7
+"114","Benzie","Rental Vacancy Rate",9.7
+"115","Benzie","Occupied Housing Units",7708
+"116","Benzie","One or Less Occupant Per Room (%)",98.4
+"117","Benzie","More than 1 Occupants Per Room (%)",1.6
+"118","Benzie","Average Monthly Owner Cost (With Mortgage) ($)",1437
+"119","Benzie","Average Monthly Rent ($)",1026
+"120","Charlevoix","Homeowner Vacancy Rate",0.8
+"121","Charlevoix","Rental Vacancy Rate",3.8
+"122","Charlevoix","Occupied Housing Units",12267
+"123","Charlevoix","One or Less Occupant Per Room (%)",98.7
+"124","Charlevoix","More than 1 Occupants Per Room (%)",1.3
+"125","Charlevoix","Average Monthly Owner Cost (With Mortgage) ($)",1478
+"126","Charlevoix","Average Monthly Rent ($)",949
+"127","Cheboygan","Homeowner Vacancy Rate",0.6
+"128","Cheboygan","Rental Vacancy Rate",4.9
+"129","Cheboygan","Occupied Housing Units",11159
+"130","Cheboygan","One or Less Occupant Per Room (%)",99.1
+"131","Cheboygan","More than 1 Occupants Per Room (%)",0.9
+"132","Cheboygan","Average Monthly Owner Cost (With Mortgage) ($)",1231
+"133","Cheboygan","Average Monthly Rent ($)",773
+"134","Chippewa","Homeowner Vacancy Rate",1.2
+"135","Chippewa","Rental Vacancy Rate",7.8
+"136","Chippewa","Occupied Housing Units",14080
+"137","Chippewa","One or Less Occupant Per Room (%)",97.7
+"138","Chippewa","More than 1 Occupants Per Room (%)",2.3
+"139","Chippewa","Average Monthly Owner Cost (With Mortgage) ($)",1207
+"140","Chippewa","Average Monthly Rent ($)",797
+"141","Clare","Homeowner Vacancy Rate",1.4
+"142","Clare","Rental Vacancy Rate",5.8
+"143","Clare","Occupied Housing Units",12521
+"144","Clare","One or Less Occupant Per Room (%)",97.5
+"145","Clare","More than 1 Occupants Per Room (%)",2.5
+"146","Clare","Average Monthly Owner Cost (With Mortgage) ($)",1141
+"147","Clare","Average Monthly Rent ($)",765
+"148","Clinton","Homeowner Vacancy Rate",0.4
+"149","Clinton","Rental Vacancy Rate",9.6
+"150","Clinton","Occupied Housing Units",31639
+"151","Clinton","One or Less Occupant Per Room (%)",99
+"152","Clinton","More than 1 Occupants Per Room (%)",1
+"153","Clinton","Average Monthly Owner Cost (With Mortgage) ($)",1726
+"154","Clinton","Average Monthly Rent ($)",1092
+"155","Crawford","Homeowner Vacancy Rate",0.4
+"156","Crawford","Rental Vacancy Rate",4.4
+"157","Crawford","Occupied Housing Units",6231
+"158","Crawford","One or Less Occupant Per Room (%)",99
+"159","Crawford","More than 1 Occupants Per Room (%)",1
+"160","Crawford","Average Monthly Owner Cost (With Mortgage) ($)",1190
+"161","Crawford","Average Monthly Rent ($)",862
+"162","Delta","Homeowner Vacancy Rate",1.3
+"163","Delta","Rental Vacancy Rate",4.6
+"164","Delta","Occupied Housing Units",15971
+"165","Delta","One or Less Occupant Per Room (%)",98.6
+"166","Delta","More than 1 Occupants Per Room (%)",1.4
+"167","Delta","Average Monthly Owner Cost (With Mortgage) ($)",1205
+"168","Delta","Average Monthly Rent ($)",692
+"169","Dickinson","Homeowner Vacancy Rate",1
+"170","Dickinson","Rental Vacancy Rate",2.8
+"171","Dickinson","Occupied Housing Units",11905
+"172","Dickinson","One or Less Occupant Per Room (%)",99.4
+"173","Dickinson","More than 1 Occupants Per Room (%)",0.6
+"174","Dickinson","Average Monthly Owner Cost (With Mortgage) ($)",1126
+"175","Dickinson","Average Monthly Rent ($)",797
+"176","Eaton","Homeowner Vacancy Rate",0.8
+"177","Eaton","Rental Vacancy Rate",5.3
+"178","Eaton","Occupied Housing Units",45428
+"179","Eaton","One or Less Occupant Per Room (%)",98.7
+"180","Eaton","More than 1 Occupants Per Room (%)",1.3
+"181","Eaton","Average Monthly Owner Cost (With Mortgage) ($)",1514
+"182","Eaton","Average Monthly Rent ($)",1092
+"183","Emmet","Homeowner Vacancy Rate",1.5
+"184","Emmet","Rental Vacancy Rate",5
+"185","Emmet","Occupied Housing Units",15190
+"186","Emmet","One or Less Occupant Per Room (%)",99.2
+"187","Emmet","More than 1 Occupants Per Room (%)",0.8
+"188","Emmet","Average Monthly Owner Cost (With Mortgage) ($)",1604
+"189","Emmet","Average Monthly Rent ($)",1112
+"190","Genesee","Homeowner Vacancy Rate",0.7
+"191","Genesee","Rental Vacancy Rate",3.2
+"192","Genesee","Occupied Housing Units",167334
+"193","Genesee","One or Less Occupant Per Room (%)",98.7
+"194","Genesee","More than 1 Occupants Per Room (%)",1.3
+"195","Genesee","Average Monthly Owner Cost (With Mortgage) ($)",1455
+"196","Genesee","Average Monthly Rent ($)",989
+"197","Gladwin","Homeowner Vacancy Rate",1.1
+"198","Gladwin","Rental Vacancy Rate",2.9
+"199","Gladwin","Occupied Housing Units",11280
+"200","Gladwin","One or Less Occupant Per Room (%)",97.5
+"201","Gladwin","More than 1 Occupants Per Room (%)",2.5
+"202","Gladwin","Average Monthly Owner Cost (With Mortgage) ($)",1233
+"203","Gladwin","Average Monthly Rent ($)",690
+"204","Gogebic","Homeowner Vacancy Rate",0.7
+"205","Gogebic","Rental Vacancy Rate",7.3
+"206","Gogebic","Occupied Housing Units",6989
+"207","Gogebic","One or Less Occupant Per Room (%)",99
+"208","Gogebic","More than 1 Occupants Per Room (%)",1
+"209","Gogebic","Average Monthly Owner Cost (With Mortgage) ($)",1084
+"210","Gogebic","Average Monthly Rent ($)",623
+"211","Grand Traverse","Homeowner Vacancy Rate",0.5
+"212","Grand Traverse","Rental Vacancy Rate",9.6
+"213","Grand Traverse","Occupied Housing Units",40287
+"214","Grand Traverse","One or Less Occupant Per Room (%)",98.6
+"215","Grand Traverse","More than 1 Occupants Per Room (%)",1.4
+"216","Grand Traverse","Average Monthly Owner Cost (With Mortgage) ($)",1566
+"217","Grand Traverse","Average Monthly Rent ($)",1288
+"218","Gratiot","Homeowner Vacancy Rate",0.8
+"219","Gratiot","Rental Vacancy Rate",5.7
+"220","Gratiot","Occupied Housing Units",14775
+"221","Gratiot","One or Less Occupant Per Room (%)",98.5
+"222","Gratiot","More than 1 Occupants Per Room (%)",1.5
+"223","Gratiot","Average Monthly Owner Cost (With Mortgage) ($)",1248
+"224","Gratiot","Average Monthly Rent ($)",834
+"225","Hillsdale","Homeowner Vacancy Rate",0.5
+"226","Hillsdale","Rental Vacancy Rate",2
+"227","Hillsdale","Occupied Housing Units",17860
+"228","Hillsdale","One or Less Occupant Per Room (%)",97
+"229","Hillsdale","More than 1 Occupants Per Room (%)",3
+"230","Hillsdale","Average Monthly Owner Cost (With Mortgage) ($)",1239
+"231","Hillsdale","Average Monthly Rent ($)",832
+"232","Houghton","Homeowner Vacancy Rate",0.9
+"233","Houghton","Rental Vacancy Rate",6.2
+"234","Houghton","Occupied Housing Units",14305
+"235","Houghton","One or Less Occupant Per Room (%)",97.9
+"236","Houghton","More than 1 Occupants Per Room (%)",2.1
+"237","Houghton","Average Monthly Owner Cost (With Mortgage) ($)",1211
+"238","Houghton","Average Monthly Rent ($)",840
+"239","Huron","Homeowner Vacancy Rate",1
+"240","Huron","Rental Vacancy Rate",5.7
+"241","Huron","Occupied Housing Units",14150
+"242","Huron","One or Less Occupant Per Room (%)",99.3
+"243","Huron","More than 1 Occupants Per Room (%)",0.7
+"244","Huron","Average Monthly Owner Cost (With Mortgage) ($)",1135
+"245","Huron","Average Monthly Rent ($)",788
+"246","Ingham","Homeowner Vacancy Rate",1.3
+"247","Ingham","Rental Vacancy Rate",5.6
+"248","Ingham","Occupied Housing Units",117096
+"249","Ingham","One or Less Occupant Per Room (%)",98.4
+"250","Ingham","More than 1 Occupants Per Room (%)",1.6
+"251","Ingham","Average Monthly Owner Cost (With Mortgage) ($)",1501
+"252","Ingham","Average Monthly Rent ($)",1084
+"253","Ionia","Homeowner Vacancy Rate",0.2
+"254","Ionia","Rental Vacancy Rate",3.8
+"255","Ionia","Occupied Housing Units",23355
+"256","Ionia","One or Less Occupant Per Room (%)",98.8
+"257","Ionia","More than 1 Occupants Per Room (%)",1.2
+"258","Ionia","Average Monthly Owner Cost (With Mortgage) ($)",1383
+"259","Ionia","Average Monthly Rent ($)",884
+"260","Iosco","Homeowner Vacancy Rate",1.9
+"261","Iosco","Rental Vacancy Rate",3.8
+"262","Iosco","Occupied Housing Units",11713
+"263","Iosco","One or Less Occupant Per Room (%)",99.2
+"264","Iosco","More than 1 Occupants Per Room (%)",0.8
+"265","Iosco","Average Monthly Owner Cost (With Mortgage) ($)",1036
+"266","Iosco","Average Monthly Rent ($)",719
+"267","Iron","Homeowner Vacancy Rate",1.4
+"268","Iron","Rental Vacancy Rate",4.5
+"269","Iron","Occupied Housing Units",5547
+"270","Iron","One or Less Occupant Per Room (%)",97.9
+"271","Iron","More than 1 Occupants Per Room (%)",2.1
+"272","Iron","Average Monthly Owner Cost (With Mortgage) ($)",1165
+"273","Iron","Average Monthly Rent ($)",716
+"274","Isabella","Homeowner Vacancy Rate",0.5
+"275","Isabella","Rental Vacancy Rate",3.7
+"276","Isabella","Occupied Housing Units",24914
+"277","Isabella","One or Less Occupant Per Room (%)",98.4
+"278","Isabella","More than 1 Occupants Per Room (%)",1.6
+"279","Isabella","Average Monthly Owner Cost (With Mortgage) ($)",1314
+"280","Isabella","Average Monthly Rent ($)",913
+"281","Jackson","Homeowner Vacancy Rate",0.7
+"282","Jackson","Rental Vacancy Rate",5.6
+"283","Jackson","Occupied Housing Units",62540
+"284","Jackson","One or Less Occupant Per Room (%)",98.7
+"285","Jackson","More than 1 Occupants Per Room (%)",1.3
+"286","Jackson","Average Monthly Owner Cost (With Mortgage) ($)",1377
+"287","Jackson","Average Monthly Rent ($)",985
+"288","Kalkaska","Homeowner Vacancy Rate",0.5
+"289","Kalkaska","Rental Vacancy Rate",1.5
+"290","Kalkaska","Occupied Housing Units",7789
+"291","Kalkaska","One or Less Occupant Per Room (%)",97.1
+"292","Kalkaska","More than 1 Occupants Per Room (%)",2.9
+"293","Kalkaska","Average Monthly Owner Cost (With Mortgage) ($)",1223
+"294","Kalkaska","Average Monthly Rent ($)",853
+"295","Kent","Homeowner Vacancy Rate",0.3
+"296","Kent","Rental Vacancy Rate",4.3
+"297","Kent","Occupied Housing Units",256648
+"298","Kent","One or Less Occupant Per Room (%)",98.1
+"299","Kent","More than 1 Occupants Per Room (%)",1.9
+"300","Kent","Average Monthly Owner Cost (With Mortgage) ($)",1603
+"301","Kent","Average Monthly Rent ($)",1243
+"302","Keweenaw","Homeowner Vacancy Rate",2.6
+"303","Keweenaw","Rental Vacancy Rate",43
+"304","Keweenaw","Occupied Housing Units",1135
+"305","Keweenaw","One or Less Occupant Per Room (%)",99.4
+"306","Keweenaw","More than 1 Occupants Per Room (%)",0.6
+"307","Keweenaw","Average Monthly Owner Cost (With Mortgage) ($)",1179
+"308","Keweenaw","Average Monthly Rent ($)",688
+"309","Lake","Homeowner Vacancy Rate",0.7
+"310","Lake","Rental Vacancy Rate",0.4
+"311","Lake","Occupied Housing Units",5190
+"312","Lake","One or Less Occupant Per Room (%)",98.5
+"313","Lake","More than 1 Occupants Per Room (%)",1.5
+"314","Lake","Average Monthly Owner Cost (With Mortgage) ($)",1172
+"315","Lake","Average Monthly Rent ($)",875
+"316","Lapeer","Homeowner Vacancy Rate",0.7
+"317","Lapeer","Rental Vacancy Rate",1.5
+"318","Lapeer","Occupied Housing Units",34836
+"319","Lapeer","One or Less Occupant Per Room (%)",98.6
+"320","Lapeer","More than 1 Occupants Per Room (%)",1.4
+"321","Lapeer","Average Monthly Owner Cost (With Mortgage) ($)",1512
+"322","Lapeer","Average Monthly Rent ($)",988
+"323","Leelanau","Homeowner Vacancy Rate",0.4
+"324","Leelanau","Rental Vacancy Rate",23.8
+"325","Leelanau","Occupied Housing Units",9645
+"326","Leelanau","One or Less Occupant Per Room (%)",98.8
+"327","Leelanau","More than 1 Occupants Per Room (%)",1.2
+"328","Leelanau","Average Monthly Owner Cost (With Mortgage) ($)",1865
+"329","Leelanau","Average Monthly Rent ($)",1228
+"330","Lenawee","Homeowner Vacancy Rate",0.9
+"331","Lenawee","Rental Vacancy Rate",6.1
+"332","Lenawee","Occupied Housing Units",38871
+"333","Lenawee","One or Less Occupant Per Room (%)",98.4
+"334","Lenawee","More than 1 Occupants Per Room (%)",1.6
+"335","Lenawee","Average Monthly Owner Cost (With Mortgage) ($)",1409
+"336","Lenawee","Average Monthly Rent ($)",987
+"337","Livingston","Homeowner Vacancy Rate",0.5
+"338","Livingston","Rental Vacancy Rate",4.9
+"339","Livingston","Occupied Housing Units",76445
+"340","Livingston","One or Less Occupant Per Room (%)",99.3
+"341","Livingston","More than 1 Occupants Per Room (%)",0.7
+"342","Livingston","Average Monthly Owner Cost (With Mortgage) ($)",1899
+"343","Livingston","Average Monthly Rent ($)",1287
+"344","Luce","Homeowner Vacancy Rate",0
+"345","Luce","Rental Vacancy Rate",3.6
+"346","Luce","Occupied Housing Units",2455
+"347","Luce","One or Less Occupant Per Room (%)",99
+"348","Luce","More than 1 Occupants Per Room (%)",1
+"349","Luce","Average Monthly Owner Cost (With Mortgage) ($)",1060
+"350","Luce","Average Monthly Rent ($)",675
+"351","Mackinac","Homeowner Vacancy Rate",1.3
+"352","Mackinac","Rental Vacancy Rate",12
+"353","Mackinac","Occupied Housing Units",5199
+"354","Mackinac","One or Less Occupant Per Room (%)",98.8
+"355","Mackinac","More than 1 Occupants Per Room (%)",1.2
+"356","Mackinac","Average Monthly Owner Cost (With Mortgage) ($)",1294
+"357","Mackinac","Average Monthly Rent ($)",760
+"358","Macomb","Homeowner Vacancy Rate",0.7
+"359","Macomb","Rental Vacancy Rate",2.9
+"360","Macomb","Occupied Housing Units",358668
+"361","Macomb","One or Less Occupant Per Room (%)",98.2
+"362","Macomb","More than 1 Occupants Per Room (%)",1.8
+"363","Macomb","Average Monthly Owner Cost (With Mortgage) ($)",1628
+"364","Macomb","Average Monthly Rent ($)",1211
+"365","Manistee","Homeowner Vacancy Rate",2.1
+"366","Manistee","Rental Vacancy Rate",5.9
+"367","Manistee","Occupied Housing Units",10561
+"368","Manistee","One or Less Occupant Per Room (%)",98.6
+"369","Manistee","More than 1 Occupants Per Room (%)",1.4
+"370","Manistee","Average Monthly Owner Cost (With Mortgage) ($)",1218
+"371","Manistee","Average Monthly Rent ($)",842
+"372","Marquette","Homeowner Vacancy Rate",0.9
+"373","Marquette","Rental Vacancy Rate",2.9
+"374","Marquette","Occupied Housing Units",28255
+"375","Marquette","One or Less Occupant Per Room (%)",99.2
+"376","Marquette","More than 1 Occupants Per Room (%)",0.8
+"377","Marquette","Average Monthly Owner Cost (With Mortgage) ($)",1379
+"378","Marquette","Average Monthly Rent ($)",949
+"379","Mason","Homeowner Vacancy Rate",1
+"380","Mason","Rental Vacancy Rate",3.5
+"381","Mason","Occupied Housing Units",12801
+"382","Mason","One or Less Occupant Per Room (%)",98.7
+"383","Mason","More than 1 Occupants Per Room (%)",1.3
+"384","Mason","Average Monthly Owner Cost (With Mortgage) ($)",1380
+"385","Mason","Average Monthly Rent ($)",896
+"386","Mecosta","Homeowner Vacancy Rate",0.5
+"387","Mecosta","Rental Vacancy Rate",6.5
+"388","Mecosta","Occupied Housing Units",16708
+"389","Mecosta","One or Less Occupant Per Room (%)",98
+"390","Mecosta","More than 1 Occupants Per Room (%)",2
+"391","Mecosta","Average Monthly Owner Cost (With Mortgage) ($)",1293
+"392","Mecosta","Average Monthly Rent ($)",934
+"393","Menominee","Homeowner Vacancy Rate",1
+"394","Menominee","Rental Vacancy Rate",2
+"395","Menominee","Occupied Housing Units",10361
+"396","Menominee","One or Less Occupant Per Room (%)",99.5
+"397","Menominee","More than 1 Occupants Per Room (%)",0.5
+"398","Menominee","Average Monthly Owner Cost (With Mortgage) ($)",1163
+"399","Menominee","Average Monthly Rent ($)",692
+"400","Midland","Homeowner Vacancy Rate",0.2
+"401","Midland","Rental Vacancy Rate",1.9
+"402","Midland","Occupied Housing Units",34993
+"403","Midland","One or Less Occupant Per Room (%)",98.5
+"404","Midland","More than 1 Occupants Per Room (%)",1.5
+"405","Midland","Average Monthly Owner Cost (With Mortgage) ($)",1465
+"406","Midland","Average Monthly Rent ($)",1016
+"407","Missaukee","Homeowner Vacancy Rate",0.7
+"408","Missaukee","Rental Vacancy Rate",2.4
+"409","Missaukee","Occupied Housing Units",5909
+"410","Missaukee","One or Less Occupant Per Room (%)",97.7
+"411","Missaukee","More than 1 Occupants Per Room (%)",2.3
+"412","Missaukee","Average Monthly Owner Cost (With Mortgage) ($)",1286
+"413","Missaukee","Average Monthly Rent ($)",891
+"414","Monroe","Homeowner Vacancy Rate",0.6
+"415","Monroe","Rental Vacancy Rate",3.3
+"416","Monroe","Occupied Housing Units",63029
+"417","Monroe","One or Less Occupant Per Room (%)",98.7
+"418","Monroe","More than 1 Occupants Per Room (%)",1.3
+"419","Monroe","Average Monthly Owner Cost (With Mortgage) ($)",1586
+"420","Monroe","Average Monthly Rent ($)",1059
+"421","Montcalm","Homeowner Vacancy Rate",0.9
+"422","Montcalm","Rental Vacancy Rate",5.7
+"423","Montcalm","Occupied Housing Units",24511
+"424","Montcalm","One or Less Occupant Per Room (%)",97.9
+"425","Montcalm","More than 1 Occupants Per Room (%)",2.1
+"426","Montcalm","Average Monthly Owner Cost (With Mortgage) ($)",1352
+"427","Montcalm","Average Monthly Rent ($)",869
+"428","Montmorency","Homeowner Vacancy Rate",1.6
+"429","Montmorency","Rental Vacancy Rate",9.3
+"430","Montmorency","Occupied Housing Units",4921
+"431","Montmorency","One or Less Occupant Per Room (%)",98.5
+"432","Montmorency","More than 1 Occupants Per Room (%)",1.5
+"433","Montmorency","Average Monthly Owner Cost (With Mortgage) ($)",1083
+"434","Montmorency","Average Monthly Rent ($)",686
+"435","Muskegon","Homeowner Vacancy Rate",0.9
+"436","Muskegon","Rental Vacancy Rate",7.4
+"437","Muskegon","Occupied Housing Units",67732
+"438","Muskegon","One or Less Occupant Per Room (%)",98.5
+"439","Muskegon","More than 1 Occupants Per Room (%)",1.5
+"440","Muskegon","Average Monthly Owner Cost (With Mortgage) ($)",1334
+"441","Muskegon","Average Monthly Rent ($)",1028
+"442","Newaygo","Homeowner Vacancy Rate",0.7
+"443","Newaygo","Rental Vacancy Rate",2.5
+"444","Newaygo","Occupied Housing Units",19651
+"445","Newaygo","One or Less Occupant Per Room (%)",97.6
+"446","Newaygo","More than 1 Occupants Per Room (%)",2.4
+"447","Newaygo","Average Monthly Owner Cost (With Mortgage) ($)",1356
+"448","Newaygo","Average Monthly Rent ($)",904
+"449","Oakland","Homeowner Vacancy Rate",0.4
+"450","Oakland","Rental Vacancy Rate",7.4
+"451","Oakland","Occupied Housing Units",530460
+"452","Oakland","One or Less Occupant Per Room (%)",98.8
+"453","Oakland","More than 1 Occupants Per Room (%)",1.2
+"454","Oakland","Average Monthly Owner Cost (With Mortgage) ($)",1998
+"455","Oakland","Average Monthly Rent ($)",1376
+"456","Oceana","Homeowner Vacancy Rate",0.5
+"457","Oceana","Rental Vacancy Rate",2.7
+"458","Oceana","Occupied Housing Units",10419
+"459","Oceana","One or Less Occupant Per Room (%)",96
+"460","Oceana","More than 1 Occupants Per Room (%)",4
+"461","Oceana","Average Monthly Owner Cost (With Mortgage) ($)",1280
+"462","Oceana","Average Monthly Rent ($)",759
+"463","Ogemaw","Homeowner Vacancy Rate",1
+"464","Ogemaw","Rental Vacancy Rate",5.1
+"465","Ogemaw","Occupied Housing Units",9370
+"466","Ogemaw","One or Less Occupant Per Room (%)",98
+"467","Ogemaw","More than 1 Occupants Per Room (%)",2
+"468","Ogemaw","Average Monthly Owner Cost (With Mortgage) ($)",1143
+"469","Ogemaw","Average Monthly Rent ($)",823
+"470","Ontonagon","Homeowner Vacancy Rate",1.3
+"471","Ontonagon","Rental Vacancy Rate",5.6
+"472","Ontonagon","Occupied Housing Units",3149
+"473","Ontonagon","One or Less Occupant Per Room (%)",99.1
+"474","Ontonagon","More than 1 Occupants Per Room (%)",0.9
+"475","Ontonagon","Average Monthly Owner Cost (With Mortgage) ($)",1094
+"476","Ontonagon","Average Monthly Rent ($)",540
+"477","Osceola","Homeowner Vacancy Rate",1.6
+"478","Osceola","Rental Vacancy Rate",4
+"479","Osceola","Occupied Housing Units",9356
+"480","Osceola","One or Less Occupant Per Room (%)",98
+"481","Osceola","More than 1 Occupants Per Room (%)",2
+"482","Osceola","Average Monthly Owner Cost (With Mortgage) ($)",1186
+"483","Osceola","Average Monthly Rent ($)",807
+"484","Oscoda","Homeowner Vacancy Rate",0
+"485","Oscoda","Rental Vacancy Rate",1.9
+"486","Oscoda","Occupied Housing Units",3788
+"487","Oscoda","One or Less Occupant Per Room (%)",98.7
+"488","Oscoda","More than 1 Occupants Per Room (%)",1.3
+"489","Oscoda","Average Monthly Owner Cost (With Mortgage) ($)",1056
+"490","Oscoda","Average Monthly Rent ($)",681
+"491","Otsego","Homeowner Vacancy Rate",0.2
+"492","Otsego","Rental Vacancy Rate",2.5
+"493","Otsego","Occupied Housing Units",11231
+"494","Otsego","One or Less Occupant Per Room (%)",98.2
+"495","Otsego","More than 1 Occupants Per Room (%)",1.8
+"496","Otsego","Average Monthly Owner Cost (With Mortgage) ($)",1319
+"497","Otsego","Average Monthly Rent ($)",1008
+"498","Ottawa","Homeowner Vacancy Rate",0.5
+"499","Ottawa","Rental Vacancy Rate",3.2
+"500","Ottawa","Occupied Housing Units",111322
+"501","Ottawa","One or Less Occupant Per Room (%)",98.4
+"502","Ottawa","More than 1 Occupants Per Room (%)",1.6
+"503","Ottawa","Average Monthly Owner Cost (With Mortgage) ($)",1656
+"504","Ottawa","Average Monthly Rent ($)",1211
+"505","Presque Isle","Homeowner Vacancy Rate",1
+"506","Presque Isle","Rental Vacancy Rate",1.7
+"507","Presque Isle","Occupied Housing Units",6655
+"508","Presque Isle","One or Less Occupant Per Room (%)",98.5
+"509","Presque Isle","More than 1 Occupants Per Room (%)",1.5
+"510","Presque Isle","Average Monthly Owner Cost (With Mortgage) ($)",1119
+"511","Presque Isle","Average Monthly Rent ($)",683
+"512","Roscommon","Homeowner Vacancy Rate",1.7
+"513","Roscommon","Rental Vacancy Rate",8.2
+"514","Roscommon","Occupied Housing Units",11579
+"515","Roscommon","One or Less Occupant Per Room (%)",98.3
+"516","Roscommon","More than 1 Occupants Per Room (%)",1.7
+"517","Roscommon","Average Monthly Owner Cost (With Mortgage) ($)",1145
+"518","Roscommon","Average Monthly Rent ($)",816
+"519","Saginaw","Homeowner Vacancy Rate",1.2
+"520","Saginaw","Rental Vacancy Rate",12.9
+"521","Saginaw","Occupied Housing Units",77958
+"522","Saginaw","One or Less Occupant Per Room (%)",98.9
+"523","Saginaw","More than 1 Occupants Per Room (%)",1.1
+"524","Saginaw","Average Monthly Owner Cost (With Mortgage) ($)",1277
+"525","Saginaw","Average Monthly Rent ($)",947
+"526","Sanilac","Homeowner Vacancy Rate",0.8
+"527","Sanilac","Rental Vacancy Rate",3.6
+"528","Sanilac","Occupied Housing Units",17516
+"529","Sanilac","One or Less Occupant Per Room (%)",98.2
+"530","Sanilac","More than 1 Occupants Per Room (%)",1.8
+"531","Sanilac","Average Monthly Owner Cost (With Mortgage) ($)",1226
+"532","Sanilac","Average Monthly Rent ($)",807
+"533","Schoolcraft","Homeowner Vacancy Rate",1.2
+"534","Schoolcraft","Rental Vacancy Rate",2.6
+"535","Schoolcraft","Occupied Housing Units",3890
+"536","Schoolcraft","One or Less Occupant Per Room (%)",99.6
+"537","Schoolcraft","More than 1 Occupants Per Room (%)",0.4
+"538","Schoolcraft","Average Monthly Owner Cost (With Mortgage) ($)",1191
+"539","Schoolcraft","Average Monthly Rent ($)",705
+"540","Shiawassee","Homeowner Vacancy Rate",0.8
+"541","Shiawassee","Rental Vacancy Rate",6.2
+"542","Shiawassee","Occupied Housing Units",28126
+"543","Shiawassee","One or Less Occupant Per Room (%)",98.9
+"544","Shiawassee","More than 1 Occupants Per Room (%)",1.1
+"545","Shiawassee","Average Monthly Owner Cost (With Mortgage) ($)",1352
+"546","Shiawassee","Average Monthly Rent ($)",899
+"547","St. Clair","Homeowner Vacancy Rate",0.5
+"548","St. Clair","Rental Vacancy Rate",3.5
+"549","St. Clair","Occupied Housing Units",67816
+"550","St. Clair","One or Less Occupant Per Room (%)",98.9
+"551","St. Clair","More than 1 Occupants Per Room (%)",1.1
+"552","St. Clair","Average Monthly Owner Cost (With Mortgage) ($)",1469
+"553","St. Clair","Average Monthly Rent ($)",1029
+"554","Tuscola","Homeowner Vacancy Rate",0.8
+"555","Tuscola","Rental Vacancy Rate",3.3
+"556","Tuscola","Occupied Housing Units",21498
+"557","Tuscola","One or Less Occupant Per Room (%)",98.5
+"558","Tuscola","More than 1 Occupants Per Room (%)",1.5
+"559","Tuscola","Average Monthly Owner Cost (With Mortgage) ($)",1231
+"560","Tuscola","Average Monthly Rent ($)",819
+"561","Washtenaw","Homeowner Vacancy Rate",0.6
+"562","Washtenaw","Rental Vacancy Rate",3.7
+"563","Washtenaw","Occupied Housing Units",150550
+"564","Washtenaw","One or Less Occupant Per Room (%)",98.6
+"565","Washtenaw","More than 1 Occupants Per Room (%)",1.4
+"566","Washtenaw","Average Monthly Owner Cost (With Mortgage) ($)",2150
+"567","Washtenaw","Average Monthly Rent ($)",1463
+"568","Wayne","Homeowner Vacancy Rate",1.5
+"569","Wayne","Rental Vacancy Rate",4.6
+"570","Wayne","Occupied Housing Units",700591
+"571","Wayne","One or Less Occupant Per Room (%)",97.8
+"572","Wayne","More than 1 Occupants Per Room (%)",2.2
+"573","Wayne","Average Monthly Owner Cost (With Mortgage) ($)",1556
+"574","Wayne","Average Monthly Rent ($)",1132
+"575","Wexford","Homeowner Vacancy Rate",0.6
+"576","Wexford","Rental Vacancy Rate",7.7
+"577","Wexford","Occupied Housing Units",13696
+"578","Wexford","One or Less Occupant Per Room (%)",97.1
+"579","Wexford","More than 1 Occupants Per Room (%)",2.9
+"580","Wexford","Average Monthly Owner Cost (With Mortgage) ($)",1290
+"581","Wexford","Average Monthly Rent ($)",897

@@ -1,0 +1,70 @@
+
+.housing-selector {
+  margin-bottom: 20px;
+}
+
+.housing-selector label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 0.95rem;
+}
+
+.housing-selector select {
+  padding: 8px 12px;
+  font-size: 1rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  min-width: 220px;
+}
+
+.housing-card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+}
+
+.housing-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  background-color: #004a5e !important;
+  color: white !important;
+
+  padding: 20px;
+  border-radius: 8px;
+  min-height: 130px;
+
+  box-sizing: border-box;
+}
+
+.housing-county {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: white !important;
+}
+
+.housing-variable {
+  font-size: 0.9rem;
+  margin-top: 8px;
+  color: white !important;
+}
+
+.housing-value {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-top: 12px;
+  color: white !important;
+}
+
+@media (max-width: 900px) {
+  .housing-card-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .housing-card-grid {
+    grid-template-columns: 1fr;
+  }
+}

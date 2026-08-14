@@ -22,6 +22,7 @@ website:
 
 format:
   html:
-    toc: TRUE
+    toc: false
     theme: cosmo
+    css: styles.css
     markdown: true 

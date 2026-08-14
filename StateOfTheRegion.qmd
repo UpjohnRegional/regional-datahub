@@ -6,6 +6,12 @@ format:
     theme: cosmo
 ---
 
+## 
+
+Please [contact us](mailto:regional@upjohn.org) if you have any questions.
+
+## 
+
 ```{r}
 #| label: EPOP
 #| echo: false
@@ -33,7 +39,7 @@ p <- p %>%
     x = ~period_date,
     y = ~EPOP,
     name = init,
-    line = list(width = 3),
+    line = list(width = 3, color = "#AF2C32"),
     customdata = ~period_txt,
     hovertemplate = paste(
       "%{x}<br>",
@@ -49,7 +55,7 @@ p <- p %>%
     x = ~period_date,
     y = ~MI_employment_population_ratio,
     name = "Michigan",
-    line = list(width = 3, dash = "dash"),
+    line = list(width = 3, dash = "dash", color = "#2B9CB4"),
     customdata = ~period_txt,
     hovertemplate = paste(
       "%{x}<br>",
@@ -85,28 +91,6 @@ buttons <- lapply(seq_along(all_counties), function(i) {
 
 p %>%
   layout(
-    annotations = list(
-      list(
-        text = "<b>Source:</b> U.S. Bureau of Economic Analysis (BEA), FRED",
-        xref = "paper",
-        yref = "paper",
-        x = 0,
-        y = -0.35,
-        showarrow = FALSE,
-        xanchor = "left",
-        font = list(size = 10)
-      ),
-      list(
-        text = "Not Seasonally Adjusted.Preliminary data (p) and estimates (e) are noted in the text box.",
-        xref = "paper",
-        yref = "paper",
-        x = 0,
-        y = -0.45,
-        showarrow = FALSE,
-        xanchor = "left",
-        font = list(size = 10)
-      )
-    ),
 
     title = paste(
       "Employment to Population Ratio:",
@@ -137,6 +121,16 @@ p %>%
 
 ```
 
+::: {.callout-note collapse="true" appearance="minimal"}
+## More Information
+
+The employment-to-population ratio is a crucial economic indicator as it reflects the percentage of the working-age population who are employed. It provides insights into labor market health, income levels, productivity, and social stability. Policymakers and investors rely on this ratio to gauge economic well-being and make informed decisions.
+
+**Source:** BLS LAUS, Upjohn Regional • (p) Preliminary, (e) Upjohn Estimate
+
+[Download Data](data_download/eduAttainment.csv){download="eduAttainment.csv"}
+:::
+
 ```{r}
 #| label: LFPR
 #| echo: false
@@ -164,7 +158,7 @@ p <- p %>%
     x = ~period_date,
     y = ~LFPR,
     name = init,
-    line = list(width = 3),
+    line = list(width = 3, color = "#AF2C32"),
     customdata = ~period_txt,
     hovertemplate = paste(
       "%{x}<br>",
@@ -180,7 +174,7 @@ p <- p %>%
     x = ~period_date,
     y = ~MI_labor_force_participation_rate,
     name = "Michigan",
-    line = list(width = 3, dash = "dash"),
+    line = list(width = 3, dash = "dash", color = "#2B9CB4"),
     customdata = ~period_txt,
     hovertemplate = paste(
       "%{x}<br>",
@@ -216,28 +210,6 @@ buttons <- lapply(seq_along(all_counties), function(i) {
 
 p %>%
   layout(
-    annotations = list(
-      list(
-        text = "<b>Source:</b> U.S. Bureau of Economic Analysis (BEA), FRED",
-        xref = "paper",
-        yref = "paper",
-        x = 0,
-        y = -0.35,
-        showarrow = FALSE,
-        xanchor = "left",
-        font = list(size = 10)
-      ),
-      list(
-        text = "Not Seasonally Adjusted.Preliminary data (p) and estimates (e) are noted in the text box.",
-        xref = "paper",
-        yref = "paper",
-        x = 0,
-        y = -0.45,
-        showarrow = FALSE,
-        xanchor = "left",
-        font = list(size = 10)
-      )
-    ),
 
     title = paste(
       "Labor Force Participation Rate:",
@@ -268,6 +240,16 @@ p %>%
 
 ```
 
+::: {.callout-note collapse="true" appearance="minimal"}
+## More Information
+
+The labor force participation rate is a measure that represents the percentage of the working-age population (individuals aged 16 and older) who are either employed or actively seeking employment. Tracking the labor force participation rate provides insights on the working-age population and their engagement in the labor market.
+
+**Source:** BLS LAUS, Upjohn Regional • (p) Preliminary, (e) Upjohn Estimate
+
+[Download Data](data_download/eduAttainment.csv){download="eduAttainment.csv"}
+:::
+
 ```{r}
 #| label: UR
 #| echo: false
@@ -295,7 +277,7 @@ p <- p %>%
     x = ~period_date,
     y = ~unemployment_rate,
     name = init,
-    line = list(width = 3),
+    line = list(width = 3, color = "#AF2C32"),
     customdata = ~period_txt,
     hovertemplate = paste(
       "%{x}<br>",
@@ -311,7 +293,7 @@ p <- p %>%
     x = ~period_date,
     y = ~MI_unemployment_rate,
     name = "Michigan",
-    line = list(width = 3, dash = "dash"),
+    line = list(width = 3, dash = "dash", color = "#2B9CB4"),
     customdata = ~period_txt,
     hovertemplate = paste(
       "%{x}<br>",
@@ -347,28 +329,6 @@ buttons <- lapply(seq_along(all_counties), function(i) {
 
 p %>%
   layout(
-    annotations = list(
-      list(
-        text = "<b>Source:</b> U.S. Bureau of Economic Analysis (BEA), FRED",
-        xref = "paper",
-        yref = "paper",
-        x = 0,
-        y = -0.35,
-        showarrow = FALSE,
-        xanchor = "left",
-        font = list(size = 10)
-      ),
-      list(
-        text = "Not Seasonally Adjusted.Preliminary data (p) and estimates (e) are noted in the text box.",
-        xref = "paper",
-        yref = "paper",
-        x = 0,
-        y = -0.45,
-        showarrow = FALSE,
-        xanchor = "left",
-        font = list(size = 10)
-      )
-    ),
 
     title = paste(
       "Unemployment Rate:",
@@ -397,6 +357,16 @@ p %>%
   ) %>%
   config(displayModeBar = FALSE)
 ```
+
+::: {.callout-note collapse="true" appearance="minimal"}
+## More Information
+
+The unemployment rate is a measure that represents the percentage of individuals who are actively seeking employment but are currently without a job. The unemployment rate offers understanding into the availability of jobs and the overall state of the labor market within an economy.
+
+**Source:** BLS LAUS, Upjohn Regional • (p) Preliminary, (e) Upjohn Estimate
+
+[Download Data](data_download/eduAttainment.csv){download="eduAttainment.csv"}
+:::
 
 ```{r}
 #| label: AWW
@@ -433,7 +403,8 @@ fig <- fig %>%
     x = ~date,
     y = ~avg_wkly_wage,
     type = "bar",
-    name = default_county
+    name = default_county,
+    marker = list(color = "#AF2C32")
   )
 
 # State line
@@ -445,9 +416,7 @@ fig <- fig %>%
     type = "scatter",
     mode = "lines",
     name = "Michigan Average",
-    line = list(
-      dash = "dash"
-    )
+    line = list(color = "#2B9CB4", dash = "dash")
   )
 
 # Dropdown buttons
@@ -502,30 +471,6 @@ fig <- fig %>%
       )
     ),
     
-    annotations = list(
-      list(
-        text = "<b>Source</b>: U.S. Bureau of Economic Analysis (BEA), FRED",
-        xref = "paper",
-        yref = "paper",
-        x = 0,
-        y = -0.35,
-        showarrow = FALSE,
-        xanchor = "left",
-        font = list(size = 10)
-      ),
-       list(
-        text = "Not Seasonally Adjusted.",
-        xref = "paper",
-        yref = "paper",
-        x = 0,
-        y = -0.45,
-        showarrow = FALSE,
-        xanchor = "left",
-        font = list(size = 10)
-      )
-      
-    ),
-    
     margin = list(
       t = 30,
       b = 160
@@ -544,3 +489,13 @@ config(fig,
        displayModeBar = FALSE)
 
 ```
+
+::: {.callout-note collapse="true" appearance="minimal"}
+## More Information
+
+Tracking the average weekly wage gives insight to the income levels and purchasing power of workers within an economy.
+
+**Source:** BLS QCEW, Upjohn Regional • Not adjusted for inflation • (p) Preliminary
+
+[Download Data](data_download/eduAttainment.csv){download="eduAttainment.csv"}
+:::

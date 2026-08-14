@@ -6,6 +6,12 @@ format:
     theme: cosmo
 ---
 
+## 
+
+Please [contact us](mailto:regional@upjohn.org) if you have any questions.
+
+## 
+
 ```{r}
 #| label: Educational Attainment
 #| echo: false
@@ -23,37 +29,37 @@ legend_annotations <- list(
 
   list(x = 1.02, y = 0.92, xref = "paper", yref = "paper",
        text = "■ Less than 9th grade",
-       font = list(color = "#8c510a"),
+       font = list(color = "#FFE293"),
        showarrow = FALSE, xanchor = "left"),
 
   list(x = 1.02, y = 0.84, xref = "paper", yref = "paper",
        text = "■ 9th to 12th grade, no diploma",
-       font = list(color = "#d8b365"),
+       font = list(color = "#FDBA4D"),
        showarrow = FALSE, xanchor = "left"),
 
   list(x = 1.02, y = 0.76, xref = "paper", yref = "paper",
        text = "■ High school graduate",
-       font = list(color = "#f6e8c3"),
+       font = list(color = "#F68C3D"),
        showarrow = FALSE, xanchor = "left"),
 
   list(x = 1.02, y = 0.68, xref = "paper", yref = "paper",
        text = "■ Some college, no degree",
-       font = list(color = "#c7eae5"),
+       font = list(color = "#F15A29"),
        showarrow = FALSE, xanchor = "left"),
 
   list(x = 1.02, y = 0.60, xref = "paper", yref = "paper",
        text = "■ Associate's degree",
-       font = list(color = "#5ab4ac"),
+       font = list(color = "#DC4133"),
        showarrow = FALSE, xanchor = "left"),
 
   list(x = 1.02, y = 0.52, xref = "paper", yref = "paper",
        text = "■ Bachelor's degree",
-       font = list(color = "#01665e"),
+       font = list(color = "#AF2C32"),
        showarrow = FALSE, xanchor = "left"),
 
   list(x = 1.02, y = 0.44, xref = "paper", yref = "paper",
        text = "■ Graduate or professional degree",
-       font = list(color = "#003c30"),
+       font = list(color = "#822B1A"),
        showarrow = FALSE, xanchor = "left")
 )
 
@@ -69,13 +75,13 @@ S1501_long <- S1501_wide %>%
   )
 
 edu_colors <- c(
-  "Less than 9th grade" = "#8c510a",
-  "9th to 12th grade, no diploma" = "#d8b365",
-  "High school graduate (includes equivalency)" = "#f6e8c3",
-  "Some college, no degree" = "#c7eae5",
-  "Associate's degree" = "#5ab4ac",
-  "Bachelor's degree" = "#01665e",
-  "Graduate or professional degree" = "#003c30"
+  "Less than 9th grade" = "#FFE293",
+  "9th to 12th grade, no diploma" = "#FDBA4D",
+  "High school graduate (includes equivalency)" = "#F68C3D",
+  "Some college, no degree" = "#F15A29",
+  "Associate's degree" = "#DC4133",
+  "Bachelor's degree" = "#AF2C32",
+  "Graduate or professional degree" = "#822B1A"
 )
 
 all_counties <- unique(S1501_long$NAME)
@@ -153,7 +159,7 @@ p %>%
       active = 0,
       x = 1.05,
       xanchor = "left",
-      y = 1.2,
+      y = 0.4,
       yanchor = "top"
     )
   ),
@@ -224,8 +230,8 @@ income$Display <- factor(
 )
 
 income_colors <- c(
-  "Male" = "#2b9cb4",
-  "Female" = "#004a5e"
+  "Male" = "#004A5E",
+  "Female" = "#2B9CB4"
 )
 
 counties <- unique(income$NAME)
@@ -368,10 +374,10 @@ df_init <- travel %>%
   filter(NAME == init)
 
 travel_colors <- c(
-  "less than 10 minutes" = "#FAD2B4",
-  "10 to 29 minutes" = "#F49366",
-  "30 to 59 minutes" = "#E34A26",
-  "60 or more minutes" = "#991B12"
+  "less than 10 minutes" = "#FFE293",
+  "10 to 29 minutes" = "#FDBA4D",
+  "30 to 59 minutes" = "#F68C3D",
+  "60 or more minutes" = "#AF2C32"
 )
 
 p <- plot_ly(
@@ -449,7 +455,7 @@ p %>%
 
 Travel time to work is significant as it directly impacts worker productivity and transportation costs. It also informs urban planning and labor market dynamics, influencing economic development and accessibility to jobs.
 
-**Source:**  ACS 2024 5-YR Estimates (table B08135) • Travel time one way
+**Source:** ACS 2024 5-YR Estimates (table B08135) • Travel time one way
 
 [Download Data](data_download/travelTimeToWork.csv){download="travelTimeToWork.csv"}
 :::
@@ -503,12 +509,12 @@ transport$Display <- factor(
 )
 
 transport_colors <- c(
-  "Drive Alone" = "#FAD2B4",
-  "Carpool" = "#F49366",
-  "Public Transit" = "#E34A26",
-  "Walk" = "#C93C1A",
-  "Other" = "#A82A16",
-  "Work From Home" = "#6B0D0D"
+  "Drive Alone" = "#FFE293",
+  "Carpool" = "#FDBA4D",
+  "Public Transit" = "#F68C3D",
+  "Walk" = "#F15A29",
+  "Other" = "#AF2C32",
+  "Work From Home" = "#822B1A"
 )
 
 counties <- unique(transport$NAME)
@@ -599,7 +605,7 @@ p %>%
 
 Understanding how people commute to work helps assess the efficiency of transportation infrastructure, which can impact productivity and business operations. It also influences urban planning and investment decisions, as well as energy consumption and environmental considerations. Additionally, tracking transportation methods can reveal trends in workforce mobility and inform policies that affect job accessibility and economic opportunities.
 
-**Source:**  ACS 2024 5-YR Estimates (table B08128)
+**Source:** ACS 2024 5-YR Estimates (table B08128)
 
 [Download Data](data_download/meansOfTransportationToWork.csv){download="meansOfTransportationToWork.csv"}
 :::
@@ -630,13 +636,13 @@ housing$variable <- factor(
 
 
 housing_colors <- c(
-  "2020 or later" = "#FAD2B4",
-  "2010 to 2019" = "#F7B68D",
-  "2000 to 2009" = "#F49366",
-  "1980 to 1999" = "#E34A26",
-  "1960 to 1979" = "#C93C1A",
-  "1940 to 1959" = "#A82A16",
-  "1939 or earlier" = "#6B0D0D"
+  "2020 or later" = "#FFE293",
+  "2010 to 2019" = "#FDBA4D",
+  "2000 to 2009" = "#F68C3D",
+  "1980 to 1999" = "#F15A29",
+  "1960 to 1979" = "#DC4133",
+  "1940 to 1959" = "#AF2C32",
+  "1939 or earlier" = "#822B1A"
 )
 
 counties <- unique(housing$NAME)
@@ -721,7 +727,7 @@ p %>%
 
 Understanding the age of the housing stock reveals the state of infrastructure and housing quality. Older housing may require more maintenance and renovations, which can drive construction and home improvement industries, thereby boosting economic activity. Additionally, it can inform urban development and land use policies, impacting property values and real estate investments. Lastly, the age of the housing stock can provide insights into population trends, migration patterns, and housing affordability, all of which have significant economic implications.
 
-**Source:**  ACS 2024 5-YR Estimates (table S2504)
+**Source:** ACS 2024 5-YR Estimates (table S2504)
 
 [Download Data](data_download/ageOfHousingStock.csv){download="ageOfHousingStock.csv"}
 :::
@@ -749,8 +755,8 @@ internet <- internet %>%
 
 internet_colors <- c(
   "Broadband" = "#2B9CB4",
-  "Dial-Up" = "#A9D6E5",
-  "No Internet" = "#6C757D"
+  "Dial-Up" = "#AF2C32",
+  "No Internet" = "#414042"
 )
 
 counties <- unique(internet$NAME)
@@ -839,11 +845,199 @@ p %>%
 ::: {.callout-note collapse="true" appearance="minimal"}
 ## More Information
 
-Knowledge of people's internet access is an important economic indicator because it reflects digital connectivity, which is increasingly vital for economic participation. It influences business competitiveness and innovation, as companies depend on digital platforms for operations and sales. Internet access also affects workforce capabilities, as remote work and online education become more prevalent. Finally, understanding how people access the internet plays a role in bridging economic disparities, as access can be a factor in determining opportunities and socioeconomic outcomes. 
+Knowledge of people's internet access is an important economic indicator because it reflects digital connectivity, which is increasingly vital for economic participation. It influences business competitiveness and innovation, as companies depend on digital platforms for operations and sales. Internet access also affects workforce capabilities, as remote work and online education become more prevalent. Finally, understanding how people access the internet plays a role in bridging economic disparities, as access can be a factor in determining opportunities and socioeconomic outcomes.
 
-**Source:**  ACS 2024 5-YR Estimates (table S2801)  • Totals may not sum to 100% due to rounding.
+**Source:** ACS 2024 5-YR Estimates (table S2801) • Totals may not sum to 100% due to rounding.
 
 [Download Data](data_download/internetAccess.csv){download="internetAccess.csv"}
+:::
+
+```{r}
+#| label: Building Permits
+#| echo: false
+#| message: false
+#| warning: false
+
+library(plotly)
+library(dplyr)
+library(tidyr)
+
+permits <- readRDS(
+  "data/buildingPermits.rds"
+)
+
+# Southwest Michigan counties
+county_order <- c(
+  "Kalamazoo",
+  "Berrien",
+  "Branch",
+  "Calhoun",
+  "Cass",
+  "St. Joseph",
+  "Van Buren"
+)
+
+# Convert building permit categories to long format
+permits_long <- permits %>%
+  pivot_longer(
+    cols = c(
+      `1-unit`,
+      `2-units`,
+      `3-4 units`,
+      `5+ units`
+    ),
+    names_to = "Building Type",
+    values_to = "Permits"
+  ) %>%
+  mutate(
+    Year = as.numeric(Survey),
+    Permits = as.numeric(Permits)
+  )
+
+# Building type order
+building_order <- c(
+  "1-unit",
+  "2-units",
+  "3-4 units",
+  "5+ units"
+)
+
+permits_long$`Building Type` <- factor(
+  permits_long$`Building Type`,
+  levels = building_order
+)
+
+# Get all counties
+counties <- unique(
+  as.character(permits_long$County)
+)
+
+# Southwest Michigan counties first,
+# followed by all other counties alphabetically
+counties <- c(
+  county_order[county_order %in% counties],
+  sort(setdiff(counties, county_order))
+)
+
+# Initial county
+init <- counties[1]
+
+# Initial data
+df_init <- permits_long %>%
+  filter(County == init)
+
+# Create chart
+p <- plot_ly(
+  data = df_init,
+  x = ~Year,
+  y = ~Permits,
+  color = ~`Building Type`,
+  colors = c(
+    "#C9D5DF",
+    "#7EA5C0",
+    "#1A6C89",
+    "#004A5E"
+  ),
+  type = "scatter",
+  mode = "lines+markers"
+)
+
+# County dropdown
+buttons <- lapply(counties, function(county) {
+
+  df <- permits_long %>%
+    filter(County == county) %>%
+    arrange(Year, `Building Type`)
+
+  list(
+    method = "update",
+
+    args = list(
+
+      list(
+        x = list(
+          df$Year[df$`Building Type` == "1-unit"],
+          df$Year[df$`Building Type` == "2-units"],
+          df$Year[df$`Building Type` == "3-4 units"],
+          df$Year[df$`Building Type` == "5+ units"]
+        ),
+
+        y = list(
+          df$Permits[df$`Building Type` == "1-unit"],
+          df$Permits[df$`Building Type` == "2-units"],
+          df$Permits[df$`Building Type` == "3-4 units"],
+          df$Permits[df$`Building Type` == "5+ units"]
+        )
+      ),
+
+      list(
+        title = paste(
+          "Building Permits:",
+          county
+        )
+      )
+    ),
+
+    label = county
+  )
+})
+
+# Layout
+p %>%
+  layout(
+
+    title = paste(
+      "Building Permits:",
+      init
+    ),
+
+    xaxis = list(
+      title = "Year",
+      dtick = 1
+    ),
+
+    yaxis = list(
+      title = "Housing Units",
+      separatethousands = TRUE
+    ),
+
+    legend = list(
+      orientation = "v",
+      x = 1.02,
+      y = 0.95,
+      xanchor = "left",
+      yanchor = "top"
+    ),
+
+    updatemenus = list(
+      list(
+        type = "dropdown",
+        buttons = buttons,
+        active = 0,
+        x = 1.15,
+        y = 0.65,
+        xanchor = "left"
+      )
+    ),
+
+    margin = list(
+      r = 220
+    )
+  ) %>%
+  config(
+    displayModeBar = FALSE
+  )
+
+```
+
+::: {.callout-note collapse="true" appearance="minimal"}
+## More Information
+
+The number of building permits issued can be crucial for gauging the vitality of the construction sector, offering insights into real estate investment trends and potential economic growth. Fluctuations in permit numbers can signal changes in job creation within construction and related industries, serving as a barometer for broader economic activity. A decline in permits may indicate economic challenges, affecting employment and the overall economic environment.
+
+**Source:** Residential Building Permits Survey County ASC II Files.
+
+[Download Data](data_download/buildingPermits.csv){download="buildingPermits.csv"}
 :::
 
 ```{r}
@@ -851,9 +1045,6 @@ Knowledge of people's internet access is an important economic indicator because
 #| echo: false
 #| message: false
 #| warning: false
-
-library(dplyr)
-library(plotly)
 
 library(plotly)
 library(dplyr)
@@ -877,8 +1068,8 @@ housing_long$Measure <- factor(
 )
 
 colors <- c(
-  "Median Cost" = "#2B9CB4",
-  "Income Needed to Afford Cost" = "#F49366"
+  "Median Cost" = "#004A5E",
+  "Income Needed to Afford Cost" = "#F68C3D"
 )
 
 counties <- unique(housing_long$NAME)
@@ -1000,7 +1191,7 @@ p %>%
 
 Knowing the median income needed to afford rent and housing costs is essential to evaluate how housing affordability impacts on individuals and the overall economy. This knowledge informs policymakers on ways to address potential disparities, guiding strategies to enhance housing accessibility and promote sustainable economic development.
 
-**Source:**  ACS 2024 5-YR Estimates (table Table DP04)  • Totals may not sum to 100% due to rounding.
+**Source:** ACS 2024 5-YR Estimates (table Table DP04) • Totals may not sum to 100% due to rounding.
 
 [Download Data](data_download/monthlyIncomeNeededToAffordHousing.csv){download="internetAccess.csv"}
 :::
