@@ -28,19 +28,27 @@ fig <- fig %>%
   add_lines(
     y = ~disposable_income, 
     name = "Disposable Income",
-    line =list(color = "#004A5E"))
+    line =list(color = "#004A5E"),
+    hovertemplate = "Disposable Income: %{y:,}<extra></extra>"
+  )
 fig <- fig %>% 
   add_lines(y = ~durable_goods, 
             name = "Durable Goods",
-            line = list(color = "#2B9CB4"))
+            line = list(color = "#2B9CB4"),
+            hovertemplate = "Durable Goods: %{y:,}<extra></extra>"
+  )
 fig <- fig %>% 
   add_lines(y = ~nondurable_goods, 
             name = "Nondurable Goods",
-            line = list(color = "#AF2C32"))
+            line = list(color = "#AF2C32"),
+             hovertemplate = "Nondurable Goods: %{y:,}<extra></extra>"
+  )
 fig <- fig %>% 
   add_lines(y = ~services, 
             name = "Services",
-            line = list(color = "#414042"))
+            line = list(color = "#414042"),
+            hovertemplate = "Services: %{y:,}<extra></extra>"
+            )
 
 fig <- fig %>%
   layout(
@@ -292,6 +300,11 @@ for (cty in counties) {
       data = df,
       x = ~TimePeriod,
       y = ~GDP_percent_change,
+      hovertemplate = paste0(
+      "County: ", cty,
+      "<br>GDP Change: %{y:.2f}%",
+      "<extra></extra>"
+    ),
       name = cty,
       visible = (cty == init),
       line = list(color = "#004A5E"),
@@ -304,6 +317,11 @@ p <- p %>%
     data = mi_gdp,
     x = ~TimePeriod,
     y = ~Michigan_GDP_percent_change,
+    hovertemplate = paste0(
+      "Michigan", 
+      "<br>GDP Change: %{y:.2f}%",
+      "<extra></extra>"
+    ),
     name = "Michigan",
     line = list(color = "#2B9CB4", dash = "dash"),
     inherit = FALSE
@@ -386,7 +404,112 @@ library(dplyr)
 
 biz <- readRDS("data/businessAppChange.rds") %>%
   mutate(Date = as.Date(date)) %>%
+  filter(format(Date, "%Y") != "2006") %>%
   arrange(Date)
+
+biz <- biz %>%
+  mutate(
+    Date = as.Date(date),
+    Year = format(Date, "%Y")
+  )
+
+# Get years
+years <- sort(unique(biz$Year), decreasing = TRUE)
+
+# Full date range
+all_date_min <- min(biz$Date, na.rm = TRUE)
+all_date_max <- max(biz$Date, na.rm = TRUE)
+
+# All Years button
+all_button <- list(
+  method = "update",
+  
+  args = list(
+    
+    # Restore all data
+    list(
+      x = list(
+        biz$Date,
+        biz$Date
+      ),
+      y = list(
+        biz$Michigan,
+        biz$United_States
+      )
+    ),
+    
+    # Restore full chart range
+    list(
+      title = "Business Applications Growth Rate",
+      xaxis = list(
+        range = c(
+          all_date_min,
+          all_date_max
+        )
+      )
+    )
+  ),
+  
+  label = "All Years"
+)
+
+# Year buttons
+year_buttons <- lapply(years, function(selected_year) {
+  
+  filtered_data <- biz %>%
+    filter(Year == selected_year)
+  
+  date_min <- min(
+    filtered_data$Date,
+    na.rm = TRUE
+  )
+  
+  date_max <- max(
+    filtered_data$Date,
+    na.rm = TRUE
+  )
+  
+  list(
+    method = "update",
+    
+    args = list(
+      
+      # Update data
+      list(
+        x = list(
+          filtered_data$Date,
+          filtered_data$Date
+        ),
+        y = list(
+          filtered_data$Michigan,
+          filtered_data$United_States
+        )
+      ),
+      
+      # Update title and x-axis
+      list(
+        title = paste(
+          "Business Applications Growth Rate:",
+          selected_year
+        ),
+        xaxis = list(
+          range = c(
+            date_min,
+            date_max
+          )
+        )
+      )
+    ),
+    
+    label = selected_year
+  )
+})
+
+# Combine All Years + individual years
+buttons <- c(
+  list(all_button),
+  year_buttons
+)
 
 fig <- plot_ly(biz, x = ~Date)
 
@@ -394,15 +517,29 @@ fig <- fig %>%
   add_lines(
     y = ~Michigan,
     name = "Michigan",
-    line =list(color = "#004A5E")
+    line = list(
+      color = "#004A5E"
+    ),
+    hovertemplate = paste(
+      "<b>%{x}</b><br>",
+      "Michigan: %{y:.2f}%",
+      "<extra></extra>"
+    )
   )
 
 fig <- fig %>%
   add_lines(
     y = ~United_States,
     name = "United States",
-    line =list(color = "#AF2C32"),
-    line = list(dash = "dash")
+    line = list(
+      color = "#AF2C32",
+      dash = "dash"
+    ),
+    hovertemplate = paste(
+      "<b>%{x}</b><br>",
+      "United States: %{y:.2f}%",
+      "<extra></extra>"
+    )
   )
 
 fig %>%
@@ -427,6 +564,15 @@ fig %>%
       x = 1.05,
       y = 1,
       xanchor = "left"
+    ),
+    updatemenus = list(
+      list(
+        buttons = buttons,
+        active = 0,
+        x = 1.05,
+        y = 0.7,
+        xanchor = "left"
+      )
     ),
 
     shapes = list(
@@ -461,7 +607,6 @@ fig %>%
         layer = "below"
       )
     ),
-
 
     margin = list(
       t = 60,

@@ -404,7 +404,12 @@ fig <- fig %>%
     y = ~avg_wkly_wage,
     type = "bar",
     name = default_county,
-    marker = list(color = "#AF2C32")
+    marker = list(color = "#AF2C32"),
+    hovertemplate = paste(
+      "<b>%{x}</b><br>",
+      "Average Weekly Wage: $%{y:,.0f}",
+      "<extra></extra>"
+    )
   )
 
 # State line
@@ -416,7 +421,12 @@ fig <- fig %>%
     type = "scatter",
     mode = "lines",
     name = "Michigan Average",
-    line = list(color = "#2B9CB4", dash = "dash")
+    line = list(color = "#2B9CB4", dash = "dash"),
+    hovertemplate = paste(
+      "<b>%{x}</b><br>",
+      "Michigan Average: $%{y:,.0f}",
+      "<extra></extra>"
+    )
   )
 
 # Dropdown buttons

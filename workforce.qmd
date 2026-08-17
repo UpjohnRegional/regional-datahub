@@ -316,17 +316,6 @@ p %>%
         xanchor = "left"
       )
     ),
-    annotations = list(
-      list(
-        text = "<b>Source</b> ACS 2024 5-YR Estimates (table B20004), Upjohn Regional • Population 25 and older with earnings",
-        xref = "paper",
-        yref = "paper",
-        x = 0,
-        y = -0.35,
-        showarrow = FALSE,
-        xanchor = "left",
-        font = list(size = 10)
-      )),
 
     margin = list(
       r = 250
@@ -342,7 +331,7 @@ Understanding income disparities by educational attainment and sex provides insi
 
 **Source:** ACS 2024 5-YR Estimates (table B20004) • Population 25 and older with earnings
 
-[📥 Download Data](data_download/incomeBySexAndEducationalAttainment.csv){download="incomeBySexAndEducationalAttainment.csv"}
+[Download Data](data_download/incomeBySexAndEducationalAttainment.csv){download="incomeBySexAndEducationalAttainment.csv"}
 :::
 
 ```{r}
