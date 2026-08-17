@@ -457,7 +457,7 @@ blsMICountyList <- lapply(series_chunks, function(chunk){
   bls_api(
     chunk,
     startyear = 2022,
-    endyear = 2025,
+    endyear = 2026,
     registrationKey = Sys.getenv("BLS_API_KEY")
   ) %>%
     dateCast() %>%
@@ -517,7 +517,7 @@ blsMIStateSeries_ids <- c(
 blsMIState <- bls_api(
   blsMIStateSeries_ids,
   startyear = 2022,
-  endyear = 2025,
+  endyear = 2026,
   registrationKey = Sys.getenv("BLS_API_KEY")
 ) %>%
   dateCast() %>%
@@ -706,6 +706,8 @@ EPOP_LFPR_UR_Final <- bls_combined_popest_impute %>%
 
 # save to rds
 saveRDS(EPOP_LFPR_UR_Final, "data/EPOP_LFPR_UR.rds")
+
+write.csv(EPOP_LFPR_UR_Final, "data_download/EPOP_LFPR_UR.csv")
 
 # save to csv
 #output_csv <- "EPOP_LFPR_UR.csv"

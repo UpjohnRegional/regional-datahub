@@ -136,3 +136,5 @@ final_data_2 <- final_data_2 %>%
   select(-order)
 
 saveRDS(final_data_2, "data/qcew.rds")
+
+write.csv(final_data_2, "data_download/qcew.csv")

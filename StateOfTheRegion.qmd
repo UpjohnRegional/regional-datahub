@@ -128,7 +128,7 @@ The employment-to-population ratio is a crucial economic indicator as it reflect
 
 **Source:** BLS LAUS, Upjohn Regional • (p) Preliminary, (e) Upjohn Estimate
 
-[Download Data](data_download/eduAttainment.csv){download="eduAttainment.csv"}
+[Download Data](data_download/EPOP_LFPR_UR.csv){download="EPOP_LFPR_UR.csv"}
 :::
 
 ```{r}
@@ -247,7 +247,7 @@ The labor force participation rate is a measure that represents the percentage o
 
 **Source:** BLS LAUS, Upjohn Regional • (p) Preliminary, (e) Upjohn Estimate
 
-[Download Data](data_download/eduAttainment.csv){download="eduAttainment.csv"}
+[Download Data](data_download/EPOP_LFPR_UR.csv){download="EPOP_LFPR_UR.csv"}
 :::
 
 ```{r}
@@ -365,7 +365,7 @@ The unemployment rate is a measure that represents the percentage of individuals
 
 **Source:** BLS LAUS, Upjohn Regional • (p) Preliminary, (e) Upjohn Estimate
 
-[Download Data](data_download/eduAttainment.csv){download="eduAttainment.csv"}
+[Download Data](data_download/EPOP_LFPR_UR.csv){download="EPOP_LFPR_UR.csv"}
 :::
 
 ```{r}
@@ -507,5 +507,5 @@ Tracking the average weekly wage gives insight to the income levels and purchasi
 
 **Source:** BLS QCEW, Upjohn Regional • Not adjusted for inflation • (p) Preliminary
 
-[Download Data](data_download/eduAttainment.csv){download="eduAttainment.csv"}
+[Download Data](data_download/qcew.csv){download="qcew.csv"}
 :::
