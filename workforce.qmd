@@ -113,6 +113,11 @@ for (county in all_counties) {
           name = edu,
           legendgroup = edu,
           marker = list(color = edu_colors[edu]),
+          hovertemplate = paste0(
+            "County: ", county,
+            "<br>Share: %{y:.2f}%",
+            "<extra></extra>"
+          ),
           visible = (county == all_counties[1]),
           showlegend = (county == all_counties[1])
       )
@@ -168,7 +173,7 @@ p %>%
   legend_annotations
 ),
     
-  margin = list(r = 250, b = 100)
+  margin = list(r = 250)
   ) %>%
   config(displayModeBar = FALSE)
 ```
@@ -303,7 +308,7 @@ p %>%
     ),
 
     yaxis = list(
-      title = "Income ($)",
+      title = "Income",
       tickprefix = "$"
     ),
 
@@ -375,6 +380,7 @@ p <- plot_ly(
   y = ~TimeLabel,
   type = "bar",
   orientation = "h",
+  hovertemplate = "%{y}<br>%{x:.1f}%<extra></extra>",
   marker = list(
     color = travel_colors[df_init$TimeLabel]
   )
@@ -1082,7 +1088,7 @@ p <- p %>%
     data = df_init %>% filter(Measure == "Income Needed to Afford Cost"),
     x = ~variable,
     y = ~Value,
-    name = "Income Needed",
+    name = "Income Needed to Afford Cost",
     marker = list(color = colors["Income Needed to Afford Cost"])
   )
 
@@ -1123,7 +1129,7 @@ p %>%
     barmode = "group",
 
     title = paste(
-      "Housing Costs:",
+      "Monthly Income Needed to Afford Housing:",
       init
     ),
 

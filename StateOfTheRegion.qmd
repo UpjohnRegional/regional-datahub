@@ -113,8 +113,7 @@ p %>%
     ),
 
     margin = list(
-      t = 30,
-      b = 180
+      t = 30
     )
   ) %>%
   config(displayModeBar = FALSE)
@@ -232,8 +231,7 @@ p %>%
     ),
 
     margin = list(
-      t = 30,
-      b = 180
+      t = 30
     )
   ) %>%
   config(displayModeBar = FALSE)
@@ -351,8 +349,7 @@ p %>%
     ),
 
     margin = list(
-      t = 30,
-      b = 180
+      t = 30
     )
   ) %>%
   config(displayModeBar = FALSE)
@@ -482,8 +479,7 @@ fig <- fig %>%
     ),
     
     margin = list(
-      t = 30,
-      b = 160
+      t = 30
     ),
     
     xaxis = list(title = "Date"),

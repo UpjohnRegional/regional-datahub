@@ -14,7 +14,6 @@ Please [contact us](mailto:regional@upjohn.org) if you have any questions.
 #| echo: false
 #| message: false
 #| warning: false
-
 library(dplyr)
 library(tidyr)
 library(plotly)
@@ -24,7 +23,7 @@ disability <- readRDS(
   "data/civilianNoninstitutionalizedPopulationWithADisability.rds"
 )
 
-# Keep Southwest Michigan counties
+# Southwest Michigan counties
 county_order <- c(
   "Kalamazoo",
   "Berrien",
@@ -35,16 +34,10 @@ county_order <- c(
   "Van Buren"
 )
 
-disability <- disability %>%
-  filter(NAME %in% county_order)
+# ---------------------------------------------------------
+# Convert to long format
+# ---------------------------------------------------------
 
-# Set county order
-disability$NAME <- factor(
-  disability$NAME,
-  levels = county_order
-)
-
-# Rename disability categories for display
 disability <- disability %>%
   pivot_longer(
     cols = -NAME,
@@ -64,7 +57,10 @@ disability <- disability %>%
     )
   )
 
+# ---------------------------------------------------------
 # Set disability category order
+# ---------------------------------------------------------
+
 disability$Display <- factor(
   disability$Display,
   levels = c(
@@ -78,44 +74,144 @@ disability$Display <- factor(
   )
 )
 
-# County list
-counties <- county_order
+# ---------------------------------------------------------
+# Colors
+# ---------------------------------------------------------
+
+disability_colors <- c(
+  "Any Disability" = "#C9D5DF",
+  "Hearing" = "#A5C0D3",
+  "Vision" = "#7EA5C0",
+  "Cognitive" = "#5189A7",
+  "Ambulatory" = "#1A6C89",
+  "Self-Care" = "#004A5E",
+  "Independent Living" = "#001F2C"
+)
+
+# ---------------------------------------------------------
+# Counties
+# ---------------------------------------------------------
+
+# Get EVERY county in the RDS
+counties <- unique(
+  as.character(disability$NAME)
+)
+
+# Put Southwest Michigan counties first,
+# followed by all remaining Michigan counties alphabetically
+counties <- c(
+  county_order[county_order %in% counties],
+  sort(setdiff(counties, county_order))
+)
 
 # Initial county
 init <- counties[1]
 
 df_init <- disability %>%
-  filter(NAME == init)
+  filter(NAME == init) %>%
+  arrange(Display)
 
+# ---------------------------------------------------------
+# Create legend annotations
+# ---------------------------------------------------------
 
-# Create initial plot
-p <- plot_ly()
+legend_annotations <- list(
+  
+  list(
+    x = 1.02,
+    y = 1.00,
+    xref = "paper",
+    yref = "paper",
+    text = "<b>Disability Type</b>",
+    showarrow = FALSE,
+    xanchor = "left"
+  )
+)
 
-p <- p %>%
-  add_bars(
-    data = df_init,
-    x = ~Display,
-    y = ~percentage,
-    name = "Disability",
-    marker = list(
-      color = "#2b9cb4"
+# Position of legend items
+y_pos <- c(
+  0.92,
+  0.84,
+  0.76,
+  0.68,
+  0.60,
+  0.52,
+  0.44
+)
+
+# Add disability categories to legend
+for (i in seq_along(disability_colors)) {
+  
+  legend_annotations <- append(
+    legend_annotations,
+    list(
+      list(
+        x = 1.02,
+        y = y_pos[i],
+        xref = "paper",
+        yref = "paper",
+        text = paste0(
+          "■ ",
+          names(disability_colors)[i]
+        ),
+        font = list(
+          color = disability_colors[i]
+        ),
+        showarrow = FALSE,
+        xanchor = "left"
+      )
     )
   )
+}
 
+# ---------------------------------------------------------
+# Create initial plot
+# ---------------------------------------------------------
 
-# Create dropdown buttons
+p <- plot_ly(
+  data = df_init,
+  x = ~Display,
+  y = ~percentage,
+  type = "bar",
+  marker = list(
+    color = disability_colors[
+      as.character(df_init$Display)
+    ]
+  ),
+  hovertemplate = paste0(
+    "Disability Type: %{x}<br>",
+    "Percent: %{y:.1f}%",
+    "<extra></extra>"
+  )
+)
+
+# ---------------------------------------------------------
+# Create county dropdown
+# ---------------------------------------------------------
+
 buttons <- lapply(seq_along(counties), function(i) {
-
+  
   df <- disability %>%
-    filter(NAME == counties[i])
-
+    filter(NAME == counties[i]) %>%
+    arrange(Display)
+  
   list(
     method = "update",
+    
     args = list(
+      
+      # Update bar data
       list(
         x = list(df$Display),
-        y = list(df$percentage)
+        y = list(df$percentage),
+        marker = list(
+          color = disability_colors[
+            as.character(df$Display)
+          ]
+        )
       ),
+      
+      # Update title
       list(
         title = paste(
           "Population with a Disability by Type:",
@@ -123,54 +219,54 @@ buttons <- lapply(seq_along(counties), function(i) {
         )
       )
     ),
+    
     label = counties[i]
   )
 })
 
-
+# ---------------------------------------------------------
 # Layout
+# ---------------------------------------------------------
+
 p %>%
   layout(
-
+    
     title = paste(
       "Population with a Disability by Type:",
       init
     ),
-
+    
     xaxis = list(
       title = "",
-      tickangle = 45,
-      categoryorder = "array",
-      categoryarray = c(
-        "Any Disability",
-        "Hearing",
-        "Vision",
-        "Cognitive",
-        "Ambulatory",
-        "Self-Care",
-        "Independent Living"
-      )
+      showticklabels = FALSE
     ),
-
+    
     yaxis = list(
       title = "Percent of Civilian Noninstitutionalized Population",
-      ticksuffix = "%"
+      ticksuffix = "%",
+      showgrid = TRUE,
+      gridcolor = "lightgray"
     ),
-
+    
     updatemenus = list(
       list(
         type = "dropdown",
         buttons = buttons,
         active = 0,
         x = 1.15,
-        y = 0.65,
+        y = 0.4,
         xanchor = "left"
       )
     ),
-
+    
+    showlegend = FALSE,
+    
+    annotations = legend_annotations,
+    
     margin = list(
       r = 180
     )
+    
   ) %>%
   config(
     displayModeBar = FALSE
@@ -201,7 +297,10 @@ employment <- readRDS(
   "data/unemploymentRatebySex.rds"
 )
 
+# ---------------------------------------------------------
 # Southwest Michigan counties
+# ---------------------------------------------------------
+
 county_order <- c(
   "Kalamazoo",
   "Berrien",
@@ -212,7 +311,10 @@ county_order <- c(
   "Van Buren"
 )
 
+# ---------------------------------------------------------
 # Convert to long format
+# ---------------------------------------------------------
+
 employment_long <- employment %>%
   pivot_longer(
     cols = -NAME,
@@ -220,7 +322,10 @@ employment_long <- employment %>%
     values_to = "Value"
   )
 
+# ---------------------------------------------------------
 # Rename categories
+# ---------------------------------------------------------
+
 employment_long <- employment_long %>%
   mutate(
     Display = case_when(
@@ -232,13 +337,16 @@ employment_long <- employment_long %>%
       variable == "Women with Kids Under 6" ~
         "Women with Kids Under 6",
       variable == "Women with Kids Under 6 and 6 to 17" ~
-        "Women with Kids Under 6 & 6–17",
+        "Women with Kids Ages 0–17",
       variable == "Women with Kids 6 to 17" ~
         "Women with Kids 6–17"
     )
   )
 
+# ---------------------------------------------------------
 # Set category order
+# ---------------------------------------------------------
+
 employment_long$Display <- factor(
   employment_long$Display,
   levels = c(
@@ -247,105 +355,207 @@ employment_long$Display <- factor(
     "Women",
     "Women with Kids Under 18",
     "Women with Kids Under 6",
-    "Women with Kids Under 6 & 6–17",
+    "Women with Kids Ages 0–17",
     "Women with Kids 6–17"
   )
 )
 
+# ---------------------------------------------------------
+# Colors
+# ---------------------------------------------------------
+
+employment_colors <- c(
+  "Total" = "#C9D5DF",
+  "Men" = "#A5C0D3",
+  "Women" = "#7EA5C0",
+  "Women with Kids Under 18" = "#5189A7",
+  "Women with Kids Under 6" = "#1A6C89",
+  "Women with Kids Ages 0–17" = "#004A5E",
+  "Women with Kids 6–17" = "#001F2C"
+)
+
+# ---------------------------------------------------------
 # Get every county in the RDS
+# ---------------------------------------------------------
+
 counties <- unique(
   as.character(employment_long$NAME)
 )
 
 # Put Southwest Michigan counties first,
 # followed by all other counties alphabetically
+
 counties <- c(
   county_order[county_order %in% counties],
   sort(setdiff(counties, county_order))
 )
 
+# ---------------------------------------------------------
 # Initial county
+# ---------------------------------------------------------
+
 init <- counties[1]
 
 df_init <- employment_long %>%
   filter(NAME == init) %>%
   arrange(Display)
 
-# Create plot
-p <- plot_ly()
+# ---------------------------------------------------------
+# Create legend annotations
+# ---------------------------------------------------------
 
-p <- p %>%
-  add_bars(
-    data = df_init,
-    x = ~Display,
-    y = ~Value,
-    marker = list(
-      color = "#2B9CB4"
-    ),
-    showlegend = FALSE
+legend_annotations <- list(
+  
+  list(
+    x = 1.02,
+    y = 1.00,
+    xref = "paper",
+    yref = "paper",
+    text = "<b>Category</b>",
+    showarrow = FALSE,
+    xanchor = "left"
   )
+)
 
+# Legend positions
+y_pos <- c(
+  0.92,
+  0.84,
+  0.76,
+  0.68,
+  0.60,
+  0.52,
+  0.44
+)
+
+# Add categories to legend
+for (i in seq_along(employment_colors)) {
+  
+  legend_annotations <- append(
+    legend_annotations,
+    list(
+      list(
+        x = 1.02,
+        y = y_pos[i],
+        xref = "paper",
+        yref = "paper",
+        text = paste0(
+          "■ ",
+          names(employment_colors)[i]
+        ),
+        font = list(
+          color = employment_colors[i]
+        ),
+        showarrow = FALSE,
+        xanchor = "left"
+      )
+    )
+  )
+}
+
+# ---------------------------------------------------------
+# Create initial plot
+# ---------------------------------------------------------
+
+p <- plot_ly(
+  data = df_init,
+  x = ~Display,
+  y = ~Value,
+  type = "bar",
+  marker = list(
+    color = employment_colors[
+      as.character(df_init$Display)
+    ]
+  ),
+  hovertemplate = paste0(
+    "Category: %{x}<br>",
+    "Unemployment Rate: %{y:.1f}%",
+    "<extra></extra>"
+  )
+)
+
+# ---------------------------------------------------------
 # Dropdown buttons
-buttons <- lapply(seq_along(counties), function(i) {
+# ---------------------------------------------------------
 
+buttons <- lapply(seq_along(counties), function(i) {
+  
   df <- employment_long %>%
     filter(NAME == counties[i]) %>%
     arrange(Display)
-
+  
   list(
     method = "update",
-
+    
     args = list(
+      
+      # Update bar data
       list(
         x = list(df$Display),
-        y = list(df$Value)
+        y = list(df$Value),
+        marker = list(
+          color = employment_colors[
+            as.character(df$Display)
+          ]
+        )
       ),
-
+      
+      # Update title
       list(
         title = paste(
-          "Employment Rate by Sex and Family Status:",
+          "Unemployment Rate by Sex and Family Status:",
           counties[i]
         )
       )
     ),
-
+    
     label = counties[i]
   )
 })
 
+# ---------------------------------------------------------
 # Layout
+# ---------------------------------------------------------
+
 p %>%
   layout(
+    
     title = paste(
       "Unemployment Rate by Sex and Family Status:",
       init
     ),
-
+    
     xaxis = list(
       title = "",
-      tickangle = 45
+      showticklabels = FALSE
     ),
-
+    
     yaxis = list(
       title = "Unemployment Rate",
-      ticksuffix = "%"
+      ticksuffix = "%",
+      showgrid = TRUE,
+      gridcolor = "lightgray"
     ),
-
+    
     showlegend = FALSE,
-
+    
+    annotations = legend_annotations,
+    
     updatemenus = list(
       list(
+        type = "dropdown",
         buttons = buttons,
         active = 0,
         x = 1.15,
-        y = 0.65,
+        y = 0.4,
         xanchor = "left"
       )
     ),
-
+    
     margin = list(
-      r = 180
+      r = 200
     )
+    
   ) %>%
   config(
     displayModeBar = FALSE
@@ -376,7 +586,10 @@ lfpr <- readRDS(
   "data/lfprBySex.rds"
 )
 
+# ---------------------------------------------------------
 # Southwest Michigan counties
+# ---------------------------------------------------------
+
 county_order <- c(
   "Kalamazoo",
   "Berrien",
@@ -387,7 +600,10 @@ county_order <- c(
   "Van Buren"
 )
 
+# ---------------------------------------------------------
 # Convert to long format
+# ---------------------------------------------------------
+
 lfpr_long <- lfpr %>%
   pivot_longer(
     cols = -NAME,
@@ -395,98 +611,239 @@ lfpr_long <- lfpr %>%
     values_to = "Value"
   )
 
+lfpr_long <- lfpr_long %>%
+  mutate(
+    Display = case_when(
+      variable == "Total" ~ "Total",
+      variable == "Men" ~ "Men",
+      variable == "Women" ~ "Women",
+      variable == "Women with Kids Under 18" ~
+        "Women with Kids Under 18",
+      variable == "Women with Kids Under 6" ~
+        "Women with Kids Under 6",
+      variable == "Women with Kids Under 6 and 6 to 17" ~
+        "Women with Kids Ages 0–17",
+      variable == "Women with Kids 6 to 17" ~
+        "Women with Kids 6–17"
+    )
+  )
+
+
+# ---------------------------------------------------------
+# Set category order
+# ---------------------------------------------------------
+
+lfpr_long$Display <- factor(
+  lfpr_long$Display,
+  levels = c(
+    "Total",
+    "Men",
+    "Women",
+    "Women with Kids Under 18",
+    "Women with Kids Under 6",
+    "Women with Kids Ages 0–17",
+    "Women with Kids 6–17"
+  )
+)
+
+# ---------------------------------------------------------
+# Colors
+# ---------------------------------------------------------
+
+lfpr_colors <- c(
+  "Total" = "#C9D5DF",
+  "Men" = "#A5C0D3",
+  "Women" = "#7EA5C0",
+  "Women with Kids Under 18" = "#5189A7",
+  "Women with Kids Under 6" = "#1A6C89",
+  "Women with Kids Ages 0–17" = "#004A5E",
+  "Women with Kids 6–17" = "#001F2C"
+)
+
+# ---------------------------------------------------------
 # Get every county in the RDS
+# ---------------------------------------------------------
+
 counties <- unique(
   as.character(lfpr_long$NAME)
 )
 
 # Put Southwest Michigan counties first,
 # followed by all other counties alphabetically
+
 counties <- c(
   county_order[county_order %in% counties],
   sort(setdiff(counties, county_order))
 )
 
+# ---------------------------------------------------------
 # Initial county
+# ---------------------------------------------------------
+
 init <- counties[1]
 
 df_init <- lfpr_long %>%
-  filter(NAME == init)
+  filter(NAME == init) %>%
+  arrange(Display)
 
-# Create chart
-p <- plot_ly(
-  data = df_init,
-  x = ~variable,
-  y = ~Value,
-  type = "bar",
-  marker = list(
-    color = "#2B9CB4"
+# ---------------------------------------------------------
+# Create legend annotations
+# ---------------------------------------------------------
+
+legend_annotations <- list(
+  
+  list(
+    x = 1.02,
+    y = 1.00,
+    xref = "paper",
+    yref = "paper",
+    text = "<b>Category</b>",
+    showarrow = FALSE,
+    xanchor = "left"
   )
 )
 
+# Legend positions
+y_pos <- c(
+  0.92,
+  0.84,
+  0.76,
+  0.68,
+  0.60,
+  0.52,
+  0.44
+)
+
+# Add categories to legend
+for (i in seq_along(lfpr_colors)) {
+  
+  legend_annotations <- append(
+    legend_annotations,
+    list(
+      list(
+        x = 1.02,
+        y = y_pos[i],
+        xref = "paper",
+        yref = "paper",
+        text = paste0(
+          "■ ",
+          names(lfpr_colors)[i]
+        ),
+        font = list(
+          color = lfpr_colors[i]
+        ),
+        showarrow = FALSE,
+        xanchor = "left"
+      )
+    )
+  )
+}
+
+# ---------------------------------------------------------
+# Create initial plot
+# ---------------------------------------------------------
+
+p <- plot_ly(
+  data = df_init,
+  x = ~Display,
+  y = ~Value,
+  type = "bar",
+  marker = list(
+    color = lfpr_colors[
+      as.character(df_init$Display)
+    ]
+  ),
+  hovertemplate = paste0(
+    "Category: %{x}<br>",
+    "Labor Force Participation Rate: %{y:.1f}%",
+    "<extra></extra>"
+  )
+)
+
+# ---------------------------------------------------------
 # County dropdown
-buttons <- lapply(counties, function(county) {
+# ---------------------------------------------------------
 
+buttons <- lapply(seq_along(counties), function(i) {
+  
   df <- lfpr_long %>%
-    filter(NAME == county)
-
+    filter(NAME == counties[i]) %>%
+    arrange(Display)
+  
   list(
     method = "update",
-
+    
     args = list(
+      
+      # Update bar data
       list(
-        x = list(df$variable),
-        y = list(df$Value)
+        x = list(df$Display),
+        y = list(df$Value),
+        marker = list(
+          color = lfpr_colors[
+            as.character(df$Display)
+          ]
+        )
       ),
-
+      
+      # Update title
       list(
         title = paste(
           "Labor Force Participation Rate by Sex and Family Status:",
-          county
+          counties[i]
         )
       )
     ),
-
-    label = county
+    
+    label = counties[i]
   )
 })
 
+# ---------------------------------------------------------
 # Layout
+# ---------------------------------------------------------
+
 p %>%
   layout(
+    
     barmode = "group",
-
+    
     title = paste(
       "Labor Force Participation Rate by Sex and Family Status:",
       init
     ),
-
+    
     xaxis = list(
       title = "",
-      tickangle = 45
+      showticklabels = FALSE
     ),
-
+    
     yaxis = list(
       title = "Labor Force Participation Rate",
-      ticksuffix = "%"
+      ticksuffix = "%",
+      showgrid = TRUE,
+      gridcolor = "lightgray"
     ),
-
+    
     showlegend = FALSE,
-
+    
+    annotations = legend_annotations,
+    
     updatemenus = list(
       list(
         type = "dropdown",
         buttons = buttons,
         active = 0,
         x = 1.15,
-        y = 0.65,
+        y = 0.4,
         xanchor = "left"
       )
     ),
-
+    
     margin = list(
-      r = 180
+      r = 200
     )
+    
   ) %>%
   config(
     displayModeBar = FALSE
@@ -518,7 +875,10 @@ employment <- readRDS(
   "data/unemploymentRatebyRace.rds"
 )
 
+# ---------------------------------------------------------
 # Southwest Michigan counties
+# ---------------------------------------------------------
+
 county_order <- c(
   "Kalamazoo",
   "Berrien",
@@ -529,7 +889,10 @@ county_order <- c(
   "Van Buren"
 )
 
+# ---------------------------------------------------------
 # Convert to long format
+# ---------------------------------------------------------
+
 employment_long <- employment %>%
   pivot_longer(
     cols = -NAME,
@@ -537,103 +900,238 @@ employment_long <- employment %>%
     values_to = "Value"
   )
 
+# ---------------------------------------------------------
+# Set category order
+# ---------------------------------------------------------
+
+employment_long$variable <- factor(
+  employment_long$variable,
+  levels = c(
+    "Total",
+    "Black or African American",
+    "Some other race",
+    "Two or more races",
+    "Hispanic or Latino origin (of any race)",
+    "White alone, not Hispanic or Latino"
+  )
+)
+
+# ---------------------------------------------------------
+# Colors
+# ---------------------------------------------------------
+
+race_colors <- c(
+  "Total" = "#C9D5DF",
+  "Black or African American" = "#A5C0D3",
+  "Some other race" = "#7EA5C0",
+  "Two or more races" = "#5189A7",
+  "Hispanic or Latino origin (of any race)" = "#1A6C89",
+  "White alone, not Hispanic or Latino" = "#004A5E"
+)
+
+# ---------------------------------------------------------
 # Get every county in the RDS
+# ---------------------------------------------------------
+
 counties <- unique(
   as.character(employment_long$NAME)
 )
 
 # Put Southwest Michigan counties first,
 # followed by all other counties alphabetically
+
 counties <- c(
   county_order[county_order %in% counties],
   sort(setdiff(counties, county_order))
 )
 
+# ---------------------------------------------------------
 # Initial county
+# ---------------------------------------------------------
+
 init <- counties[1]
 
 df_init <- employment_long %>%
-  filter(NAME == init)
+  filter(NAME == init) %>%
+  arrange(variable)
 
-# Create chart
+# ---------------------------------------------------------
+# Create legend annotations
+# ---------------------------------------------------------
+
+legend_annotations <- list(
+  
+  list(
+    x = 1.02,
+    y = 1.00,
+    xref = "paper",
+    yref = "paper",
+    text = "<b>Race / Ethnicity</b>",
+    showarrow = FALSE,
+    xanchor = "left",
+    yanchor = "top"
+  )
+)
+
+# Fixed legend positions
+y_pos <- c(
+  0.91,
+  0.82,
+  0.73,
+  0.64,
+  0.55,
+  0.46
+)
+
+# Add categories to legend
+for (i in seq_along(race_colors)) {
+  
+  legend_text <- names(race_colors)[i]
+  
+  # Wrap the long Hispanic label
+  if (legend_text == "Hispanic or Latino origin (of any race)") {
+    legend_text <- "Hispanic or Latino<br>origin (of any race)"
+  }
+  
+  # Wrap the long Hispanic label
+  if (legend_text == "White alone, not Hispanic or Latino") {
+    legend_text <- "White alone, not<br>Hispanic or Latino"
+  }
+  
+  legend_annotations <- append(
+    legend_annotations,
+    list(
+      list(
+        x = 1.02,
+        y = y_pos[i],
+        xref = "paper",
+        yref = "paper",
+        text = paste0(
+          "■ ",
+          legend_text
+        ),
+        font = list(
+          color = race_colors[i],
+          size = 11
+        ),
+        showarrow = FALSE,
+        xanchor = "left",
+        yanchor = "middle",
+        align = "left"
+      )
+    )
+  )
+}
+
+# ---------------------------------------------------------
+# Create initial plot
+# ---------------------------------------------------------
+
 p <- plot_ly(
   data = df_init,
   x = ~variable,
   y = ~Value,
   type = "bar",
   marker = list(
-    color = "#2B9CB4"
+    color = race_colors[
+      as.character(df_init$variable)
+    ]
+  ),
+  hovertemplate = paste0(
+    "Race / Ethnicity: %{x}<br>",
+    "Unemployment Rate: %{y:.1f}%",
+    "<extra></extra>"
   )
 )
 
+# ---------------------------------------------------------
 # County dropdown
-buttons <- lapply(counties, function(county) {
+# ---------------------------------------------------------
 
+buttons <- lapply(seq_along(counties), function(i) {
+  
   df <- employment_long %>%
-    filter(NAME == county)
-
+    filter(NAME == counties[i]) %>%
+    arrange(variable)
+  
   list(
     method = "update",
-
+    
     args = list(
+      
+      # Update bar data
       list(
         x = list(df$variable),
-        y = list(df$Value)
+        y = list(df$Value),
+        marker = list(
+          color = race_colors[
+            as.character(df$variable)
+          ]
+        )
       ),
-
+      
+      # Update title
       list(
         title = paste(
           "Unemployment Rate by Race:",
-          county
+          counties[i]
         )
       )
     ),
-
-    label = county
+    
+    label = counties[i]
   )
 })
 
+# ---------------------------------------------------------
 # Layout
+# ---------------------------------------------------------
+
 p %>%
   layout(
+    
     barmode = "group",
-
+    
     title = paste(
       "Unemployment Rate by Race:",
       init
     ),
-
+    
     xaxis = list(
       title = "",
-      tickangle = 45
+      showticklabels = FALSE
     ),
-
+    
     yaxis = list(
       title = "Unemployment Rate",
-      ticksuffix = "%"
+      ticksuffix = "%",
+      showgrid = TRUE,
+      gridcolor = "lightgray"
     ),
-
+    
     showlegend = FALSE,
-
+    
+    annotations = legend_annotations,
+    
     updatemenus = list(
       list(
         type = "dropdown",
         buttons = buttons,
         active = 0,
         x = 1.15,
-        y = 0.65,
+        y = 0.4,
         xanchor = "left"
       )
     ),
-
+    
     margin = list(
-      r = 180
+      r = 200
     )
+    
   ) %>%
   config(
     displayModeBar = FALSE
   )
-
 ```
 
 ::: {.callout-note collapse="true" appearance="minimal"}
@@ -660,7 +1158,10 @@ poverty <- readRDS(
   "data/povertyStatusByRace.rds"
 )
 
+# ---------------------------------------------------------
 # Southwest Michigan counties
+# ---------------------------------------------------------
+
 county_order <- c(
   "Kalamazoo",
   "Berrien",
@@ -671,7 +1172,10 @@ county_order <- c(
   "Van Buren"
 )
 
+# ---------------------------------------------------------
 # Convert to long format
+# ---------------------------------------------------------
+
 poverty_long <- poverty %>%
   pivot_longer(
     cols = -NAME,
@@ -679,50 +1183,178 @@ poverty_long <- poverty %>%
     values_to = "Value"
   )
 
+# ---------------------------------------------------------
+# Category order
+# ---------------------------------------------------------
+
+poverty_order <- c(
+  "Total",
+  "Black or African American",
+  "Some other race",
+  "Two or more races",
+  "Hispanic or Latino origin (of any race)",
+  "White alone, not Hispanic or Latino"
+)
+
+poverty_long$variable <- factor(
+  poverty_long$variable,
+  levels = poverty_order
+)
+
+# ---------------------------------------------------------
+# Colors
+# ---------------------------------------------------------
+
+poverty_colors <- c(
+  "Total" = "#C9D5DF",
+  "Black or African American" = "#A5C0D3",
+  "Some other race" = "#7EA5C0",
+  "Two or more races" = "#5189A7",
+  "Hispanic or Latino origin (of any race)" = "#1A6C89",
+  "White alone, not Hispanic or Latino" = "#004A5E"
+)
+
+# ---------------------------------------------------------
 # Get every county in the RDS
+# ---------------------------------------------------------
+
 counties <- unique(
   as.character(poverty_long$NAME)
 )
 
 # Put Southwest Michigan counties first,
 # followed by all other counties alphabetically
+
 counties <- c(
   county_order[county_order %in% counties],
   sort(setdiff(counties, county_order))
 )
 
+# ---------------------------------------------------------
 # Initial county
+# ---------------------------------------------------------
+
 init <- counties[1]
 
 df_init <- poverty_long %>%
-  filter(NAME == init)
+  filter(NAME == init) %>%
+  arrange(variable)
 
-# Create chart
+# ---------------------------------------------------------
+# Legend labels
+# ---------------------------------------------------------
+
+legend_labels <- c(
+  "Total",
+  "Black or African American",
+  "Some other race",
+  "Two or more races",
+  "Hispanic or Latino<br>origin (of any race)",
+  "White alone, not<br>Hispanic or Latino"
+)
+
+# ---------------------------------------------------------
+# Create legend annotations
+# ---------------------------------------------------------
+
+legend_annotations <- list(
+  
+  list(
+    x = 1.02,
+    y = 1.00,
+    xref = "paper",
+    yref = "paper",
+    text = "<b>Race</b>",
+    showarrow = FALSE,
+    xanchor = "left"
+  )
+)
+
+# Legend positions
+y_pos <- c(
+  0.92,
+  0.84,
+  0.76,
+  0.68,
+  0.58,
+  0.48
+)
+
+# Add categories to legend
+for (i in seq_along(poverty_colors)) {
+  
+  legend_annotations <- append(
+    legend_annotations,
+    list(
+      list(
+        x = 1.02,
+        y = y_pos[i],
+        xref = "paper",
+        yref = "paper",
+        text = paste0(
+          "■ ",
+          legend_labels[i]
+        ),
+        font = list(
+          color = poverty_colors[i],
+          size = 11
+        ),
+        showarrow = FALSE,
+        xanchor = "left",
+        align = "left"
+      )
+    )
+  )
+}
+
+# ---------------------------------------------------------
+# Create initial plot
+# ---------------------------------------------------------
+
 p <- plot_ly(
   data = df_init,
   x = ~variable,
   y = ~Value,
   type = "bar",
   marker = list(
-    color = "#2B9CB4"
+    color = poverty_colors[
+      as.character(df_init$variable)
+    ]
+  ),
+  hovertemplate = paste0(
+    "Race: %{x}<br>",
+    "Population Below Poverty Level: %{y:.1f}%",
+    "<extra></extra>"
   )
 )
 
+# ---------------------------------------------------------
 # County dropdown
+# ---------------------------------------------------------
+
 buttons <- lapply(counties, function(county) {
-
+  
   df <- poverty_long %>%
-    filter(NAME == county)
-
+    filter(NAME == county) %>%
+    arrange(variable)
+  
   list(
     method = "update",
-
+    
     args = list(
+      
+      # Update bars
       list(
         x = list(df$variable),
-        y = list(df$Value)
+        y = list(df$Value),
+        marker = list(
+          color = poverty_colors[
+            as.character(df$variable)
+          ]
+        )
       ),
-
+      
+      # Update title
       list(
         title = paste(
           "Poverty Rate by Race:",
@@ -730,47 +1362,56 @@ buttons <- lapply(counties, function(county) {
         )
       )
     ),
-
+    
     label = county
   )
 })
 
+# ---------------------------------------------------------
 # Layout
+# ---------------------------------------------------------
+
 p %>%
   layout(
+    
     barmode = "group",
-
+    
     title = paste(
       "Poverty Rate by Race:",
       init
     ),
-
+    
     xaxis = list(
       title = "",
-      tickangle = 45
+      showticklabels = FALSE
     ),
-
+    
     yaxis = list(
       title = "Population Below Poverty Level",
-      ticksuffix = "%"
+      ticksuffix = "%",
+      showgrid = TRUE,
+      gridcolor = "lightgray"
     ),
-
+    
     showlegend = FALSE,
-
+    
+    annotations = legend_annotations,
+    
     updatemenus = list(
       list(
         type = "dropdown",
         buttons = buttons,
         active = 0,
         x = 1.15,
-        y = 0.65,
+        y = 0.4,
         xanchor = "left"
       )
     ),
-
+    
     margin = list(
-      r = 180
+      r = 200
     )
+    
   ) %>%
   config(
     displayModeBar = FALSE
@@ -802,7 +1443,10 @@ health <- readRDS(
   "data/healthInsuranceByRace.rds"
 )
 
+# ---------------------------------------------------------
 # Southwest Michigan counties
+# ---------------------------------------------------------
+
 county_order <- c(
   "Kalamazoo",
   "Berrien",
@@ -813,7 +1457,10 @@ county_order <- c(
   "Van Buren"
 )
 
+# ---------------------------------------------------------
 # Convert to long format
+# ---------------------------------------------------------
+
 health_long <- health %>%
   pivot_longer(
     cols = -NAME,
@@ -821,98 +1468,234 @@ health_long <- health %>%
     values_to = "Value"
   )
 
+# ---------------------------------------------------------
+# Set category order
+# ---------------------------------------------------------
+
+health_long$variable <- factor(
+  health_long$variable,
+  levels = c(
+    "Total",
+    "Black or African American",
+    "Some other race",
+    "Two or more races",
+    "Hispanic or Latino origin (of any race)",
+    "White alone, not Hispanic or Latino"
+  )
+)
+
+# ---------------------------------------------------------
+# Colors
+# ---------------------------------------------------------
+
+race_colors <- c(
+  "Total" = "#C9D5DF",
+  "Black or African American" = "#A5C0D3",
+  "Some other race" = "#7EA5C0",
+  "Two or more races" = "#5189A7",
+  "Hispanic or Latino origin (of any race)" = "#1A6C89",
+  "White alone, not Hispanic or Latino" = "#004A5E"
+)
+
+# ---------------------------------------------------------
 # Get every county in the RDS
+# ---------------------------------------------------------
+
 counties <- unique(
   as.character(health_long$NAME)
 )
 
 # Put Southwest Michigan counties first,
 # followed by all other counties alphabetically
+
 counties <- c(
   county_order[county_order %in% counties],
   sort(setdiff(counties, county_order))
 )
 
+# ---------------------------------------------------------
 # Initial county
+# ---------------------------------------------------------
+
 init <- counties[1]
 
 df_init <- health_long %>%
-  filter(NAME == init)
+  filter(NAME == init) %>%
+  arrange(variable)
 
-# Create chart
+# ---------------------------------------------------------
+# Create legend annotations
+# ---------------------------------------------------------
+
+legend_annotations <- list(
+  
+  list(
+    x = 1.02,
+    y = 1.00,
+    xref = "paper",
+    yref = "paper",
+    text = "<b>Race / Ethnicity</b>",
+    showarrow = FALSE,
+    xanchor = "left",
+    yanchor = "top"
+  )
+)
+
+# Fixed legend positions
+y_pos <- c(
+  0.91,
+  0.82,
+  0.73,
+  0.64,
+  0.55,
+  0.46
+)
+
+# Add categories to legend
+for (i in seq_along(race_colors)) {
+  
+  legend_text <- names(race_colors)[i]
+  
+  # Wrap the long Hispanic label
+  if (legend_text == "Hispanic or Latino origin (of any race)") {
+    legend_text <- "Hispanic or Latino<br>origin (of any race)"
+  }
+  
+  # Wrap the long Hispanic label
+  if (legend_text == "White alone, not Hispanic or Latino") {
+    legend_text <- "White alone, not<br>Hispanic or Latino"
+  }
+  
+  legend_annotations <- append(
+    legend_annotations,
+    list(
+      list(
+        x = 1.02,
+        y = y_pos[i],
+        xref = "paper",
+        yref = "paper",
+        text = paste0(
+          "■ ",
+          legend_text
+        ),
+        font = list(
+          color = race_colors[i],
+          size = 11
+        ),
+        showarrow = FALSE,
+        xanchor = "left",
+        yanchor = "middle",
+        align = "left"
+      )
+    )
+  )
+}
+
+# ---------------------------------------------------------
+# Create initial plot
+# ---------------------------------------------------------
+
 p <- plot_ly(
   data = df_init,
   x = ~variable,
   y = ~Value,
   type = "bar",
   marker = list(
-    color = "#2B9CB4"
+    color = race_colors[
+      as.character(df_init$variable)
+    ]
+  ),
+  hovertemplate = paste0(
+    "Race / Ethnicity: %{x}<br>",
+    "Population With Health Insurance: %{y:.1f}%",
+    "<extra></extra>"
   )
 )
 
+# ---------------------------------------------------------
 # County dropdown
-buttons <- lapply(counties, function(county) {
+# ---------------------------------------------------------
 
+buttons <- lapply(seq_along(counties), function(i) {
+  
   df <- health_long %>%
-    filter(NAME == county)
-
+    filter(NAME == counties[i]) %>%
+    arrange(variable)
+  
   list(
     method = "update",
-
+    
     args = list(
+      
+      # Update bar data
       list(
         x = list(df$variable),
-        y = list(df$Value)
+        y = list(df$Value),
+        marker = list(
+          color = race_colors[
+            as.character(df$variable)
+          ]
+        )
       ),
-
+      
+      # Update title
       list(
         title = paste(
           "Health Insurance Coverage by Race:",
-          county
+          counties[i]
         )
       )
     ),
-
-    label = county
+    
+    label = counties[i]
   )
 })
 
+# ---------------------------------------------------------
 # Layout
+# ---------------------------------------------------------
+
 p %>%
   layout(
+    
     barmode = "group",
-
+    
     title = paste(
       "Health Insurance Coverage by Race:",
       init
     ),
-
+    
     xaxis = list(
       title = "",
-      tickangle = 45
+      showticklabels = FALSE
     ),
-
+    
     yaxis = list(
       title = "Population With Health Insurance",
-      ticksuffix = "%"
+      ticksuffix = "%",
+      showgrid = TRUE,
+      gridcolor = "lightgray"
     ),
-
+    
     showlegend = FALSE,
-
+    
+    annotations = legend_annotations,
+    
     updatemenus = list(
       list(
         type = "dropdown",
         buttons = buttons,
         active = 0,
         x = 1.15,
-        y = 0.65,
+        y = 0.4,
         xanchor = "left"
       )
     ),
-
+    
     margin = list(
-      r = 180
+      r = 200
     )
+    
   ) %>%
   config(
     displayModeBar = FALSE
@@ -944,7 +1727,10 @@ vehicles <- readRDS(
   "data/vehiclesPerHousehold.rds"
 )
 
+# ---------------------------------------------------------
 # Southwest Michigan counties
+# ---------------------------------------------------------
+
 county_order <- c(
   "Kalamazoo",
   "Berrien",
@@ -955,7 +1741,10 @@ county_order <- c(
   "Van Buren"
 )
 
+# ---------------------------------------------------------
 # Convert to long format
+# ---------------------------------------------------------
+
 vehicles_long <- vehicles %>%
   pivot_longer(
     cols = -NAME,
@@ -963,98 +1752,216 @@ vehicles_long <- vehicles %>%
     values_to = "Value"
   )
 
+# ---------------------------------------------------------
+# Set category order
+# ---------------------------------------------------------
+
+vehicles_long$variable <- factor(
+  vehicles_long$variable,
+  levels = c(
+    "No Vehicles",
+    "One Vehicle",
+    "Two Vehicles",
+    "Three Or More Vehicles"
+  )
+)
+
+# ---------------------------------------------------------
+# Colors
+# ---------------------------------------------------------
+
+vehicle_colors <- c(
+  "No Vehicles" = "#A5C0D3",
+  "One Vehicle" = "#5189A7",
+  "Two Vehicles" = "#004A5E",
+  "Three Or More Vehicles" = "#001F2C"
+)
+
+# ---------------------------------------------------------
 # Get every county in the RDS
+# ---------------------------------------------------------
+
 counties <- unique(
   as.character(vehicles_long$NAME)
 )
 
 # Put Southwest Michigan counties first,
 # followed by all other counties alphabetically
+
 counties <- c(
   county_order[county_order %in% counties],
   sort(setdiff(counties, county_order))
 )
 
+# ---------------------------------------------------------
 # Initial county
+# ---------------------------------------------------------
+
 init <- counties[1]
 
 df_init <- vehicles_long %>%
-  filter(NAME == init)
+  filter(NAME == init) %>%
+  arrange(variable)
 
-# Create chart
+# ---------------------------------------------------------
+# Create legend annotations
+# ---------------------------------------------------------
+
+legend_annotations <- list(
+  
+  list(
+    x = 1.02,
+    y = 1.00,
+    xref = "paper",
+    yref = "paper",
+    text = "<b>Number of Vehicles</b>",
+    showarrow = FALSE,
+    xanchor = "left",
+    yanchor = "top"
+  )
+)
+
+# Fixed legend positions
+y_pos <- c(
+  0.91,
+  0.82,
+  0.73,
+  0.64
+)
+
+# Add categories to legend
+for (i in seq_along(vehicle_colors)) {
+  
+  legend_annotations <- append(
+    legend_annotations,
+    list(
+      list(
+        x = 1.02,
+        y = y_pos[i],
+        xref = "paper",
+        yref = "paper",
+        text = paste0(
+          "■ ",
+          names(vehicle_colors)[i]
+        ),
+        font = list(
+          color = vehicle_colors[i],
+          size = 11
+        ),
+        showarrow = FALSE,
+        xanchor = "left",
+        yanchor = "middle",
+        align = "left"
+      )
+    )
+  )
+}
+
+# ---------------------------------------------------------
+# Create initial plot
+# ---------------------------------------------------------
+
 p <- plot_ly(
   data = df_init,
   x = ~variable,
   y = ~Value,
   type = "bar",
   marker = list(
-    color = "#2B9CB4"
+    color = vehicle_colors[
+      as.character(df_init$variable)
+    ]
+  ),
+  hovertemplate = paste0(
+    "Vehicles: %{x}<br>",
+    "Households: %{y:.1f}%",
+    "<extra></extra>"
   )
 )
 
+# ---------------------------------------------------------
 # County dropdown
-buttons <- lapply(counties, function(county) {
+# ---------------------------------------------------------
 
+buttons <- lapply(seq_along(counties), function(i) {
+  
   df <- vehicles_long %>%
-    filter(NAME == county)
-
+    filter(NAME == counties[i]) %>%
+    arrange(variable)
+  
   list(
     method = "update",
-
+    
     args = list(
+      
+      # Update bar data
       list(
         x = list(df$variable),
-        y = list(df$Value)
+        y = list(df$Value),
+        marker = list(
+          color = vehicle_colors[
+            as.character(df$variable)
+          ]
+        )
       ),
-
+      
+      # Update title
       list(
         title = paste(
           "Vehicles per Household:",
-          county
+          counties[i]
         )
       )
     ),
-
-    label = county
+    
+    label = counties[i]
   )
 })
 
+# ---------------------------------------------------------
 # Layout
+# ---------------------------------------------------------
+
 p %>%
   layout(
+    
     barmode = "group",
-
+    
     title = paste(
       "Vehicles per Household:",
       init
     ),
-
+    
     xaxis = list(
       title = "",
-      tickangle = 45
+      showticklabels = FALSE
     ),
-
+    
     yaxis = list(
       title = "Households",
-      ticksuffix = "%"
+      ticksuffix = "%",
+      showgrid = TRUE,
+      gridcolor = "lightgray"
     ),
-
+    
     showlegend = FALSE,
-
+    
+    annotations = legend_annotations,
+    
     updatemenus = list(
       list(
         type = "dropdown",
         buttons = buttons,
         active = 0,
         x = 1.15,
-        y = 0.65,
+        y = 0.4,
         xanchor = "left"
       )
     ),
-
+    
     margin = list(
-      r = 180
+      r = 200
     )
+    
   ) %>%
   config(
     displayModeBar = FALSE
@@ -1186,7 +2093,6 @@ HTML(
 )
 
 ```
-
 
 ::: {.callout-note collapse="true" appearance="minimal"}
 ## More Information

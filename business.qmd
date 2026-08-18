@@ -114,8 +114,7 @@ fig <- fig %>%
       )
     ),
     margin = list(
-      t = 80,
-      b = 120
+      t = 80
     )
   )
 
@@ -251,7 +250,6 @@ fig %>%
 
     margin = list(
       t = 60,
-      b = 100,
       r = 120
     )
   ) %>%
@@ -375,8 +373,7 @@ p %>%
 
     margin = list(
       r = 200,
-      t = 30,
-      b = 100
+      t = 30
     )
   ) %>%
   config(displayModeBar = FALSE)
@@ -555,7 +552,6 @@ fig %>%
 
     yaxis = list(
       title = "Percent Change",
-      ticksuffix = "%",
       zeroline = TRUE,
       zerolinecolor = "gray"
     ),
@@ -609,8 +605,7 @@ fig %>%
     ),
 
     margin = list(
-      t = 60,
-      b = 100
+      t = 60
     )
   ) %>%
   config(displayModeBar = FALSE)
@@ -761,8 +756,7 @@ fig %>%
 
     margin = list(
       t = 110,
-      r = 40,
-      b = 100
+      r = 40
     )
 
   ) %>%
@@ -914,6 +908,11 @@ for (county in all_counties) {
         marker = list(
           color = worker_colors[worker]
         ),
+        hovertemplate = paste0(
+          "County: ", county,
+          "<br>Share: %{y:.2f}%",
+          "<extra></extra>"
+        ),
         visible = (county == all_counties[1]),
         showlegend = FALSE
       )
@@ -964,10 +963,15 @@ p %>%
     xaxis = list(
       title = ""
     ),
+    
+    
 
     yaxis = list(
       title = "Percent",
-      range = c(0,100)
+      range = c(0, 100),
+      showgrid = TRUE,
+      gridcolor = "lightgray",
+      gridwidth = 1
     ),
 
 
@@ -990,8 +994,7 @@ p %>%
 
 
     margin = list(
-      r = 300,
-      b = 100
+      r = 300
     )
 
   ) %>%
@@ -1163,6 +1166,10 @@ Trend = pmap(
 # ---------------------------------------------------------
 
 htmltools::HTML(
+  '<h3 style="margin-bottom: 15px;">Per Capita Income by Michigan County</h3>'
+)
+
+htmltools::HTML(
   '<div style="margin-bottom: 15px;">',
   '<label for="countySearch"><strong>Search County:</strong></label>',
   '<input type="text" id="countySearch" ',
@@ -1179,9 +1186,9 @@ kable(
   col.names = c(
     "County",
     "2024 Rank",
-    "Growth Rank",
-    "2024 vs. 2023",
-    "2020–2024"
+    "Growth Rank in State",
+    "2024 vs. 2023<br>Percent Change",
+    "Per Capita Income:<br>2020–2024"
   ),
   align = c(
     "l",
@@ -1199,38 +1206,6 @@ kable(
     ),
     full_width = FALSE
   )
-
-htmltools::HTML(
-  '
-  <script>
-  document.getElementById("countySearch").addEventListener("keyup", function() {
-
-    var input = this.value.toLowerCase();
-    var table = document.getElementById("incomeTable");
-    var rows = table.getElementsByTagName("tr");
-
-    for (var i = 1; i < rows.length; i++) {
-
-      var county = rows[i]
-        .getElementsByTagName("td")[0];
-
-      if (county) {
-
-        var text = county.textContent ||
-                   county.innerText;
-
-        if (text.toLowerCase().indexOf(input) > -1) {
-          rows[i].style.display = "";
-        } else {
-          rows[i].style.display = "none";
-        }
-
-      }
-    }
-  });
-  </script>
-  '
-)
 
 ```
 
