@@ -11,6 +11,9 @@ Please [contact us](mailto:regional@upjohn.org) if you have any questions.
 
 ## 
 
+::: {.plot-space}
+:::
+
 ```{r}
 #| label: Personal Consumption
 #| echo: false
@@ -125,13 +128,16 @@ config(
 ```
 
 ::: {.callout-note collapse="true" appearance="minimal"}
-## More Information
+## Description, Source, and Data Download.
 
 Real personal consumption expenditures and disposable income are crucial for understanding consumer spending patterns, which drive much of economic activity. These indicators reveal household financial health and confidence, guiding policymakers in assessing fiscal policies and fostering economic growth and stability. "Chained 2017 dollars" is a method of adjusting economic statistics for inflation; values from other years are adjusted to reflect purchasing power of the dollar in 2017. Consumer goods can be classified as durable, nondurable, or services. Durable goods are classified as items that have long periods between successive purchases (ex. cars or home appliances). Nondurable goods are classified as items that have long periods between successive purchases (ex. food or clothing). Services are acts which are paid for (ex. work done by barbers, doctors, mechanics, etc.) 
 
 **Source:** Federal Reserve Bank of St. Louis (series DSPIC96, PCEDGC96, PCENDC96, and PCESC96)
 
 [Download Data](data_download/fred_spending.csv){download="fred_spending.csv"}
+:::
+
+::: {.plot-space}
 :::
 
 ```{r}
@@ -259,13 +265,16 @@ fig %>%
 ```
 
 ::: {.callout-note collapse="true" appearance="minimal"}
-## More Information
+## Description, Source, and Data Download.
 
 Vehicle sales and fuel prices are important economic indicators because they reflect consumer spending and economic confidence, with high sales signaling robust economic activity. Additionally, fuel prices impact transportation costs and disposable income, influencing the economy overall.
 
 **Source:**  Federal Reserve Bank of St. Louis (series ALTSALES) and U.S. Energy Information Administration (series EMM_EPM0_PTE_NUS_DPG)
 
 [Download Data](data_download/vehicleSalesFuelPrices.csv){download="vehicleSalesFuelPrices.csv"}
+:::
+
+::: {.plot-space}
 :::
 
 ```{r}
@@ -275,75 +284,151 @@ Vehicle sales and fuel prices are important economic indicators because they ref
 #| warning: false
 
 library(plotly)
+library(dplyr)
+
+# ---------------------------------------------------------
+# Read and prepare data
+# ---------------------------------------------------------
 
 gdp <- readRDS("data/gdpPercentChange.rds") %>%
-  mutate(TimePeriod = as.Date(paste0(TimePeriod, "-01-01")))
+  mutate(
+    TimePeriod = as.Date(
+      paste0(TimePeriod, "-01-01")
+    )
+  )
 
+# Michigan data
 mi_gdp <- gdp %>%
-  select(TimePeriod, Michigan_GDP_percent_change) %>%
+  select(
+    TimePeriod,
+    Michigan_GDP_percent_change
+  ) %>%
   distinct() %>%
   arrange(TimePeriod)
 
+# Counties
 counties <- unique(gdp$GeoName)
+
 init <- counties[1]
+
+# ---------------------------------------------------------
+# Create plot
+# ---------------------------------------------------------
 
 p <- plot_ly()
 
+# Add one bar trace for each county
 for (cty in counties) {
 
-  df <- gdp %>% filter(GeoName == cty)
+  df <- gdp %>%
+    filter(GeoName == cty) %>%
+    arrange(TimePeriod)
 
   p <- p %>%
-    add_lines(
+    add_bars(
       data = df,
       x = ~TimePeriod,
       y = ~GDP_percent_change,
+
       hovertemplate = paste0(
-      "County: ", cty,
-      "<br>GDP Change: %{y:.2f}%",
-      "<extra></extra>"
-    ),
+        "County: ", cty,
+        "<br>Year: %{x|%Y}",
+        "<br>GDP Change: %{y:.2f}%",
+        "<extra></extra>"
+      ),
+
       name = cty,
+
       visible = (cty == init),
-      line = list(color = "#004A5E"),
+
+      marker = list(
+        color = "#004A5E"
+      ),
+
       legendgroup = "county"
     )
 }
 
+# ---------------------------------------------------------
+# Add Michigan bars
+# ---------------------------------------------------------
+
 p <- p %>%
-  add_lines(
+  add_bars(
     data = mi_gdp,
     x = ~TimePeriod,
     y = ~Michigan_GDP_percent_change,
+
     hovertemplate = paste0(
-      "Michigan", 
+      "Michigan",
+      "<br>Year: %{x|%Y}",
       "<br>GDP Change: %{y:.2f}%",
       "<extra></extra>"
     ),
+
     name = "Michigan",
-    line = list(color = "#2B9CB4", dash = "dash"),
+
+    marker = list(
+      color = "#2B9CB4"
+    ),
+
     inherit = FALSE
   )
 
+# ---------------------------------------------------------
+# County dropdown
+# ---------------------------------------------------------
+
 buttons <- lapply(seq_along(counties), function(i) {
 
-  vis <- rep(FALSE, length(counties) + 1)
+  # Hide every county
+  vis <- rep(
+    FALSE,
+    length(counties) + 1
+  )
+
+  # Show selected county
   vis[i] <- TRUE
-  vis[length(vis)] <- TRUE  # Michigan always visible
+
+  # Michigan is always visible
+  vis[length(vis)] <- TRUE
 
   list(
     method = "update",
+
     args = list(
-      list(visible = vis),
-      list(title = paste("GDP Growth Rate:", counties[i], "vs Michigan"))
+      list(
+        visible = vis
+      ),
+
+      list(
+        title = paste(
+          "GDP Percent Change:",
+          counties[i],
+          "vs Michigan"
+        )
+      )
     ),
+
     label = counties[i]
   )
 })
 
+# ---------------------------------------------------------
+# Layout
+# ---------------------------------------------------------
+
 p %>%
   layout(
-    title = paste("GDP Growth Rate:", init, "vs Michigan"),
+
+    title = paste(
+      "GDP Percent Change:",
+      init,
+      "vs Michigan"
+    ),
+
+    # Place county and Michigan bars side-by-side
+    barmode = "group",
 
     xaxis = list(
       title = "Year",
@@ -353,11 +438,13 @@ p %>%
     ),
 
     yaxis = list(
-      title = "GDP Percent Change"
+      title = "GDP Percent Change",
+      ticksuffix = "%"
     ),
 
     updatemenus = list(
       list(
+        type = "dropdown",
         buttons = buttons,
         x = 1.4,
         y = 0.75,
@@ -375,19 +462,25 @@ p %>%
       r = 200,
       t = 30
     )
+
   ) %>%
-  config(displayModeBar = FALSE)
+  config(
+    displayModeBar = FALSE
+  )
 
 ```
 
 ::: {.callout-note collapse="true" appearance="minimal"}
-## More Information
+## Description, Source, and Data Download.
 
 The GDP percent change measures the economy's growth rate, reflecting overall economic health and stability. It helps policymakers and investors make informed decisions by indicating the pace of economic expansion or contraction.
 
 **Source:** US BEA (table CAGDP1)
 
 [Download Data](data_download/gdpPercentChange.csv){download="gdpPercentChange.csv"}
+:::
+
+::: {.plot-space}
 :::
 
 ```{r}
@@ -551,7 +644,7 @@ fig %>%
     ),
 
     yaxis = list(
-      title = "Percent Change",
+      title = "Percent Change from Year Ago",
       zeroline = TRUE,
       zerolinecolor = "gray"
     ),
@@ -613,13 +706,16 @@ fig %>%
 ```
 
 ::: {.callout-note collapse="true" appearance="minimal"}
-## More Information
+## Description, Source, and Data Download.
 
 The percent change in business applications reflects entrepreneurial activity and economic dynamism. A rise in applications suggests increased business formation and economic growth potential, while a decline may indicate reduced economic confidence and future investment.
 
 **Source:** Federal Reserve Bank of St. Louis (series BUSAPPWNSAMIYY and BUSAPPWNSAUS)
 
 [Download Data](data_download/businessAppChange.csv){download="businessAppChange.csv"}
+:::
+
+::: {.plot-space}
 :::
 
 ```{r}
@@ -718,7 +814,10 @@ fig %>%
         "Average Annual Pay:",
         init
       ),
-      x = 0.5
+      x = 0.5,
+      y = 0.88,
+      xanchor = "center",
+      yanchor = "top"
     ),
 
     xaxis = list(
@@ -741,7 +840,7 @@ fig %>%
         active = 0,
         buttons = buttons,
         x = 0.5,
-        y = 1.18,
+        y = 1.25,
         xanchor = "center",
         yanchor = "top"
       )
@@ -749,13 +848,41 @@ fig %>%
 
     legend = list(
       orientation = "h",
-      x = 0.35,
-      y = 1.08
+      x = 0.5,
+      y = 1.08,
+      xanchor = "center"
+    ),
+    
+    shapes = list(
+      list(
+        type = "rect",
+        xref = "x",
+        yref = "paper",
+        x0 = "2020-02-01",
+        x1 = "2020-04-01",
+        y0 = 0,
+        y1 = 1,
+        fillcolor = "lightgray",
+        opacity = 0.3,
+        line = list(width = 0),
+        layer = "below"
+      )
+    ),
+    annotations = list(
+    
+      list(
+        x = "2020-03-01",
+        y = 0.95,
+        xref = "x",
+        yref = "paper",
+        text = "COVID Recession",
+        showarrow = FALSE,
+        font = list(size = 10)
+      )
     ),
 
-
     margin = list(
-      t = 110,
+      t = 150,
       r = 40
     )
 
@@ -765,13 +892,16 @@ fig %>%
 ```
 
 ::: {.callout-note collapse="true" appearance="minimal"}
-## More Information
+## Description, Source, and Data Download.
 
 Tracking the average annual pay provides insights into income levels and purchasing power within an economy. It helps assess wage trends, labor market conditions, and overall economic well-being, guiding policymaking and business decisions.
 
 **Source:** BLS QCEW
 
 [Download Data](data_download/averageAnnualWage.csv){download="averageAnnualWage.csv"}
+:::
+
+::: {.plot-space}
 :::
 
 ```{r}
@@ -803,7 +933,7 @@ legend_annotations <- list(
        showarrow = FALSE, xanchor = "left"),
   
     list(x = 1.02, y = 0.76, xref = "paper", yref = "paper",
-       text = "■ Self-employed in own, not incorporated, business workers",
+       text = "■ Self-employed in own, not incorporated, <br> business workers",
        font = list(color = "#AF2C32"),
        showarrow = FALSE, xanchor = "left"),
   
@@ -833,7 +963,21 @@ worker_colors <- c(
   "Private Wage and Salary Workers" = "#004A5E",
   "Government Workers" = "#2B9CB4",
   "Self-employed in own, not incorporated, business workers" = "#AF2C32",
-  "unpaid family workers" = "#414042"
+  "Unpaid family workers" = "#414042"
+)
+
+worker_labels <- c(
+  "Private Wage and Salary Workers" =
+    "Private Wage and Salary Workers",
+
+  "Government Workers" =
+    "Government Workers",
+
+  "Self-employed in own, not incorporated, business workers" =
+    "Self-employed in own, not incorporated,<br>business workers",
+
+  "Unpaid family workers" =
+    "Unpaid family workers"
 )
 
 
@@ -857,9 +1001,11 @@ legend_annotations <- list(
 
 
 # Add worker categories to legend annotations
-y_pos <- c(.92, .84, .76, .68)
+y_pos <- c(.92, .84, .76, .62)
 
-for(i in seq_along(worker_colors)) {
+for (i in seq_along(worker_colors)) {
+
+  worker_name <- names(worker_colors)[i]
 
   legend_annotations <- append(
     legend_annotations,
@@ -871,13 +1017,14 @@ for(i in seq_along(worker_colors)) {
         yref = "paper",
         text = paste0(
           "■ ",
-          names(worker_colors)[i]
+          worker_labels[worker_name]
         ),
         font = list(
           color = worker_colors[i]
         ),
         showarrow = FALSE,
-        xanchor = "left"
+        xanchor = "left",
+        align = "left"
       )
     )
   )
@@ -1004,13 +1151,16 @@ p %>%
 ```
 
 ::: {.callout-note collapse="true" appearance="minimal"}
-## More Information
+## Description, Source, and Data Download.
 
 Understanding the class of worker in a county is crucial for analyzing labor market dynamics and economic structure. It offers insights into employment patterns, including self-employment, wage and salary jobs, and their contributions to economic activity and workforce composition.
 
 **Source:** ACS 2024 5-YR Estimates (table B08528)
 
 [Download Data](data_download/averageAnnualWage.csv){download="averageAnnualWage.csv"}
+:::
+
+::: {.plot-space}
 :::
 
 ```{r}
@@ -1210,7 +1360,7 @@ kable(
 ```
 
 ::: {.callout-note collapse="true" appearance="minimal"}
-## More Information
+## Description, Source, and Data Download.
 
 The per capita income provides a measure of the average income earned per person, reflecting the economic well-being of residents. It serves as a key indicator for assessing local economic development, standard of living, and income distribution within the community.
 

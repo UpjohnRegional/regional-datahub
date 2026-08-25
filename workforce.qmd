@@ -12,6 +12,9 @@ Please [contact us](mailto:regional@upjohn.org) if you have any questions.
 
 ## 
 
+::: plot-space
+:::
+
 ```{r}
 #| label: Educational Attainment
 #| echo: false
@@ -22,57 +25,28 @@ library(dplyr)
 library(plotly)
 library(tidyr)
 
-legend_annotations <- list(
-  list(x = 1.02, y = 1.00, xref = "paper", yref = "paper",
-       text = "<b>Educational Attainment</b>",
-       showarrow = FALSE, xanchor = "left"),
-
-  list(x = 1.02, y = 0.92, xref = "paper", yref = "paper",
-       text = "■ Less than 9th grade",
-       font = list(color = "#FFE293"),
-       showarrow = FALSE, xanchor = "left"),
-
-  list(x = 1.02, y = 0.84, xref = "paper", yref = "paper",
-       text = "■ 9th to 12th grade, no diploma",
-       font = list(color = "#FDBA4D"),
-       showarrow = FALSE, xanchor = "left"),
-
-  list(x = 1.02, y = 0.76, xref = "paper", yref = "paper",
-       text = "■ High school graduate",
-       font = list(color = "#F68C3D"),
-       showarrow = FALSE, xanchor = "left"),
-
-  list(x = 1.02, y = 0.68, xref = "paper", yref = "paper",
-       text = "■ Some college, no degree",
-       font = list(color = "#F15A29"),
-       showarrow = FALSE, xanchor = "left"),
-
-  list(x = 1.02, y = 0.60, xref = "paper", yref = "paper",
-       text = "■ Associate's degree",
-       font = list(color = "#DC4133"),
-       showarrow = FALSE, xanchor = "left"),
-
-  list(x = 1.02, y = 0.52, xref = "paper", yref = "paper",
-       text = "■ Bachelor's degree",
-       font = list(color = "#AF2C32"),
-       showarrow = FALSE, xanchor = "left"),
-
-  list(x = 1.02, y = 0.44, xref = "paper", yref = "paper",
-       text = "■ Graduate or professional degree",
-       font = list(color = "#822B1A"),
-       showarrow = FALSE, xanchor = "left")
-)
+# ---------------------------------------------------------
+# Read data
+# ---------------------------------------------------------
 
 S1501_wide <- readRDS("data/eduAttainment.rds")
 
-edu_levels <- names(S1501_wide)[names(S1501_wide) != "NAME"]
+# Education categories
+edu_levels <- names(S1501_wide)[
+  names(S1501_wide) != "NAME"
+]
 
+# Convert to long format
 S1501_long <- S1501_wide %>%
   pivot_longer(
     cols = all_of(edu_levels),
     names_to = "Education",
     values_to = "Percent"
   )
+
+# ---------------------------------------------------------
+# Education colors
+# ---------------------------------------------------------
 
 edu_colors <- c(
   "Less than 9th grade" = "#FFE293",
@@ -84,14 +58,114 @@ edu_colors <- c(
   "Graduate or professional degree" = "#822B1A"
 )
 
-all_counties <- unique(S1501_long$NAME)
+# ---------------------------------------------------------
+# Counties
+# ---------------------------------------------------------
+
+all_counties <- unique(
+  as.character(S1501_long$NAME)
+)
 
 init <- all_counties[1]
 
-df_init <- S1501_long %>%
-  filter(NAME == init)
+# ---------------------------------------------------------
+# Create annotation-based legend
+# ---------------------------------------------------------
 
-# Create one trace per education level
+legend_annotations <- list(
+
+  list(
+    x = 1.02,
+    y = 1.00,
+    xref = "paper",
+    yref = "paper",
+    text = "<b>Educational Attainment</b>",
+    showarrow = FALSE,
+    xanchor = "left"
+  ),
+
+  list(
+    x = 1.02,
+    y = 0.92,
+    xref = "paper",
+    yref = "paper",
+    text = "■ Less than 9th grade",
+    font = list(color = "#FFE293"),
+    showarrow = FALSE,
+    xanchor = "left"
+  ),
+
+  list(
+    x = 1.02,
+    y = 0.84,
+    xref = "paper",
+    yref = "paper",
+    text = "■ 9th to 12th grade, no diploma",
+    font = list(color = "#FDBA4D"),
+    showarrow = FALSE,
+    xanchor = "left"
+  ),
+
+  list(
+    x = 1.02,
+    y = 0.76,
+    xref = "paper",
+    yref = "paper",
+    text = "■ High school graduate",
+    font = list(color = "#F68C3D"),
+    showarrow = FALSE,
+    xanchor = "left"
+  ),
+
+  list(
+    x = 1.02,
+    y = 0.68,
+    xref = "paper",
+    yref = "paper",
+    text = "■ Some college, no degree",
+    font = list(color = "#F15A29"),
+    showarrow = FALSE,
+    xanchor = "left"
+  ),
+
+  list(
+    x = 1.02,
+    y = 0.60,
+    xref = "paper",
+    yref = "paper",
+    text = "■ Associate's degree",
+    font = list(color = "#DC4133"),
+    showarrow = FALSE,
+    xanchor = "left"
+  ),
+
+  list(
+    x = 1.02,
+    y = 0.52,
+    xref = "paper",
+    yref = "paper",
+    text = "■ Bachelor's degree",
+    font = list(color = "#AF2C32"),
+    showarrow = FALSE,
+    xanchor = "left"
+  ),
+
+  list(
+    x = 1.02,
+    y = 0.44,
+    xref = "paper",
+    yref = "paper",
+    text = "■ Graduate or professional degree",
+    font = list(color = "#822B1A"),
+    showarrow = FALSE,
+    xanchor = "left"
+  )
+)
+
+# ---------------------------------------------------------
+# Create one set of traces per county
+# ---------------------------------------------------------
+
 p <- plot_ly()
 
 for (county in all_counties) {
@@ -106,86 +180,136 @@ for (county in all_counties) {
       pull(Percent)
 
     p <- p %>%
-        add_trace(
-          x = county,
-          y = value,
-          type = "bar",
-          name = edu,
-          legendgroup = edu,
-          marker = list(color = edu_colors[edu]),
-          hovertemplate = paste0(
-            "County: ", county,
-            "<br>Share: %{y:.2f}%",
-            "<extra></extra>"
-          ),
-          visible = (county == all_counties[1]),
-          showlegend = (county == all_counties[1])
+      add_trace(
+        x = edu,
+        y = value,
+        type = "bar",
+        name = edu,
+
+        marker = list(
+          color = edu_colors[edu]
+        ),
+
+        hovertemplate = paste0(
+          "County: ", county,
+          "<br>Educational Attainment: ", edu,
+          "<br>Share: %{y:.2f}%",
+          "<extra></extra>"
+        ),
+
+        visible = (county == init),
+
+        showlegend = FALSE
       )
   }
 }
 
-buttons <- lapply(seq_along(all_counties), function(i) {
+# ---------------------------------------------------------
+# County dropdown
+# ---------------------------------------------------------
 
-  vis <- rep(FALSE, length(all_counties) * length(edu_levels))
+buttons <- lapply(
+  seq_along(all_counties),
+  function(i) {
 
-  start <- (i - 1) * length(edu_levels) + 1
-  end   <- start + length(edu_levels) - 1
+    # Hide all traces
+    vis <- rep(
+      FALSE,
+      length(all_counties) * length(edu_levels)
+    )
 
-  vis[start:end] <- TRUE
+    # Show selected county's traces
+    start <- (i - 1) * length(edu_levels) + 1
+    end <- start + length(edu_levels) - 1
 
-  list(
-    method = "update",
-    args = list(
-      list(visible = vis),
-      list(title = paste("Educational Attainment -", all_counties[i]))
-    ),
-    label = all_counties[i]
-  )
-})
+    vis[start:end] <- TRUE
+
+    list(
+      method = "update",
+
+      args = list(
+        list(
+          visible = vis
+        ),
+
+        list(
+          title = paste(
+            "Educational Attainment -",
+            all_counties[i]
+          )
+        )
+      ),
+
+      label = all_counties[i]
+    )
+  }
+)
+
+# ---------------------------------------------------------
+# Layout
+# ---------------------------------------------------------
 
 p %>%
   layout(
-  title = paste("Educational Attainment -", all_counties[1]),
-  barmode = "stack",
-  xaxis = list(title = ""),
-  yaxis = list(
-    title = "Percent",
-    range = c(0, 100)
-  ),
-  legend = list(
-    tracegroupgap = 0,
-    title = list(text = "Educational Attainment"),
-    x = 1.05,
-    y = 1
-  ),
-  updatemenus = list(
-    list(
-      buttons = buttons,
-      active = 0,
-      x = 1.05,
-      xanchor = "left",
-      y = 0.4,
-      yanchor = "top"
+
+    title = paste(
+      "Educational Attainment -",
+      init
+    ),
+
+    # Side-by-side columns
+    barmode = "group",
+
+    xaxis = list(
+      title = "",
+      showticklabels = FALSE
+    ),
+
+    yaxis = list(
+      title = "Percent",
+      ticksuffix = "%",
+      showgrid = TRUE,
+      gridcolor = "lightgray"
+    ),
+
+    showlegend = FALSE,
+
+    annotations = legend_annotations,
+
+    updatemenus = list(
+      list(
+        type = "dropdown",
+        buttons = buttons,
+        active = 0,
+        x = 1.05,
+        xanchor = "left",
+        y = 0.40,
+        yanchor = "top"
+      )
+    ),
+
+    margin = list(
+      r = 250,
+      b = 100
     )
-  ),
-  showlegend = FALSE,
-  annotations = legend_annotations <- c(
-  legend_annotations
-),
-    
-  margin = list(r = 250)
+
   ) %>%
-  config(displayModeBar = FALSE)
+  config(
+    displayModeBar = FALSE
+  )
 ```
 
 ::: {.callout-note collapse="true" appearance="minimal"}
-## More Information
+## Description, Source, and Data Download.
 
 Educational attainment strongly correlates with income levels, workforce productivity, and economic growth. It helps gauge the skill level and potential earning capacity of a population.
 
 **Source:** ACS 2024 5-YR Estimates (table S1501) • Population 25 and older
 
 [Download Data](data_download/eduAttainment.csv){download="eduAttainment.csv"}
+:::
+
+::: plot-space
 :::
 
 ```{r}
@@ -330,13 +454,16 @@ p %>%
 ```
 
 ::: {.callout-note collapse="true" appearance="minimal"}
-## More Information
+## Description, Source, and Data Download.
 
 Understanding income disparities by educational attainment and sex provides insights into the effectiveness of educational systems in equipping individuals with skills for higher-paying jobs and highlights potential gender-based income gaps, which can be indicative of gender equality issues.
 
 **Source:** ACS 2024 5-YR Estimates (table B20004) • Population 25 and older with earnings
 
 [Download Data](data_download/incomeBySexAndEducationalAttainment.csv){download="incomeBySexAndEducationalAttainment.csv"}
+:::
+
+::: plot-space
 :::
 
 ```{r}
@@ -446,13 +573,16 @@ p %>%
 ```
 
 ::: {.callout-note collapse="true" appearance="minimal"}
-## More Information
+## Description, Source, and Data Download.
 
 Travel time to work is significant as it directly impacts worker productivity and transportation costs. It also informs urban planning and labor market dynamics, influencing economic development and accessibility to jobs.
 
 **Source:** ACS 2024 5-YR Estimates (table B08135) • Travel time one way
 
 [Download Data](data_download/travelTimeToWork.csv){download="travelTimeToWork.csv"}
+:::
+
+::: plot-space
 :::
 
 ```{r}
@@ -596,13 +726,16 @@ p %>%
 ```
 
 ::: {.callout-note collapse="true" appearance="minimal"}
-## More Information
+## Description, Source, and Data Download.
 
 Understanding how people commute to work helps assess the efficiency of transportation infrastructure, which can impact productivity and business operations. It also influences urban planning and investment decisions, as well as energy consumption and environmental considerations. Additionally, tracking transportation methods can reveal trends in workforce mobility and inform policies that affect job accessibility and economic opportunities.
 
 **Source:** ACS 2024 5-YR Estimates (table B08128)
 
 [Download Data](data_download/meansOfTransportationToWork.csv){download="meansOfTransportationToWork.csv"}
+:::
+
+::: plot-space
 :::
 
 ```{r}
@@ -718,13 +851,16 @@ p %>%
 ```
 
 ::: {.callout-note collapse="true" appearance="minimal"}
-## More Information
+## Description, Source, and Data Download.
 
 Understanding the age of the housing stock reveals the state of infrastructure and housing quality. Older housing may require more maintenance and renovations, which can drive construction and home improvement industries, thereby boosting economic activity. Additionally, it can inform urban development and land use policies, impacting property values and real estate investments. Lastly, the age of the housing stock can provide insights into population trends, migration patterns, and housing affordability, all of which have significant economic implications.
 
 **Source:** ACS 2024 5-YR Estimates (table S2504)
 
 [Download Data](data_download/ageOfHousingStock.csv){download="ageOfHousingStock.csv"}
+:::
+
+::: plot-space
 :::
 
 ```{r}
@@ -838,13 +974,16 @@ p %>%
 ```
 
 ::: {.callout-note collapse="true" appearance="minimal"}
-## More Information
+## Description, Source, and Data Download.
 
 Knowledge of people's internet access is an important economic indicator because it reflects digital connectivity, which is increasingly vital for economic participation. It influences business competitiveness and innovation, as companies depend on digital platforms for operations and sales. Internet access also affects workforce capabilities, as remote work and online education become more prevalent. Finally, understanding how people access the internet plays a role in bridging economic disparities, as access can be a factor in determining opportunities and socioeconomic outcomes.
 
 **Source:** ACS 2024 5-YR Estimates (table S2801) • Totals may not sum to 100% due to rounding.
 
 [Download Data](data_download/internetAccess.csv){download="internetAccess.csv"}
+:::
+
+::: plot-space
 :::
 
 ```{r}
@@ -1026,13 +1165,16 @@ p %>%
 ```
 
 ::: {.callout-note collapse="true" appearance="minimal"}
-## More Information
+## Description, Source, and Data Download.
 
 The number of building permits issued can be crucial for gauging the vitality of the construction sector, offering insights into real estate investment trends and potential economic growth. Fluctuations in permit numbers can signal changes in job creation within construction and related industries, serving as a barometer for broader economic activity. A decline in permits may indicate economic challenges, affecting employment and the overall economic environment.
 
 **Source:** Residential Building Permits Survey County ASC II Files.
 
 [Download Data](data_download/buildingPermits.csv){download="buildingPermits.csv"}
+:::
+
+::: plot-space
 :::
 
 ```{r}
@@ -1182,7 +1324,7 @@ p %>%
 ```
 
 ::: {.callout-note collapse="true" appearance="minimal"}
-## More Information
+## Description, Source, and Data Download.
 
 Knowing the median income needed to afford rent and housing costs is essential to evaluate how housing affordability impacts on individuals and the overall economy. This knowledge informs policymakers on ways to address potential disparities, guiding strategies to enhance housing accessibility and promote sustainable economic development.
 

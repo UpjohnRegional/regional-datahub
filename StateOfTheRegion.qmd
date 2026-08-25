@@ -12,6 +12,9 @@ Please [contact us](mailto:regional@upjohn.org) if you have any questions.
 
 ## 
 
+::: {.plot-space}
+:::
+
 ```{r}
 #| label: EPOP
 #| echo: false
@@ -69,22 +72,44 @@ buttons <- lapply(seq_along(all_counties), function(i) {
   df <- labor %>%
     filter(county == all_counties[i])
 
-  list(
-    method = "restyle",
+   list(
+    method = "update",
+
     args = list(
+
+      # Update traces
       list(
-        x = list(df$period_date, df$period_date),
+        x = list(
+          df$period_date,
+          df$period_date
+        ),
+
         y = list(
           df$EPOP,
           df$MI_employment_population_ratio
         ),
+
         name = list(
           all_counties[i],
           "Michigan"
+        ),
+
+        customdata = list(
+          df$period_txt,
+          df$period_txt
         )
       ),
-      c(0,1)
+
+      # Update layout
+      list(
+        title = paste(
+          "Employment to Population Ratio:",
+          all_counties[i],
+          "vs Michigan"
+        )
+      )
     ),
+
     label = all_counties[i]
   )
 })
@@ -121,13 +146,16 @@ p %>%
 ```
 
 ::: {.callout-note collapse="true" appearance="minimal"}
-## More Information
+## Description, Source, and Data Download. 
 
 The employment-to-population ratio is a crucial economic indicator as it reflects the percentage of the working-age population who are employed. It provides insights into labor market health, income levels, productivity, and social stability. Policymakers and investors rely on this ratio to gauge economic well-being and make informed decisions.
 
 **Source:** BLS LAUS, Upjohn Regional • (p) Preliminary, (e) Upjohn Estimate
 
 [Download Data](data_download/EPOP_LFPR_UR.csv){download="EPOP_LFPR_UR.csv"}
+:::
+
+::: {.plot-space}
 :::
 
 ```{r}
@@ -187,22 +215,44 @@ buttons <- lapply(seq_along(all_counties), function(i) {
   df <- labor %>%
     filter(county == all_counties[i])
 
-  list(
-    method = "restyle",
+   list(
+    method = "update",
+
     args = list(
+
+      # Update traces
       list(
-        x = list(df$period_date, df$period_date),
+        x = list(
+          df$period_date,
+          df$period_date
+        ),
+
         y = list(
           df$LFPR,
           df$MI_labor_force_participation_rate
         ),
+
         name = list(
           all_counties[i],
           "Michigan"
+        ),
+
+        customdata = list(
+          df$period_txt,
+          df$period_txt
         )
       ),
-      c(0,1)
+
+      # Update layout
+      list(
+        title = paste(
+          "Labor Force Participation Rate:",
+          all_counties[i],
+          "vs Michigan"
+        )
+      )
     ),
+
     label = all_counties[i]
   )
 })
@@ -239,13 +289,16 @@ p %>%
 ```
 
 ::: {.callout-note collapse="true" appearance="minimal"}
-## More Information
+## Description, Source, and Data Download.
 
 The labor force participation rate is a measure that represents the percentage of the working-age population (individuals aged 16 and older) who are either employed or actively seeking employment. Tracking the labor force participation rate provides insights on the working-age population and their engagement in the labor market.
 
 **Source:** BLS LAUS, Upjohn Regional • (p) Preliminary, (e) Upjohn Estimate
 
 [Download Data](data_download/EPOP_LFPR_UR.csv){download="EPOP_LFPR_UR.csv"}
+:::
+
+::: {.plot-space}
 :::
 
 ```{r}
@@ -305,22 +358,44 @@ buttons <- lapply(seq_along(all_counties), function(i) {
   df <- labor %>%
     filter(county == all_counties[i])
 
-  list(
-    method = "restyle",
+   list(
+    method = "update",
+
     args = list(
+
+      # Update traces
       list(
-        x = list(df$period_date, df$period_date),
+        x = list(
+          df$period_date,
+          df$period_date
+        ),
+
         y = list(
           df$unemployment_rate,
-          df$MI_unemployment_rate
+          df$MI_unemploymen_rate
         ),
+
         name = list(
           all_counties[i],
           "Michigan"
+        ),
+
+        customdata = list(
+          df$period_txt,
+          df$period_txt
         )
       ),
-      c(0,1)
+
+      # Update layout
+      list(
+        title = paste(
+          "Unemployment Rate:",
+          all_counties[i],
+          "vs Michigan"
+        )
+      )
     ),
+
     label = all_counties[i]
   )
 })
@@ -356,13 +431,16 @@ p %>%
 ```
 
 ::: {.callout-note collapse="true" appearance="minimal"}
-## More Information
+## Description, Source, and Data Download.
 
 The unemployment rate is a measure that represents the percentage of individuals who are actively seeking employment but are currently without a job. The unemployment rate offers understanding into the availability of jobs and the overall state of the labor market within an economy.
 
 **Source:** BLS LAUS, Upjohn Regional • (p) Preliminary, (e) Upjohn Estimate
 
 [Download Data](data_download/EPOP_LFPR_UR.csv){download="EPOP_LFPR_UR.csv"}
+:::
+
+::: {.plot-space}
 :::
 
 ```{r}
@@ -417,11 +495,11 @@ fig <- fig %>%
     y = ~state_avg_wkly_wage,
     type = "scatter",
     mode = "lines",
-    name = "Michigan Average",
+    name = "Michigan",
     line = list(color = "#2B9CB4", dash = "dash"),
     hovertemplate = paste(
       "<b>%{x}</b><br>",
-      "Michigan Average: $%{y:,.0f}",
+      "Michigan: $%{y:,.0f}",
       "<extra></extra>"
     )
   )
@@ -478,10 +556,6 @@ fig <- fig %>%
       )
     ),
     
-    margin = list(
-      t = 30
-    ),
-    
     xaxis = list(title = "Date"),
     
     yaxis = list(
@@ -497,7 +571,7 @@ config(fig,
 ```
 
 ::: {.callout-note collapse="true" appearance="minimal"}
-## More Information
+## Description, Source, and Data Download.
 
 Tracking the average weekly wage gives insight to the income levels and purchasing power of workers within an economy.
 

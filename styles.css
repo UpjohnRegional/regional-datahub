@@ -1,4 +1,8 @@
 
+.plot-space {
+  margin-top: 8rem;
+}
+
 .housing-selector {
   margin-bottom: 20px;
 }
@@ -67,4 +71,16 @@
   .housing-card-grid {
     grid-template-columns: 1fr;
   }
+}
+
+.home-button {
+  background-color: #2B9CB4;
+  border-color: #2B9CB4;
+  color: white;
+}
+
+.home-button:hover {
+  background-color: #2B9CB4;
+  border-color: #2B9CB4;
+  color: white;
 }

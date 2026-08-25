@@ -13,3 +13,25 @@ The Upjohn Regional team provides up-to-date measures of labor markets in Southw
 Please [contact us](mailto:regional@upjohn.org) if you have any questions. 
 
 ## 
+
+## Explore the Regional Datahub
+
+::: {.grid}
+
+::: {.g-col-6}
+[State of the Region](StateOfTheRegion.qmd){.btn .home-button .btn-lg .w-100}
+:::
+
+::: {.g-col-6}
+[Business](business.qmd){.btn .home-button .btn-lg .w-100}
+:::
+
+::: {.g-col-6}
+[Workforce](workforce.qmd){.btn .home-button .btn-lg .w-100}
+:::
+
+::: {.g-col-6}
+[Equity](equity.qmd){.btn .home-button .btn-lg .w-100}
+:::
+
+:::
