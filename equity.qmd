@@ -82,13 +82,13 @@ disability$Display <- factor(
 # ---------------------------------------------------------
 
 disability_colors <- c(
-  "Any Disability" = "#C9D5DF",
-  "Hearing" = "#A5C0D3",
-  "Vision" = "#7EA5C0",
-  "Cognitive" = "#5189A7",
-  "Ambulatory" = "#1A6C89",
-  "Self-Care" = "#004A5E",
-  "Independent Living" = "#001F2C"
+  "Any Disability" = "#e41a1c",
+  "Hearing" = "#377eb8",
+  "Vision" = "#4daf4a",
+  "Cognitive" = "#984ea3",
+  "Ambulatory" = "#ff7f00",
+  "Self-Care" = "#999999",
+  "Independent Living" = "#a65628"
 )
 
 # ---------------------------------------------------------
@@ -371,13 +371,13 @@ employment_long$Display <- factor(
 # ---------------------------------------------------------
 
 employment_colors <- c(
-  "Total" = "#C9D5DF",
-  "Men" = "#A5C0D3",
-  "Women" = "#7EA5C0",
-  "Women with Kids Under 18" = "#5189A7",
-  "Women with Kids Under 6" = "#1A6C89",
-  "Women with Kids Ages 0–17" = "#004A5E",
-  "Women with Kids 6–17" = "#001F2C"
+  "Total" = "#e41a1c",
+  "Men" = "#377eb8",
+  "Women" = "#4daf4a",
+  "Women with Kids Under 18" = "#984ea3",
+  "Women with Kids Under 6" = "#ff7f00",
+  "Women with Kids Ages 0–17" = "#999999",
+  "Women with Kids 6–17" = "#a65628"
 )
 
 # ---------------------------------------------------------
@@ -660,13 +660,13 @@ lfpr_long$Display <- factor(
 # ---------------------------------------------------------
 
 lfpr_colors <- c(
-  "Total" = "#C9D5DF",
-  "Men" = "#A5C0D3",
-  "Women" = "#7EA5C0",
-  "Women with Kids Under 18" = "#5189A7",
-  "Women with Kids Under 6" = "#1A6C89",
-  "Women with Kids Ages 0–17" = "#004A5E",
-  "Women with Kids 6–17" = "#001F2C"
+  "Total" = "#e41a1c",
+  "Men" = "#377eb8",
+  "Women" = "#4daf4a",
+  "Women with Kids Under 18" = "#984ea3",
+  "Women with Kids Under 6" = "#ff7f00",
+  "Women with Kids Ages 0–17" = "#999999",
+  "Women with Kids 6–17" = "#a65628"
 )
 
 # ---------------------------------------------------------
@@ -933,12 +933,12 @@ employment_long$variable <- factor(
 # ---------------------------------------------------------
 
 race_colors <- c(
-  "Total" = "#C9D5DF",
-  "Black or African American" = "#A5C0D3",
-  "Some other race" = "#7EA5C0",
-  "Two or more races" = "#5189A7",
-  "Hispanic or Latino origin (of any race)" = "#1A6C89",
-  "White alone, not Hispanic or Latino" = "#004A5E"
+  "Total" = "#e41a1c",
+  "Black or African American" = "#377eb8",
+  "Some other race" = "#4daf4a",
+  "Two or more races" = "#984ea3",
+  "Hispanic or Latino origin (of any race)" = "#ff7f00",
+  "White alone, not Hispanic or Latino" = "#999999"
 )
 
 # ---------------------------------------------------------
@@ -1221,12 +1221,12 @@ poverty_long$variable <- factor(
 # ---------------------------------------------------------
 
 poverty_colors <- c(
-  "Total" = "#C9D5DF",
-  "Black or African American" = "#A5C0D3",
-  "Some other race" = "#7EA5C0",
-  "Two or more races" = "#5189A7",
-  "Hispanic or Latino origin (of any race)" = "#1A6C89",
-  "White alone, not Hispanic or Latino" = "#004A5E"
+  "Total" = "#e41a1c",
+  "Black or African American" = "#377eb8",
+  "Some other race" = "#4daf4a",
+  "Two or more races" = "#984ea3",
+  "Hispanic or Latino origin (of any race)" = "#ff7f00",
+  "White alone, not Hispanic or Latino" = "#999999"
 )
 
 # ---------------------------------------------------------
@@ -1507,12 +1507,12 @@ health_long$variable <- factor(
 # ---------------------------------------------------------
 
 race_colors <- c(
-  "Total" = "#C9D5DF",
-  "Black or African American" = "#A5C0D3",
-  "Some other race" = "#7EA5C0",
-  "Two or more races" = "#5189A7",
-  "Hispanic or Latino origin (of any race)" = "#1A6C89",
-  "White alone, not Hispanic or Latino" = "#004A5E"
+  "Total" = "#e41a1c",
+  "Black or African American" = "#377eb8",
+  "Some other race" = "#4daf4a",
+  "Two or more races" = "#984ea3",
+  "Hispanic or Latino origin (of any race)" = "#ff7f00",
+  "White alone, not Hispanic or Latino" = "#999999"
 )
 
 # ---------------------------------------------------------
@@ -2043,8 +2043,18 @@ counties <- c(
 selected_county <- counties[1]
 
 # Create cards
+# Create cards
 housing_cards <- housing %>%
   mutate(
+    
+    # Add commas to large values
+    value_formatted = format(
+      value,
+      big.mark = ",",
+      scientific = FALSE,
+      trim = TRUE
+    ),
+    
     card = paste0(
       '<div class="housing-card" data-county="',
       NAME,
@@ -2056,7 +2066,7 @@ housing_cards <- housing %>%
         name,
         '</div>',
         '<div class="housing-value">',
-        value,
+        value_formatted,
         '</div>',
       '</div>'
     )
