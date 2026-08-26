@@ -1,5 +1,5 @@
 ---
-title: "Workforce"
+title: "Housing and Transportation"
 editor: visual
 format:
   html:
@@ -11,487 +11,6 @@ format:
 Please [contact us](mailto:regional@upjohn.org) if you have any questions.
 
 ## 
-
-::: plot-space
-:::
-
-```{r}
-#| label: Educational Attainment
-#| echo: false
-#| message: false
-#| warning: false
-
-library(dplyr)
-library(plotly)
-library(tidyr)
-
-# ---------------------------------------------------------
-# Read data
-# ---------------------------------------------------------
-
-S1501_wide <- readRDS("data/eduAttainment.rds")
-
-
-# ---------------------------------------------------------
-# Southwest Michigan county order
-# ---------------------------------------------------------
-
-county_order <- c(
-  "Kalamazoo",
-  "Berrien",
-  "Branch",
-  "Calhoun",
-  "Cass",
-  "St. Joseph",
-  "Van Buren"
-)
-
-
-# ---------------------------------------------------------
-# Education category order
-# ---------------------------------------------------------
-
-edu_levels <- c(
-  "Less than 9th grade",
-  "9th to 12th grade, no diploma",
-  "High school graduate (includes equivalency)",
-  "Some college, no degree",
-  "Associate's degree",
-  "Bachelor's degree",
-  "Graduate or professional degree"
-)
-
-
-# ---------------------------------------------------------
-# Convert to long format
-# ---------------------------------------------------------
-
-S1501_long <- S1501_wide %>%
-  pivot_longer(
-    cols = all_of(edu_levels),
-    names_to = "Education",
-    values_to = "Percent"
-  ) %>%
-  mutate(
-    Education = factor(
-      Education,
-      levels = edu_levels
-    )
-  )
-
-
-# ---------------------------------------------------------
-# Sequential education colors
-# ---------------------------------------------------------
-
-edu_colors <- c(
-  "Less than 9th grade" = "#cf203e",
-  "9th to 12th grade, no diploma" = "#ba2a4e",
-  "High school graduate (includes equivalency)" = "#a5345f",
-  "Some college, no degree" = "#903f6f",
-  "Associate's degree" = "#7a497f",
-  "Bachelor's degree" = "#655390",
-  "Graduate or professional degree" = "#505da0"
-)
-
-
-# ---------------------------------------------------------
-# Legend labels
-# ---------------------------------------------------------
-
-legend_labels <- c(
-  "Less than 9th grade",
-  "9th to 12th grade, no diploma",
-  "High school graduate",
-  "Some college, no degree",
-  "Associate's degree",
-  "Bachelor's degree",
-  "Graduate or professional degree"
-)
-
-
-# ---------------------------------------------------------
-# Counties
-# Southwest Michigan first, then remaining counties
-# ---------------------------------------------------------
-
-all_counties <- unique(
-  as.character(S1501_long$NAME)
-)
-
-all_counties <- c(
-  county_order[county_order %in% all_counties],
-  sort(setdiff(all_counties, county_order))
-)
-
-
-# ---------------------------------------------------------
-# Initial county
-# ---------------------------------------------------------
-
-init <- all_counties[1]
-
-df_init <- S1501_long %>%
-  filter(NAME == init) %>%
-  arrange(Education)
-
-
-# ---------------------------------------------------------
-# Create legend annotations
-# ---------------------------------------------------------
-
-legend_annotations <- list(
-  list(
-    x = 1.02,
-    y = 1.00,
-    xref = "paper",
-    yref = "paper",
-    text = "<b>Educational Attainment</b>",
-    showarrow = FALSE,
-    xanchor = "left"
-  )
-)
-
-y_pos <- c(
-  0.92,
-  0.84,
-  0.76,
-  0.68,
-  0.60,
-  0.52,
-  0.44
-)
-
-for (i in seq_along(edu_levels)) {
-
-  legend_annotations <- append(
-    legend_annotations,
-    list(
-      list(
-        x = 1.02,
-        y = y_pos[i],
-        xref = "paper",
-        yref = "paper",
-
-        text = paste0(
-          "■ ",
-          legend_labels[i]
-        ),
-
-        font = list(
-          color = edu_colors[edu_levels[i]]
-        ),
-
-        showarrow = FALSE,
-        xanchor = "left"
-      )
-    )
-  )
-}
-
-
-# ---------------------------------------------------------
-# Create column chart
-# ---------------------------------------------------------
-
-p <- plot_ly(
-  data = df_init,
-  x = ~Education,
-  y = ~Percent,
-  type = "bar",
-
-  marker = list(
-    color = edu_colors[
-      as.character(df_init$Education)
-    ]
-  ),
-
-  hovertemplate = paste0(
-    "County: ", init,
-    "<br>Educational Attainment: %{x}",
-    "<br>Share: %{y:.2f}%",
-    "<extra></extra>"
-  )
-)
-
-
-# ---------------------------------------------------------
-# County dropdown
-# ---------------------------------------------------------
-
-buttons <- lapply(
-  seq_along(all_counties),
-  function(i) {
-
-    df <- S1501_long %>%
-      filter(NAME == all_counties[i]) %>%
-      arrange(Education)
-
-    list(
-      method = "update",
-
-      args = list(
-
-        # Update bar data
-        list(
-          x = list(df$Education),
-          y = list(df$Percent),
-
-          marker = list(
-            color = edu_colors[
-              as.character(df$Education)
-            ]
-          ),
-
-          hovertemplate = paste0(
-            "County: ", all_counties[i],
-            "<br>Educational Attainment: %{x}",
-            "<br>Share: %{y:.2f}%",
-            "<extra></extra>"
-          )
-        ),
-
-        # Update title
-        list(
-          title = paste(
-            "Educational Attainment -",
-            all_counties[i]
-          )
-        )
-      ),
-
-      label = all_counties[i]
-    )
-  }
-)
-
-
-# ---------------------------------------------------------
-# Render chart
-# ---------------------------------------------------------
-
-p %>%
-  layout(
-
-    title = paste(
-      "Educational Attainment -",
-      init
-    ),
-
-    # Regular column chart
-    barmode = "group",
-
-    # X-axis
-    xaxis = list(
-      title = "",
-      showticklabels = FALSE,
-
-      categoryorder = "array",
-      categoryarray = edu_levels
-    ),
-
-    # Y-axis
-    yaxis = list(
-      title = "Percent",
-      ticksuffix = "%",
-      showgrid = TRUE,
-      gridcolor = "lightgray",
-      gridwidth = 1
-    ),
-
-    # Hide Plotly's default legend
-    showlegend = FALSE,
-
-    # Custom annotation legend
-    annotations = legend_annotations,
-
-    # County dropdown
-    updatemenus = list(
-      list(
-        type = "dropdown",
-        buttons = buttons,
-        active = 0,
-        x = 1.25,
-        y = 0.35,
-        xanchor = "left"
-      )
-    ),
-
-    # Space for legend and dropdown
-    margin = list(
-      r = 280,
-      b = 100
-    )
-
-  ) %>%
-  config(
-    displayModeBar = FALSE
-  )
-```
-
-::: {.callout-note collapse="true" appearance="minimal"}
-## Description, Source, and Data Download.
-
-Educational attainment strongly correlates with income levels, workforce productivity, and economic growth. It helps gauge the skill level and potential earning capacity of a population.
-
-**Source:** ACS 2024 5-YR Estimates (table S1501) • Population 25 and older
-
-[Download Data](data_download/eduAttainment.csv){download="eduAttainment.csv"}
-:::
-
-::: plot-space
-:::
-
-```{r}
-#| label: Income by Sex and Edcational Attainment
-#| echo: false
-#| message: false
-#| warning: false
-
-library(dplyr)
-library(tidyr)
-library(plotly)
-
-income <- readRDS("data/incomeBySexAndEducationalAttainment.rds")
-
-income$variable <- factor(
-  income$variable,
-  levels = c(
-    "Less than high school graduate",
-    "High school graduate (includes equivalency)",
-    "Some college or associate's degree",
-    "Bachelor's degree",
-    "Graduate or professional degree"
-  )
-)
-
-income <- income %>%
-  mutate(
-    Display = recode(
-      variable,
-      "Less than high school graduate" = "Less Than H.S.",
-      "High school graduate (includes equivalency)" = "H.S.",
-      "Some college or associate's degree" = "Some College/Associates",
-      "Bachelor's degree" = "Bachelor's",
-      "Graduate or professional degree" = "Graduate/Professional"
-    )
-  )
-
-income$Display <- factor(
-  income$Display,
-  levels = c(
-    "Less Than H.S.",
-    "H.S.",
-    "Some College/Associates",
-    "Bachelor's",
-    "Graduate/Professional"
-  )
-)
-
-income_colors <- c(
-  "Male" = "#004A5E",
-  "Female" = "#2B9CB4"
-)
-
-counties <- unique(income$NAME)
-
-init <- counties[1]
-
-df_init <- income %>%
-  filter(NAME == init)
-
-p <- plot_ly()
-
-p <- p %>%
-  add_bars(
-    data = df_init,
-    x = ~Display,
-    y = ~`Male Income`,
-    name = "Male",
-    marker = list(
-      color = income_colors["Male"]
-    )
-  ) %>%
-  add_bars(
-    data = df_init,
-    x = ~Display,
-    y = ~`Female Income`,
-    name = "Female",
-    marker = list(
-      color = income_colors["Female"]
-    )
-  )
-
-buttons <- lapply(seq_along(counties), function(i) {
-
-  df <- income %>%
-    filter(NAME == counties[i])
-
-  list(
-    method = "update",
-    args = list(
-      list(
-        x = list(df$Display, df$Display),
-        y = list(
-          df$`Male Income`,
-          df$`Female Income`
-        )
-      ),
-      list(
-        title = paste(
-          "Income by Educational Attainment:",
-          counties[i]
-        )
-      )
-    ),
-    label = counties[i]
-  )
-})
-
-p %>%
-  layout(
-    barmode = "group",
-
-    title = paste(
-      "Income by Educational Attainment:",
-      init
-    ),
-
-    xaxis = list(
-      title = ""
-    ),
-
-    yaxis = list(
-      title = "Income",
-      tickprefix = "$"
-    ),
-
-    updatemenus = list(
-      list(
-        buttons = buttons,
-        active = 0,
-        x = 1.25,
-        y = 0.75,
-        xanchor = "left"
-      )
-    ),
-
-    margin = list(
-      r = 250
-    )
-  ) %>%
-  config(displayModeBar = FALSE)
-```
-
-::: {.callout-note collapse="true" appearance="minimal"}
-## Description, Source, and Data Download.
-
-Understanding income disparities by educational attainment and sex provides insights into the effectiveness of educational systems in equipping individuals with skills for higher-paying jobs and highlights potential gender-based income gaps, which can be indicative of gender equality issues.
-
-**Source:** ACS 2024 5-YR Estimates (table B20004) • Population 25 and older with earnings
-
-[Download Data](data_download/incomeBySexAndEducationalAttainment.csv){download="incomeBySexAndEducationalAttainment.csv"}
-:::
 
 ::: plot-space
 :::
@@ -611,6 +130,8 @@ Travel time to work is significant as it directly impacts worker productivity an
 
 [Download Data](data_download/travelTimeToWork.csv){download="travelTimeToWork.csv"}
 :::
+
+##
 
 ::: plot-space
 :::
@@ -765,6 +286,8 @@ Understanding how people commute to work helps assess the efficiency of transpor
 [Download Data](data_download/meansOfTransportationToWork.csv){download="meansOfTransportationToWork.csv"}
 :::
 
+##
+
 ::: plot-space
 :::
 
@@ -890,6 +413,8 @@ Understanding the age of the housing stock reveals the state of infrastructure a
 [Download Data](data_download/ageOfHousingStock.csv){download="ageOfHousingStock.csv"}
 :::
 
+##
+
 ::: plot-space
 :::
 
@@ -1012,6 +537,8 @@ Knowledge of people's internet access is an important economic indicator because
 
 [Download Data](data_download/internetAccess.csv){download="internetAccess.csv"}
 :::
+
+##
 
 ::: plot-space
 :::
@@ -1203,6 +730,8 @@ The number of building permits issued can be crucial for gauging the vitality of
 
 [Download Data](data_download/buildingPermits.csv){download="buildingPermits.csv"}
 :::
+
+##
 
 ::: plot-space
 :::

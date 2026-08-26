@@ -11,8 +11,6 @@ Please [contact us](mailto:regional@upjohn.org) if you have any questions.
 
 ## 
 
-::: {.plot-space}
-:::
 
 ```{r}
 #| label: Personal Consumption
@@ -136,6 +134,8 @@ Real personal consumption expenditures and disposable income are crucial for und
 
 [Download Data](data_download/fred_spending.csv){download="fred_spending.csv"}
 :::
+
+##
 
 ::: {.plot-space}
 :::
@@ -273,6 +273,8 @@ Vehicle sales and fuel prices are important economic indicators because they ref
 
 [Download Data](data_download/vehicleSalesFuelPrices.csv){download="vehicleSalesFuelPrices.csv"}
 :::
+
+##
 
 ::: {.plot-space}
 :::
@@ -480,6 +482,8 @@ The GDP percent change measures the economy's growth rate, reflecting overall ec
 [Download Data](data_download/gdpPercentChange.csv){download="gdpPercentChange.csv"}
 :::
 
+##
+
 ::: {.plot-space}
 :::
 
@@ -530,7 +534,7 @@ all_button <- list(
     
     # Restore full chart range
     list(
-      title = "Business Applications Growth Rate",
+      title = "Percent Change in Business Applications",
       xaxis = list(
         range = c(
           all_date_min,
@@ -579,7 +583,7 @@ year_buttons <- lapply(years, function(selected_year) {
       # Update title and x-axis
       list(
         title = paste(
-          "Business Applications Growth Rate:",
+          "Percent Change in Business Applications:",
           selected_year
         ),
         xaxis = list(
@@ -635,7 +639,7 @@ fig <- fig %>%
 fig %>%
   layout(
     title = list(
-      text = "Business Applications Growth Rate<br><sup>Michigan vs United States</sup>"
+      text = "Percent Change in Business Applications<br><sup>Michigan vs United States</sup>"
     ),
 
     xaxis = list(
@@ -714,6 +718,8 @@ The percent change in business applications reflects entrepreneurial activity an
 
 [Download Data](data_download/businessAppChange.csv){download="businessAppChange.csv"}
 :::
+
+##
 
 ::: {.plot-space}
 :::
@@ -901,264 +907,7 @@ Tracking the average annual pay provides insights into income levels and purchas
 [Download Data](data_download/averageAnnualWage.csv){download="averageAnnualWage.csv"}
 :::
 
-::: {.plot-space}
-:::
-
-```{r}
-#| label: Class of Worker
-#| echo: false
-#| message: false
-#| warning: false
-
-library(dplyr)
-library(plotly)
-library(tidyr)
-
-# Read data
-workers <- readRDS("data/classOfWorker.rds")
-
-legend_annotations <- list(
-  list(x = 1.02, y = 1.00, xref = "paper", yref = "paper",
-       text = "<b>Educational Attainment</b>",
-       showarrow = FALSE, xanchor = "left"),
-
-  list(x = 1.02, y = 0.92, xref = "paper", yref = "paper",
-       text = "■ Private Wage and Salary Workers",
-       font = list(color = "#004A5E"),
-       showarrow = FALSE, xanchor = "left"),
-
-  list(x = 1.02, y = 0.84, xref = "paper", yref = "paper",
-       text = "■ Government Workers",
-       font = list(color = "#2B9CB4"),
-       showarrow = FALSE, xanchor = "left"),
-  
-    list(x = 1.02, y = 0.76, xref = "paper", yref = "paper",
-       text = "■ Self-employed in own, not incorporated, <br> business workers",
-       font = list(color = "#AF2C32"),
-       showarrow = FALSE, xanchor = "left"),
-  
-      list(x = 1.02, y = 0.76, xref = "paper", yref = "paper",
-       text = "■ Unpaid family workers",
-       font = list(color = "#414042"),
-       showarrow = FALSE, xanchor = "left")
-)
-
-
-# Convert to long format
-workers_long <- workers %>%
-  pivot_longer(
-    cols = c(
-      "Private Wage and Salary Workers",
-      "Government Workers",
-      "Self-employed in own, not incorporated, business workers",
-      "Unpaid family workers"
-    ),
-    names_to = "WorkerClass",
-    values_to = "Percent"
-  )
-
-
-# Worker colors
-worker_colors <- c(
-  "Private Wage and Salary Workers" = "#004A5E",
-  "Government Workers" = "#2B9CB4",
-  "Self-employed in own, not incorporated, business workers" = "#AF2C32",
-  "Unpaid family workers" = "#414042"
-)
-
-worker_labels <- c(
-  "Private Wage and Salary Workers" =
-    "Private Wage and Salary Workers",
-
-  "Government Workers" =
-    "Government Workers",
-
-  "Self-employed in own, not incorporated, business workers" =
-    "Self-employed in own, not incorporated,<br>business workers",
-
-  "Unpaid family workers" =
-    "Unpaid family workers"
-)
-
-
-# Counties
-all_counties <- unique(workers_long$NAME)
-
-init <- all_counties[1]
-
-
-# Create legend annotations
-legend_annotations <- list(
-  list(
-    x = 1.02, y = 1.00,
-    xref = "paper",
-    yref = "paper",
-    text = "<b>Class of Worker</b>",
-    showarrow = FALSE,
-    xanchor = "left"
-  )
-)
-
-
-# Add worker categories to legend annotations
-y_pos <- c(.92, .84, .76, .62)
-
-for (i in seq_along(worker_colors)) {
-
-  worker_name <- names(worker_colors)[i]
-
-  legend_annotations <- append(
-    legend_annotations,
-    list(
-      list(
-        x = 1.02,
-        y = y_pos[i],
-        xref = "paper",
-        yref = "paper",
-        text = paste0(
-          "■ ",
-          worker_labels[worker_name]
-        ),
-        font = list(
-          color = worker_colors[i]
-        ),
-        showarrow = FALSE,
-        xanchor = "left",
-        align = "left"
-      )
-    )
-  )
-}
-
-
-# Create traces
-p <- plot_ly()
-
-for (county in all_counties) {
-
-  df_county <- workers_long %>%
-    filter(NAME == county)
-
-  for (worker in names(worker_colors)) {
-
-    value <- df_county %>%
-      filter(WorkerClass == worker) %>%
-      pull(Percent)
-
-    p <- p %>%
-      add_trace(
-        x = county,
-        y = value,
-        type = "bar",
-        name = worker,
-        legendgroup = worker,
-        marker = list(
-          color = worker_colors[worker]
-        ),
-        hovertemplate = paste0(
-          "County: ", county,
-          "<br>Share: %{y:.2f}%",
-          "<extra></extra>"
-        ),
-        visible = (county == all_counties[1]),
-        showlegend = FALSE
-      )
-  }
-}
-
-
-# Dropdown buttons
-buttons <- lapply(seq_along(all_counties), function(i){
-
-  vis <- rep(FALSE, length(all_counties) * length(worker_colors))
-
-  start <- (i - 1) * length(worker_colors) + 1
-  end <- start + length(worker_colors) - 1
-
-  vis[start:end] <- TRUE
-
-
-  list(
-    method = "update",
-    args = list(
-      list(
-        visible = vis
-      ),
-      list(
-        title = paste(
-          "Class of Worker -",
-          all_counties[i]
-        )
-      )
-    ),
-    label = all_counties[i]
-  )
-})
-
-
-# Plot
-p %>%
-  layout(
-
-    title = paste(
-      "Class of Worker -",
-      all_counties[1]
-    ),
-
-    barmode = "stack",
-
-    xaxis = list(
-      title = ""
-    ),
-    
-    
-
-    yaxis = list(
-      title = "Percent",
-      range = c(0, 100),
-      showgrid = TRUE,
-      gridcolor = "lightgray",
-      gridwidth = 1
-    ),
-
-
-    updatemenus = list(
-      list(
-        buttons = buttons,
-      active = 0,
-      x = 1.05,
-      xanchor = "left",
-      y = 0.5,
-      yanchor = "top"
-      )
-    ),
-
-
-    showlegend = FALSE,
-    annotations = legend_annotations <- c(
-      legend_annotations
-    ),
-
-
-    margin = list(
-      r = 300
-    )
-
-  ) %>%
-  config(displayModeBar = FALSE)
-
-
-```
-
-::: {.callout-note collapse="true" appearance="minimal"}
-## Description, Source, and Data Download.
-
-Understanding the class of worker in a county is crucial for analyzing labor market dynamics and economic structure. It offers insights into employment patterns, including self-employment, wage and salary jobs, and their contributions to economic activity and workforce composition.
-
-**Source:** ACS 2024 5-YR Estimates (table B08528)
-
-[Download Data](data_download/averageAnnualWage.csv){download="averageAnnualWage.csv"}
-:::
+##
 
 ::: {.plot-space}
 :::

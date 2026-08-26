@@ -9,16 +9,16 @@ website:
         text: Home
         
       - href: StateOfTheRegion.qmd
-        text: State Of The Region
-        
-      - href: business.qmd
-        text: Business Indicators
-        
-      - href: workforce.qmd
         text: Workforce
         
+      - href: business.qmd
+        text: Business
+        
+      - href: workforce.qmd
+        text: Housing and Transportation
+        
       - href: equity.qmd
-        text: Equity
+        text: Demographics and Equity
 
 format:
   html:

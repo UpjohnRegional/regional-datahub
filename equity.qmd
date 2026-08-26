@@ -1,5 +1,5 @@
 ---
-title: "Equity"
+title: "Demographics and Equity"
 editor: visual
 ---
 
@@ -9,8 +9,10 @@ Please [contact us](mailto:regional@upjohn.org) if you have any questions.
 
 ## 
 
-::: {.plot-space}
+::: plot-space
 :::
+
+
 
 ```{r}
 #| label: Civilian Noninstitutionalized Population With a Disability
@@ -286,7 +288,9 @@ Knowing the population with a disability is an important economic indicator beca
 [Download Data](data_download/civilianNoninstitutionalizedPopulationWithADisability.csv){download="civilianNoninstitutionalizedPopulationWithADisability.csv"}
 :::
 
-::: {.plot-space}
+##
+
+::: plot-space
 :::
 
 ```{r}
@@ -578,7 +582,9 @@ The unemployment rate for women with children is a key economic indicator as it 
 [Download Data](data_download/unemploymentRatebySex.csv){download="unemploymentRatebySex.csv"}
 :::
 
-::: {.plot-space}
+##
+
+::: plot-space
 :::
 
 ```{r}
@@ -870,7 +876,9 @@ The labor force participation rate for women with children is a key economic ind
 [Download Data](data_download/lfprBySex.csv){download="lfprBySex.csv"}
 :::
 
-::: {.plot-space}
+##
+
+::: plot-space
 :::
 
 ```{r}
@@ -1156,7 +1164,9 @@ The unemployment rate by race is a crucial economic indicator because it highlig
 [Download Data](data_download/unemploymentRatebyRace.csv){download="unemploymentRatebyRace.csv"}
 :::
 
-::: {.plot-space}
+##
+
+::: plot-space
 :::
 
 ```{r}
@@ -1444,7 +1454,9 @@ The population below the poverty level, by race, is an important economic indica
 [Download Data](data_download/povertyStatusByRace.csv){download="povertyStatusByRace.csv"}
 :::
 
-::: {.plot-space}
+##
+
+::: plot-space
 :::
 
 ```{r}
@@ -1731,7 +1743,9 @@ Health insurance coverage by race is a critical economic indicator because it hi
 [Download Data](data_download/healthInsuranceByRace.csv){download="healthInsuranceByRace.csv"}
 :::
 
-::: {.plot-space}
+##
+
+::: plot-space
 :::
 
 ```{r}
@@ -2000,7 +2014,9 @@ Vehicles per household is a significant economic indicator as it reflects access
 [Download Data](data_download/vehiclesPerHousehold.csv){download="vehiclesPerHousehold.csv"}
 :::
 
-::: {.plot-space}
+##
+
+::: plot-space
 :::
 
 ```{r}

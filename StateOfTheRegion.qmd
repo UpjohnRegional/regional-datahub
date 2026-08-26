@@ -1,5 +1,5 @@
 ---
-title: "State Of The Region"
+title: "Workforce"
 editor: visual
 format:
   html:
@@ -12,8 +12,6 @@ Please [contact us](mailto:regional@upjohn.org) if you have any questions.
 
 ## 
 
-::: {.plot-space}
-:::
 
 ```{r}
 #| label: EPOP
@@ -135,10 +133,6 @@ p %>%
         y = 0.75,
         xanchor = "right"
       )
-    ),
-
-    margin = list(
-      t = 30
     )
   ) %>%
   config(displayModeBar = FALSE)
@@ -146,7 +140,7 @@ p %>%
 ```
 
 ::: {.callout-note collapse="true" appearance="minimal"}
-## Description, Source, and Data Download. 
+## Definition, Data Source and Download
 
 The employment-to-population ratio is a crucial economic indicator as it reflects the percentage of the working-age population who are employed. It provides insights into labor market health, income levels, productivity, and social stability. Policymakers and investors rely on this ratio to gauge economic well-being and make informed decisions.
 
@@ -155,7 +149,9 @@ The employment-to-population ratio is a crucial economic indicator as it reflect
 [Download Data](data_download/EPOP_LFPR_UR.csv){download="EPOP_LFPR_UR.csv"}
 :::
 
-::: {.plot-space}
+##
+
+::: plot-space
 :::
 
 ```{r}
@@ -298,7 +294,9 @@ The labor force participation rate is a measure that represents the percentage o
 [Download Data](data_download/EPOP_LFPR_UR.csv){download="EPOP_LFPR_UR.csv"}
 :::
 
-::: {.plot-space}
+##
+
+::: plot-space
 :::
 
 ```{r}
@@ -440,7 +438,9 @@ The unemployment rate is a measure that represents the percentage of individuals
 [Download Data](data_download/EPOP_LFPR_UR.csv){download="EPOP_LFPR_UR.csv"}
 :::
 
-::: {.plot-space}
+##
+
+::: plot-space
 :::
 
 ```{r}
@@ -578,4 +578,749 @@ Tracking the average weekly wage gives insight to the income levels and purchasi
 **Source:** BLS QCEW, Upjohn Regional • Not adjusted for inflation • (p) Preliminary
 
 [Download Data](data_download/qcew.csv){download="qcew.csv"}
+:::
+
+::: {.plot-space}
+:::
+
+```{r}
+#| label: Class of Worker
+#| echo: false
+#| message: false
+#| warning: false
+
+library(dplyr)
+library(plotly)
+library(tidyr)
+
+# Read data
+workers <- readRDS("data/classOfWorker.rds")
+
+legend_annotations <- list(
+  list(x = 1.02, y = 1.00, xref = "paper", yref = "paper",
+       text = "<b>Educational Attainment</b>",
+       showarrow = FALSE, xanchor = "left"),
+
+  list(x = 1.02, y = 0.92, xref = "paper", yref = "paper",
+       text = "■ Private Wage and Salary Workers",
+       font = list(color = "#004A5E"),
+       showarrow = FALSE, xanchor = "left"),
+
+  list(x = 1.02, y = 0.84, xref = "paper", yref = "paper",
+       text = "■ Government Workers",
+       font = list(color = "#2B9CB4"),
+       showarrow = FALSE, xanchor = "left"),
+  
+    list(x = 1.02, y = 0.76, xref = "paper", yref = "paper",
+       text = "■ Self-employed in own, not incorporated, <br> business workers",
+       font = list(color = "#AF2C32"),
+       showarrow = FALSE, xanchor = "left"),
+  
+      list(x = 1.02, y = 0.76, xref = "paper", yref = "paper",
+       text = "■ Unpaid family workers",
+       font = list(color = "#414042"),
+       showarrow = FALSE, xanchor = "left")
+)
+
+
+# Convert to long format
+workers_long <- workers %>%
+  pivot_longer(
+    cols = c(
+      "Private Wage and Salary Workers",
+      "Government Workers",
+      "Self-employed in own, not incorporated, business workers",
+      "Unpaid family workers"
+    ),
+    names_to = "WorkerClass",
+    values_to = "Percent"
+  )
+
+
+# Worker colors
+worker_colors <- c(
+  "Private Wage and Salary Workers" = "#004A5E",
+  "Government Workers" = "#2B9CB4",
+  "Self-employed in own, not incorporated, business workers" = "#AF2C32",
+  "Unpaid family workers" = "#414042"
+)
+
+worker_labels <- c(
+  "Private Wage and Salary Workers" =
+    "Private Wage and Salary Workers",
+
+  "Government Workers" =
+    "Government Workers",
+
+  "Self-employed in own, not incorporated, business workers" =
+    "Self-employed in own, not incorporated,<br>business workers",
+
+  "Unpaid family workers" =
+    "Unpaid family workers"
+)
+
+
+# Counties
+all_counties <- unique(workers_long$NAME)
+
+init <- all_counties[1]
+
+
+# Create legend annotations
+legend_annotations <- list(
+  list(
+    x = 1.02, y = 1.00,
+    xref = "paper",
+    yref = "paper",
+    text = "<b>Class of Worker</b>",
+    showarrow = FALSE,
+    xanchor = "left"
+  )
+)
+
+
+# Add worker categories to legend annotations
+y_pos <- c(.92, .84, .76, .62)
+
+for (i in seq_along(worker_colors)) {
+
+  worker_name <- names(worker_colors)[i]
+
+  legend_annotations <- append(
+    legend_annotations,
+    list(
+      list(
+        x = 1.02,
+        y = y_pos[i],
+        xref = "paper",
+        yref = "paper",
+        text = paste0(
+          "■ ",
+          worker_labels[worker_name]
+        ),
+        font = list(
+          color = worker_colors[i]
+        ),
+        showarrow = FALSE,
+        xanchor = "left",
+        align = "left"
+      )
+    )
+  )
+}
+
+
+# Create traces
+p <- plot_ly()
+
+for (county in all_counties) {
+
+  df_county <- workers_long %>%
+    filter(NAME == county)
+
+  for (worker in names(worker_colors)) {
+
+    value <- df_county %>%
+      filter(WorkerClass == worker) %>%
+      pull(Percent)
+
+    p <- p %>%
+      add_trace(
+        x = county,
+        y = value,
+        type = "bar",
+        name = worker,
+        legendgroup = worker,
+        marker = list(
+          color = worker_colors[worker]
+        ),
+        hovertemplate = paste0(
+          "County: ", county,
+          "<br>Share: %{y:.2f}%",
+          "<extra></extra>"
+        ),
+        visible = (county == all_counties[1]),
+        showlegend = FALSE
+      )
+  }
+}
+
+
+# Dropdown buttons
+buttons <- lapply(seq_along(all_counties), function(i){
+
+  vis <- rep(FALSE, length(all_counties) * length(worker_colors))
+
+  start <- (i - 1) * length(worker_colors) + 1
+  end <- start + length(worker_colors) - 1
+
+  vis[start:end] <- TRUE
+
+
+  list(
+    method = "update",
+    args = list(
+      list(
+        visible = vis
+      ),
+      list(
+        title = paste(
+          "Class of Worker -",
+          all_counties[i]
+        )
+      )
+    ),
+    label = all_counties[i]
+  )
+})
+
+
+# Plot
+p %>%
+  layout(
+
+    title = paste(
+      "Class of Worker -",
+      all_counties[1]
+    ),
+
+    barmode = "stack",
+
+    xaxis = list(
+      title = ""
+    ),
+    
+    
+
+    yaxis = list(
+      title = "Percent",
+      range = c(0, 100),
+      showgrid = TRUE,
+      gridcolor = "lightgray",
+      gridwidth = 1
+    ),
+
+
+    updatemenus = list(
+      list(
+        buttons = buttons,
+      active = 0,
+      x = 1.05,
+      xanchor = "left",
+      y = 0.5,
+      yanchor = "top"
+      )
+    ),
+
+
+    showlegend = FALSE,
+    annotations = legend_annotations <- c(
+      legend_annotations
+    ),
+
+
+    margin = list(
+      r = 300
+    )
+
+  ) %>%
+  config(displayModeBar = FALSE)
+
+
+```
+
+::: {.callout-note collapse="true" appearance="minimal"}
+## Description, Source, and Data Download.
+
+Understanding the class of worker in a county is crucial for analyzing labor market dynamics and economic structure. It offers insights into employment patterns, including self-employment, wage and salary jobs, and their contributions to economic activity and workforce composition.
+
+**Source:** ACS 2024 5-YR Estimates (table B08528)
+
+[Download Data](data_download/averageAnnualWage.csv){download="averageAnnualWage.csv"}
+:::
+
+##
+
+::: plot-space
+:::
+
+
+```{r}
+#| label: Educational Attainment
+#| echo: false
+#| message: false
+#| warning: false
+
+library(dplyr)
+library(plotly)
+library(tidyr)
+
+# ---------------------------------------------------------
+# Read data
+# ---------------------------------------------------------
+
+S1501_wide <- readRDS("data/eduAttainment.rds")
+
+
+# ---------------------------------------------------------
+# Southwest Michigan county order
+# ---------------------------------------------------------
+
+county_order <- c(
+  "Kalamazoo",
+  "Berrien",
+  "Branch",
+  "Calhoun",
+  "Cass",
+  "St. Joseph",
+  "Van Buren"
+)
+
+
+# ---------------------------------------------------------
+# Education category order
+# ---------------------------------------------------------
+
+edu_levels <- c(
+  "Less than 9th grade",
+  "9th to 12th grade, no diploma",
+  "High school graduate (includes equivalency)",
+  "Some college, no degree",
+  "Associate's degree",
+  "Bachelor's degree",
+  "Graduate or professional degree"
+)
+
+
+# ---------------------------------------------------------
+# Convert to long format
+# ---------------------------------------------------------
+
+S1501_long <- S1501_wide %>%
+  pivot_longer(
+    cols = all_of(edu_levels),
+    names_to = "Education",
+    values_to = "Percent"
+  ) %>%
+  mutate(
+    Education = factor(
+      Education,
+      levels = edu_levels
+    )
+  )
+
+
+# ---------------------------------------------------------
+# Sequential education colors
+# ---------------------------------------------------------
+
+edu_colors <- c(
+  "Less than 9th grade" = "#cf203e",
+  "9th to 12th grade, no diploma" = "#ba2a4e",
+  "High school graduate (includes equivalency)" = "#a5345f",
+  "Some college, no degree" = "#903f6f",
+  "Associate's degree" = "#7a497f",
+  "Bachelor's degree" = "#655390",
+  "Graduate or professional degree" = "#505da0"
+)
+
+
+# ---------------------------------------------------------
+# Legend labels
+# ---------------------------------------------------------
+
+legend_labels <- c(
+  "Less than 9th grade",
+  "9th to 12th grade, no diploma",
+  "High school graduate",
+  "Some college, no degree",
+  "Associate's degree",
+  "Bachelor's degree",
+  "Graduate or professional degree"
+)
+
+
+# ---------------------------------------------------------
+# Counties
+# Southwest Michigan first, then remaining counties
+# ---------------------------------------------------------
+
+all_counties <- unique(
+  as.character(S1501_long$NAME)
+)
+
+all_counties <- c(
+  county_order[county_order %in% all_counties],
+  sort(setdiff(all_counties, county_order))
+)
+
+
+# ---------------------------------------------------------
+# Initial county
+# ---------------------------------------------------------
+
+init <- all_counties[1]
+
+df_init <- S1501_long %>%
+  filter(NAME == init) %>%
+  arrange(Education)
+
+
+# ---------------------------------------------------------
+# Create legend annotations
+# ---------------------------------------------------------
+
+legend_annotations <- list(
+  list(
+    x = 1.02,
+    y = 1.00,
+    xref = "paper",
+    yref = "paper",
+    text = "<b>Educational Attainment</b>",
+    showarrow = FALSE,
+    xanchor = "left"
+  )
+)
+
+y_pos <- c(
+  0.92,
+  0.84,
+  0.76,
+  0.68,
+  0.60,
+  0.52,
+  0.44
+)
+
+for (i in seq_along(edu_levels)) {
+
+  legend_annotations <- append(
+    legend_annotations,
+    list(
+      list(
+        x = 1.02,
+        y = y_pos[i],
+        xref = "paper",
+        yref = "paper",
+
+        text = paste0(
+          "■ ",
+          legend_labels[i]
+        ),
+
+        font = list(
+          color = edu_colors[edu_levels[i]]
+        ),
+
+        showarrow = FALSE,
+        xanchor = "left"
+      )
+    )
+  )
+}
+
+
+# ---------------------------------------------------------
+# Create column chart
+# ---------------------------------------------------------
+
+p <- plot_ly(
+  data = df_init,
+  x = ~Education,
+  y = ~Percent,
+  type = "bar",
+
+  marker = list(
+    color = edu_colors[
+      as.character(df_init$Education)
+    ]
+  ),
+
+  hovertemplate = paste0(
+    "County: ", init,
+    "<br>Educational Attainment: %{x}",
+    "<br>Share: %{y:.2f}%",
+    "<extra></extra>"
+  )
+)
+
+
+# ---------------------------------------------------------
+# County dropdown
+# ---------------------------------------------------------
+
+buttons <- lapply(
+  seq_along(all_counties),
+  function(i) {
+
+    df <- S1501_long %>%
+      filter(NAME == all_counties[i]) %>%
+      arrange(Education)
+
+    list(
+      method = "update",
+
+      args = list(
+
+        # Update bar data
+        list(
+          x = list(df$Education),
+          y = list(df$Percent),
+
+          marker = list(
+            color = edu_colors[
+              as.character(df$Education)
+            ]
+          ),
+
+          hovertemplate = paste0(
+            "County: ", all_counties[i],
+            "<br>Educational Attainment: %{x}",
+            "<br>Share: %{y:.2f}%",
+            "<extra></extra>"
+          )
+        ),
+
+        # Update title
+        list(
+          title = paste(
+            "Educational Attainment -",
+            all_counties[i]
+          )
+        )
+      ),
+
+      label = all_counties[i]
+    )
+  }
+)
+
+
+# ---------------------------------------------------------
+# Render chart
+# ---------------------------------------------------------
+
+p %>%
+  layout(
+
+    title = paste(
+      "Educational Attainment -",
+      init
+    ),
+
+    # Regular column chart
+    barmode = "group",
+
+    # X-axis
+    xaxis = list(
+      title = "",
+      showticklabels = FALSE,
+
+      categoryorder = "array",
+      categoryarray = edu_levels
+    ),
+
+    # Y-axis
+    yaxis = list(
+      title = "Percent",
+      ticksuffix = "%",
+      showgrid = TRUE,
+      gridcolor = "lightgray",
+      gridwidth = 1
+    ),
+
+    # Hide Plotly's default legend
+    showlegend = FALSE,
+
+    # Custom annotation legend
+    annotations = legend_annotations,
+
+    # County dropdown
+    updatemenus = list(
+      list(
+        type = "dropdown",
+        buttons = buttons,
+        active = 0,
+        x = 1.25,
+        y = 0.35,
+        xanchor = "left"
+      )
+    ),
+
+    # Space for legend and dropdown
+    margin = list(
+      r = 280,
+      b = 100
+    )
+
+  ) %>%
+  config(
+    displayModeBar = FALSE
+  )
+```
+
+::: {.callout-note collapse="true" appearance="minimal"}
+## Description, Source, and Data Download.
+
+Educational attainment strongly correlates with income levels, workforce productivity, and economic growth. It helps gauge the skill level and potential earning capacity of a population.
+
+**Source:** ACS 2024 5-YR Estimates (table S1501) • Population 25 and older
+
+[Download Data](data_download/eduAttainment.csv){download="eduAttainment.csv"}
+:::
+
+##
+
+::: plot-space
+:::
+
+```{r}
+#| label: Income by Sex and Edcational Attainment
+#| echo: false
+#| message: false
+#| warning: false
+
+library(dplyr)
+library(tidyr)
+library(plotly)
+
+income <- readRDS("data/incomeBySexAndEducationalAttainment.rds")
+
+income$variable <- factor(
+  income$variable,
+  levels = c(
+    "Less than high school graduate",
+    "High school graduate (includes equivalency)",
+    "Some college or associate's degree",
+    "Bachelor's degree",
+    "Graduate or professional degree"
+  )
+)
+
+income <- income %>%
+  mutate(
+    Display = recode(
+      variable,
+      "Less than high school graduate" = "Less Than H.S.",
+      "High school graduate (includes equivalency)" = "H.S.",
+      "Some college or associate's degree" = "Some College/Associates",
+      "Bachelor's degree" = "Bachelor's",
+      "Graduate or professional degree" = "Graduate/Professional"
+    )
+  )
+
+income$Display <- factor(
+  income$Display,
+  levels = c(
+    "Less Than H.S.",
+    "H.S.",
+    "Some College/Associates",
+    "Bachelor's",
+    "Graduate/Professional"
+  )
+)
+
+income_colors <- c(
+  "Male" = "#004A5E",
+  "Female" = "#2B9CB4"
+)
+
+counties <- unique(income$NAME)
+
+init <- counties[1]
+
+df_init <- income %>%
+  filter(NAME == init)
+
+p <- plot_ly()
+
+p <- p %>%
+  add_bars(
+    data = df_init,
+    x = ~Display,
+    y = ~`Male Income`,
+    name = "Male",
+    marker = list(
+      color = income_colors["Male"]
+    )
+  ) %>%
+  add_bars(
+    data = df_init,
+    x = ~Display,
+    y = ~`Female Income`,
+    name = "Female",
+    marker = list(
+      color = income_colors["Female"]
+    )
+  )
+
+buttons <- lapply(seq_along(counties), function(i) {
+
+  df <- income %>%
+    filter(NAME == counties[i])
+
+  list(
+    method = "update",
+    args = list(
+      list(
+        x = list(df$Display, df$Display),
+        y = list(
+          df$`Male Income`,
+          df$`Female Income`
+        )
+      ),
+      list(
+        title = paste(
+          "Income by Educational Attainment:",
+          counties[i]
+        )
+      )
+    ),
+    label = counties[i]
+  )
+})
+
+p %>%
+  layout(
+    barmode = "group",
+
+    title = paste(
+      "Income by Educational Attainment:",
+      init
+    ),
+
+    xaxis = list(
+      title = ""
+    ),
+
+    yaxis = list(
+      title = "Income",
+      tickprefix = "$"
+    ),
+
+    updatemenus = list(
+      list(
+        buttons = buttons,
+        active = 0,
+        x = 1.25,
+        y = 0.75,
+        xanchor = "left"
+      )
+    ),
+
+    margin = list(
+      r = 250
+    )
+  ) %>%
+  config(displayModeBar = FALSE)
+```
+
+::: {.callout-note collapse="true" appearance="minimal"}
+## Description, Source, and Data Download.
+
+Understanding income disparities by educational attainment and sex provides insights into the effectiveness of educational systems in equipping individuals with skills for higher-paying jobs and highlights potential gender-based income gaps, which can be indicative of gender equality issues.
+
+**Source:** ACS 2024 5-YR Estimates (table B20004) • Population 25 and older with earnings
+
+[Download Data](data_download/incomeBySexAndEducationalAttainment.csv){download="incomeBySexAndEducationalAttainment.csv"}
 :::

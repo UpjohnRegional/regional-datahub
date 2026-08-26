@@ -8,18 +8,22 @@ format:
 
 ## 
 
-The Upjohn Regional team provides up-to-date measures of labor markets in Southwest Michigan and beyond. These metrics are key to small businesses, nonprofits, larger companies looking to relocate or expand, local and state policymakers, public involvement advocates and civic organizations. To make these metrics more accessible and compelling, our team has developed the Upjohn Regional Data Hub. The Upjohn Regional Data Hub consists of four sections that focus on different economic development indicators: State of the Region, Workforce Indicators, Business Indicators, and Equity Indicators. The data are on the county level and users can select any county in Michigan from the drop-down lists; Southwest Michigan counties are listed first. The Upjohn Regional team will continue to add additional sections of the Data Hub that build on the current concepts.
+The Upjohn Regional team provides up-to-date, downloadable measures of labor market and economic development conditions for every county in Michigan. These metrics are designed to support a wide range of users, including county governments, small businesses, nonprofits, companies considering relocation or expansion, local and state policymakers, public engagement advocates, and civic organizations.
+
+The Upjohn Regional Data Hub is organized into four sections: Workforce, Business, Housing and Transportation, and Demographics and Equity Indicators. All data are available at the county level, and users can select any Michigan county using the dropdown menus, with Southwest Michigan counties listed first. Beneath each graph, an additional dropdown provides the indicator definition, data source, and options for downloading the underlying data.
 
 Please [contact us](mailto:regional@upjohn.org) if you have any questions. 
 
+Visit [Upjohn Regional](https://www.upjohn.org/division/upjohn-regional) for more information.
+
 ## 
 
-## Explore the Regional Datahub
+## View and download the most current data
 
 ::: {.grid}
 
 ::: {.g-col-6}
-[State of the Region](StateOfTheRegion.qmd){.btn .home-button .btn-lg .w-100}
+[Workforce](StateOfTheRegion.qmd){.btn .home-button .btn-lg .w-100}
 :::
 
 ::: {.g-col-6}
@@ -27,11 +31,11 @@ Please [contact us](mailto:regional@upjohn.org) if you have any questions.
 :::
 
 ::: {.g-col-6}
-[Workforce](workforce.qmd){.btn .home-button .btn-lg .w-100}
+[Housing and Transportation](workforce.qmd){.btn .home-button .btn-lg .w-100}
 :::
 
 ::: {.g-col-6}
-[Equity](equity.qmd){.btn .home-button .btn-lg .w-100}
+[Demographics and Equity](equity.qmd){.btn .home-button .btn-lg .w-100}
 :::
 
 :::
