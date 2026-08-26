@@ -279,7 +279,7 @@ p %>%
 ```
 
 ::: {.callout-note collapse="true" appearance="minimal"}
-## Description, Source, and Data Download.
+## Definition, Data Source and Download
 
 Knowing the population with a disability is an important economic indicator because it helps identify potential barriers to workforce participation, highlighting areas where accessible employment opportunities and support services are needed. This information guides policymakers and businesses in making informed decisions about resource allocation and infrastructure improvements. Additionally, understanding the prevalence of disabilities can reveal trends in healthcare demand and social service requirements, impacting overall economic planning.
 
@@ -573,7 +573,7 @@ p %>%
 ```
 
 ::: {.callout-note collapse="true" appearance="minimal"}
-## Description, Source, and Data Download.
+## Definition, Data Source and Download
 
 The unemployment rate for women with children is a key economic indicator as it reflects the challenges they face in balancing work and care giving, which can impact household income and economic stability. It helps policymakers understand the need for supportive measures such as affordable childcare and flexible work arrangements to improve labor force participation. Additionally, this data can inform businesses and governments on how to create family-friendly policies that promote economic growth and gender equality in the workforce.
 
@@ -867,7 +867,7 @@ p %>%
 ```
 
 ::: {.callout-note collapse="true" appearance="minimal"}
-## Description, Source, and Data Download.
+## Definition, Data Source and Download
 
 The labor force participation rate for women with children is a key economic indicator, highlighting the challenges they encounter in balancing work and caregiving responsibilities. This rate impacts household income and overall economic stability, providing policymakers with insights into the need for supportive measures like affordable childcare and flexible work options to encourage workforce participation. Additionally, this data can guide businesses and governments in developing family-friendly policies that foster economic growth and promote gender equality in the labor market.
 
@@ -1155,7 +1155,7 @@ p %>%
 ```
 
 ::: {.callout-note collapse="true" appearance="minimal"}
-## Description, Source, and Data Download.
+## Definition, Data Source and Download
 
 The unemployment rate by race is a crucial economic indicator because it highlights disparities in access to job opportunities and economic inclusion across different racial and ethnic groups. It informs policymakers about the need for targeted interventions to address systemic inequalities in education, training, and employment. This data also helps businesses and governments develop equitable hiring practices and policies to promote a more diverse and inclusive workforce, contributing to broader economic stability and social equity.
 
@@ -1445,7 +1445,7 @@ p %>%
 ```
 
 ::: {.callout-note collapse="true" appearance="minimal"}
-## Description, Source, and Data Download.
+## Definition, Data Source and Download
 
 The population below the poverty level, by race, is an important economic indicator as it reveals the extent of economic disparities and social inequities faced by different racial and ethnic groups. It helps policymakers design targeted anti-poverty programs, such as affordable housing, education, and healthcare, to address the unique needs of marginalized communities. This data is also vital for businesses and governments to promote inclusive economic growth, ensuring that all groups have opportunities to improve their living standards and participate fully in the economy.
 
@@ -1734,7 +1734,7 @@ p %>%
 ```
 
 ::: {.callout-note collapse="true" appearance="minimal"}
-## Description, Source, and Data Download.
+## Definition, Data Source and Download
 
 Health insurance coverage by race is a critical economic indicator because it highlights disparities in access to healthcare, which can affect the overall health and economic well-being of different racial and ethnic groups. This data helps policymakers identify gaps in coverage and design inclusive healthcare policies that ensure equitable access to medical services for all communities. Understanding these disparities allows governments and organizations to address long-term healthcare costs, improve workforce productivity, and promote economic stability by reducing health-related financial burdens.
 
@@ -2005,7 +2005,7 @@ p %>%
 ```
 
 ::: {.callout-note collapse="true" appearance="minimal"}
-## Description, Source, and Data Download.
+## Definition, Data Source and Download
 
 Vehicles per household is a significant economic indicator as it reflects access to transportation, which directly impacts employment opportunities, access to services, and overall mobility. In regions with limited public transportation, such as many rural and suburban areas in the U.S., households with fewer vehicles may face challenges in commuting to work or school. This data helps policymakers and urban planners address transportation needs, develop infrastructure, and improve transit options, ultimately influencing economic participation and quality of life across different communities.
 
@@ -2145,7 +2145,7 @@ HTML(
 ```
 
 ::: {.callout-note collapse="true" appearance="minimal"}
-## Description, Source, and Data Download.
+## Definition, Data Source and Download
 
 Home vacancy rates indicate housing availability, guiding investments in construction and redevelopment. Occupants per room reveal overcrowding, which can affect health and quality of life, highlighting the need for affordable housing. Average monthly housing costs reflect affordability and household financial stability, informing policies to alleviate housing burdens.
 

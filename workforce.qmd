@@ -122,7 +122,7 @@ p %>%
 ```
 
 ::: {.callout-note collapse="true" appearance="minimal"}
-## Description, Source, and Data Download.
+## Definition, Data Source and Download
 
 Travel time to work is significant as it directly impacts worker productivity and transportation costs. It also informs urban planning and labor market dynamics, influencing economic development and accessibility to jobs.
 
@@ -277,7 +277,7 @@ p %>%
 ```
 
 ::: {.callout-note collapse="true" appearance="minimal"}
-## Description, Source, and Data Download.
+## Definition, Data Source and Download
 
 Understanding how people commute to work helps assess the efficiency of transportation infrastructure, which can impact productivity and business operations. It also influences urban planning and investment decisions, as well as energy consumption and environmental considerations. Additionally, tracking transportation methods can reveal trends in workforce mobility and inform policies that affect job accessibility and economic opportunities.
 
@@ -404,7 +404,7 @@ p %>%
 ```
 
 ::: {.callout-note collapse="true" appearance="minimal"}
-## Description, Source, and Data Download.
+## Definition, Data Source and Download
 
 Understanding the age of the housing stock reveals the state of infrastructure and housing quality. Older housing may require more maintenance and renovations, which can drive construction and home improvement industries, thereby boosting economic activity. Additionally, it can inform urban development and land use policies, impacting property values and real estate investments. Lastly, the age of the housing stock can provide insights into population trends, migration patterns, and housing affordability, all of which have significant economic implications.
 
@@ -529,7 +529,7 @@ p %>%
 ```
 
 ::: {.callout-note collapse="true" appearance="minimal"}
-## Description, Source, and Data Download.
+## Definition, Data Source and Download
 
 Knowledge of people's internet access is an important economic indicator because it reflects digital connectivity, which is increasingly vital for economic participation. It influences business competitiveness and innovation, as companies depend on digital platforms for operations and sales. Internet access also affects workforce capabilities, as remote work and online education become more prevalent. Finally, understanding how people access the internet plays a role in bridging economic disparities, as access can be a factor in determining opportunities and socioeconomic outcomes.
 
@@ -722,7 +722,7 @@ p %>%
 ```
 
 ::: {.callout-note collapse="true" appearance="minimal"}
-## Description, Source, and Data Download.
+## Definition, Data Source and Download
 
 The number of building permits issued can be crucial for gauging the vitality of the construction sector, offering insights into real estate investment trends and potential economic growth. Fluctuations in permit numbers can signal changes in job creation within construction and related industries, serving as a barometer for broader economic activity. A decline in permits may indicate economic challenges, affecting employment and the overall economic environment.
 
@@ -883,7 +883,7 @@ p %>%
 ```
 
 ::: {.callout-note collapse="true" appearance="minimal"}
-## Description, Source, and Data Download.
+## Definition, Data Source and Download
 
 Knowing the median income needed to afford rent and housing costs is essential to evaluate how housing affordability impacts on individuals and the overall economy. This knowledge informs policymakers on ways to address potential disparities, guiding strategies to enhance housing accessibility and promote sustainable economic development.
 

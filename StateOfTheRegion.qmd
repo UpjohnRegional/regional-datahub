@@ -285,7 +285,7 @@ p %>%
 ```
 
 ::: {.callout-note collapse="true" appearance="minimal"}
-## Description, Source, and Data Download.
+## Definition, Data Source and Download
 
 The labor force participation rate is a measure that represents the percentage of the working-age population (individuals aged 16 and older) who are either employed or actively seeking employment. Tracking the labor force participation rate provides insights on the working-age population and their engagement in the labor market.
 
@@ -429,7 +429,7 @@ p %>%
 ```
 
 ::: {.callout-note collapse="true" appearance="minimal"}
-## Description, Source, and Data Download.
+## Definition, Data Source and Download
 
 The unemployment rate is a measure that represents the percentage of individuals who are actively seeking employment but are currently without a job. The unemployment rate offers understanding into the availability of jobs and the overall state of the labor market within an economy.
 
@@ -571,7 +571,7 @@ config(fig,
 ```
 
 ::: {.callout-note collapse="true" appearance="minimal"}
-## Description, Source, and Data Download.
+## Definition, Data Source and Download
 
 Tracking the average weekly wage gives insight to the income levels and purchasing power of workers within an economy.
 
@@ -830,7 +830,7 @@ p %>%
 ```
 
 ::: {.callout-note collapse="true" appearance="minimal"}
-## Description, Source, and Data Download.
+## Definition, Data Source and Download
 
 Understanding the class of worker in a county is crucial for analyzing labor market dynamics and economic structure. It offers insights into employment patterns, including self-employment, wage and salary jobs, and their contributions to economic activity and workforce composition.
 
@@ -1160,7 +1160,7 @@ p %>%
 ```
 
 ::: {.callout-note collapse="true" appearance="minimal"}
-## Description, Source, and Data Download.
+## Definition, Data Source and Download
 
 Educational attainment strongly correlates with income levels, workforce productivity, and economic growth. It helps gauge the skill level and potential earning capacity of a population.
 
@@ -1316,7 +1316,7 @@ p %>%
 ```
 
 ::: {.callout-note collapse="true" appearance="minimal"}
-## Description, Source, and Data Download.
+## Definition, Data Source and Download
 
 Understanding income disparities by educational attainment and sex provides insights into the effectiveness of educational systems in equipping individuals with skills for higher-paying jobs and highlights potential gender-based income gaps, which can be indicative of gender equality issues.
 
