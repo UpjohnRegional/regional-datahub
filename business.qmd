@@ -11,6 +11,9 @@ Please [contact us](mailto:regional@upjohn.org) if you have any questions.
 
 ## 
 
+::: plot-space
+:::
+
 
 ```{r}
 #| label: Personal Consumption
@@ -1105,6 +1108,32 @@ kable(
     ),
     full_width = FALSE
   )
+
+htmltools::tags$script(HTML("
+document.addEventListener('DOMContentLoaded', function() {
+
+  const searchBox = document.getElementById('countySearch');
+  const table = document.getElementById('incomeTable');
+
+  if (!searchBox || !table) return;
+
+  searchBox.addEventListener('input', function() {
+
+    const searchTerm = this.value.toLowerCase();
+    const rows = table.querySelectorAll('tbody tr');
+
+    rows.forEach(function(row) {
+
+      const county = row.cells[0].textContent.toLowerCase();
+
+      row.style.display =
+        county.includes(searchTerm) ? '' : 'none';
+
+    });
+  });
+
+});
+"))
 
 ```
 

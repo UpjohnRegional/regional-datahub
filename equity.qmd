@@ -2102,6 +2102,9 @@ county_options <- paste0(
 HTML(
   paste0(
     
+    # Title
+    '<h3 class="housing-title">Key Housing Indicators</h3>',
+    
     # Dropdown
     '<div class="housing-selector">',
       '<label for="housing-county-select">',

@@ -889,5 +889,5 @@ Knowing the median income needed to afford rent and housing costs is essential t
 
 **Source:** ACS 2024 5-YR Estimates (table Table DP04) • Totals may not sum to 100% due to rounding.
 
-[Download Data](data_download/monthlyIncomeNeededToAffordHousing.csv){download="internetAccess.csv"}
+[Download Data](data_download/monthlyIncomeNeededToAffordHousing.csv){download="monthlyIncomeNeededToAffordHousing.csv"}
 :::

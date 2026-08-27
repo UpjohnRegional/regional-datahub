@@ -66,3 +66,5 @@ B08528_wide <- B08528_wide %>%
          -`Unpaid Family Workers`)
 
 saveRDS(B08528_wide, "data/classOfWorker.rds")
+
+write.csv(B08528_wide, "data_download/classOfWorker.csv")

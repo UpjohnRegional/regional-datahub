@@ -12,6 +12,8 @@ Please [contact us](mailto:regional@upjohn.org) if you have any questions.
 
 ## 
 
+::: plot-space
+:::
 
 ```{r}
 #| label: EPOP
@@ -580,6 +582,8 @@ Tracking the average weekly wage gives insight to the income levels and purchasi
 [Download Data](data_download/qcew.csv){download="qcew.csv"}
 :::
 
+##
+
 ::: {.plot-space}
 :::
 
@@ -836,7 +840,7 @@ Understanding the class of worker in a county is crucial for analyzing labor mar
 
 **Source:** ACS 2024 5-YR Estimates (table B08528)
 
-[Download Data](data_download/averageAnnualWage.csv){download="averageAnnualWage.csv"}
+[Download Data](data_download/classOfWorker.csv){download="classOfWorker.csv"}
 :::
 
 ##
