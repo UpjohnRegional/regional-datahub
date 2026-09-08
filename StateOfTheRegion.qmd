@@ -126,7 +126,10 @@ p %>%
     xaxis = list(
       title = "Month"),
 
-    yaxis = list(title = "Percent"),
+    yaxis = list(
+      title = "",
+      ticksuffix = "%"
+      ),
 
     updatemenus = list(
       list(
@@ -267,7 +270,10 @@ p %>%
     xaxis = list(
       title = "Month"),
 
-    yaxis = list(title = "Percent"),
+    yaxis = list(
+      title = "",
+      ticksuffix = "%"
+      ),
 
     updatemenus = list(
       list(
@@ -435,7 +441,8 @@ p %>%
     ),
 
     yaxis = list(
-      title = "Percent"
+      title = "",
+      ticksuffix = "%"
     ),
 
     updatemenus = list(
@@ -589,7 +596,9 @@ fig <- fig %>%
     xaxis = list(title = "Quarter"),
     
     yaxis = list(
-      title = "Average Weekly Wage ($)"
+      title = "Average Weekly Wage",
+      tickprefix = "$",
+      separatethousands = TRUE
     ),
     
     barmode = "group"
@@ -768,6 +777,7 @@ for (county in all_counties) {
         ),
         hovertemplate = paste0(
           "County: ", county,
+          "<br>Class: ",  worker,
           "<br>Share: %{y:.2f}%",
           "<extra></extra>"
         ),
@@ -821,11 +831,10 @@ p %>%
     xaxis = list(
       showticklabels = FALSE
     ),
-    
-    
 
     yaxis = list(
-      title = "Percent",
+      title = "",
+      ticksuffix = "%",
       range = c(0, 100),
       showgrid = TRUE,
       gridcolor = "lightgray",
@@ -1153,7 +1162,7 @@ p %>%
 
     # Y-axis
     yaxis = list(
-      title = "Percent",
+      title = "",
       ticksuffix = "%",
       showgrid = TRUE,
       gridcolor = "lightgray",
@@ -1325,7 +1334,7 @@ p %>%
     ),
 
     yaxis = list(
-      title = "Income",
+      title = "",
       tickprefix = "$"
     ),
 

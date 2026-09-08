@@ -94,7 +94,8 @@ fig <- fig %>%
       title = "Month"
     ),
     yaxis = list(
-      title = "Billions of Chained 2017 Dollars"
+      title = "Billions of Chained 2017 Dollars",
+      tickprefix = "$"
     ),
     annotations = list(
       list(
@@ -223,7 +224,8 @@ fig %>%
     ),
 
     yaxis2 = list(
-      title = "Fuel Prices ($ per Gallon)",
+      title = "Fuel Prices (per Gallon)",
+      tickprefix = "$",
       overlaying = "y",
       side = "right",
       range = c(1,20)
@@ -652,6 +654,7 @@ fig %>%
 
     yaxis = list(
       title = "Percent Change from Year Ago",
+      ticksuffix = "%",
       zeroline = TRUE,
       zerolinecolor = "gray"
     ),

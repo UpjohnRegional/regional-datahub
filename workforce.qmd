@@ -99,7 +99,8 @@ p %>%
     ),
 
     xaxis = list(
-      title = "Percent of Workers 16 Years and Older"
+      title = "Workers 16 Years and Older",
+      ticksuffix = "%"
     ),
 
     yaxis = list(
@@ -254,7 +255,8 @@ p %>%
 
 
     xaxis = list(
-      title = "Percent of Workers 16 Years and Older"
+      title = "Workers 16 Years and Older",
+      ticksuffix = "%"
     ),
 
     yaxis = list(
@@ -388,7 +390,8 @@ p %>%
     ),
 
     xaxis = list(
-      title = "Percent of Total Housing Stock"
+      title = "Total Housing Stock",
+      ticksuffix = "%"
     ),
 
     yaxis = list(
@@ -852,6 +855,7 @@ p %>%
     ),
 
     yaxis = list(
+      title = "",
       tickprefix = "$",
       separatethousands = TRUE
     ),
