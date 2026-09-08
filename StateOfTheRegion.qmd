@@ -45,8 +45,7 @@ p <- p %>%
     line = list(width = 3, color = "#AF2C32"),
     customdata = ~period_txt,
     hovertemplate = paste(
-      "%{x}<br>",
-      "Value: %{y:.2f}%<br>",
+      "Value: %{y:.1f}%<br>",
       "Period: %{customdata}<extra></extra>"
     )
   )
@@ -61,8 +60,7 @@ p <- p %>%
     line = list(width = 3, dash = "dash", color = "#2B9CB4"),
     customdata = ~period_txt,
     hovertemplate = paste(
-      "%{x}<br>",
-      "Value: %{y:.2f}%<br>",
+      "Value: %{y:.1f}%<br>",
       "Period: %{customdata}<extra></extra>"
     )
   )
@@ -189,8 +187,7 @@ p <- p %>%
     line = list(width = 3, color = "#AF2C32"),
     customdata = ~period_txt,
     hovertemplate = paste(
-      "%{x}<br>",
-      "Value: %{y:.2f}%<br>",
+      "Value: %{y:.1f}%<br>",
       "Period: %{customdata}<extra></extra>"
     )
   )
@@ -205,8 +202,7 @@ p <- p %>%
     line = list(width = 3, dash = "dash", color = "#2B9CB4"),
     customdata = ~period_txt,
     hovertemplate = paste(
-      "%{x}<br>",
-      "Value: %{y:.2f}%<br>",
+      "Value: %{y:.1f}%<br>",
       "Period: %{customdata}<extra></extra>"
     )
   )
@@ -343,8 +339,7 @@ p <- p %>%
     ),
     customdata = ~period_txt,
     hovertemplate = paste(
-      "%{x}<br>",
-      "Value: %{y:.2f}%<br>",
+      "Value: %{y:.1f}%<br>",
       "Period: %{customdata}<extra></extra>"
     )
   )
@@ -366,8 +361,7 @@ p <- p %>%
     ),
     customdata = ~period_txt,
     hovertemplate = paste(
-      "%{x}<br>",
-      "Value: %{y:.2f}%<br>",
+      "Value: %{y:.1f}%<br>",
       "Period: %{customdata}<extra></extra>"
     )
   )
@@ -778,7 +772,7 @@ for (county in all_counties) {
         hovertemplate = paste0(
           "County: ", county,
           "<br>Class: ",  worker,
-          "<br>Share: %{y:.2f}%",
+          "<br>Share: %{y:.1f}%",
           "<extra></extra>"
         ),
         visible = (county == all_counties[1]),
@@ -1079,7 +1073,7 @@ p <- plot_ly(
   hovertemplate = paste0(
     "County: ", init,
     "<br>Educational Attainment: %{x}",
-    "<br>Share: %{y:.2f}%",
+    "<br>Share: %{y:.1f}%",
     "<extra></extra>"
   )
 )

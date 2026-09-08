@@ -706,6 +706,28 @@ fig %>%
         layer = "below"
       )
     ),
+    
+    annotations = list(
+       list(
+        x = "2008-09-01",
+        y = 0.95,
+        xref = "x",
+        yref = "paper",
+        text = "Great Recession",
+        showarrow = FALSE,
+        font = list(size = 10)
+      ),
+    
+      list(
+        x = "2020-03-01",
+        y = 0.95,
+        xref = "x",
+        yref = "paper",
+        text = "COVID Recession",
+        showarrow = FALSE,
+        font = list(size = 10)
+      )
+    ),
 
     margin = list(
       t = 60
