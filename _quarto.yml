@@ -4,6 +4,8 @@ project:
 website:
   title: "Regional Datahub"
   navbar:
+    pinned: true
+    
     left:
       - href: index.qmd
         text: Home

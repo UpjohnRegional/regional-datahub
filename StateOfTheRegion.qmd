@@ -124,7 +124,7 @@ p %>%
     ),
 
     xaxis = list(
-      title = "Period"),
+      title = "Month"),
 
     yaxis = list(title = "Percent"),
 
@@ -142,7 +142,7 @@ p %>%
 ```
 
 ::: {.callout-note collapse="true" appearance="minimal"}
-## Definition, Data Source and Download
+## Definition, Data Source, and Download
 
 The employment-to-population ratio is a crucial economic indicator as it reflects the percentage of the working-age population who are employed. It provides insights into labor market health, income levels, productivity, and social stability. Policymakers and investors rely on this ratio to gauge economic well-being and make informed decisions.
 
@@ -151,7 +151,7 @@ The employment-to-population ratio is a crucial economic indicator as it reflect
 [Download Data](data_download/EPOP_LFPR_UR.csv){download="EPOP_LFPR_UR.csv"}
 :::
 
-##
+## 
 
 ::: plot-space
 :::
@@ -265,7 +265,7 @@ p %>%
     ),
 
     xaxis = list(
-      title = "Period"),
+      title = "Month"),
 
     yaxis = list(title = "Percent"),
 
@@ -287,7 +287,7 @@ p %>%
 ```
 
 ::: {.callout-note collapse="true" appearance="minimal"}
-## Definition, Data Source and Download
+## Definition, Data Source, and Download
 
 The labor force participation rate is a measure that represents the percentage of the working-age population (individuals aged 16 and older) who are either employed or actively seeking employment. Tracking the labor force participation rate provides insights on the working-age population and their engagement in the labor market.
 
@@ -296,7 +296,7 @@ The labor force participation rate is a measure that represents the percentage o
 [Download Data](data_download/EPOP_LFPR_UR.csv){download="EPOP_LFPR_UR.csv"}
 :::
 
-##
+## 
 
 ::: plot-space
 :::
@@ -321,14 +321,20 @@ df_init <- labor %>%
 
 p <- plot_ly()
 
+# ---------------------------------------------------------
 # County unemployment rate
+# ---------------------------------------------------------
+
 p <- p %>%
   add_lines(
     data = df_init,
     x = ~period_date,
     y = ~unemployment_rate,
     name = init,
-    line = list(width = 3, color = "#AF2C32"),
+    line = list(
+      width = 3,
+      color = "#AF2C32"
+    ),
     customdata = ~period_txt,
     hovertemplate = paste(
       "%{x}<br>",
@@ -337,14 +343,21 @@ p <- p %>%
     )
   )
 
+# ---------------------------------------------------------
 # Michigan unemployment rate
+# ---------------------------------------------------------
+
 p <- p %>%
   add_lines(
     data = df_init,
     x = ~period_date,
     y = ~MI_unemployment_rate,
     name = "Michigan",
-    line = list(width = 3, dash = "dash", color = "#2B9CB4"),
+    line = list(
+      width = 3,
+      dash = "dash",
+      color = "#2B9CB4"
+    ),
     customdata = ~period_txt,
     hovertemplate = paste(
       "%{x}<br>",
@@ -353,12 +366,16 @@ p <- p %>%
     )
   )
 
+# ---------------------------------------------------------
+# County dropdown
+# ---------------------------------------------------------
+
 buttons <- lapply(seq_along(all_counties), function(i) {
 
   df <- labor %>%
     filter(county == all_counties[i])
 
-   list(
+  list(
     method = "update",
 
     args = list(
@@ -372,7 +389,7 @@ buttons <- lapply(seq_along(all_counties), function(i) {
 
         y = list(
           df$unemployment_rate,
-          df$MI_unemploymen_rate
+          df$MI_unemployment_rate
         ),
 
         name = list(
@@ -386,7 +403,7 @@ buttons <- lapply(seq_along(all_counties), function(i) {
         )
       ),
 
-      # Update layout
+      # Update title
       list(
         title = paste(
           "Unemployment Rate:",
@@ -400,6 +417,10 @@ buttons <- lapply(seq_along(all_counties), function(i) {
   )
 })
 
+# ---------------------------------------------------------
+# Layout
+# ---------------------------------------------------------
+
 p %>%
   layout(
 
@@ -410,13 +431,18 @@ p %>%
     ),
 
     xaxis = list(
-      title = "Period"),
+      title = "Month"
+    ),
 
-    yaxis = list(title = "Percent"),
+    yaxis = list(
+      title = "Percent"
+    ),
 
     updatemenus = list(
       list(
+        type = "dropdown",
         buttons = buttons,
+        active = 0,
         x = 1.25,
         y = 0.75,
         xanchor = "right"
@@ -427,11 +453,13 @@ p %>%
       t = 30
     )
   ) %>%
-  config(displayModeBar = FALSE)
+  config(
+    displayModeBar = FALSE
+  )
 ```
 
 ::: {.callout-note collapse="true" appearance="minimal"}
-## Definition, Data Source and Download
+## Definition, Data Source, and Download
 
 The unemployment rate is a measure that represents the percentage of individuals who are actively seeking employment but are currently without a job. The unemployment rate offers understanding into the availability of jobs and the overall state of the labor market within an economy.
 
@@ -440,7 +468,7 @@ The unemployment rate is a measure that represents the percentage of individuals
 [Download Data](data_download/EPOP_LFPR_UR.csv){download="EPOP_LFPR_UR.csv"}
 :::
 
-##
+## 
 
 ::: plot-space
 :::
@@ -558,7 +586,7 @@ fig <- fig %>%
       )
     ),
     
-    xaxis = list(title = "Date"),
+    xaxis = list(title = "Quarter"),
     
     yaxis = list(
       title = "Average Weekly Wage ($)"
@@ -573,18 +601,18 @@ config(fig,
 ```
 
 ::: {.callout-note collapse="true" appearance="minimal"}
-## Definition, Data Source and Download
+## Definition, Data Source, and Download
 
-Tracking the average weekly wage gives insight to the income levels and purchasing power of workers within an economy.
+Tracking the average weekly wage gives insight into the income levels and purchasing power of workers within an economy.
 
 **Source:** BLS QCEW, Upjohn Regional • Not adjusted for inflation • (p) Preliminary
 
 [Download Data](data_download/qcew.csv){download="qcew.csv"}
 :::
 
-##
+## 
 
-::: {.plot-space}
+::: plot-space
 :::
 
 ```{r}
@@ -622,7 +650,7 @@ legend_annotations <- list(
   
       list(x = 1.02, y = 0.76, xref = "paper", yref = "paper",
        text = "■ Unpaid family workers",
-       font = list(color = "#414042"),
+       font = list(color = "#F68C3D"),
        showarrow = FALSE, xanchor = "left")
 )
 
@@ -646,7 +674,7 @@ worker_colors <- c(
   "Private Wage and Salary Workers" = "#004A5E",
   "Government Workers" = "#2B9CB4",
   "Self-employed in own, not incorporated, business workers" = "#AF2C32",
-  "Unpaid family workers" = "#414042"
+  "Unpaid family workers" = "#F68C3D"
 )
 
 worker_labels <- c(
@@ -791,7 +819,7 @@ p %>%
     barmode = "stack",
 
     xaxis = list(
-      title = ""
+      showticklabels = FALSE
     ),
     
     
@@ -834,20 +862,19 @@ p %>%
 ```
 
 ::: {.callout-note collapse="true" appearance="minimal"}
-## Definition, Data Source and Download
+## Definition, Data Source, and Download
 
-Understanding the class of worker in a county is crucial for analyzing labor market dynamics and economic structure. It offers insights into employment patterns, including self-employment, wage and salary jobs, and their contributions to economic activity and workforce composition.
+Understanding the class of workers in a county is crucial for analyzing labor market dynamics and economic structure. It offers insights into employment patterns, including self-employment, wage and salary jobs, and their contributions to economic activity and workforce composition.
 
 **Source:** ACS 2024 5-YR Estimates (table B08528)
 
 [Download Data](data_download/classOfWorker.csv){download="classOfWorker.csv"}
 :::
 
-##
+## 
 
 ::: plot-space
 :::
-
 
 ```{r}
 #| label: Educational Attainment
@@ -1164,16 +1191,16 @@ p %>%
 ```
 
 ::: {.callout-note collapse="true" appearance="minimal"}
-## Definition, Data Source and Download
+## Definition, Data Source, and Download
 
 Educational attainment strongly correlates with income levels, workforce productivity, and economic growth. It helps gauge the skill level and potential earning capacity of a population.
 
-**Source:** ACS 2024 5-YR Estimates (table S1501) • Population 25 and older
+**Source:** ACS 2024 5-YR Estimates (table S1501) • Population 25 years and older
 
 [Download Data](data_download/eduAttainment.csv){download="eduAttainment.csv"}
 :::
 
-##
+## 
 
 ::: plot-space
 :::
@@ -1205,9 +1232,9 @@ income <- income %>%
   mutate(
     Display = recode(
       variable,
-      "Less than high school graduate" = "Less Than H.S.",
-      "High school graduate (includes equivalency)" = "H.S.",
-      "Some college or associate's degree" = "Some College/Associates",
+      "Less than high school graduate" = "Less Than High School",
+      "High school graduate (includes equivalency)" = "High School",
+      "Some college or associate's degree" = "Some College/Associate's",
       "Bachelor's degree" = "Bachelor's",
       "Graduate or professional degree" = "Graduate/Professional"
     )
@@ -1216,9 +1243,9 @@ income <- income %>%
 income$Display <- factor(
   income$Display,
   levels = c(
-    "Less Than H.S.",
-    "H.S.",
-    "Some College/Associates",
+    "Less Than High School",
+    "High School",
+    "Some College/Associate's",
     "Bachelor's",
     "Graduate/Professional"
   )
@@ -1275,7 +1302,7 @@ buttons <- lapply(seq_along(counties), function(i) {
       ),
       list(
         title = paste(
-          "Income by Educational Attainment:",
+          "Income by Sex and Educational Attainment:",
           counties[i]
         )
       )
@@ -1289,7 +1316,7 @@ p %>%
     barmode = "group",
 
     title = paste(
-      "Income by Educational Attainment:",
+      "Income by Sex and Educational Attainment:",
       init
     ),
 
@@ -1311,20 +1338,40 @@ p %>%
         xanchor = "left"
       )
     ),
+    
+    annotations = list(
+      list(
+        x = 1.02,
+        y = 1.12,
+        xref = "paper",
+        yref = "paper",
+        text = "<b>Gender</b>",
+        showarrow = FALSE,
+        xanchor = "left"
+      )
+    ),
+    
+    legend = list(
+      x = 1.02,
+      y = 1,
+      xanchor = "left",
+      yanchor = "top"
+    ),
 
     margin = list(
-      r = 250
+      r = 250,
+      t = 100
     )
   ) %>%
   config(displayModeBar = FALSE)
 ```
 
 ::: {.callout-note collapse="true" appearance="minimal"}
-## Definition, Data Source and Download
+## Definition, Data Source, and Download
 
 Understanding income disparities by educational attainment and sex provides insights into the effectiveness of educational systems in equipping individuals with skills for higher-paying jobs and highlights potential gender-based income gaps, which can be indicative of gender equality issues.
 
-**Source:** ACS 2024 5-YR Estimates (table B20004) • Population 25 and older with earnings
+**Source:** ACS 2024 5-YR Estimates (table B20004) • Population 25 years and older with earnings
 
 [Download Data](data_download/incomeBySexAndEducationalAttainment.csv){download="incomeBySexAndEducationalAttainment.csv"}
 :::

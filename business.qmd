@@ -71,7 +71,7 @@ fig <- fig %>%
         x1 = "2009-06-01",
         y0 = 0,
         y1 = 1,
-        fillcolor = "lightgray",
+        fillcolor = "#877F7D",
         opacity = 0.3,
         line = list(width = 0),
         layer = "below"
@@ -84,14 +84,14 @@ fig <- fig %>%
         x1 = "2020-04-01",
         y0 = 0,
         y1 = 1,
-        fillcolor = "lightgray",
+        fillcolor = "#877F7D",
         opacity = 0.3,
         line = list(width = 0),
         layer = "below"
       )
     ),
     xaxis = list(
-      title = "Date"
+      title = "Month"
     ),
     yaxis = list(
       title = "Billions of Chained 2017 Dollars"
@@ -129,9 +129,9 @@ config(
 ```
 
 ::: {.callout-note collapse="true" appearance="minimal"}
-## Definition, Data Source and Download
+## Definition, Data Source, and Download
 
-Real personal consumption expenditures and disposable income are crucial for understanding consumer spending patterns, which drive much of economic activity. These indicators reveal household financial health and confidence, guiding policymakers in assessing fiscal policies and fostering economic growth and stability. "Chained 2017 dollars" is a method of adjusting economic statistics for inflation; values from other years are adjusted to reflect purchasing power of the dollar in 2017. Consumer goods can be classified as durable, nondurable, or services. Durable goods are classified as items that have long periods between successive purchases (ex. cars or home appliances). Nondurable goods are classified as items that have long periods between successive purchases (ex. food or clothing). Services are acts which are paid for (ex. work done by barbers, doctors, mechanics, etc.) 
+Real personal consumption expenditures and disposable income are supports understanding consumer spending patterns, which drive much of economic activity. These indicators reveal household financial health and confidence, guiding policymakers in assessing fiscal policies and fostering economic growth and stability. "Chained 2017 dollars" is a method of adjusting economic statistics for inflation; values from other years are adjusted to reflect purchasing power of the dollar in 2017. Consumer goods can be classified as durable, nondurable, or services. Durable goods are classified as items that have long periods between successive purchases (ex. cars or home appliances). Nondurable goods are classified as items that have relatively short periods between successive purchases (ex. food or clothing). Services are acts which are paid for (ex. work done by barbers, doctors, mechanics, etc.) 
 
 **Source:** Federal Reserve Bank of St. Louis (series DSPIC96, PCEDGC96, PCENDC96, and PCESC96)
 
@@ -190,7 +190,7 @@ fig %>%
         x1 = "2009-06-01",
         y0 = 0,
         y1 = 1,
-        fillcolor = "lightgray",
+        fillcolor = "#877F7D",
         opacity = 0.3,
         line = list(width = 0),
         layer = "below"
@@ -203,7 +203,7 @@ fig %>%
         x1 = "2020-04-01",
         y0 = 0,
         y1 = 1,
-        fillcolor = "lightgray",
+        fillcolor = "#877F7D",
         opacity = 0.3,
         line = list(width = 0),
         layer = "below"
@@ -211,7 +211,7 @@ fig %>%
     ),
 
     xaxis = list(
-      title = "Date",
+      title = "Month",
       showline = TRUE,
       linewidth = 1
     ),
@@ -268,9 +268,9 @@ fig %>%
 ```
 
 ::: {.callout-note collapse="true" appearance="minimal"}
-## Definition, Data Source and Download
+## Definition, Data Source, and Download
 
-Vehicle sales and fuel prices are important economic indicators because they reflect consumer spending and economic confidence, with high sales signaling robust economic activity. Additionally, fuel prices impact transportation costs and disposable income, influencing the economy overall.
+Vehicle sales and fuel prices are important economic indicators because they reflect consumer spending and economic confidence. High sales signal robust economic activity. Additionally, fuel prices impact transportation costs and disposable income, influencing the economy overall.
 
 **Source:**  Federal Reserve Bank of St. Louis (series ALTSALES) and U.S. Energy Information Administration (series EMM_EPM0_PTE_NUS_DPG)
 
@@ -436,7 +436,7 @@ p %>%
     barmode = "group",
 
     xaxis = list(
-      title = "Year",
+      title = "",
       type = "date",
       tickformat = "%Y",
       dtick = "M12"
@@ -476,7 +476,7 @@ p %>%
 ```
 
 ::: {.callout-note collapse="true" appearance="minimal"}
-## Definition, Data Source and Download
+## Definition, Data Source, and Download
 
 The GDP percent change measures the economy's growth rate, reflecting overall economic health and stability. It helps policymakers and investors make informed decisions by indicating the pace of economic expansion or contraction.
 
@@ -646,7 +646,7 @@ fig %>%
     ),
 
     xaxis = list(
-      title = "",
+      title = "Month",
       showline = TRUE
     ),
 
@@ -682,7 +682,7 @@ fig %>%
         x1 = "2009-06-01",
         y0 = 0,
         y1 = 1,
-        fillcolor = "lightgray",
+        fillcolor = "#877F7D",
         opacity = 0.3,
         line = list(width = 0),
         layer = "below"
@@ -697,7 +697,7 @@ fig %>%
         x1 = "2020-04-01",
         y0 = 0,
         y1 = 1,
-        fillcolor = "lightgray",
+        fillcolor = "#877F7D",
         opacity = 0.3,
         line = list(width = 0),
         layer = "below"
@@ -713,7 +713,7 @@ fig %>%
 ```
 
 ::: {.callout-note collapse="true" appearance="minimal"}
-## Definition, Data Source and Download
+## Definition, Data Source, and Download
 
 The percent change in business applications reflects entrepreneurial activity and economic dynamism. A rise in applications suggests increased business formation and economic growth potential, while a decline may indicate reduced economic confidence and future investment.
 
@@ -871,7 +871,7 @@ fig %>%
         x1 = "2020-04-01",
         y0 = 0,
         y1 = 1,
-        fillcolor = "lightgray",
+        fillcolor = "#877F7D",
         opacity = 0.3,
         line = list(width = 0),
         layer = "below"
@@ -901,7 +901,7 @@ fig %>%
 ```
 
 ::: {.callout-note collapse="true" appearance="minimal"}
-## Definition, Data Source and Download
+## Definition, Data Source, and Download
 
 Tracking the average annual pay provides insights into income levels and purchasing power within an economy. It helps assess wage trends, labor market conditions, and overall economic well-being, guiding policymaking and business decisions.
 
@@ -1138,7 +1138,7 @@ document.addEventListener('DOMContentLoaded', function() {
 ```
 
 ::: {.callout-note collapse="true" appearance="minimal"}
-## Definition, Data Source and Download
+## Definition, Data Source, and Download
 
 The per capita income provides a measure of the average income earned per person, reflecting the economic well-being of residents. It serves as a key indicator for assessing local economic development, standard of living, and income distribution within the community.
 
