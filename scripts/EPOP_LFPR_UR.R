@@ -576,7 +576,7 @@ bls_combined <- blsMICounty %>%
 ##### Resident Population Estimates #####
 
 # 2024 estimates, edit to 2025 when it is released
-urls <- "https://www2.census.gov/programs-surveys/popest/datasets/2020-2024/counties/asrh/cc-est2024-agesex-26.csv"
+urls <- "https://www2.census.gov/programs-surveys/popest/datasets/2020-2025/counties/asrh/cc-est2025-agesex-26.csv"
 
 class(urls)
 
@@ -594,7 +594,8 @@ pop_est_MI_Counties <- pop_est_MI_Counties %>%
       YEAR == 3 ~ as.Date("2021-07-01"),
       YEAR == 4 ~ as.Date("2022-07-01"),
       YEAR == 5 ~ as.Date("2023-07-01"),
-      YEAR == 6 ~ as.Date("2024-07-01")
+      YEAR == 6 ~ as.Date("2024-07-01"),
+      YEAR == 7 ~ as.Date("2025-07-01")
     ),
     date = format(date, "%Y_%m_%d")
   )
@@ -612,20 +613,20 @@ pop_est_wide <- pop_est_MI_Counties %>%
 pop_est_wide <- pop_est_wide %>%
   mutate(
     AGE16PLUS_TOT_3YRChange =
-      (AGE16PLUS_TOT_2023_07_01 / AGE16PLUS_TOT_2020_07_01)^(1/3),
+      (AGE16PLUS_TOT_2024_07_01 / AGE16PLUS_TOT_2021_07_01)^(1/3),
     
     AGE16PLUS_TOT_5YRChange =
-      (AGE16PLUS_TOT_2024_07_01 / AGE16PLUS_TOT_2020_07_01)^(1/5)
+      (AGE16PLUS_TOT_2025_07_01 / AGE16PLUS_TOT_2021_07_01)^(1/5)
   )
 
 # estimate from 3 year change
 pop_est_wide <- pop_est_wide %>%
   mutate(
-    AGE16PLUS_TOT_2025 =
-      AGE16PLUS_TOT_2024_07_01 * AGE16PLUS_TOT_3YRChange,
-    
     AGE16PLUS_TOT_2026 =
-      AGE16PLUS_TOT_2025 * AGE16PLUS_TOT_3YRChange
+      AGE16PLUS_TOT_2025_07_01 * AGE16PLUS_TOT_3YRChange,
+    
+    AGE16PLUS_TOT_2027 =
+      AGE16PLUS_TOT_2026 * AGE16PLUS_TOT_3YRChange
   )
 
 # add county fips as character column
@@ -640,7 +641,7 @@ pop_est_wide <- pop_est_wide %>%
 bls_combined_popest <- bls_combined %>%
   left_join(
     pop_est_wide %>%
-      select(county_fips, AGE16PLUS_TOT_2024_07_01, AGE16PLUS_TOT_2025, AGE16PLUS_TOT_2026),
+      select(county_fips, AGE16PLUS_TOT_2025_07_01, AGE16PLUS_TOT_2026, AGE16PLUS_TOT_2027),
     by = "county_fips"
   )
 
@@ -648,13 +649,13 @@ bls_combined_popest <- bls_combined %>%
 bls_combined_popest <- bls_combined_popest %>%
   mutate(
     AGE16PLUS_TOT = case_when(
-      year == 2024 ~ AGE16PLUS_TOT_2024_07_01,
-      year == 2025 ~ AGE16PLUS_TOT_2025,
+      year == 2025 ~ AGE16PLUS_TOT_2025_07_01,
       year == 2026 ~ AGE16PLUS_TOT_2026,
+      year == 2027 ~ AGE16PLUS_TOT_2027,
       TRUE ~ NA_real_
     )
   ) %>%
-  select(-AGE16PLUS_TOT_2025, -AGE16PLUS_TOT_2026, -AGE16PLUS_TOT_2024_07_01) %>%
+  select(-AGE16PLUS_TOT_2026, -AGE16PLUS_TOT_2027, -AGE16PLUS_TOT_2025_07_01) %>%
   distinct(county_fips, period, .keep_all = TRUE)
 
 # filter to last 13 months  
