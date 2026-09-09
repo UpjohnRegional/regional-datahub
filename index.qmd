@@ -8,7 +8,7 @@ format:
 
 ## 
 
-The Upjohn Regional Dathub provides up-to-date, downloadable measures of labor market and economic development conditions for every county in Michigan. These metrics are designed to support a wide range of users, including county governments, small businesses, nonprofits, companies considering relocation or expansion, local and state policymakers, public engagement advocates, and civic organizations.
+The Upjohn Regional Datahub provides up-to-date, downloadable measures of labor market and economic development conditions for every county in Michigan. These metrics are designed to support a wide range of users, including county governments, small businesses, nonprofits, companies considering relocation or expansion, local and state policymakers, public engagement advocates, and civic organizations.
 
 The Upjohn Regional Data Hub is organized into four sections: Workforce, Business, Housing and Transportation, and Demographics and Equity Indicators. Most data are available at the county level, and users can select Michigan counties using the dropdown menus, with Southwest Michigan counties listed first. Beneath each graph, an additional dropdown provides the indicator definition, data source, and data download.
 
