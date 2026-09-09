@@ -646,7 +646,13 @@ p <- plot_ly(
     "#414042"
   ),
   type = "scatter",
-  mode = "lines+markers"
+  mode = "lines+markers",
+  hovertemplate = paste(
+    "<b>%{x}</b><br>",
+    "Building Type: %{fullData.name}<br>",
+    "Housing Units: %{y:,.0f}",
+    "<extra></extra>"
+  )
 )
 
 # County dropdown
@@ -799,14 +805,26 @@ p <- p %>%
     x = ~variable,
     y = ~Value,
     name = "Median Cost",
-    marker = list(color = colors["Median Cost"])
+    marker = list(color = colors["Median Cost"]),
+    hovertemplate = paste(
+      "<b>%{x}</b><br>",
+      "Measure: Median Cost<br>",
+      "Value: $%{y:,.0f}",
+      "<extra></extra>"
+    )
   ) %>%
   add_bars(
     data = df_init %>% filter(Measure == "Income Needed to Afford Cost"),
     x = ~variable,
     y = ~Value,
     name = "Income Needed to Afford Cost",
-    marker = list(color = colors["Income Needed to Afford Cost"])
+    marker = list(color = colors["Income Needed to Afford Cost"]),
+    hovertemplate = paste(
+      "<b>%{x}</b><br>",
+      "Measure: Income Needed to Afford Cost<br>",
+      "Value: $%{y:,.0f}",
+      "<extra></extra>"
+    )
   )
 
 buttons <- lapply(seq_along(counties), function(i) {

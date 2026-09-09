@@ -33,25 +33,41 @@ fig <- fig %>%
     y = ~disposable_income, 
     name = "Disposable Income",
     line =list(color = "#004A5E"),
-    hovertemplate = "Disposable Income: %{y:,}<extra></extra>"
+    hovertemplate = paste(
+      "<b>%{x|%B %Y}</b><br>",
+      "Disposable Income: $%{y:,} billion",
+      "<extra></extra>"
+    )
   )
 fig <- fig %>% 
   add_lines(y = ~durable_goods, 
             name = "Durable Goods",
             line = list(color = "#2B9CB4"),
-            hovertemplate = "Durable Goods: %{y:,}<extra></extra>"
+            hovertemplate = paste(
+              "<b>%{x|%B %Y}</b><br>",
+              "Durable Goods: $%{y:,} billion",
+              "<extra></extra>"
+            )
   )
 fig <- fig %>% 
   add_lines(y = ~nondurable_goods, 
             name = "Nondurable Goods",
             line = list(color = "#AF2C32"),
-             hovertemplate = "Nondurable Goods: %{y:,}<extra></extra>"
+            hovertemplate = paste(
+              "<b>%{x|%B %Y}</b><br>",
+              "Nondurable Goods: $%{y:,} billion",
+              "<extra></extra>"
+    )
   )
 fig <- fig %>% 
   add_lines(y = ~services, 
             name = "Services",
             line = list(color = "#414042"),
-            hovertemplate = "Services: %{y:,}<extra></extra>"
+            hovertemplate = paste(
+              "<b>%{x|%B %Y}</b><br>",
+              "Services: $%{y:,} billion",
+              "<extra></extra>"
+    )
             )
 
 fig <- fig %>%
@@ -165,7 +181,12 @@ fig <- fig %>%
     y = ~value.x,
     name = "Light Vehicle Sales",
     yaxis = "y1",
-    line =list(color = "#004A5E")
+    line =list(color = "#004A5E"),
+    hovertemplate = paste(
+      "<b>%{x|%B %Y}</b><br>",
+      "Light Vehicle Sales: %{y:.3f} million",
+      "<extra></extra>"
+    )
   )
 
 fig <- fig %>%
@@ -173,7 +194,12 @@ fig <- fig %>%
     y = ~value.y,
     name = "Fuel Prices",
     yaxis = "y2",
-    line =list(color = "#AF2C32")
+    line =list(color = "#AF2C32"),
+    hovertemplate = paste(
+      "<b>%{x|%B %Y}</b><br>",
+      "Fuel Price: $%{y:.2f} per gallon",
+      "<extra></extra>"
+    )
   )
 
 fig %>%
@@ -340,7 +366,7 @@ for (cty in counties) {
       hovertemplate = paste0(
         "County: ", cty,
         "<br>Year: %{x|%Y}",
-        "<br>GDP Change: %{y:.2f}%",
+        "<br>GDP Change: %{y:.1f}%",
         "<extra></extra>"
       ),
 
@@ -369,7 +395,7 @@ p <- p %>%
     hovertemplate = paste0(
       "Michigan",
       "<br>Year: %{x|%Y}",
-      "<br>GDP Change: %{y:.2f}%",
+      "<br>GDP Change: %{y:.1f}%",
       "<extra></extra>"
     ),
 
@@ -621,7 +647,7 @@ fig <- fig %>%
     ),
     hovertemplate = paste(
       "<b>%{x}</b><br>",
-      "Michigan: %{y:.2f}%",
+      "Michigan: %{y:.1f}%",
       "<extra></extra>"
     )
   )
@@ -636,7 +662,7 @@ fig <- fig %>%
     ),
     hovertemplate = paste(
       "<b>%{x}</b><br>",
-      "United States: %{y:.2f}%",
+      "United States: %{y:.1f}%",
       "<extra></extra>"
     )
   )
@@ -1061,6 +1087,16 @@ income_table <- income %>%
     
     `Growth Rank` = pc_rank_2024,
     
+    `2024 Per Capita Income` = paste0(
+      "$",
+      formatC(
+        DataValue_2024,
+        format = "f",
+        digits = 0,
+        big.mark = ","
+      )
+    ),
+    
     `2024 vs. 2023` = paste0(
       sprintf(
         "%.1f",
@@ -1084,6 +1120,7 @@ Trend = pmap(
     GeoName,
     `2024 Rank`,
     `Growth Rank`,
+    `2024 Per Capita Income`,
     `2024 vs. 2023`,
     Trend
   )
@@ -1114,11 +1151,13 @@ kable(
     "County",
     "2024 Rank",
     "Growth Rank in State",
+    "2024 Per Capita<br>Income",
     "2024 vs. 2023<br>Percent Change",
     "Per Capita Income:<br>2020–2024"
   ),
   align = c(
     "l",
+    "c",
     "c",
     "c",
     "c",
@@ -1167,7 +1206,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 The per capita income provides a measure of the average income earned per person, reflecting the economic well-being of residents. It serves as a key indicator for assessing local economic development, standard of living, and income distribution within the community.
 
-**Source:** ACS 2024 5-YR Estimates (table B08528)
+**Source:** US BEA, Table CAINC1
 
 [Download Data](data_download/PerCapitaIncome.csv){download="PerCapitaIncome.csv"}
 :::

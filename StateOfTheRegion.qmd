@@ -530,7 +530,7 @@ fig <- fig %>%
     line = list(color = "#2B9CB4", dash = "dash"),
     hovertemplate = paste(
       "<b>%{x}</b><br>",
-      "Michigan: $%{y:,.0f}",
+      "Average Weekly Wage: $%{y:,.0f}",
       "<extra></extra>"
     )
   )
@@ -560,7 +560,7 @@ buttons <- lapply(seq_along(counties), function(i) {
         title = paste(
           "Average Weekly Wage:",
           county_name,
-          "County vs Michigan"
+          "vs Michigan"
         )
       )
     ),
@@ -574,7 +574,7 @@ fig <- fig %>%
     title = paste(
       "Average Weekly Wage:",
       default_county,
-      "County vs Michigan"
+      "vs Michigan"
     ),
     
     updatemenus = list(
@@ -770,7 +770,6 @@ for (county in all_counties) {
           color = worker_colors[worker]
         ),
         hovertemplate = paste0(
-          "County: ", county,
           "<br>Class: ",  worker,
           "<br>Share: %{y:.1f}%",
           "<extra></extra>"
@@ -801,7 +800,7 @@ buttons <- lapply(seq_along(all_counties), function(i){
       ),
       list(
         title = paste(
-          "Class of Worker -",
+          "Class of Worker:",
           all_counties[i]
         )
       )
@@ -816,7 +815,7 @@ p %>%
   layout(
 
     title = paste(
-      "Class of Worker -",
+      "Class of Worker:",
       all_counties[1]
     ),
 
@@ -869,7 +868,7 @@ p %>%
 
 Understanding the class of workers in a county is crucial for analyzing labor market dynamics and economic structure. It offers insights into employment patterns, including self-employment, wage and salary jobs, and their contributions to economic activity and workforce composition.
 
-**Source:** ACS 2024 5-YR Estimates (table B08528)
+**Source:** ACS 2024 5-YR Estimates (table B08528) • Workers 16 Years and Over
 
 [Download Data](data_download/classOfWorker.csv){download="classOfWorker.csv"}
 :::
@@ -949,13 +948,13 @@ S1501_long <- S1501_wide %>%
 # ---------------------------------------------------------
 
 edu_colors <- c(
-  "Less than 9th grade" = "#cf203e",
-  "9th to 12th grade, no diploma" = "#ba2a4e",
-  "High school graduate (includes equivalency)" = "#a5345f",
-  "Some college, no degree" = "#903f6f",
-  "Associate's degree" = "#7a497f",
-  "Bachelor's degree" = "#655390",
-  "Graduate or professional degree" = "#505da0"
+  "Less than 9th grade" = "#2B9CB4",
+  "9th to 12th grade, no diploma" = "#41899E",
+  "High school graduate (includes equivalency)" = "#577789",
+  "Some college, no degree" = "#6D6473",
+  "Associate's degree" = "#83515D",
+  "Bachelor's degree" = "#993F48",
+  "Graduate or professional degree" = "#AF2C32"
 )
 
 
@@ -1071,7 +1070,6 @@ p <- plot_ly(
   ),
 
   hovertemplate = paste0(
-    "County: ", init,
     "<br>Educational Attainment: %{x}",
     "<br>Share: %{y:.1f}%",
     "<extra></extra>"
@@ -1108,9 +1106,8 @@ buttons <- lapply(
           ),
 
           hovertemplate = paste0(
-            "County: ", all_counties[i],
             "<br>Educational Attainment: %{x}",
-            "<br>Share: %{y:.2f}%",
+            "<br>Share: %{y:.1f}%",
             "<extra></extra>"
           )
         ),
@@ -1118,7 +1115,7 @@ buttons <- lapply(
         # Update title
         list(
           title = paste(
-            "Educational Attainment -",
+            "Educational Attainment:",
             all_counties[i]
           )
         )
@@ -1138,7 +1135,7 @@ p %>%
   layout(
 
     title = paste(
-      "Educational Attainment -",
+      "Educational Attainment:",
       init
     ),
 
@@ -1274,6 +1271,12 @@ p <- p %>%
     x = ~Display,
     y = ~`Male Income`,
     name = "Male",
+    hovertemplate = paste(
+      "<b>Education:</b> %{x}<br>",
+      "<b>Gender:</b> Male<br>",
+      "<b>Earnings:</b> $%{y:,.0f}",
+      "<extra></extra>"
+    ),
     marker = list(
       color = income_colors["Male"]
     )
@@ -1283,6 +1286,12 @@ p <- p %>%
     x = ~Display,
     y = ~`Female Income`,
     name = "Female",
+    hovertemplate = paste(
+      "<b>Education:</b> %{x}<br>",
+      "<b>Gender:</b> Female<br>",
+      "<b>Earnings:</b> $%{y:,.0f}",
+      "<extra></extra>"
+    ),
     marker = list(
       color = income_colors["Female"]
     )
