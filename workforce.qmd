@@ -383,14 +383,14 @@ p %>%
   layout(
     title = list(
       text= paste(
-      "Travel Time to Work:",
+      "Age of Housing Stock:",
       init),
       y = 1,
       yanchor = "top"
     ),
 
     xaxis = list(
-      title = "Total Housing Stock",
+      title = "Occupied Housing Units",
       ticksuffix = "%"
     ),
 
