@@ -681,17 +681,24 @@ worker_colors <- c(
 )
 
 worker_labels <- c(
-  "Private Wage and Salary Workers" =
-    "Private Wage and Salary Workers",
-
-  "Government Workers" =
-    "Government Workers",
-
+  "Unpaid family workers" =
+    "Unpaid family workers",
+  
   "Self-employed in own, not incorporated, business workers" =
     "Self-employed in own, not incorporated,<br>business workers",
+  
+  "Government Workers" =
+    "Government Workers",
+  
+  "Private Wage and Salary Workers" =
+    "Private Wage and Salary Workers"
+)
 
-  "Unpaid family workers" =
-    "Unpaid family workers"
+legend_order <- c(
+  "Unpaid family workers",
+  "Self-employed in own, not incorporated, business workers",
+  "Government Workers",
+  "Private Wage and Salary Workers"
 )
 
 
@@ -717,9 +724,9 @@ legend_annotations <- list(
 # Add worker categories to legend annotations
 y_pos <- c(.92, .84, .76, .62)
 
-for (i in seq_along(worker_colors)) {
+for (i in seq_along(legend_order)) {
 
-  worker_name <- names(worker_colors)[i]
+  worker_name <- legend_order[i]
 
   legend_annotations <- append(
     legend_annotations,
@@ -734,7 +741,7 @@ for (i in seq_along(worker_colors)) {
           worker_labels[worker_name]
         ),
         font = list(
-          color = worker_colors[i]
+          color = worker_colors[worker_name]
         ),
         showarrow = FALSE,
         xanchor = "left",

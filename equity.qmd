@@ -1805,9 +1805,9 @@ vehicles_long$variable <- factor(
 
 vehicle_colors <- c(
   "No Vehicles" = "#AF2C32",
-  "One Vehicle" = "#F68C3D",
-  "Two Vehicles" = "#2B9CB4",
-  "Three Or More Vehicles" = "#004A5E"
+  "One Vehicle" = "#7EA5C0",
+  "Two Vehicles" = "#1A6C89",
+  "Three Or More Vehicles" = "#001F2C"
 )
 
 # ---------------------------------------------------------
@@ -1879,7 +1879,7 @@ for (i in seq_along(vehicle_colors)) {
         ),
         font = list(
           color = vehicle_colors[i],
-          size = 11
+          size = 14
         ),
         showarrow = FALSE,
         xanchor = "left",

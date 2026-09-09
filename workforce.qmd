@@ -922,6 +922,8 @@ p %>%
 
 Knowing the median income needed to afford rent and housing costs is essential to evaluate how housing affordability impacts on individuals and the overall economy. This knowledge informs policymakers on ways to address potential disparities, guiding strategies to enhance housing accessibility and promote sustainable economic development.
 
+"Cost" is defined by 1/3 of income. Homeowner costs is the ["select monlthy owner cost"](https://www.census.gov/glossary/?term=Selected+Monthly+Owner+Costs).
+
 **Source:** ACS 2024 5-YR Estimates (table Table DP04) • Totals may not sum to 100% due to rounding.
 
 [Download Data](data_download/monthlyIncomeNeededToAffordHousing.csv){download="monthlyIncomeNeededToAffordHousing.csv"}

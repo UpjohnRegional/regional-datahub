@@ -1181,6 +1181,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
   if (!searchBox || !table) return;
 
+  // ---------------------------------------------------------
+  // County search
+  // ---------------------------------------------------------
+
   searchBox.addEventListener('input', function() {
 
     const searchTerm = this.value.toLowerCase();
@@ -1194,6 +1198,85 @@ document.addEventListener('DOMContentLoaded', function() {
         county.includes(searchTerm) ? '' : 'none';
 
     });
+
+  });
+
+
+  // ---------------------------------------------------------
+  // Column sorting
+  // ---------------------------------------------------------
+
+  const headers = table.querySelectorAll('thead th');
+
+  headers.forEach(function(header, columnIndex) {
+
+    // Don't make the Trend column sortable
+    if (columnIndex === 5) return;
+
+    header.style.cursor = 'pointer';
+    header.title = 'Click to sort';
+
+    header.addEventListener('click', function() {
+
+      const tbody = table.querySelector('tbody');
+      const rows = Array.from(tbody.querySelectorAll('tr'));
+
+      // Determine current sort direction
+      const currentDirection =
+        header.getAttribute('data-sort-direction');
+
+      const ascending =
+        currentDirection !== 'asc';
+
+      // Reset sorting direction on all headers
+      headers.forEach(function(h) {
+        h.removeAttribute('data-sort-direction');
+      });
+
+      header.setAttribute(
+        'data-sort-direction',
+        ascending ? 'asc' : 'desc'
+      );
+
+      // Sort rows
+      rows.sort(function(a, b) {
+
+        let valueA =
+          a.cells[columnIndex].textContent.trim();
+
+        let valueB =
+          b.cells[columnIndex].textContent.trim();
+
+        // Remove $, commas, and %
+        const numericA =
+          parseFloat(valueA.replace(/[$,%]/g, ''));
+
+        const numericB =
+          parseFloat(valueB.replace(/[$,%]/g, ''));
+
+        // Numeric sorting when possible
+        if (!isNaN(numericA) && !isNaN(numericB)) {
+
+          return ascending
+            ? numericA - numericB
+            : numericB - numericA;
+
+        }
+
+        // Otherwise alphabetical sorting
+        return ascending
+          ? valueA.localeCompare(valueB)
+          : valueB.localeCompare(valueA);
+
+      });
+
+      // Put sorted rows back into table
+      rows.forEach(function(row) {
+        tbody.appendChild(row);
+      });
+
+    });
+
   });
 
 });
